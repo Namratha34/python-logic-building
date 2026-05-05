@@ -1,0 +1,36 @@
+# Day 01 - Logic Basics
+## Problems Solved
+### 1. Find Largest of Two Numbers
+- Logic: Compare two numbers using condition
+
+### 2. Find Smallest of Two Numbers
+- Logic: Compare using less than condition
+
+### 3. Check Positive, Negative or Zero
+- Logic:
+  - > 0 → Positive
+  - == 0 → Zero
+  - < 0 → Negative
+
+### 4. Even or Odd
+- Logic: num % 2 == 0 → Even else Odd
+
+### 5. Find Last Digit
+- Logic: num % 10
+
+### 6. Remove Last Digit
+- Logic: num // 10
+
+### 7. Last Digit + Remaining Number Sum
+- Logic:
+  - last_digit = num % 10
+  - remaining = num // 10
+  - sum = last_digit + remaining
+
+
+## Key Learnings
+- Importance of writing steps before coding
+- Understanding modulus (%) and floor division (//)
+- understanding golden rules of programming 
+- 1.a%b prints last digit
+- 2. a//b removes last digit
