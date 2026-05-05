@@ -1,0 +1,53 @@
+# Day 02 - Patterns & Loops Thinking
+
+## Problems Solved
+
+### 1. Print Same Symbol Multiple Times
+*
+*
+*
+
+### 2. Print Stars in One Line
+* * *
+
+### 3. Increasing Star Pattern
+*
+* *
+* * *
+
+### 4. Decreasing Star Pattern
+* * *
+* *
+*
+
+### 5. Larger Increasing Pattern
+*
+* *
+* * *
+* * * *
+* * * * *
+
+### 6. Larger Decreasing Pattern
+* * * * *
+* * * *
+* * *
+* *
+*
+
+### 7. Number Pattern
+1
+1 2
+1 2 3
+1 2 3 4
+
+---
+
+## Key Learnings
+
+- Understanding rows and columns in patterns
+- Outer loop → controls rows
+- Inner loop → controls what to print
+- Patterns are based on counting, not formulas
+- Increasing pattern → stars/numbers increase per row
+- Decreasing pattern → stars/numbers decrease per row
+- Numbers pattern → print from 1 to row number
