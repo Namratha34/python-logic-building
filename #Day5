@@ -1,0 +1,74 @@
+# Day 04 - Number Patterns & Logic Building
+
+## Problems Solved
+
+### 1. Continuous Number Pattern
+1  
+2 3  
+4 5 6  
+7 8 9 10  
+
+- Logic:
+  - Use a variable (num) starting from 1
+  - Print and increment num continuously
+
+---
+
+### 2. Repeating Row Number Pattern
+1  
+2 2  
+3 3 3  
+4 4 4 4  
+
+- Logic:
+  - Print row number (i)
+  - Repeat i times
+
+---
+
+### 3. Mixed Pattern (Row-based Start)
+1  
+1 2  
+2 3 4  
+3 4 5 6  
+
+- Logic:
+  - Starting value depends on row
+  - Values increase within each row
+
+---
+
+### 4. Fixed Start Increasing Pattern
+2  
+2 3  
+2 3 4  
+2 3 4 5  
+
+- Logic:
+  - Start value is constant
+  - Increase values within each row
+
+---
+
+## Key Learnings
+
+- Difference between:
+  - constant values → print(1)
+  - row-based values → print(i)
+  - continuous sequence → num with increment
+
+- Learned how to:
+  - track values using variables
+  - control starting value per row
+  - separate "what to print" and "how many times to print"
+
+- Improved pattern thinking:
+  - observation → logic → implementation
+
+---
+
+## Notes
+
+- Outer loop → controls rows
+- Inner loop → controls number of elements
+- Focus on understanding pattern instead of memorizing formulas
