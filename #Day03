@@ -50,8 +50,6 @@
   - control starting value of each row
   - increment values correctly inside loops
 
----
-
 ## Notes
 
 - Patterns are based on:
