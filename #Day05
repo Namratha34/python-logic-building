@@ -10,8 +10,6 @@
   - Use a variable (num) starting from 1
   - Print and increment num continuously
 
----
-
 ### 2. Repeating Row Number Pattern
 1  
 2 2  
@@ -22,7 +20,6 @@
   - Print row number (i)
   - Repeat i times
 
----
 
 ### 3. Mixed Pattern (Row-based Start)
 1  
@@ -33,8 +30,6 @@
 - Logic:
   - Starting value depends on row
   - Values increase within each row
-
----
 
 ### 4. Fixed Start Increasing Pattern
 2  
