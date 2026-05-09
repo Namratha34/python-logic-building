@@ -1,0 +1,60 @@
+# Day 06 - Reverse & Aligned Patterns
+
+## Problems Solved
+
+### 1. Decreasing Number Pattern
+1 2 3 4  
+1 2 3  
+1 2  
+1  
+
+- Logic:
+  - Starting value is constant (1)
+  - Number of elements decreases each row
+
+---
+
+### 2. Right-Aligned Reverse Star Pattern
+****
+ ***
+  **
+   *
+
+- Logic:
+  - Spaces increase each row (i - 1)
+  - Stars decrease each row (n - i + 1)
+  - Use two inner loops:
+    - first for spaces
+    - second for stars
+
+---
+
+### 3. Left-Aligned Reverse Pattern
+****
+***
+**
+*
+
+- Logic:
+  - Stars decrease with each row
+  - Inner loop controls number of stars
+
+---
+
+## Key Learnings
+
+- Understanding reverse patterns
+- Combining increasing and decreasing logic
+- Using multiple inner loops effectively
+- Handling alignment using spaces
+
+---
+
+## Notes
+
+- Outer loop → controls rows
+- Inner loop → controls elements
+- Order matters: spaces first, then stars (for alignment)
+- Focus on breaking pattern into:
+  - spaces logic
+  - stars logic
