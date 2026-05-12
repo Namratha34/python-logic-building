@@ -1,0 +1,72 @@
+# Day 08 - Python Revision + Pyramid Patterns
+
+## Topics Covered
+
+### 1. Loops Revision
+- for loop using range()
+- understanding start, stop, step
+- nested loops (outer loop for rows, inner loop for elements)
+
+---
+
+### 2. range() Function
+- range(n)
+- range(start, end)
+- range(start, end, step)
+
+---
+
+### 3. Printing Techniques
+- print("*", end="")
+- print() for new line
+- controlling output formatting
+
+---
+
+### 4. Variables in Patterns
+- using 'n' for number of rows
+- using loop variables (i, j)
+- understanding scope of loop variables
+
+---
+
+## Patterns Practiced
+
+### 1. Center Pyramid Pattern
+   *
+  ***
+ *****
+*******
+
+- spaces = n - i
+- stars = 2*i - 1
+
+---
+
+### 2. Reverse Pyramid Pattern
+*******
+ *****
+  ***
+   *
+
+- spaces = i - 1
+- stars = decreasing odd numbers
+
+---
+
+## Key Learnings
+
+- Clear understanding of nested loops
+- Difference between increasing and decreasing patterns
+- Importance of observation before coding
+- Better clarity on how variables behave inside loops
+
+---
+
+## Notes
+
+- Always break pattern into:
+  - spaces logic
+  - stars logic
+- Use 'n' to control size of pattern
+- Focus on logic rather than memorizing formulas
