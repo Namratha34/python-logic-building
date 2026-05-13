@@ -18,15 +18,13 @@ print(s[-1])   # n
 print(s[1:4])  # yth
 
 String Operations
-Concatenation using +
-Repetition using *
-Finding length using len()
+1.Concatenation using +
+2.Repetition using *
+3.Finding length using len()
 
 Example:
-
 a = "Hello"
 b = "World"
 print(a + " " + b)
 print(a * 2)
 print(len(a))
-
