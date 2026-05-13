@@ -1,0 +1,32 @@
+# Day 09 - Python Revision (Strings)
+
+Today I focused on revising core Python concepts beyond loops, especially strings This marks a shift from pattern-based logic to working with real data structures.
+
+## Topics Covered
+
+### 1. Strings in Python
+- Creating strings using quotes
+- Indexing (positive & negative)
+- Slicing strings
+- Iterating through strings
+
+Example:
+```python
+s = "python"
+print(s[0])    # p
+print(s[-1])   # n
+print(s[1:4])  # yth
+
+String Operations
+Concatenation using +
+Repetition using *
+Finding length using len()
+
+Example:
+
+a = "Hello"
+b = "World"
+print(a + " " + b)
+print(a * 2)
+print(len(a))
+
