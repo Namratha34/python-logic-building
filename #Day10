@@ -1,13 +1,15 @@
 # Day 10 - Python Revision String Operations
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Today I revised string operations in Python and learned about functions. This helped me understand how to manipulate text data and write reusable code using functions.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 String Operations
 Concatenation using +
 Repetition using *
 Finding length using len()
 Membership using in
 Comparing strings
-
+------------------------------------------------------------------------------------------------------------------
 String Methods
 upper()
 lower()
@@ -26,11 +28,10 @@ s = "python"
 
 for ch in s:
     print(ch)
-
-Key Learnings
+-------------------------------------------------------------------
+Key Learnings:--
+--------------------------------------------------------------------
 Understanding string manipulation
 Using important string methods
 Iterating through strings using loops
-
-Notes
 Strings are immutable
