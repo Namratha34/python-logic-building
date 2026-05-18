@@ -56,10 +56,7 @@
   - separate "what to print" and "how many times to print"
 
 - Improved pattern thinking:
-  - observation → logic → implementation
-
----
-
+  - observation → logic → implementatio
 ## Notes
 
 - Outer loop → controls rows
