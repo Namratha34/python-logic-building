@@ -11,9 +11,6 @@
 - Logic:
   - Starting value is constant (1)
   - Number of elements decreases each row
-
----
-
 ### 2. Right-Aligned Reverse Star Pattern
 ****
  ***
@@ -46,9 +43,7 @@
 - Understanding reverse patterns
 - Combining increasing and decreasing logic
 - Using multiple inner loops effectively
-- Handling alignment using spaces
-
----
+- Handling alignment using space
 
 ## Notes
 
