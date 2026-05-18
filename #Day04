@@ -11,21 +11,14 @@
 - Logic:
   - Use a variable (num) to track values
   - Increment num after each print
-
----
-
 ### 2. Repeating Row Number Pattern
 1  
 2 2  
 3 3 3  
 4 4 4 4  
-
 - Logic:
   - Print row number (i)
   - Repeat i times
-
----
-
 ### 3. Mixed Pattern (Row-based Start)
 1  
 1 2  
@@ -35,9 +28,6 @@
 - Logic:
   - Starting value depends on row
   - Values increase within each row
-
----
-
 ### 4. Fixed Start Increasing Pattern
 2  
 2 3  
