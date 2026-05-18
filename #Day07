@@ -14,16 +14,12 @@
   - Stars increase in odd numbers (2*i - 1)
   - First print spaces, then stars
 
----
-
 ## Key Learnings
 
 - Understanding center alignment
 - Working with odd number patterns (1, 3, 5, 7)
 - Combining decreasing (spaces) and increasing (stars) logic
 - Importance of printing order (spaces → stars)
-
----
 
 ## Notes
 
