@@ -1,29 +1,6 @@
-# Day 08 - Python Revision + Pyramid Patterns
+# Day 08 - Pyramid Patterns
 
 ## Topics Covered
-
-### 1. Loops Revision
-- for loop using range()
-- understanding start, stop, step
-- nested loops (outer loop for rows, inner loop for elements)
-
-### 2. range() Function
-- range(n)
-- range(start, end)
-- range(start, end, step)
-
-### 3. Printing Techniques
-- print("*", end="")
-- print() for new line
-- controlling output formatting
-
-### 4. Variables in Patterns
-- using 'n' for number of rows
-- using loop variables (i, j)
-- understanding scope of loop variables
-
-## 5. conditional statements 
-
 ## Patterns Practiced
 
 ### 1. Center Pyramid Pattern
