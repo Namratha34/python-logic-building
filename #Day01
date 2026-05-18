@@ -28,8 +28,6 @@
   - last_digit = num % 10
   - remaining = num // 10
   - sum = last_digit + remaining
-
-
 ## Key Learnings
 - Importance of writing steps before coding
 - Understanding modulus (%) and floor division (//)
