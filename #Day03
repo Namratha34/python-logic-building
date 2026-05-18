@@ -11,9 +11,6 @@
 - Logic:
   - Use a variable (num) to track continuous values
   - Increment after each print
-
----
-
 ### 2. Repeating Row Number Pattern
 1  
 2 2  
@@ -24,8 +21,6 @@
   - Number printed = row number (i)
   - Repeat i times
 
----
-
 ### 3. Mixed Increasing Pattern
 1  
 1 2  
@@ -35,9 +30,6 @@
 - Logic:
   - Starting value depends on row
   - Values increase within each row
-
----
-
 ## Key Learnings
 
 - Difference between:
