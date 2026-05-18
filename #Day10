@@ -1,0 +1,55 @@
+Basic Logic Building Problems
+
+1️⃣ Print each character
+
+Input:python
+
+Output:
+p
+y
+t
+h
+o
+n
+
+s = "python"
+
+for ch in s:
+    print(ch)
+
+2️⃣ Count total characters
+
+Input:hello
+
+Output:5
+
+👉 Try:
+
+using len()
+s = "hello"
+
+print(len(s))
+
+without len()
+s = "hello"
+
+count = 0
+
+for ch in s:
+    count += 1
+
+print(count)
+
+3️⃣ Reverse a string
+
+Input:python
+Output:nohtyp
+
+s = "python"
+rev = ""
+for ch in s:
+    rev = ch + rev
+print(rev)
+👉 Don’t use slicing first
+with slicing :
+print(s[::-1])
