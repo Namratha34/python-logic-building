@@ -7,21 +7,15 @@
 - understanding start, stop, step
 - nested loops (outer loop for rows, inner loop for elements)
 
----
-
 ### 2. range() Function
 - range(n)
 - range(start, end)
 - range(start, end, step)
 
----
-
 ### 3. Printing Techniques
 - print("*", end="")
 - print() for new line
 - controlling output formatting
-
----
 
 ### 4. Variables in Patterns
 - using 'n' for number of rows
@@ -52,7 +46,7 @@
 - spaces = i - 1
 - stars = decreasing odd numbers
 
----
+--
 
 ## Key Learnings
 
@@ -61,7 +55,6 @@
 - Importance of observation before coding
 - Better clarity on how variables behave inside loops
 
----
 
 ## Notes
 
