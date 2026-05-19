@@ -3,9 +3,13 @@
 Today I practiced string-based logical problems using loops, conditions, nested loops, counters, and string manipulation without depending on Python built-in functions.
 
 # Problems Practiced
+
 ## 1. Count Vowels in a String
+
 ### Problem
+
 Count how many vowels are present in a string.
+
 ### Solution
 ```python
 s = "programming"
@@ -16,12 +20,13 @@ for ch in s:
 print(count)
 ```
 ### Output
-```
 3
-```
+
 # 2. Count Uppercase and Lowercase Characters
+
 ### Problem
 Count uppercase and lowercase letters separately.
+
 ### Solution
 ```python
 s = "PyThOn"
@@ -112,7 +117,9 @@ l = 2
 o = 1
 # 8. Find Non-Repeating Character
 ### Problem
+
 Find and print the non-repeating character.
+
 ### Solution
 s = "AABBCDDEE"
 for ch in s:
@@ -121,9 +128,12 @@ for ch in s:
         if ch == x:
             count += 1
     if count == 1:
-        print(ch)
+  print(ch)
+
 ### Output
 C
+
+
 # Concepts Revised Today
 - String Traversal
 - Nested Loops
