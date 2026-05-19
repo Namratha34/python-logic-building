@@ -122,12 +122,9 @@ print(reverse)
 
 ### Output
 
-```text
+```
 nohtyp
 ```
-
----
-
 # 5. Check Palindrome
 
 ### Problem
@@ -155,9 +152,6 @@ else:
 ```text
 Palindrome
 ```
-
----
-
 # 6. Remove Spaces from a String
 
 ### Problem
@@ -180,12 +174,9 @@ print(new_string)
 
 ### Output
 
-```text
+```
 helloworld
 ```
-
----
-
 # 7. Frequency of Each Character
 
 ### Problem
@@ -218,8 +209,6 @@ l = 2
 o = 1
 ```
 
----
-
 # 8. Find Non-Repeating Character
 
 ### Problem
@@ -231,7 +220,6 @@ Find and print the non-repeating character.
 s = "AABBCDDEE"
 
 for ch in s:
-
     count = 0
 
     for x in s:
@@ -241,16 +229,8 @@ for ch in s:
 
     if count == 1:
         print(ch)
-```
-
 ### Output
-
-```text
 C
-```
-
----
-
 # Concepts Revised Today
 
 - String Traversal
