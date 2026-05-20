@@ -1,0 +1,392 @@
+# Day 12 – String Logic and Functions in Python
+
+Today I practiced string-based logical problems and revised function concepts in Python. I focused on improving logical thinking using loops, conditions, nested loops, counters, and manual string manipulation without using built-in functions.
+
+---
+
+# Topics Practiced
+
+- String Traversal
+- Counting Logic
+- Nested Loops
+- Character Comparison
+- Removing Spaces
+- Frequency Logic
+- Reverse Logic
+- Palindrome Logic
+- Functions in Python
+- Parameters and Return Values
+
+---
+
+# 1. Count Spaces in a String
+
+## Problem
+Count the number of spaces present in a string.
+
+## Solution
+
+```python
+s = "hello world python"
+
+count = 0
+
+for ch in s:
+
+    if ch == " ":
+        count += 1
+
+print(count)
+```
+
+## Output
+
+```text
+2
+```
+
+---
+
+# 2. Count Vowels in a String
+
+## Problem
+Count vowels manually without using built-in functions.
+
+## Solution
+
+```python
+s = "programming"
+
+count = 0
+
+for ch in s:
+
+    if ch == "a" or ch == "e" or ch == "i" or ch == "o" or ch == "u":
+        count += 1
+
+print(count)
+```
+
+## Output
+
+```text
+3
+```
+
+---
+
+# 3. Count Uppercase and Lowercase Characters
+
+## Solution
+
+```python
+s = "PyThOn"
+
+upper = 0
+lower = 0
+
+for ch in s:
+
+    if ch >= "A" and ch <= "Z":
+        upper += 1
+
+    else:
+        lower += 1
+
+print("Upper =", upper)
+print("Lower =", lower)
+```
+
+## Output
+
+```text
+Upper = 3
+Lower = 3
+```
+
+---
+
+# 4. Count Alphabets and Digits
+
+## Solution
+
+```python
+s = "Namratha34"
+
+alphabets = 0
+digits = 0
+
+for ch in s:
+
+    if (ch >= "A" and ch <= "Z") or (ch >= "a" and ch <= "z"):
+        alphabets += 1
+
+    else:
+        digits += 1
+
+print("Alphabets =", alphabets)
+print("Digits =", digits)
+```
+
+## Output
+
+```text
+Alphabets = 8
+Digits = 2
+```
+
+---
+
+# 5. Reverse a String
+
+## Solution
+
+```python
+s = "python"
+
+reverse = ""
+
+for ch in s:
+    reverse = ch + reverse
+
+print(reverse)
+```
+
+## Output
+
+```text
+nohtyp
+```
+
+---
+
+# 6. Palindrome Check
+
+## Solution
+
+```python
+s = "madam"
+
+reverse = ""
+
+for ch in s:
+    reverse = ch + reverse
+
+if reverse == s:
+    print("Palindrome")
+
+else:
+    print("Not Palindrome")
+```
+
+## Output
+
+```text
+Palindrome
+```
+
+---
+
+# 7. Remove Spaces from a String
+
+## Solution
+
+```python
+s = "hello world"
+
+new_string = ""
+
+for ch in s:
+
+    if ch != " ":
+        new_string = new_string + ch
+
+print(new_string)
+```
+
+## Output
+
+```text
+helloworld
+```
+
+---
+
+# 8. Frequency of Each Character
+
+## Solution
+
+```python
+s = "hello"
+
+for ch in s:
+
+    count = 0
+
+    for x in s:
+
+        if ch == x:
+            count += 1
+
+    print(ch, "=", count)
+```
+
+## Output
+
+```text
+h = 1
+e = 1
+l = 2
+l = 2
+o = 1
+```
+
+---
+
+# 9. Find Non-Repeating Character
+
+## Solution
+
+```python
+s = "AABBCDDEE"
+
+for ch in s:
+
+    count = 0
+
+    for x in s:
+
+        if ch == x:
+            count += 1
+
+    if count == 1:
+        print(ch)
+```
+
+## Output
+
+```text
+C
+```
+
+---
+
+# 10. Function to Add Two Numbers
+
+## Solution
+
+```python
+def add(a, b):
+
+    return a + b
+
+result = add(10, 20)
+
+print(result)
+```
+
+## Output
+
+```text
+30
+```
+
+---
+
+# 11. Function to Check Even or Odd
+
+## Solution
+
+```python
+def check(num):
+
+    if num % 2 == 0:
+        return "Even"
+
+    else:
+        return "Odd"
+
+print(check(7))
+```
+
+## Output
+
+```text
+Odd
+```
+
+---
+
+# 12. Function to Reverse a String
+
+## Solution
+
+```python
+def reverse_string(s):
+
+    reverse = ""
+
+    for ch in s:
+        reverse = ch + reverse
+
+    return reverse
+
+print(reverse_string("python"))
+```
+
+## Output
+
+```text
+nohtyp
+```
+
+---
+
+# 13. Function to Check Palindrome
+
+## Solution
+
+```python
+def palindrome(s):
+
+    reverse = ""
+
+    for ch in s:
+        reverse = ch + reverse
+
+    if reverse == s:
+        return "Palindrome"
+
+    else:
+        return "Not Palindrome"
+
+print(palindrome("madam"))
+```
+
+## Output
+
+```text
+Palindrome
+```
+
+---
+
+# Key Learnings
+
+- Difference between `string` and iterating variable (`ch`)
+- Nested loops help in frequency problems
+- Count variable should reset inside outer loop
+- `ch + string` reverses data
+- `string + ch` keeps original order
+- Frequency logic depends on total count, not one mismatch
+- Functions help organize logic better
+
+---
+
+# Day 12 Status
+
+✅ Practiced string logic problems  
+✅ Revised functions  
+✅ Improved nested loop understanding  
+✅ Improved comparison-based thinking  
+✅ Continued consistency in coding practice
