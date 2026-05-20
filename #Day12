@@ -13,9 +13,6 @@ Today I practiced string-based logical problems and revised function concepts in
 - Palindrome Logic
 - Functions in Python
 - Parameters and Return Values
-
----
-
 # 1. Count Spaces in a String
 
 ## Problem
@@ -34,16 +31,8 @@ for ch in s:
         count += 1
 
 print(count)
-```
-
 ## Output
-
-```text
 2
-```
-
----
-
 # 2. Count Vowels in a String
 
 ## Problem
