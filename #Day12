@@ -1,9 +1,6 @@
 # Day 12 – String Logic and Functions in Python
 
 Today I practiced string-based logical problems and revised function concepts in Python. I focused on improving logical thinking using loops, conditions, nested loops, counters, and manual string manipulation without using built-in functions.
-
----
-
 # Topics Practiced
 
 - String Traversal
@@ -361,16 +358,10 @@ def palindrome(s):
         return "Not Palindrome"
 
 print(palindrome("madam"))
-```
 
 ## Output
 
-```text
 Palindrome
-```
-
----
-
 # Key Learnings
 
 - Difference between `string` and iterating variable (`ch`)
@@ -380,10 +371,6 @@ Palindrome
 - `string + ch` keeps original order
 - Frequency logic depends on total count, not one mismatch
 - Functions help organize logic better
-
----
-
-# Day 12 Status
 
 ✅ Practiced string logic problems  
 ✅ Revised functions  
