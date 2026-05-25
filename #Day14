@@ -1,0 +1,341 @@
+# Day 14 – Python String Methods Practice
+
+# Topics Practiced
+
+- upper()
+- lower()
+- capitalize()
+- title()
+- count()
+- find()
+- replace()
+- split()
+- strip()
+- startswith()
+- endswith()
+- isdigit()
+- isalpha()
+- isalnum()
+- islower()
+- isupper()
+- isspace()
+- join()
+- center()
+- format()
+
+---
+
+# 1. Convert String to Uppercase
+
+## Problem
+
+Convert entire string into uppercase.
+
+## Input
+
+```python
+s = "python"
+```
+
+---
+
+# 2. Convert String to Lowercase
+
+## Problem
+
+Convert entire string into lowercase.
+
+## Input
+
+```python
+s = "PYTHON"
+```
+
+---
+
+# 3. Capitalize First Letter
+
+## Problem
+
+Capitalize only first character.
+
+## Input
+
+```python
+s = "python"
+```
+
+---
+
+# 4. Convert Sentence into Title Format
+
+## Problem
+
+Capitalize first letter of every word.
+
+## Input
+
+```python
+s = "hello world python"
+```
+
+---
+
+# 5. Count Character Occurrence
+
+## Problem
+
+Count how many times character appears.
+
+## Input
+
+```python
+s = "programming"
+```
+
+Count:
+```python
+"m"
+```
+
+---
+
+# 6. Find Position of Character
+
+## Problem
+
+Find index position of character.
+
+## Input
+
+```python
+s = "python"
+```
+
+Find:
+```python
+"t"
+```
+
+---
+
+# 7. Replace Character
+
+## Problem
+
+Replace one character with another.
+
+## Input
+
+```python
+s = "hello"
+```
+
+Replace:
+```python
+"h"
+```
+
+with:
+```python
+"y"
+```
+
+---
+
+# 8. Split Words
+
+## Problem
+
+Split sentence into words.
+
+## Input
+
+```python
+s = "python is easy"
+```
+
+---
+
+# 9. Remove Extra Spaces
+
+## Problem
+
+Remove spaces from left and right side.
+
+## Input
+
+```python
+s = "   python   "
+```
+
+---
+
+# 10. Check Starting Characters
+
+## Problem
+
+Check whether string starts with specific characters.
+
+## Input
+
+```python
+s = "python"
+```
+
+Check:
+```python
+"py"
+```
+
+---
+
+# 11. Check Ending Characters
+
+## Problem
+
+Check whether string ends with specific characters.
+
+## Input
+
+```python
+s = "python"
+```
+
+Check:
+```python
+"on"
+```
+
+---
+
+# 12. Check Digits
+
+## Problem
+
+Check whether string contains only digits.
+
+## Input
+
+```python
+s = "12345"
+```
+
+---
+
+# 13. Check Alphabets
+
+## Problem
+
+Check whether string contains only alphabets.
+
+## Input
+
+```python
+s = "python"
+```
+
+---
+
+# 14. Check Alphanumeric
+
+## Problem
+
+Check whether string contains only alphabets and numbers.
+
+## Input
+
+```python
+s = "python123"
+```
+
+---
+
+# 15. Check Lowercase
+
+## Problem
+
+Check whether string is fully lowercase.
+
+## Input
+
+```python
+s = "python"
+```
+
+---
+
+# 16. Check Uppercase
+
+## Problem
+
+Check whether string is fully uppercase.
+
+## Input
+
+```python
+s = "PYTHON"
+```
+
+---
+
+# 17. Check Spaces
+
+## Problem
+
+Check whether string contains only spaces.
+
+## Input
+
+```python
+s = "   "
+```
+
+---
+
+# 18. Join Words
+
+## Problem
+
+Join words into single sentence.
+
+## Input
+
+```python
+words = ["python", "is", "easy"]
+```
+
+---
+
+# 19. Center Align String
+
+## Problem
+
+Display string at center with width 20.
+
+## Input
+
+```python
+s = "python"
+```
+
+---
+
+# 20. Format String
+
+## Problem
+
+Print formatted string.
+
+## Input
+
+```python
+name = "Ram"
+```
+
+Expected Output:
+
+```text
+Hello Ram
+```
+
