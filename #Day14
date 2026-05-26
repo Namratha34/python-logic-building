@@ -1,341 +1,574 @@
 # Day 14 – Python String Methods Practice
 
-# Topics Practiced
-
-- upper()
-- lower()
-- capitalize()
-- title()
-- count()
-- find()
-- replace()
-- split()
-- strip()
-- startswith()
-- endswith()
-- isdigit()
-- isalpha()
-- isalnum()
-- islower()
-- isupper()
-- isspace()
-- join()
-- center()
-- format()
+Today I revised important Python string methods, understood their meanings, and practiced problems using each method.
 
 ---
 
-# 1. Convert String to Uppercase
+# 1. capitalize()
 
-## Problem
+## Meaning
+Converts first character into uppercase.
 
-Convert entire string into uppercase.
-
-## Input
+## Example
 
 ```python
 s = "python"
+
+print(s.capitalize())
+```
+
+## Output
+
+```text
+Python
 ```
 
 ---
 
-# 2. Convert String to Lowercase
+# 2. upper()
 
-## Problem
+## Meaning
+Converts entire string into uppercase.
 
-Convert entire string into lowercase.
+## Example
 
-## Input
+```python
+s = "python"
+
+print(s.upper())
+```
+
+## Output
+
+```text
+PYTHON
+```
+
+---
+
+# 3. lower()
+
+## Meaning
+Converts entire string into lowercase.
+
+## Example
 
 ```python
 s = "PYTHON"
+
+print(s.lower())
+```
+
+## Output
+
+```text
+python
 ```
 
 ---
 
-# 3. Capitalize First Letter
+# 4. title()
 
-## Problem
+## Meaning
+Converts first character of every word into uppercase.
 
-Capitalize only first character.
-
-## Input
+## Example
 
 ```python
-s = "python"
+s = "hello world"
+
+print(s.title())
+```
+
+## Output
+
+```text
+Hello World
 ```
 
 ---
 
-# 4. Convert Sentence into Title Format
+# 5. swapcase()
 
-## Problem
+## Meaning
+Uppercase becomes lowercase and lowercase becomes uppercase.
 
-Capitalize first letter of every word.
-
-## Input
+## Example
 
 ```python
-s = "hello world python"
+s = "PyThOn"
+
+print(s.swapcase())
+```
+
+## Output
+
+```text
+pYtHoN
 ```
 
 ---
 
-# 5. Count Character Occurrence
+# 6. count()
+
+## Meaning
+Counts occurrences of a character or word.
 
 ## Problem
+Count how many times `"m"` appears.
 
-Count how many times character appears.
-
-## Input
+## Example
 
 ```python
 s = "programming"
+
+print(s.count("m"))
 ```
 
-Count:
-```python
-"m"
+## Output
+
+```text
+2
 ```
 
 ---
 
-# 6. Find Position of Character
+# 7. find()
+
+## Meaning
+Finds position (index) of character.
 
 ## Problem
+Find index of `"t"`.
 
-Find index position of character.
-
-## Input
+## Example
 
 ```python
 s = "python"
+
+print(s.find("t"))
 ```
 
-Find:
-```python
-"t"
+## Output
+
+```text
+2
 ```
 
 ---
 
-# 7. Replace Character
+# 8. replace()
+
+## Meaning
+Replaces old character/string with new one.
 
 ## Problem
+Replace `"h"` with `"y"`.
 
-Replace one character with another.
-
-## Input
+## Example
 
 ```python
 s = "hello"
+
+print(s.replace("h", "y"))
 ```
 
-Replace:
-```python
-"h"
-```
+## Output
 
-with:
-```python
-"y"
+```text
+yello
 ```
 
 ---
 
-# 8. Split Words
+# 9. split()
+
+## Meaning
+Splits string into list of words.
 
 ## Problem
-
 Split sentence into words.
 
-## Input
+## Example
 
 ```python
 s = "python is easy"
+
+print(s.split())
+```
+
+## Output
+
+```text
+['python', 'is', 'easy']
 ```
 
 ---
 
-# 9. Remove Extra Spaces
+# 10. join()
+
+## Meaning
+Joins list elements into single string.
 
 ## Problem
+Join all words using spaces.
 
-Remove spaces from left and right side.
-
-## Input
-
-```python
-s = "   python   "
-```
-
----
-
-# 10. Check Starting Characters
-
-## Problem
-
-Check whether string starts with specific characters.
-
-## Input
-
-```python
-s = "python"
-```
-
-Check:
-```python
-"py"
-```
-
----
-
-# 11. Check Ending Characters
-
-## Problem
-
-Check whether string ends with specific characters.
-
-## Input
-
-```python
-s = "python"
-```
-
-Check:
-```python
-"on"
-```
-
----
-
-# 12. Check Digits
-
-## Problem
-
-Check whether string contains only digits.
-
-## Input
-
-```python
-s = "12345"
-```
-
----
-
-# 13. Check Alphabets
-
-## Problem
-
-Check whether string contains only alphabets.
-
-## Input
-
-```python
-s = "python"
-```
-
----
-
-# 14. Check Alphanumeric
-
-## Problem
-
-Check whether string contains only alphabets and numbers.
-
-## Input
-
-```python
-s = "python123"
-```
-
----
-
-# 15. Check Lowercase
-
-## Problem
-
-Check whether string is fully lowercase.
-
-## Input
-
-```python
-s = "python"
-```
-
----
-
-# 16. Check Uppercase
-
-## Problem
-
-Check whether string is fully uppercase.
-
-## Input
-
-```python
-s = "PYTHON"
-```
-
----
-
-# 17. Check Spaces
-
-## Problem
-
-Check whether string contains only spaces.
-
-## Input
-
-```python
-s = "   "
-```
-
----
-
-# 18. Join Words
-
-## Problem
-
-Join words into single sentence.
-
-## Input
+## Example
 
 ```python
 words = ["python", "is", "easy"]
+
+print(" ".join(words))
+```
+
+## Output
+
+```text
+python is easy
 ```
 
 ---
 
-# 19. Center Align String
+# 11. strip()
+
+## Meaning
+Removes spaces from both sides.
 
 ## Problem
+Remove extra spaces.
 
-Display string at center with width 20.
+## Example
 
-## Input
+```python
+s = "   python   "
+
+print(s.strip())
+```
+
+## Output
+
+```text
+python
+```
+
+---
+
+# 12. lstrip()
+
+## Meaning
+Removes spaces from left side.
+
+## Example
+
+```python
+s = "   python"
+
+print(s.lstrip())
+```
+
+## Output
+
+```text
+python
+```
+
+---
+
+# 13. rstrip()
+
+## Meaning
+Removes spaces from right side.
+
+## Example
+
+```python
+s = "python   "
+
+print(s.rstrip())
+```
+
+## Output
+
+```text
+python
+```
+
+---
+
+# 14. startswith()
+
+## Meaning
+Checks whether string starts with given value.
+
+## Problem
+Check if string starts with `"py"`.
+
+## Example
 
 ```python
 s = "python"
+
+print(s.startswith("py"))
+```
+
+## Output
+
+```text
+True
 ```
 
 ---
 
-# 20. Format String
+# 15. endswith()
+
+## Meaning
+Checks whether string ends with given value.
 
 ## Problem
+Check if string ends with `"on"`.
 
-Print formatted string.
+## Example
 
-## Input
+```python
+s = "python"
+
+print(s.endswith("on"))
+```
+
+## Output
+
+```text
+True
+```
+
+---
+
+# 16. isdigit()
+
+## Meaning
+Checks whether all characters are digits.
+
+## Example
+
+```python
+s = "12345"
+
+print(s.isdigit())
+```
+
+## Output
+
+```text
+True
+```
+
+---
+
+# 17. isalpha()
+
+## Meaning
+Checks whether all characters are alphabets.
+
+## Example
+
+```python
+s = "python"
+
+print(s.isalpha())
+```
+
+## Output
+
+```text
+True
+```
+
+---
+
+# 18. isalnum()
+
+## Meaning
+Checks whether string contains only alphabets and numbers.
+
+## Example
+
+```python
+s = "python123"
+
+print(s.isalnum())
+```
+
+## Output
+
+```text
+True
+```
+
+---
+
+# 19. islower()
+
+## Meaning
+Checks whether all letters are lowercase.
+
+## Example
+
+```python
+s = "python"
+
+print(s.islower())
+```
+
+## Output
+
+```text
+True
+```
+
+---
+
+# 20. isupper()
+
+## Meaning
+Checks whether all letters are uppercase.
+
+## Example
+
+```python
+s = "PYTHON"
+
+print(s.isupper())
+```
+
+## Output
+
+```text
+True
+```
+
+---
+
+# 21. isspace()
+
+## Meaning
+Checks whether string contains only spaces.
+
+## Example
+
+```python
+s = "   "
+
+print(s.isspace())
+```
+
+## Output
+
+```text
+True
+```
+
+---
+
+# 22. center()
+
+## Meaning
+Places string at center.
+
+## Example
+
+```python
+s = "Python"
+
+print(s.center(20))
+```
+
+## Output
+
+```text
+       Python
+```
+
+---
+
+# 23. format()
+
+## Meaning
+Inserts values dynamically into string.
+
+## Example
 
 ```python
 name = "Ram"
+
+print("Hello {}".format(name))
 ```
 
-Expected Output:
+## Output
 
 ```text
 Hello Ram
+```
+
+---
+
+# 24. zfill()
+
+## Meaning
+Adds zeros at beginning.
+
+## Example
+
+```python
+s = "25"
+
+print(s.zfill(5))
+```
+
+## Output
+
+```text
+00025
+```
+
+---
+
+# 25. removeprefix()
+
+## Meaning
+Removes starting prefix.
+
+## Example
+
+```python
+s = "unhappy"
+
+print(s.removeprefix("un"))
+```
+
+## Output
+
+```text
+happy
+```
+
+---
+
+# 26. removesuffix()
+
+## Meaning
+Removes ending suffix.
+
+## Example
+
+```python
+s = "python.py"
+
+print(s.removesuffix(".py"))
+```
+
+## Output
+
+```text
+python
 ```
 
