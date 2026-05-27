@@ -1,0 +1,585 @@
+# Day 16 – Python List Logic Problems
+
+Today I practiced Python list logical problems using:
+
+
+I practiced:
+- without built-in functions (pure logic)
+- with built-in functions (easy approach)
+
+---
+
+# 1. Count Even Numbers
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+count = 0
+
+for num in numbers:
+
+    if num % 2 == 0:
+        count += 1
+
+print(count)
+```
+
+## Output
+
+```text
+3
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+count = len([num for num in numbers if num % 2 == 0])
+
+print(count)
+```
+
+---
+
+# 2. Count Odd Numbers
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+count = 0
+
+for num in numbers:
+
+    if num % 2 != 0:
+        count += 1
+
+print(count)
+```
+
+## Output
+
+```text
+3
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+count = len([num for num in numbers if num % 2 != 0])
+
+print(count)
+```
+
+---
+
+# 3. Find Sum of All Elements
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4]
+
+total = 0
+
+for num in numbers:
+    total += num
+
+print(total)
+```
+
+## Output
+
+```text
+10
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4]
+
+print(sum(numbers))
+```
+
+---
+
+# 4. Find Largest Element
+
+## Without Built-in Functions
+
+```python
+numbers = [4, 7, 2, 9, 5]
+
+largest = numbers[0]
+
+for num in numbers:
+
+    if num > largest:
+        largest = num
+
+print(largest)
+```
+
+## Output
+
+```text
+9
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [4, 7, 2, 9, 5]
+
+print(max(numbers))
+```
+
+---
+
+# 5. Find Smallest Element
+
+## Without Built-in Functions
+
+```python
+numbers = [4, 7, 2, 9, 5]
+
+smallest = numbers[0]
+
+for num in numbers:
+
+    if num < smallest:
+        smallest = num
+
+print(smallest)
+```
+
+## Output
+
+```text
+2
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [4, 7, 2, 9, 5]
+
+print(min(numbers))
+```
+
+---
+
+# 6. Reverse List Manually
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4]
+
+reverse = []
+
+for num in numbers:
+
+    reverse = [num] + reverse
+
+print(reverse)
+```
+
+## Output
+
+```text
+[4, 3, 2, 1]
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4]
+
+numbers.reverse()
+
+print(numbers)
+```
+
+---
+
+# 7. Count Frequency of Number
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 2, 3, 2, 4]
+
+count = 0
+
+for num in numbers:
+
+    if num == 2:
+        count += 1
+
+print(count)
+```
+
+## Output
+
+```text
+3
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 2, 3, 2, 4]
+
+print(numbers.count(2))
+```
+
+---
+
+# 8. Find Duplicate Elements
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 2, 3, 4, 4]
+
+duplicates = []
+
+for num in numbers:
+
+    count = 0
+
+    for x in numbers:
+
+        if num == x:
+            count += 1
+
+    if count > 1 and num not in duplicates:
+        duplicates.append(num)
+
+print(duplicates)
+```
+
+## Output
+
+```text
+[2, 4]
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 2, 3, 4, 4]
+
+duplicates = []
+
+for num in numbers:
+
+    if numbers.count(num) > 1 and num not in duplicates:
+        duplicates.append(num)
+
+print(duplicates)
+```
+
+---
+
+# 9. Find Unique Elements
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 2, 3, 4, 4]
+
+for num in numbers:
+
+    count = 0
+
+    for x in numbers:
+
+        if num == x:
+            count += 1
+
+    if count == 1:
+        print(num)
+```
+
+## Output
+
+```text
+1
+3
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 2, 3, 4, 4]
+
+for num in numbers:
+
+    if numbers.count(num) == 1:
+        print(num)
+```
+
+---
+
+# 10. Remove Duplicates
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 2, 3, 4, 4]
+
+new_list = []
+
+for num in numbers:
+
+    if num not in new_list:
+        new_list.append(num)
+
+print(new_list)
+```
+
+## Output
+
+```text
+[1, 2, 3, 4]
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 2, 3, 4, 4]
+
+print(list(set(numbers)))
+```
+
+---
+
+# 11. Search Element in List
+
+## Without Built-in Functions
+
+```python
+numbers = [10, 20, 30, 40]
+
+found = False
+
+for num in numbers:
+
+    if num == 30:
+        found = True
+
+print(found)
+```
+
+## Output
+
+```text
+True
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [10, 20, 30, 40]
+
+print(30 in numbers)
+```
+
+---
+
+# 12. Find Second Largest Number
+
+## Without Built-in Functions
+
+```python
+numbers = [4, 7, 2, 9, 5]
+
+largest = 0
+second = 0
+
+for num in numbers:
+
+    if num > largest:
+
+        second = largest
+        largest = num
+
+    elif num > second and num != largest:
+
+        second = num
+
+print(second)
+```
+
+## Output
+
+```text
+7
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [4, 7, 2, 9, 5]
+
+numbers.sort()
+
+print(numbers[-2])
+```
+
+---
+
+# 13. Move All Zeros to End
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 0, 2, 0, 3]
+
+new_list = []
+
+zero_count = 0
+
+for num in numbers:
+
+    if num == 0:
+        zero_count += 1
+
+    else:
+        new_list.append(num)
+
+for i in range(zero_count):
+    new_list.append(0)
+
+print(new_list)
+```
+
+## Output
+
+```text
+[1, 2, 3, 0, 0]
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 0, 2, 0, 3]
+
+new_list = [x for x in numbers if x != 0]
+
+zeros = [0] * numbers.count(0)
+
+print(new_list + zeros)
+```
+
+---
+
+# 14. Separate Even and Odd Numbers
+
+## Without Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+print("Even:")
+
+for num in numbers:
+
+    if num % 2 == 0:
+        print(num)
+
+print("Odd:")
+
+for num in numbers:
+
+    if num % 2 != 0:
+        print(num)
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+even = [x for x in numbers if x % 2 == 0]
+odd = [x for x in numbers if x % 2 != 0]
+
+print(even)
+print(odd)
+```
+
+---
+
+# 15. Find Common Elements Between Two Lists
+
+## Without Built-in Functions
+
+```python
+list1 = [1, 2, 3, 4]
+list2 = [3, 4, 5, 6]
+
+for num in list1:
+
+    if num in list2:
+        print(num)
+```
+
+## Output
+
+```text
+3
+4
+```
+
+---
+
+## Using Built-in Functions
+
+```python
+list1 = [1, 2, 3, 4]
+list2 = [3, 4, 5, 6]
+
+common = list(set(list1) & set(list2))
+
+print(common)
+```
+
+---
+
