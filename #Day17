@@ -1,0 +1,649 @@
+# Day 17 – List Logic Problems in Python
+
+
+I solved every problem in two ways:
+
+1. Without built-in functions
+2. Using built-in functions
+
+---
+
+# Topics Practiced
+
+* List Traversal
+* Counting Logic
+* Sum Logic
+* Filtering
+* Frequency Logic
+* Positive/Negative Logic
+* List Rotation
+* Duplicate Removal
+* Palindrome Logic
+* Common Elements Logic
+
+---
+
+# 1. Find Sum of Even Numbers
+
+## Problem
+
+Find the sum of all even numbers in a list.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse the list
+* Check whether number is even
+* Add it to total
+
+```python
+numbers = [1,2,3,4,5,6]
+
+total = 0
+
+for num in numbers:
+
+    if num % 2 == 0:
+        total += num
+
+print(total)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,3,4,5,6]
+
+print(sum([x for x in numbers if x % 2 == 0]))
+```
+
+---
+
+# 2. Find Sum of Odd Numbers
+
+## Problem
+
+Find the sum of all odd numbers.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse list
+* Check odd condition
+* Add odd numbers
+
+```python
+numbers = [1,2,3,4,5]
+
+total = 0
+
+for num in numbers:
+
+    if num % 2 != 0:
+        total += num
+
+print(total)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,3,4,5]
+
+print(sum([x for x in numbers if x % 2 != 0]))
+```
+
+---
+
+# 3. Find Average of List Elements
+
+## Problem
+
+Find average manually.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Find total
+* Count elements
+* Divide total by count
+
+```python
+numbers = [2,4,6,8]
+
+total = 0
+count = 0
+
+for num in numbers:
+
+    total += num
+    count += 1
+
+print(total / count)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [2,4,6,8]
+
+print(sum(numbers) / len(numbers))
+```
+
+---
+
+# 4. Find Largest Even Number
+
+## Problem
+
+Find the largest even number.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse list
+* Check even number
+* Compare with largest
+
+```python
+numbers = [1,8,3,10,5]
+
+largest = 0
+
+for num in numbers:
+
+    if num % 2 == 0:
+
+        if num > largest:
+            largest = num
+
+print(largest)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,8,3,10,5]
+
+even = [x for x in numbers if x % 2 == 0]
+
+print(max(even))
+```
+
+---
+
+# 5. Find Smallest Odd Number
+
+## Problem
+
+Find smallest odd number.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse list
+* Check odd condition
+* Compare with smallest
+
+```python
+numbers = [7,2,9,5,4]
+
+smallest = numbers[0]
+
+for num in numbers:
+
+    if num % 2 != 0 and num < smallest:
+        smallest = num
+
+print(smallest)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [7,2,9,5,4]
+
+odd = [x for x in numbers if x % 2 != 0]
+
+print(min(odd))
+```
+
+---
+
+# 6. Remove All Even Numbers
+
+## Problem
+
+Create new list without even numbers.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse list
+* Add only odd numbers
+
+```python
+numbers = [1,2,3,4,5]
+
+new_list = []
+
+for num in numbers:
+
+    if num % 2 != 0:
+        new_list.append(num)
+
+print(new_list)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,3,4,5]
+
+print([x for x in numbers if x % 2 != 0])
+```
+
+---
+
+# 7. Remove All Odd Numbers
+
+## Problem
+
+Create new list without odd numbers.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse list
+* Add only even numbers
+
+```python
+numbers = [1,2,3,4,5]
+
+new_list = []
+
+for num in numbers:
+
+    if num % 2 == 0:
+        new_list.append(num)
+
+print(new_list)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,3,4,5]
+
+print([x for x in numbers if x % 2 == 0])
+```
+
+---
+
+# 8. Find Frequency of Every Element
+
+## Problem
+
+Count how many times each element appears.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Use nested loops
+* Compare elements
+* Count matches
+
+```python
+numbers = [1,2,2,3]
+
+for num in numbers:
+
+    count = 0
+
+    for x in numbers:
+
+        if num == x:
+            count += 1
+
+    print(num, "=", count)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,2,3]
+
+for num in numbers:
+
+    print(num, "=", numbers.count(num))
+```
+
+---
+
+# 9. Find Missing Number
+
+## Problem
+
+Find missing number from sequence.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse expected range
+* Check missing number
+
+```python
+numbers = [1,2,3,5]
+
+for i in range(1,6):
+
+    if i not in numbers:
+        print(i)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,3,5]
+
+print(list(set(range(1,6)) - set(numbers))[0])
+```
+
+---
+
+# 10. Merge Two Lists
+
+## Problem
+
+Combine two lists.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse second list
+* Append into first list
+
+```python
+list1 = [1,2]
+list2 = [3,4]
+
+for num in list2:
+    list1.append(num)
+
+print(list1)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+list1 = [1,2]
+list2 = [3,4]
+
+print(list1 + list2)
+```
+
+---
+
+# 11. Copy List Manually
+
+## Problem
+
+Create duplicate list manually.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse original list
+* Append elements into new list
+
+```python
+numbers = [1,2,3]
+
+copy = []
+
+for num in numbers:
+    copy.append(num)
+
+print(copy)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,3]
+
+copy = numbers.copy()
+
+print(copy)
+```
+
+---
+
+# 12. Count Positive and Negative Numbers
+
+## Problem
+
+Count positive and negative numbers separately.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Traverse list
+* Check condition
+* Increase counters
+
+```python
+numbers = [1,-2,3,-4,5]
+
+positive = 0
+negative = 0
+
+for num in numbers:
+
+    if num >= 0:
+        positive += 1
+
+    else:
+        negative += 1
+
+print("Positive =", positive)
+print("Negative =", negative)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,-2,3,-4,5]
+
+positive = len([x for x in numbers if x >= 0])
+negative = len([x for x in numbers if x < 0])
+
+print(positive)
+print(negative)
+```
+
+---
+
+# 13. Find Common Elements Without Duplicates
+
+## Problem
+
+Find common elements between two lists.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Compare both lists
+* Avoid duplicates
+
+```python
+list1 = [1,2,2,3]
+list2 = [2,3,4]
+
+common = []
+
+for num in list1:
+
+    if num in list2 and num not in common:
+        common.append(num)
+
+print(common)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+list1 = [1,2,2,3]
+list2 = [2,3,4]
+
+print(list(set(list1) & set(list2)))
+```
+
+---
+
+# 14. Check List is Palindrome
+
+## Problem
+
+Check whether list reads same forward and backward.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Reverse list manually
+* Compare with original list
+
+```python
+numbers = [1,2,3,2,1]
+
+reverse = []
+
+for num in numbers:
+    reverse = [num] + reverse
+
+if reverse == numbers:
+    print("Palindrome")
+
+else:
+    print("Not Palindrome")
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,3,2,1]
+
+print(numbers == numbers[::-1])
+```
+
+---
+
+# 15. Rotate List Left by One Position
+
+## Problem
+
+Move first element to last position.
+
+---
+
+## Without Built-in Function
+
+### Logic
+
+* Store first element
+* Shift remaining elements
+* Place first element at end
+
+```python
+numbers = [1,2,3,4]
+
+first = numbers[0]
+
+for i in range(len(numbers)-1):
+
+    numbers[i] = numbers[i+1]
+
+numbers[-1] = first
+
+print(numbers)
+```
+
+---
+
+## Using Built-in Function
+
+```python
+numbers = [1,2,3,4]
+
+print(numbers[1:] + [numbers[0]])
+```
