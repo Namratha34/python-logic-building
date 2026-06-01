@@ -1,0 +1,54 @@
+# Day 18 – Advanced List Logic Problems
+
+Today I practiced advanced Python list logic problems using both logical thinking and manual implementation.
+
+---
+
+## 1. Find Second Smallest Number
+
+### Example
+
+```python
+numbers = [7, 2, 9, 1, 5]
+```
+
+### Output
+
+```text
+2
+```
+
+---
+
+## 2. Find Difference Between Largest and Smallest Element
+
+### Example
+
+```python
+numbers = [4, 7, 2, 9, 5]
+```
+
+### Output
+
+```text
+7
+```
+
+---
+
+## 3. Check Whether a List is Sorted
+
+### Example
+
+```python
+numbers = [1, 2, 3, 4, 5]
+```
+
+### Output
+
+```text
+Sorted
+```
+
+
+Continuing to strengthen list traversal, comparison logic, and problem-solving skills in Python.
