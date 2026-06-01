@@ -11,6 +11,30 @@ Today I practiced advanced Python list logic problems using both logical thinkin
 ```python
 numbers = [7, 2, 9, 1, 5]
 ```
+numbers = [7, 2, 9, 1, 5]
+
+smallest = numbers[0]
+
+for num in numbers:
+
+    if num < smallest:
+        smallest = num
+
+new_list = []
+
+for num in numbers:
+
+    if num != smallest:
+        new_list.append(num)
+
+second_smallest = new_list[0]
+
+for num in new_list:
+
+    if num < second_smallest:
+        second_smallest = num
+
+print(second_smallest)
 
 ### Output
 
@@ -28,6 +52,23 @@ numbers = [7, 2, 9, 1, 5]
 numbers = [4, 7, 2, 9, 5]
 ```
 
+numbers = [4, 7, 2, 9, 5]
+
+largest = numbers[0]
+smallest = numbers[0]
+
+for num in numbers:
+
+    if num > largest:
+        largest = num
+
+    if num < smallest:
+        smallest = num
+
+difference = largest - smallest
+
+print(difference)
+
 ### Output
 
 ```text
@@ -43,6 +84,22 @@ numbers = [4, 7, 2, 9, 5]
 ```python
 numbers = [1, 2, 3, 4, 5]
 ```
+
+numbers = [1, 2, 3, 4, 5]
+
+is_sorted = True
+
+for i in range(len(numbers) - 1):
+
+    if numbers[i] > numbers[i + 1]:
+        is_sorted = False
+        break
+
+if is_sorted:
+    print("Sorted")
+
+else:
+    print("Not Sorted")
 
 ### Output
 
