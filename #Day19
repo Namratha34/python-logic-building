@@ -1,0 +1,218 @@
+Day 19 – Advanced List Logic Problems (4 to 10)
+
+---
+
+4. Rotate List Right by One Position
+
+Problem
+
+Rotate the list to the right by one position.
+
+Example
+
+numbers = [1, 2, 3, 4]
+
+Solution
+
+numbers = [1, 2, 3, 4]
+
+last = numbers[-1]
+
+for i in range(len(numbers) - 1, 0, -1):
+    numbers[i] = numbers[i - 1]
+
+numbers[0] = last
+
+print(numbers)
+
+Output
+
+[4, 1, 2, 3]
+
+---
+
+5. Merge Two Lists Without Duplicates
+
+Problem
+
+Merge two lists and remove duplicate elements.
+
+Example
+
+list1 = [1, 2, 3]
+list2 = [3, 4, 5]
+
+Solution
+
+list1 = [1, 2, 3]
+list2 = [3, 4, 5]
+
+result = []
+
+for num in list1 + list2:
+    if num not in result:
+        result.append(num)
+
+print(result)
+
+Output
+
+[1, 2, 3, 4, 5]
+
+---
+
+6. Find First Non-Repeated Element
+
+Problem
+
+Find the first element that appears only once.
+
+Example
+
+numbers = [2, 3, 2, 4, 4, 5]
+
+Solution
+
+numbers = [2, 3, 2, 4, 4, 5]
+
+for i in numbers:
+    count = 0
+
+    for j in numbers:
+        if i == j:
+            count += 1
+
+    if count == 1:
+        print(i)
+        break
+
+Output
+
+3
+
+---
+
+7. Find First Repeated Element
+
+Problem
+
+Find the first element that repeats in the list.
+
+Example
+
+numbers = [1, 2, 3, 2, 5]
+
+Solution
+
+numbers = [1, 2, 3, 2, 5]
+
+seen = []
+
+for num in numbers:
+
+    if num in seen:
+        print(num)
+        break
+
+    seen.append(num)
+
+Output
+
+2
+
+---
+
+8. Find Pair With Given Sum
+
+Problem
+
+Find all pairs whose sum equals the target value.
+
+Example
+
+numbers = [1, 2, 3, 4, 5]
+target = 7
+
+Solution
+
+numbers = [1, 2, 3, 4, 5]
+target = 7
+
+for i in range(len(numbers)):
+
+    for j in range(i + 1, len(numbers)):
+
+        if numbers[i] + numbers[j] == target:
+            print(numbers[i], numbers[j])
+
+Output
+
+2 5
+3 4
+
+---
+
+9. Find Element With Maximum Frequency
+
+Problem
+
+Find the element that occurs most frequently.
+
+Example
+
+numbers = [1, 2, 2, 2, 3, 3]
+
+Solution
+
+numbers = [1, 2, 2, 2, 3, 3]
+
+max_count = 0
+element = numbers[0]
+
+for i in numbers:
+
+    count = 0
+
+    for j in numbers:
+        if i == j:
+            count += 1
+
+    if count > max_count:
+        max_count = count
+        element = i
+
+print(element)
+
+Output
+
+2
+
+---
+
+10. Split List Into Two Equal Halves
+
+Problem
+
+Split a list into two equal halves.
+
+Example
+
+numbers = [1, 2, 3, 4, 5, 6]
+
+Solution
+
+numbers = [1, 2, 3, 4, 5, 6]
+
+mid = len(numbers) // 2
+
+first_half = numbers[:mid]
+second_half = numbers[mid:]
+
+print(first_half)
+print(second_half)
+
+Output
+
+[1, 2, 3]
+[4, 5, 6]
+
