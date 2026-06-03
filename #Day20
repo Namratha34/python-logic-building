@@ -1,0 +1,345 @@
+# Day 20 – Tuple Logic Problems
+
+Today I practiced tuple-based logic problems in Python to strengthen my understanding of immutable data structures and improve logical thinking.
+
+---
+
+## 1. Find Largest Element in a Tuple
+
+### Problem
+
+Find the largest element in a tuple.
+
+### Example
+
+```python
+numbers = (4, 7, 2, 9, 5)
+```
+
+### Solution
+
+```python
+numbers = (4, 7, 2, 9, 5)
+
+largest = numbers[0]
+
+for num in numbers:
+    if num > largest:
+        largest = num
+
+print(largest)
+```
+
+### Output
+
+```text
+9
+```
+
+---
+
+## 2. Find Smallest Element in a Tuple
+
+### Problem
+
+Find the smallest element in a tuple.
+
+### Example
+
+```python
+numbers = (4, 7, 2, 9, 5)
+```
+
+### Solution
+
+```python
+numbers = (4, 7, 2, 9, 5)
+
+smallest = numbers[0]
+
+for num in numbers:
+    if num < smallest:
+        smallest = num
+
+print(smallest)
+```
+
+### Output
+
+```text
+2
+```
+
+---
+
+## 3. Find Sum of Tuple Elements
+
+### Problem
+
+Find the sum of all elements in a tuple.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 4, 5)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 4, 5)
+
+total = 0
+
+for num in numbers:
+    total += num
+
+print(total)
+```
+
+### Output
+
+```text
+15
+```
+
+---
+
+## 4. Find Average of Tuple Elements
+
+### Problem
+
+Find the average of all elements in a tuple.
+
+### Example
+
+```python
+numbers = (10, 20, 30, 40)
+```
+
+### Solution
+
+```python
+numbers = (10, 20, 30, 40)
+
+total = 0
+
+for num in numbers:
+    total += num
+
+average = total / len(numbers)
+
+print(average)
+```
+
+### Output
+
+```text
+25.0
+```
+
+---
+
+## 5. Count Even Numbers in a Tuple
+
+### Problem
+
+Count the number of even elements.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 4, 5, 6)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 4, 5, 6)
+
+count = 0
+
+for num in numbers:
+    if num % 2 == 0:
+        count += 1
+
+print(count)
+```
+
+### Output
+
+```text
+3
+```
+
+---
+
+## 6. Count Odd Numbers in a Tuple
+
+### Problem
+
+Count the number of odd elements.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 4, 5, 6)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 4, 5, 6)
+
+count = 0
+
+for num in numbers:
+    if num % 2 != 0:
+        count += 1
+
+print(count)
+```
+
+### Output
+
+```text
+3
+```
+
+---
+
+## 7. Merge Two Tuples
+
+### Problem
+
+Merge two tuples into one tuple.
+
+### Example
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+```
+
+### Solution
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+
+result = tuple1 + tuple2
+
+print(result)
+```
+
+### Output
+
+```text
+(1, 2, 3, 4, 5, 6)
+```
+
+---
+
+## 8. Check Whether Two Tuples Are Equal
+
+### Problem
+
+Check if two tuples contain the same elements in the same order.
+
+### Example
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (1, 2, 3)
+```
+
+### Solution
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (1, 2, 3)
+
+if tuple1 == tuple2:
+    print("Equal")
+else:
+    print("Not Equal")
+```
+
+### Output
+
+```text
+Equal
+```
+
+---
+
+## 9. Reverse a Tuple
+
+### Problem
+
+Reverse the elements of a tuple.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 4, 5)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 4, 5)
+
+reversed_tuple = numbers[::-1]
+
+print(reversed_tuple)
+```
+
+### Output
+
+```text
+(5, 4, 3, 2, 1)
+```
+
+---
+
+## 10. Find Second Largest Element in a Tuple
+
+### Problem
+
+Find the second largest element in a tuple.
+
+### Example
+
+```python
+numbers = (4, 7, 2, 9, 5)
+```
+
+### Solution
+
+```python
+numbers = (4, 7, 2, 9, 5)
+
+largest = max(numbers)
+
+new_tuple = ()
+
+for num in numbers:
+    if num != largest:
+        new_tuple += (num,)
+
+second_largest = new_tuple[0]
+
+for num in new_tuple:
+    if num > second_largest:
+        second_largest = num
+
+print(second_largest)
+```
+
+### Output
+
+```text
+7
+```
+
