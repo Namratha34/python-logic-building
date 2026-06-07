@@ -1,42 +1,40 @@
-# Day 20 – Tuple Logic Problems with Solutions
+# Day 22 – Advanced Tuple Logic Problems
 
-## 1. Find Largest Element in a Tuple
+# 1. Find Second Smallest Element in a Tuple
 
-```python
-numbers = (4, 7, 2, 9, 5)
+## Problem
 
-largest = numbers[0]
+Find the second smallest element in a tuple.
 
-for num in numbers:
-    if num > largest:
-        largest = num
-
-print(largest)
-```
-
-**Output:**
-
-```text
-9
-```
-
----
-
-## 2. Find Smallest Element in a Tuple
+### Example
 
 ```python
-numbers = (4, 7, 2, 9, 5)
-
-smallest = numbers[0]
-
-for num in numbers:
-    if num < smallest:
-        smallest = num
-
-print(smallest)
+numbers = (7, 2, 9, 1, 5)
 ```
 
-**Output:**
+### Solution
+
+```python
+numbers = (7, 2, 9, 1, 5)
+
+smallest = min(numbers)
+
+new_tuple = ()
+
+for num in numbers:
+    if num != smallest:
+        new_tuple += (num,)
+
+second_smallest = new_tuple[0]
+
+for num in new_tuple:
+    if num < second_smallest:
+        second_smallest = num
+
+print(second_smallest)
+```
+
+### Output
 
 ```text
 2
@@ -44,175 +42,344 @@ print(smallest)
 
 ---
 
-## 3. Find Sum of Tuple Elements
+# 2. Find Difference Between Largest and Smallest Element
+
+## Problem
+
+Find the difference between the largest and smallest element.
+
+### Example
 
 ```python
-numbers = (1, 2, 3, 4, 5)
-
-total = 0
-
-for num in numbers:
-    total += num
-
-print(total)
+numbers = (4, 7, 2, 9, 5)
 ```
 
-**Output:**
-
-```text
-15
-```
-
----
-
-## 4. Find Average of Tuple Elements
-
-```python
-numbers = (10, 20, 30, 40)
-
-total = 0
-
-for num in numbers:
-    total += num
-
-print(total / len(numbers))
-```
-
-**Output:**
-
-```text
-25.0
-```
-
----
-
-## 5. Count Even Numbers in a Tuple
-
-```python
-numbers = (1, 2, 3, 4, 5, 6)
-
-count = 0
-
-for num in numbers:
-    if num % 2 == 0:
-        count += 1
-
-print(count)
-```
-
-**Output:**
-
-```text
-3
-```
-
----
-
-## 6. Count Odd Numbers in a Tuple
-
-```python
-numbers = (1, 2, 3, 4, 5, 6)
-
-count = 0
-
-for num in numbers:
-    if num % 2 != 0:
-        count += 1
-
-print(count)
-```
-
-**Output:**
-
-```text
-3
-```
-
----
-
-## 7. Merge Two Tuples
-
-```python
-tuple1 = (1, 2, 3)
-tuple2 = (4, 5, 6)
-
-result = tuple1 + tuple2
-
-print(result)
-```
-
-**Output:**
-
-```text
-(1, 2, 3, 4, 5, 6)
-```
-
----
-
-## 8. Check Whether Two Tuples Are Equal
-
-```python
-tuple1 = (1, 2, 3)
-tuple2 = (1, 2, 3)
-
-if tuple1 == tuple2:
-    print("Equal")
-else:
-    print("Not Equal")
-```
-
-**Output:**
-
-```text
-Equal
-```
-
----
-
-## 9. Reverse a Tuple
-
-```python
-numbers = (1, 2, 3, 4, 5)
-
-print(numbers[::-1])
-```
-
-**Output:**
-
-```text
-(5, 4, 3, 2, 1)
-```
-
----
-
-## 10. Find Second Largest Element in a Tuple
+### Solution
 
 ```python
 numbers = (4, 7, 2, 9, 5)
 
 largest = numbers[0]
+smallest = numbers[0]
 
 for num in numbers:
+
     if num > largest:
         largest = num
 
-new_tuple = ()
+    if num < smallest:
+        smallest = num
 
-for num in numbers:
-    if num != largest:
-        new_tuple += (num,)
-
-second_largest = new_tuple[0]
-
-for num in new_tuple:
-    if num > second_largest:
-        second_largest = num
-
-print(second_largest)
+print(largest - smallest)
 ```
 
-**Output:**
+### Output
 
 ```text
 7
 ```
+
+---
+
+# 3. Check Whether a Tuple is Sorted
+
+## Problem
+
+Check whether a tuple is sorted in ascending order.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 4, 5)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 4, 5)
+
+is_sorted = True
+
+for i in range(len(numbers) - 1):
+
+    if numbers[i] > numbers[i + 1]:
+        is_sorted = False
+        break
+
+if is_sorted:
+    print("Sorted")
+else:
+    print("Not Sorted")
+```
+
+### Output
+
+```text
+Sorted
+```
+
+---
+
+# 4. Find First Non-Repeated Element
+
+## Problem
+
+Find the first element that appears only once.
+
+### Example
+
+```python
+numbers = (2, 3, 2, 4, 4, 5)
+```
+
+### Solution
+
+```python
+numbers = (2, 3, 2, 4, 4, 5)
+
+for i in numbers:
+
+    count = 0
+
+    for j in numbers:
+
+        if i == j:
+            count += 1
+
+    if count == 1:
+        print(i)
+        break
+```
+
+### Output
+
+```text
+3
+```
+
+---
+
+# 5. Find First Repeated Element
+
+## Problem
+
+Find the first element that repeats.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 2, 5)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 2, 5)
+
+seen = ()
+
+for num in numbers:
+
+    if num in seen:
+        print(num)
+        break
+
+    seen += (num,)
+```
+
+### Output
+
+```text
+2
+```
+
+---
+
+# 6. Find Pair With Given Sum
+
+## Problem
+
+Find all pairs whose sum equals the target.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 4, 5)
+target = 7
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 4, 5)
+target = 7
+
+for i in range(len(numbers)):
+
+    for j in range(i + 1, len(numbers)):
+
+        if numbers[i] + numbers[j] == target:
+            print(numbers[i], numbers[j])
+```
+
+### Output
+
+```text
+2 5
+3 4
+```
+
+---
+
+# 7. Find Element With Maximum Frequency
+
+## Problem
+
+Find the element that occurs most frequently.
+
+### Example
+
+```python
+numbers = (1, 2, 2, 2, 3, 3)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 2, 2, 3, 3)
+
+max_count = 0
+element = numbers[0]
+
+for i in numbers:
+
+    count = 0
+
+    for j in numbers:
+
+        if i == j:
+            count += 1
+
+    if count > max_count:
+        max_count = count
+        element = i
+
+print(element)
+```
+
+### Output
+
+```text
+2
+```
+
+---
+
+# 8. Count Frequency of Each Element
+
+## Problem
+
+Count the frequency of every element.
+
+### Example
+
+```python
+numbers = (1, 2, 2, 3, 3, 3)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 2, 3, 3, 3)
+
+checked = ()
+
+for i in numbers:
+
+    if i not in checked:
+
+        count = 0
+
+        for j in numbers:
+
+            if i == j:
+                count += 1
+
+        print(i, "->", count)
+
+        checked += (i,)
+```
+
+### Output
+
+```text
+1 -> 1
+2 -> 2
+3 -> 3
+```
+
+---
+
+# 9. Check Whether Two Tuples Contain Same Elements
+
+## Problem
+
+Check whether two tuples contain the same elements.
+
+### Example
+
+```python
+t1 = (1, 2, 3)
+t2 = (3, 2, 1)
+```
+
+### Solution
+
+```python
+t1 = (1, 2, 3)
+t2 = (3, 2, 1)
+
+if sorted(t1) == sorted(t2):
+    print("Same Elements")
+else:
+    print("Different")
+```
+
+### Output
+
+```text
+Same Elements
+```
+
+---
+
+# 10. Find Common Elements Between Two Tuples
+
+## Problem
+
+Find common elements present in both tuples.
+
+### Example
+
+```python
+t1 = (1, 2, 3, 4)
+t2 = (3, 4, 5, 6)
+```
+
+### Solution
+
+```python
+t1 = (1, 2, 3, 4)
+t2 = (3, 4, 5, 6)
+
+for num in t1:
+
+    if num in t2:
+        print(num)
+```
+
+### Output
+
+```text
+3
+4
