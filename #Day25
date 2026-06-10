@@ -1,0 +1,477 @@
+# Day 22 – Dictionary Logic Problems 
+
+Today I started learning Dictionary-based logic problems in Python.
+
+A Dictionary stores data as:
+
+```python
+key : value
+```
+
+Example:
+
+```python
+student = {
+    "name": "Ram",
+    "age": 25
+}
+```
+
+---
+
+# 1. Count Frequency of Each Element
+
+## Problem
+
+Count how many times each element appears.
+
+### Example
+
+```python
+numbers = [1, 2, 2, 3, 3, 3]
+```
+
+---
+
+## Built-in Dictionary Solution
+
+```python
+numbers = [1, 2, 2, 3, 3, 3]
+
+freq = {}
+
+for num in numbers:
+    freq[num] = freq.get(num, 0) + 1
+
+print(freq)
+```
+
+### Output
+
+```python
+{1: 1, 2: 2, 3: 3}
+```
+
+---
+
+## Pure Logic Solution
+
+```python
+numbers = [1, 2, 2, 3, 3, 3]
+
+freq = {}
+
+for num in numbers:
+
+    count = 0
+
+    for item in numbers:
+
+        if num == item:
+            count += 1
+
+    freq[num] = count
+
+print(freq)
+```
+
+---
+
+# 2. Find First Non-Repeated Character
+
+## Problem
+
+Find the first character that appears only once.
+
+### Example
+
+```python
+word = "swiss"
+```
+
+---
+
+## Built-in Dictionary Solution
+
+```python
+word = "swiss"
+
+freq = {}
+
+for ch in word:
+    freq[ch] = freq.get(ch, 0) + 1
+
+for ch in word:
+
+    if freq[ch] == 1:
+        print(ch)
+        break
+```
+
+### Output
+
+```python
+w
+```
+
+---
+
+## Pure Logic Solution
+
+```python
+word = "swiss"
+
+for ch in word:
+
+    count = 0
+
+    for c in word:
+
+        if ch == c:
+            count += 1
+
+    if count == 1:
+        print(ch)
+        break
+```
+
+---
+
+# 3. Find Most Frequent Element
+
+## Problem
+
+Find the element occurring maximum times.
+
+### Example
+
+```python
+numbers = [1,2,2,2,3,3]
+```
+
+---
+
+## Built-in Dictionary Solution
+
+```python
+numbers = [1,2,2,2,3,3]
+
+freq = {}
+
+for num in numbers:
+    freq[num] = freq.get(num,0) + 1
+
+max_key = max(freq, key=freq.get)
+
+print(max_key)
+```
+
+### Output
+
+```python
+2
+```
+
+---
+
+## Pure Logic Solution
+
+```python
+numbers = [1,2,2,2,3,3]
+
+max_count = 0
+element = numbers[0]
+
+for i in numbers:
+
+    count = 0
+
+    for j in numbers:
+
+        if i == j:
+            count += 1
+
+    if count > max_count:
+        max_count = count
+        element = i
+
+print(element)
+```
+
+---
+
+# 4. Count Vowels in a String
+
+## Problem
+
+Count occurrences of vowels.
+
+### Example
+
+```python
+word = "programming"
+```
+
+---
+
+## Built-in Dictionary Solution
+
+```python
+word = "programming"
+
+vowels = "aeiou"
+
+result = {}
+
+for ch in word:
+
+    if ch in vowels:
+        result[ch] = result.get(ch,0) + 1
+
+print(result)
+```
+
+### Output
+
+```python
+{'o':1,'a':1,'i':1}
+```
+
+---
+
+## Pure Logic Solution
+
+```python
+word = "programming"
+
+vowels = "aeiou"
+
+for v in vowels:
+
+    count = 0
+
+    for ch in word:
+
+        if v == ch:
+            count += 1
+
+    if count > 0:
+        print(v, count)
+```
+
+---
+
+# 5. Create Dictionary from Two Lists
+
+## Problem
+
+Create a dictionary using keys and values.
+
+### Example
+
+```python
+keys = ["name","age"]
+values = ["Ram",25]
+```
+
+---
+
+## Built-in Solution
+
+```python
+keys = ["name","age"]
+values = ["Ram",25]
+
+result = dict(zip(keys, values))
+
+print(result)
+```
+
+### Output
+
+```python
+{'name':'Ram','age':25}
+```
+
+---
+
+## Pure Logic Solution
+
+```python
+keys = ["name","age"]
+values = ["Ram",25]
+
+result = {}
+
+for i in range(len(keys)):
+
+    result[keys[i]] = values[i]
+
+print(result)
+```
+
+---
+
+# 6. Invert a Dictionary
+
+## Problem
+
+Swap keys and values.
+
+### Example
+
+```python
+d = {'a':1,'b':2}
+```
+
+---
+
+## Built-in Solution
+
+```python
+d = {'a':1,'b':2}
+
+result = {v:k for k,v in d.items()}
+
+print(result)
+```
+
+### Output
+
+```python
+{1:'a',2:'b'}
+```
+
+---
+
+## Pure Logic Solution
+
+```python
+d = {'a':1,'b':2}
+
+result = {}
+
+for key in d:
+
+    value = d[key]
+
+    result[value] = key
+
+print(result)
+```
+
+---
+
+# 7. Merge Two Dictionaries
+
+## Problem
+
+Merge two dictionaries.
+
+### Example
+
+```python
+d1 = {'a':1}
+d2 = {'b':2}
+```
+
+---
+
+## Built-in Solution
+
+```python
+d1 = {'a':1}
+d2 = {'b':2}
+
+result = d1 | d2
+
+print(result)
+```
+
+### Output
+
+```python
+{'a':1,'b':2}
+```
+
+---
+
+## Pure Logic Solution
+
+```python
+d1 = {'a':1}
+d2 = {'b':2}
+
+result = {}
+
+for key in d1:
+    result[key] = d1[key]
+
+for key in d2:
+    result[key] = d2[key]
+
+print(result)
+```
+
+---
+
+# 8. Find Duplicate Elements Using Dictionary
+
+## Problem
+
+Find elements occurring more than once.
+
+### Example
+
+```python
+numbers = [1,2,3,2,1]
+```
+
+---
+
+## Built-in Dictionary Solution
+
+```python
+numbers = [1,2,3,2,1]
+
+freq = {}
+
+for num in numbers:
+    freq[num] = freq.get(num,0) + 1
+
+for key in freq:
+
+    if freq[key] > 1:
+        print(key)
+```
+
+### Output
+
+```python
+1
+2
+```
+
+---
+
+## Pure Logic Solution
+
+```python
+numbers = [1,2,3,2,1]
+
+printed = []
+
+for i in numbers:
+
+    count = 0
+
+    for j in numbers:
+
+        if i == j:
+            count += 1
+
+    if count > 1 and i not in printed:
+
+        print(i)
+
+        printed.append(i)
