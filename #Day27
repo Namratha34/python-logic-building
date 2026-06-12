@@ -1,0 +1,129 @@
+# Day 27– Remaining Advanced Dictionary Logic Problems
+
+## 11. Count Frequency of Each Word Ignoring Case
+
+### Problem
+
+Count occurrences of words without considering uppercase and lowercase letters.
+
+### Example
+
+```python
+sentence = "Python python JAVA java"
+```
+
+### Output
+
+```python
+{
+    'python': 2,
+    'java': 2
+}
+```
+
+---
+
+### Built-in Solution
+
+```python
+sentence = "Python python JAVA java"
+
+words = sentence.lower().split()
+
+freq = {}
+
+for word in words:
+    freq[word] = freq.get(word, 0) + 1
+
+print(freq)
+```
+
+---
+
+### Pure Logic Solution
+
+```python
+sentence = "Python python JAVA java"
+
+words = sentence.split()
+
+for i in range(len(words)):
+    words[i] = words[i].lower()
+
+freq = {}
+
+for word in words:
+
+    count = 0
+
+    for w in words:
+
+        if word == w:
+            count += 1
+
+    freq[word] = count
+
+print(freq)
+```
+
+---
+
+## 12. Find First Unique Character Using Dictionary
+
+### Problem
+
+Find the first character that appears only once.
+
+### Example
+
+```python
+word = "aabbcdde"
+```
+
+### Output
+
+```python
+c
+```
+
+---
+
+### Built-in Solution
+
+```python
+word = "aabbcdde"
+
+freq = {}
+
+for ch in word:
+    freq[ch] = freq.get(ch, 0) + 1
+
+for ch in word:
+
+    if freq[ch] == 1:
+        print(ch)
+        break
+```
+
+---
+
+### Pure Logic Solution
+
+```python
+word = "aabbcdde"
+
+for ch in word:
+
+    count = 0
+
+    for c in word:
+
+        if ch == c:
+            count += 1
+
+    if count == 1:
+        print(ch)
+        break
+
+
+Dictionary Logic Coverage: **100% (Beginner → Intermediate → Advanced)**
