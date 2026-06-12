@@ -1,0 +1,464 @@
+# Day 26 – Advanced Dictionary Logic Problems
+
+
+---
+
+# 1. Find Character Frequency in a String
+
+## Problem
+
+Count frequency of each character.
+
+### Example
+
+```python
+word = "banana"
+```
+
+## Built-in Dictionary Solution
+
+```python
+word = "banana"
+
+freq = {}
+
+for ch in word:
+    freq[ch] = freq.get(ch, 0) + 1
+
+print(freq)
+```
+
+### Output
+
+```python
+{'b':1, 'a':3, 'n':2}
+```
+
+## Pure Logic Solution
+
+```python
+word = "banana"
+
+freq = {}
+
+for ch in word:
+
+    count = 0
+
+    for c in word:
+
+        if ch == c:
+            count += 1
+
+    freq[ch] = count
+
+print(freq)
+```
+
+---
+
+# 2. Find Word Frequency in a Sentence
+
+## Problem
+
+Count occurrences of each word.
+
+### Example
+
+```python
+sentence = "python is good python is easy"
+```
+
+## Built-in Dictionary Solution
+
+```python
+sentence = "python is good python is easy"
+
+words = sentence.split()
+
+freq = {}
+
+for word in words:
+    freq[word] = freq.get(word, 0) + 1
+
+print(freq)
+```
+
+### Output
+
+```python
+{'python':2, 'is':2, 'good':1, 'easy':1}
+```
+
+## Pure Logic Solution
+
+```python
+words = ["python","is","good","python","is","easy"]
+
+freq = {}
+
+for word in words:
+
+    count = 0
+
+    for w in words:
+
+        if word == w:
+            count += 1
+
+    freq[word] = count
+
+print(freq)
+```
+
+---
+
+# 3. Find the Most Frequent Character
+
+## Problem
+
+Find the character appearing maximum times.
+
+### Example
+
+```python
+word = "programming"
+```
+
+## Built-in Dictionary Solution
+
+```python
+word = "programming"
+
+freq = {}
+
+for ch in word:
+    freq[ch] = freq.get(ch,0) + 1
+
+print(max(freq, key=freq.get))
+```
+
+### Output
+
+```python
+g
+```
+
+## Pure Logic Solution
+
+```python
+word = "programming"
+
+max_count = 0
+answer = ""
+
+for ch in word:
+
+    count = 0
+
+    for c in word:
+
+        if ch == c:
+            count += 1
+
+    if count > max_count:
+        max_count = count
+        answer = ch
+
+print(answer)
+```
+
+---
+
+# 4. Check Whether Two Strings are Anagrams
+
+## Problem
+
+Check whether both strings contain the same characters.
+
+### Example
+
+```python
+s1 = "listen"
+s2 = "silent"
+```
+
+## Built-in Dictionary Solution
+
+```python
+s1 = "listen"
+s2 = "silent"
+
+freq1 = {}
+freq2 = {}
+
+for ch in s1:
+    freq1[ch] = freq1.get(ch,0) + 1
+
+for ch in s2:
+    freq2[ch] = freq2.get(ch,0) + 1
+
+print(freq1 == freq2)
+```
+
+### Output
+
+```python
+True
+```
+
+## Pure Logic Solution
+
+```python
+s1 = "listen"
+s2 = "silent"
+
+if len(s1) != len(s2):
+    print(False)
+
+else:
+
+    matched = True
+
+    for ch in s1:
+
+        count1 = 0
+        count2 = 0
+
+        for c in s1:
+            if c == ch:
+                count1 += 1
+
+        for c in s2:
+            if c == ch:
+                count2 += 1
+
+        if count1 != count2:
+            matched = False
+            break
+
+    print(matched)
+```
+
+---
+
+# 5. Group Elements by Frequency
+
+## Problem
+
+Display each element with its count.
+
+### Example
+
+```python
+numbers = [1,2,2,3,3,3]
+```
+
+## Built-in Dictionary Solution
+
+```python
+numbers = [1,2,2,3,3,3]
+
+freq = {}
+
+for num in numbers:
+    freq[num] = freq.get(num,0) + 1
+
+for key,value in freq.items():
+    print(key, value)
+```
+
+### Output
+
+```python
+1 1
+2 2
+3 3
+```
+
+## Pure Logic Solution
+
+```python
+numbers = [1,2,2,3,3,3]
+
+checked = []
+
+for i in numbers:
+
+    if i not in checked:
+
+        count = 0
+
+        for j in numbers:
+
+            if i == j:
+                count += 1
+
+        print(i, count)
+
+        checked.append(i)
+```
+
+---
+
+# 6. Find Duplicate Characters in a String
+
+## Problem
+
+Print characters appearing more than once.
+
+### Example
+
+```python
+word = "programming"
+```
+
+## Built-in Dictionary Solution
+
+```python
+word = "programming"
+
+freq = {}
+
+for ch in word:
+    freq[ch] = freq.get(ch,0) + 1
+
+for key in freq:
+
+    if freq[key] > 1:
+        print(key)
+```
+
+### Output
+
+```python
+r
+g
+m
+```
+
+## Pure Logic Solution
+
+```python
+word = "programming"
+
+printed = []
+
+for ch in word:
+
+    count = 0
+
+    for c in word:
+
+        if ch == c:
+            count += 1
+
+    if count > 1 and ch not in printed:
+
+        print(ch)
+
+        printed.append(ch)
+```
+
+---
+
+# 7. Find First Repeated Character
+
+## Problem
+
+Find the first character that repeats.
+
+### Example
+
+```python
+word = "swiss"
+```
+
+## Built-in Dictionary Solution
+
+```python
+word = "swiss"
+
+seen = {}
+
+for ch in word:
+
+    if ch in seen:
+        print(ch)
+        break
+
+    seen[ch] = 1
+```
+
+### Output
+
+```python
+s
+```
+
+## Pure Logic Solution
+
+```python
+word = "swiss"
+
+checked = ""
+
+for ch in word:
+
+    if ch in checked:
+        print(ch)
+        break
+
+    checked += ch
+```
+
+---
+
+# 8. Sort Dictionary by Value
+
+## Problem
+
+Sort dictionary according to values.
+
+### Example
+
+```python
+d = {'a':3,'b':1,'c':2}
+```
+
+## Built-in Solution
+
+```python
+d = {'a':3,'b':1,'c':2}
+
+result = dict(sorted(d.items(), key=lambda x:x[1]))
+
+print(result)
+```
+
+### Output
+
+```python
+{'b':1,'c':2,'a':3}
+```
+
+## Pure Logic Solution
+
+```python
+d = {'a':3,'b':1,'c':2}
+
+keys = list(d.keys())
+
+for i in range(len(keys)):
+
+    for j in range(i+1,len(keys)):
+
+        if d[keys[i]] > d[keys[j]]:
+
+            keys[i], keys[j] = keys[j], keys[i]
+
+for key in keys:
+    print(key, d[key])
+```
+
+
