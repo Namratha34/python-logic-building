@@ -1,375 +1,345 @@
-# Advanced List Logic Problems
-These problems help strengthen problem-solving skills beyond the standard list operations.
+# Day 21 – Tuple Logic Problems
+
+Today I practiced tuple-based logic problems in Python to strengthen my understanding of immutable data structures and improve logical thinking.
 
 ---
 
-# 1. Find All Pairs With a Given Sum
+## 1. Find Largest Element in a Tuple
 
-## Problem
+### Problem
 
-Find all pairs whose sum equals the target.
+Find the largest element in a tuple.
 
 ### Example
 
 ```python
-numbers = [1, 2, 3, 4, 5]
-target = 6
+numbers = (4, 7, 2, 9, 5)
+```
+
+### Solution
+
+```python
+numbers = (4, 7, 2, 9, 5)
+
+largest = numbers[0]
+
+for num in numbers:
+    if num > largest:
+        largest = num
+
+print(largest)
 ```
 
 ### Output
 
 ```text
-(1, 5)
-(2, 4)
-```
-
-## Pure Logic Solution
-
-```python
-numbers = [1, 2, 3, 4, 5]
-target = 6
-
-for i in range(len(numbers)):
-    for j in range(i + 1, len(numbers)):
-        if numbers[i] + numbers[j] == target:
-            print(numbers[i], numbers[j])
+9
 ```
 
 ---
 
-# 2. Find All Triplets With a Given Sum
+## 2. Find Smallest Element in a Tuple
 
-## Problem
+### Problem
 
-Find all triplets whose sum equals the target.
+Find the smallest element in a tuple.
 
 ### Example
 
 ```python
-numbers = [1, 2, 3, 4, 5]
-target = 9
+numbers = (4, 7, 2, 9, 5)
+```
+
+### Solution
+
+```python
+numbers = (4, 7, 2, 9, 5)
+
+smallest = numbers[0]
+
+for num in numbers:
+    if num < smallest:
+        smallest = num
+
+print(smallest)
 ```
 
 ### Output
 
 ```text
-1 3 5
-2 3 4
-```
-
-## Pure Logic Solution
-
-```python
-numbers = [1, 2, 3, 4, 5]
-target = 9
-
-for i in range(len(numbers)):
-    for j in range(i + 1, len(numbers)):
-        for k in range(j + 1, len(numbers)):
-            if numbers[i] + numbers[j] + numbers[k] == target:
-                print(numbers[i], numbers[j], numbers[k])
+2
 ```
 
 ---
 
-# 3. Rotate List by K Positions
+## 3. Find Sum of Tuple Elements
 
-## Problem
+### Problem
 
-Rotate the list to the right by K positions.
-
-### Example
-
-```python
-numbers = [1, 2, 3, 4, 5]
-k = 3
-```
-
-### Output
-
-```python
-[3, 4, 5, 1, 2]
-```
-
-## Built-in Solution
-
-```python
-numbers = [1, 2, 3, 4, 5]
-k = 3
-
-result = numbers[-k:] + numbers[:-k]
-
-print(result)
-```
-
-## Pure Logic Solution
-
-```python
-numbers = [1, 2, 3, 4, 5]
-k = 3
-
-for _ in range(k):
-
-    last = numbers[-1]
-
-    for i in range(len(numbers) - 1, 0, -1):
-        numbers[i] = numbers[i - 1]
-
-    numbers[0] = last
-
-print(numbers)
-```
-
----
-
-# 4. Find Intersection of Three Lists
-
-## Problem
-
-Find common elements present in all three lists.
+Find the sum of all elements in a tuple.
 
 ### Example
 
 ```python
-list1 = [1, 2, 3, 4]
-list2 = [2, 3, 5]
-list3 = [2, 3, 6]
+numbers = (1, 2, 3, 4, 5)
 ```
 
-### Output
+### Solution
 
 ```python
-[2, 3]
-```
+numbers = (1, 2, 3, 4, 5)
 
-## Built-in Solution
+total = 0
 
-```python
-list1 = [1, 2, 3, 4]
-list2 = [2, 3, 5]
-list3 = [2, 3, 6]
+for num in numbers:
+    total += num
 
-result = list(set(list1) & set(list2) & set(list3))
-
-print(result)
-```
-
-## Pure Logic Solution
-
-```python
-list1 = [1, 2, 3, 4]
-list2 = [2, 3, 5]
-list3 = [2, 3, 6]
-
-result = []
-
-for num in list1:
-    if num in list2 and num in list3:
-        result.append(num)
-
-print(result)
-```
-
----
-
-# 5. Find Union of Two Lists Without Duplicates
-
-## Problem
-
-Combine two lists and remove duplicates.
-
-### Example
-
-```python
-list1 = [1, 2, 3]
-list2 = [3, 4, 5]
-```
-
-### Output
-
-```python
-[1, 2, 3, 4, 5]
-```
-
-## Built-in Solution
-
-```python
-list1 = [1, 2, 3]
-list2 = [3, 4, 5]
-
-result = list(set(list1 + list2))
-
-print(result)
-```
-
-## Pure Logic Solution
-
-```python
-list1 = [1, 2, 3]
-list2 = [3, 4, 5]
-
-result = []
-
-for num in list1 + list2:
-    if num not in result:
-        result.append(num)
-
-print(result)
-```
-
----
-
-# 6. Check Whether One List is a Subset of Another
-
-## Problem
-
-Check whether all elements of list2 exist in list1.
-
-### Example
-
-```python
-list1 = [1, 2, 3, 4, 5]
-list2 = [2, 3]
+print(total)
 ```
 
 ### Output
 
 ```text
-Subset
+15
 ```
 
-## Built-in Solution
+---
+
+## 4. Find Average of Tuple Elements
+
+### Problem
+
+Find the average of all elements in a tuple.
+
+### Example
 
 ```python
-list1 = [1, 2, 3, 4, 5]
-list2 = [2, 3]
-
-if set(list2).issubset(set(list1)):
-    print("Subset")
-else:
-    print("Not Subset")
+numbers = (10, 20, 30, 40)
 ```
 
-## Pure Logic Solution
+### Solution
 
 ```python
-list1 = [1, 2, 3, 4, 5]
-list2 = [2, 3]
+numbers = (10, 20, 30, 40)
+
+total = 0
+
+for num in numbers:
+    total += num
+
+average = total / len(numbers)
+
+print(average)
+```
+
+### Output
+
+```text
+25.0
+```
+
+---
+
+## 5. Count Even Numbers in a Tuple
+
+### Problem
+
+Count the number of even elements.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 4, 5, 6)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 4, 5, 6)
 
 count = 0
 
-for num in list2:
-    if num in list1:
+for num in numbers:
+    if num % 2 == 0:
         count += 1
 
-if count == len(list2):
-    print("Subset")
-else:
-    print("Not Subset")
-```
-
----
-
-# 7. Find Leaders in a List
-
-## Problem
-
-An element is a leader if it is greater than all elements to its right.
-
-### Example
-
-```python
-numbers = [16, 17, 4, 3, 5, 2]
+print(count)
 ```
 
 ### Output
 
-```python
-[17, 5, 2]
-```
-
-## Pure Logic Solution
-
-```python
-numbers = [16, 17, 4, 3, 5, 2]
-
-leaders = []
-
-for i in range(len(numbers)):
-
-    is_leader = True
-
-    for j in range(i + 1, len(numbers)):
-
-        if numbers[j] > numbers[i]:
-            is_leader = False
-            break
-
-    if is_leader:
-        leaders.append(numbers[i])
-
-print(leaders)
+```text
+3
 ```
 
 ---
 
-# 8. Find Longest Consecutive Sequence
+## 6. Count Odd Numbers in a Tuple
 
-## Problem
+### Problem
 
-Find the longest sequence of consecutive numbers.
+Count the number of odd elements.
 
 ### Example
 
 ```python
-numbers = [100, 4, 200, 1, 3, 2]
+numbers = (1, 2, 3, 4, 5, 6)
 ```
 
-### Output
+### Solution
 
 ```python
-[1, 2, 3, 4]
-```
+numbers = (1, 2, 3, 4, 5, 6)
 
-## Built-in Solution
-
-```python
-numbers = [100, 4, 200, 1, 3, 2]
-
-numbers.sort()
-
-sequence = []
+count = 0
 
 for num in numbers:
-    if num in [1, 2, 3, 4]:
-        sequence.append(num)
+    if num % 2 != 0:
+        count += 1
 
-print(sequence)
+print(count)
 ```
 
-## Pure Logic Solution
+### Output
+
+```text
+3
+```
+
+---
+
+## 7. Merge Two Tuples
+
+### Problem
+
+Merge two tuples into one tuple.
+
+### Example
 
 ```python
-numbers = [100, 4, 200, 1, 3, 2]
-
-numbers = sorted(numbers)
-
-result = [numbers[0]]
-best = []
-
-for i in range(1, len(numbers)):
-
-    if numbers[i] == numbers[i - 1] + 1:
-        result.append(numbers[i])
-
-    else:
-        if len(result) > len(best):
-            best = result
-
-        result = [numbers[i]]
-
-if len(result) > len(best):
-    best = result
-
-print(best)
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
 ```
+
+### Solution
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+
+result = tuple1 + tuple2
+
+print(result)
+```
+
+### Output
+
+```text
+(1, 2, 3, 4, 5, 6)
+```
+
+---
+
+## 8. Check Whether Two Tuples Are Equal
+
+### Problem
+
+Check if two tuples contain the same elements in the same order.
+
+### Example
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (1, 2, 3)
+```
+
+### Solution
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (1, 2, 3)
+
+if tuple1 == tuple2:
+    print("Equal")
+else:
+    print("Not Equal")
+```
+
+### Output
+
+```text
+Equal
+```
+
+---
+
+## 9. Reverse a Tuple
+
+### Problem
+
+Reverse the elements of a tuple.
+
+### Example
+
+```python
+numbers = (1, 2, 3, 4, 5)
+```
+
+### Solution
+
+```python
+numbers = (1, 2, 3, 4, 5)
+
+reversed_tuple = numbers[::-1]
+
+print(reversed_tuple)
+```
+
+### Output
+
+```text
+(5, 4, 3, 2, 1)
+```
+
+---
+
+## 10. Find Second Largest Element in a Tuple
+
+### Problem
+
+Find the second largest element in a tuple.
+
+### Example
+
+```python
+numbers = (4, 7, 2, 9, 5)
+```
+
+### Solution
+
+```python
+numbers = (4, 7, 2, 9, 5)
+
+largest = max(numbers)
+
+new_tuple = ()
+
+for num in numbers:
+    if num != largest:
+        new_tuple += (num,)
+
+second_largest = new_tuple[0]
+
+for num in new_tuple:
+    if num > second_largest:
+        second_largest = num
+
+print(second_largest)
+```
+
+### Output
+
+```text
+7
+```
+
