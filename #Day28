@@ -1,0 +1,327 @@
+# Day 28 – Python f-Strings
+
+Today I learned about **Python f-Strings (Formatted String Literals)**, one of the most convenient ways to format strings in Python.
+
+---
+
+# What is an f-String?
+
+An f-String allows variables and expressions to be embedded directly inside a string using curly braces `{}`.
+
+Syntax:
+
+```python
+f"Text {variable}"
+```
+
+Example:
+
+```python
+name = "Ram"
+
+print(f"Hello {name}")
+```
+
+Output:
+
+```text
+Hello Ram
+```
+
+---
+
+# 1. Print a Variable Using f-String
+
+### Example
+
+```python
+name = "John"
+
+print(f"My name is {name}")
+```
+
+### Output
+
+```text
+My name is John
+```
+
+---
+
+# 2. Print Multiple Variables
+
+### Example
+
+```python
+name = "John"
+age = 25
+
+print(f"My name is {name} and I am {age} years old.")
+```
+
+### Output
+
+```text
+My name is John and I am 25 years old.
+```
+
+---
+
+# 3. Perform Calculations Inside f-String
+
+### Example
+
+```python
+a = 10
+b = 20
+
+print(f"Sum = {a + b}")
+```
+
+### Output
+
+```text
+Sum = 30
+```
+
+---
+
+# 4. Display Square of a Number
+
+### Example
+
+```python
+num = 5
+
+print(f"Square of {num} is {num ** 2}")
+```
+
+### Output
+
+```text
+Square of 5 is 25
+```
+
+---
+
+# 5. Format Floating Point Numbers
+
+### Example
+
+```python
+pi = 3.14159265
+
+print(f"{pi:.2f}")
+```
+
+### Output
+
+```text
+3.14
+```
+
+---
+
+# 6. Display Percentage
+
+### Example
+
+```python
+score = 0.85
+
+print(f"{score:.0%}")
+```
+
+### Output
+
+```text
+85%
+```
+
+---
+
+# 7. Align Text
+
+### Left Alignment
+
+```python
+name = "Python"
+
+print(f"{name:<10}")
+```
+
+### Right Alignment
+
+```python
+name = "Python"
+
+print(f"{name:>10}")
+```
+
+### Center Alignment
+
+```python
+name = "Python"
+
+print(f"{name:^10}")
+```
+
+---
+
+# 8. Add Leading Zeros
+
+### Example
+
+```python
+number = 7
+
+print(f"{number:03}")
+```
+
+### Output
+
+```text
+007
+```
+
+---
+
+# 9. Format Currency Values
+
+### Example
+
+```python
+amount = 1234567
+
+print(f"{amount:,}")
+```
+
+### Output
+
+```text
+1,234,567
+```
+
+---
+
+# 10. Use Expressions Directly
+
+### Example
+
+```python
+x = 10
+
+print(f"{x} doubled is {x * 2}")
+```
+
+### Output
+
+```text
+10 doubled is 20
+```
+
+---
+
+# Comparison with Older Methods
+
+## Using Concatenation
+
+```python
+name = "John"
+
+print("Hello " + name)
+```
+
+---
+
+## Using format()
+
+```python
+name = "John"
+
+print("Hello {}".format(name))
+```
+
+---
+
+## Using f-Strings
+
+```python
+name = "John"
+
+print(f"Hello {name}")
+```
+
+Recommended: f-Strings
+
+---
+
+# Advantages of f-Strings
+
+* Easy to read
+* Faster than format()
+* Cleaner code
+* Supports expressions directly
+* Widely used in modern Python
+
+---
+
+# Practice Exercises
+
+### 1.
+
+```python
+name = "Alice"
+age = 22
+```
+
+Output:
+
+```text
+My name is Alice and I am 22 years old.
+```
+
+---
+
+### 2.
+
+```python
+price = 49.99
+quantity = 3
+```
+
+Output:
+
+```text
+Total = 149.97
+```
+
+---
+
+### 3.
+
+```python
+number = 8
+```
+
+Output:
+
+```text
+Cube of 8 is 512
+```
+
+---
+
+### 4.
+
+```python
+marks = 87.456
+```
+
+Output:
+
+```text
+87.46
+```
+
+ions
