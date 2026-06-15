@@ -165,8 +165,12 @@ name = "Python"
 
 print(f"{name:^10}")
 ```
+outputs::
 
----
+|Python    |
+|    Python|
+|  Python  |
+--
 
 # 8. Add Leading Zeros
 
