@@ -2,8 +2,6 @@
 
 Today I learned **Recursion**, a technique where a function calls itself to solve a smaller version of the same problem.
 
----
-
 # What is Recursion?
 
 Recursion is a process in which a function calls itself.
@@ -12,8 +10,6 @@ Every recursive function must have:
 
 1. Base Case (Stopping Condition)
 2. Recursive Call
-
----
 
 ## Example
 
@@ -466,16 +462,3 @@ def binary_search(arr, left, right, target):
         return binary_search(arr, left, mid - 1, target)
 
     return binary_search(arr, mid + 1, right, target)
-```
-
----
-
-# Recursion vs Loop
-
-| Loop                       | Recursion                       |
-| -------------------------- | ------------------------------- |
-| Uses iteration             | Uses function calls             |
-| Faster                     | Slightly slower                 |
-| Less memory                | More memory                     |
-| Easier for simple problems | Useful for recursive structures |
-
