@@ -1,0 +1,291 @@
+# Day 29 – Docstrings and PEP 8
+
+Today I learned about **Docstrings** and **PEP 8**, which help in writing clean, readable, and professional Python code.
+
+---
+
+# What is a Docstring?
+
+A Docstring is a string enclosed within triple quotes (`""" """`) used to describe the purpose of a function, class, or module.
+
+## Example
+
+```python
+def greet():
+    """Prints a welcome message."""
+    print("Hello")
+```
+
+---
+
+# Accessing a Docstring
+
+## Example
+
+```python
+def greet():
+    """Prints a welcome message."""
+    print("Hello")
+
+
+print(greet.__doc__)
+```
+
+## Output
+
+```text
+Prints a welcome message.
+```
+
+---
+
+# Function Docstring
+
+## Example
+
+```python
+def add(a, b):
+    """
+    Returns the sum of two numbers.
+    """
+    return a + b
+
+
+print(add(10, 20))
+```
+
+## Output
+
+```text
+30
+```
+
+---
+
+# Multi-Line Docstring
+
+## Example
+
+```python
+def square(number):
+    """
+    This function calculates
+    the square of a number.
+    """
+    return number * number
+```
+
+---
+
+# Why Use Docstrings?
+
+* Explains code purpose
+* Improves readability
+* Helps other developers
+* Used by documentation tools
+* Makes code easier to maintain
+
+---
+
+# What is PEP 8?
+
+PEP 8 stands for:
+
+```text
+Python Enhancement Proposal 8
+```
+
+It is the official style guide for Python code.
+
+PEP 8 provides recommendations for writing clean and readable programs.
+
+---
+
+# PEP 8 Rules
+
+## 1. Use Meaningful Variable Names
+
+### Bad
+
+```python
+a = 10
+b = 20
+```
+
+### Good
+
+```python
+age = 10
+salary = 20
+```
+
+---
+
+## 2. Use Snake Case Naming
+
+### Good
+
+```python
+student_name = "Ram"
+total_marks = 450
+```
+
+### Bad
+
+```python
+studentName = "Ram"
+TotalMarks = 450
+```
+
+---
+
+## 3. Add Spaces Around Operators
+
+### Good
+
+```python
+x = 10 + 20
+```
+
+### Bad
+
+```python
+x=10+20
+```
+
+---
+
+## 4. Proper Indentation
+
+Python recommends 4 spaces.
+
+### Example
+
+```python
+if True:
+    print("Hello")
+```
+
+---
+
+## 5. Keep Lines Short
+
+Recommended maximum:
+
+```text
+79 characters per line
+```
+
+---
+
+## 6. Leave Blank Lines Between Functions
+
+### Example
+
+```python
+def add():
+    pass
+
+
+def subtract():
+    pass
+```
+
+---
+
+## 7. Place Imports at the Top
+
+### Example
+
+```python
+import math
+
+print(math.sqrt(25))
+```
+
+---
+
+# PEP 8 Example Program
+
+```python
+def calculate_square(number):
+    """
+    Returns the square of a number.
+    """
+    return number * number
+
+
+result = calculate_square(5)
+
+print(result)
+```
+
+## Output
+
+```text
+25
+```
+
+---
+
+# Practice Example 1
+
+```python
+def greet(name):
+    """
+    Greets the user.
+    """
+    print(f"Hello {name}")
+
+
+greet("Alice")
+```
+
+## Output
+
+```text
+Hello Alice
+```
+
+---
+
+# Practice Example 2
+
+```python
+def multiply(a, b):
+    """
+    Returns multiplication of two numbers.
+    """
+    return a * b
+
+
+print(multiply(4, 5))
+```
+
+## Output
+
+```text
+20
+```
+
+---
+
+# Practice Example 3
+
+```python
+def cube(number):
+    """
+    Returns cube of a number.
+    """
+    return number ** 3
+
+
+print(cube(3))
+```
+
+## Output
+
+```text
+27
+```
+
