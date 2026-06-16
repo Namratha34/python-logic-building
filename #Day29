@@ -2,8 +2,6 @@
 
 Today I learned about **Docstrings** and **PEP 8**, which help in writing clean, readable, and professional Python code.
 
----
-
 # What is a Docstring?
 
 A Docstring is a string enclosed within triple quotes (`""" """`) used to describe the purpose of a function, class, or module.
@@ -15,8 +13,6 @@ def greet():
     """Prints a welcome message."""
     print("Hello")
 ```
-
----
 
 # Accessing a Docstring
 
@@ -118,9 +114,6 @@ b = 20
 age = 10
 salary = 20
 ```
-
----
-
 ## 2. Use Snake Case Naming
 
 ### Good
