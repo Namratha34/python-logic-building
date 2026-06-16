@@ -1,0 +1,481 @@
+# Day 30 – Recursion in Python
+
+Today I learned **Recursion**, a technique where a function calls itself to solve a smaller version of the same problem.
+
+---
+
+# What is Recursion?
+
+Recursion is a process in which a function calls itself.
+
+Every recursive function must have:
+
+1. Base Case (Stopping Condition)
+2. Recursive Call
+
+---
+
+## Example
+
+```python
+def countdown(n):
+
+    if n == 0:
+        return
+
+    print(n)
+
+    countdown(n - 1)
+
+countdown(5)
+```
+
+### Output
+
+```text
+5
+4
+3
+2
+1
+```
+
+---
+
+# How Recursion Works
+
+```python
+countdown(3)
+```
+
+Execution:
+
+```text
+countdown(3)
+countdown(2)
+countdown(1)
+countdown(0)
+```
+
+At `n = 0`, recursion stops.
+
+---
+
+# Problem 1: Factorial of a Number
+
+## Problem
+
+Find the factorial of a number using recursion.
+
+### Example
+
+```python
+5! = 5 × 4 × 3 × 2 × 1
+```
+
+Output:
+
+```text
+120
+```
+
+---
+
+## Recursive Solution
+
+```python
+def factorial(n):
+
+    if n == 0 or n == 1:
+        return 1
+
+    return n * factorial(n - 1)
+
+print(factorial(5))
+```
+
+---
+
+## Iterative (Loop) Solution
+
+```python
+n = 5
+
+fact = 1
+
+for i in range(1, n + 1):
+    fact = fact * i
+
+print(fact)
+```
+
+---
+
+# Problem 2: Sum of First N Natural Numbers
+
+## Problem
+
+Find:
+
+```text
+1 + 2 + 3 + 4 + 5
+```
+
+Output:
+
+```text
+15
+```
+
+---
+
+## Recursive Solution
+
+```python
+def total(n):
+
+    if n == 1:
+        return 1
+
+    return n + total(n - 1)
+
+print(total(5))
+```
+
+---
+
+## Iterative Solution
+
+```python
+n = 5
+
+result = 0
+
+for i in range(1, n + 1):
+    result += i
+
+print(result)
+```
+
+---
+
+# Problem 3: Print Numbers from N to 1
+
+## Recursive Solution
+
+```python
+def print_numbers(n):
+
+    if n == 0:
+        return
+
+    print(n)
+
+    print_numbers(n - 1)
+
+print_numbers(5)
+```
+
+Output:
+
+```text
+5
+4
+3
+2
+1
+```
+
+---
+
+## Iterative Solution
+
+```python
+for i in range(5, 0, -1):
+    print(i)
+```
+
+---
+
+# Problem 4: Print Numbers from 1 to N
+
+## Recursive Solution
+
+```python
+def print_numbers(n):
+
+    if n == 0:
+        return
+
+    print_numbers(n - 1)
+
+    print(n)
+
+print_numbers(5)
+```
+
+Output:
+
+```text
+1
+2
+3
+4
+5
+```
+
+---
+
+## Iterative Solution
+
+```python
+for i in range(1, 6):
+    print(i)
+```
+
+---
+
+# Problem 5: Power of a Number
+
+## Example
+
+```text
+2³ = 8
+```
+
+---
+
+## Recursive Solution
+
+```python
+def power(base, exp):
+
+    if exp == 0:
+        return 1
+
+    return base * power(base, exp - 1)
+
+print(power(2, 3))
+```
+
+---
+
+## Iterative Solution
+
+```python
+base = 2
+exp = 3
+
+result = 1
+
+for i in range(exp):
+    result *= base
+
+print(result)
+```
+
+---
+
+# Problem 6: Count Digits in a Number
+
+## Example
+
+```text
+12345
+```
+
+Output:
+
+```text
+5
+```
+
+---
+
+## Recursive Solution
+
+```python
+def count_digits(n):
+
+    if n < 10:
+        return 1
+
+    return 1 + count_digits(n // 10)
+
+print(count_digits(12345))
+```
+
+---
+
+## Iterative Solution
+
+```python
+n = 12345
+
+count = 0
+
+while n > 0:
+    count += 1
+    n //= 10
+
+print(count)
+```
+
+---
+
+# Problem 7: Reverse a String
+
+## Example
+
+```python
+Python
+```
+
+Output:
+
+```python
+nohtyP
+```
+
+---
+
+## Recursive Solution
+
+```python
+def reverse_string(text):
+
+    if len(text) == 0:
+        return ""
+
+    return reverse_string(text[1:]) + text[0]
+
+print(reverse_string("Python"))
+```
+
+---
+
+## Built-in Solution
+
+```python
+text = "Python"
+
+print(text[::-1])
+```
+
+---
+
+# Intermediate Recursion Problems
+
+## 8. Find Fibonacci Number
+
+```python
+def fibonacci(n):
+
+    if n <= 1:
+        return n
+
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(6))
+```
+
+Output:
+
+```text
+8
+```
+
+---
+
+## 9. Sum of Digits
+
+```python
+def sum_digits(n):
+
+    if n == 0:
+        return 0
+
+    return n % 10 + sum_digits(n // 10)
+
+print(sum_digits(123))
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+## 10. Product of Digits
+
+```python
+def product_digits(n):
+
+    if n < 10:
+        return n
+
+    return (n % 10) * product_digits(n // 10)
+
+print(product_digits(123))
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+# Advanced Recursion Problems
+
+## 11. Check Palindrome
+
+```python
+def palindrome(text):
+
+    if len(text) <= 1:
+        return True
+
+    if text[0] != text[-1]:
+        return False
+
+    return palindrome(text[1:-1])
+
+print(palindrome("madam"))
+```
+
+---
+
+## 12. Binary Search Using Recursion
+
+```python
+def binary_search(arr, left, right, target):
+
+    if left > right:
+        return -1
+
+    mid = (left + right) // 2
+
+    if arr[mid] == target:
+        return mid
+
+    if target < arr[mid]:
+        return binary_search(arr, left, mid - 1, target)
+
+    return binary_search(arr, mid + 1, right, target)
+```
+
+---
+
+# Recursion vs Loop
+
+| Loop                       | Recursion                       |
+| -------------------------- | ------------------------------- |
+| Uses iteration             | Uses function calls             |
+| Faster                     | Slightly slower                 |
+| Less memory                | More memory                     |
+| Easier for simple problems | Useful for recursive structures |
+
