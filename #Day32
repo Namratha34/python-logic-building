@@ -1,0 +1,442 @@
+# Day 32 – Advanced Set Logic Problems in Python
+
+## Problem 1: Find Missing Numbers in a Range
+
+### Problem
+
+Find all missing numbers from 1 to N.
+
+### Example
+
+```python
+numbers = {1, 2, 4, 6, 7}
+N = 7
+```
+
+Output
+
+```text
+{3, 5}
+```
+
+### Built-in Solution
+
+```python
+numbers = {1, 2, 4, 6, 7}
+N = 7
+
+all_numbers = set(range(1, N + 1))
+
+print(all_numbers - numbers)
+```
+
+### Pure Logic Solution
+
+```python
+numbers = {1, 2, 4, 6, 7}
+N = 7
+
+missing = set()
+
+for i in range(1, N + 1):
+
+    if i not in numbers:
+        missing.add(i)
+
+print(missing)
+```
+
+---
+
+# Problem 2: Find Duplicate Elements in a List
+
+### Problem
+
+Find all duplicate elements.
+
+### Example
+
+```python
+numbers = [1,2,3,2,4,5,4]
+```
+
+Output
+
+```text
+{2,4}
+```
+
+### Built-in Solution
+
+```python
+numbers = [1,2,3,2,4,5,4]
+
+duplicates = set()
+
+for num in set(numbers):
+
+    if numbers.count(num) > 1:
+        duplicates.add(num)
+
+print(duplicates)
+```
+
+### Pure Logic Solution
+
+```python
+numbers = [1,2,3,2,4,5,4]
+
+duplicates = set()
+
+for i in numbers:
+
+    count = 0
+
+    for j in numbers:
+
+        if i == j:
+            count += 1
+
+    if count > 1:
+        duplicates.add(i)
+
+print(duplicates)
+```
+
+---
+
+# Problem 3: Find Elements Present in Exactly One Set
+
+### Problem
+
+Find elements that belong to only one set.
+
+### Example
+
+```python
+set1 = {1,2,3}
+set2 = {3,4,5}
+```
+
+Output
+
+```text
+{1,2,4,5}
+```
+
+### Built-in Solution
+
+```python
+print(set1.symmetric_difference(set2))
+```
+
+### Pure Logic Solution
+
+```python
+result = set()
+
+for num in set1:
+
+    if num not in set2:
+        result.add(num)
+
+for num in set2:
+
+    if num not in set1:
+        result.add(num)
+
+print(result)
+```
+
+---
+
+# Problem 4: Check Whether Two Lists Have Common Elements
+
+### Example
+
+```python
+list1 = [1,2,3]
+list2 = [4,5,3]
+```
+
+Output
+
+```text
+True
+```
+
+### Built-in Solution
+
+```python
+print(bool(set(list1) & set(list2)))
+```
+
+### Pure Logic Solution
+
+```python
+found = False
+
+for i in list1:
+
+    if i in list2:
+        found = True
+
+print(found)
+```
+
+---
+
+# Problem 5: Find Largest Set
+
+### Problem
+
+Find which set contains more elements.
+
+### Example
+
+```python
+set1 = {1,2,3}
+set2 = {1,2,3,4,5}
+```
+
+Output
+
+```text
+set2
+```
+
+### Built-in Solution
+
+```python
+if len(set1) > len(set2):
+    print("set1")
+else:
+    print("set2")
+```
+
+### Pure Logic Solution
+
+```python
+count1 = 0
+
+for _ in set1:
+    count1 += 1
+
+count2 = 0
+
+for _ in set2:
+    count2 += 1
+
+if count1 > count2:
+    print("set1")
+else:
+    print("set2")
+```
+
+---
+
+# Problem 6: Find Common Elements in Three Sets
+
+### Example
+
+```python
+set1 = {1,2,3,4}
+set2 = {2,3,5}
+set3 = {3,6,2}
+```
+
+Output
+
+```text
+{2,3}
+```
+
+### Built-in Solution
+
+```python
+print(set1.intersection(set2, set3))
+```
+
+### Pure Logic Solution
+
+```python
+result = set()
+
+for num in set1:
+
+    if num in set2 and num in set3:
+        result.add(num)
+
+print(result)
+```
+
+---
+
+# Problem 7: Remove Common Elements from Two Sets
+
+### Example
+
+```python
+set1 = {1,2,3,4}
+set2 = {3,4,5,6}
+```
+
+Output
+
+```text
+{1,2,5,6}
+```
+
+### Built-in Solution
+
+```python
+print(set1.symmetric_difference(set2))
+```
+
+### Pure Logic Solution
+
+```python
+result = set()
+
+for num in set1:
+
+    if num not in set2:
+        result.add(num)
+
+for num in set2:
+
+    if num not in set1:
+        result.add(num)
+
+print(result)
+```
+
+---
+
+# Problem 8: Check Disjoint Sets
+
+### Problem
+
+Check whether two sets have no common elements.
+
+### Example
+
+```python
+set1 = {1,2}
+set2 = {3,4}
+```
+
+Output
+
+```text
+True
+```
+
+### Built-in Solution
+
+```python
+print(set1.isdisjoint(set2))
+```
+
+### Pure Logic Solution
+
+```python
+disjoint = True
+
+for num in set1:
+
+    if num in set2:
+        disjoint = False
+
+print(disjoint)
+```
+
+---
+
+# Problem 9: Count Common Elements
+
+### Example
+
+```python
+set1 = {1,2,3,4}
+set2 = {3,4,5,6}
+```
+
+Output
+
+```text
+2
+```
+
+### Built-in Solution
+
+```python
+print(len(set1.intersection(set2)))
+```
+
+### Pure Logic Solution
+
+```python
+count = 0
+
+for num in set1:
+
+    if num in set2:
+        count += 1
+
+print(count)
+```
+
+---
+
+# Problem 10: Find Unique Elements Across Multiple Lists
+
+### Example
+
+```python
+list1 = [1,2,3]
+list2 = [3,4,5]
+list3 = [5,6,7]
+```
+
+Output
+
+```text
+{1,2,4,6,7}
+```
+
+### Built-in Solution
+
+```python
+all_numbers = list1 + list2 + list3
+
+result = set()
+
+for num in set(all_numbers):
+
+    if all_numbers.count(num) == 1:
+        result.add(num)
+
+print(result)
+```
+
+### Pure Logic Solution
+
+```python
+all_numbers = list1 + list2 + list3
+
+result = set()
+
+for i in all_numbers:
+
+    count = 0
+
+    for j in all_numbers:
+
+        if i == j:
+            count += 1
+
+    if count == 1:
+        result.add(i)
+
+print(result)
