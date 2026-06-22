@@ -1,0 +1,155 @@
+# Day 33 - Python Logic Building 🚀
+
+## Topic: Set Methods in Python
+
+Today, I learned about **Python Sets** and their powerful built-in methods. Sets are unordered collections of unique elements and are widely used for removing duplicates and performing mathematical set operations efficiently.
+## 📚 Concepts Learned
+
+### 1. Creating Sets
+
+```python
+numbers = {1, 2, 3, 4}
+```
+
+### 2. Adding Elements
+
+#### add()
+
+```python
+numbers.add(5)
+```
+
+#### update()
+
+```python
+numbers.update([6, 7, 8])
+```
+
+---
+
+### 3. Removing Elements
+
+#### remove()
+
+```python
+numbers.remove(3)
+```
+
+Raises an error if the element does not exist.
+
+#### discard()
+
+```python
+numbers.discard(10)
+```
+
+Does not raise an error if the element is missing.
+
+#### pop()
+
+```python
+numbers.pop()
+```
+
+Removes a random element.
+
+#### clear()
+
+```python
+numbers.clear()
+```
+
+Removes all elements.
+
+---
+
+### 4. Set Operations
+
+#### Union
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a.union(b))
+# {1, 2, 3, 4, 5}
+```
+
+#### Intersection
+
+```python
+print(a.intersection(b))
+# {3}
+```
+
+#### Difference
+
+```python
+print(a.difference(b))
+# {1, 2}
+```
+
+#### Symmetric Difference
+
+```python
+print(a.symmetric_difference(b))
+# {1, 2, 4, 5}
+```
+
+---
+
+### 5. Relationship Methods
+
+#### issubset()
+
+```python
+a = {1, 2}
+b = {1, 2, 3, 4}
+
+print(a.issubset(b))
+# True
+```
+
+#### issuperset()
+
+```python
+print(b.issuperset(a))
+# True
+```
+
+#### isdisjoint()
+
+```python
+print(a.isdisjoint({5, 6}))
+# True
+```
+
+---
+
+## 💡 Logic Building Practice
+
+### Remove Duplicates from a List
+
+```python
+nums = [1, 2, 2, 3, 4, 4, 5]
+
+unique_nums = list(set(nums))
+print(unique_nums)
+```
+
+### Find Common Elements
+
+```python
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print(a.intersection(b))
+```
+
+### Find Unique Elements Between Two Lists
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a.symmetric_difference(b))
