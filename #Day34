@@ -1,14 +1,7 @@
 # Day 34 - Python Logic Building 🚀
 
 # Topic: Dictionary Methods in Python
-
-
 Today, I learned Python Dictionary Methods. Dictionaries store data as key-value pairs and provide many built-in methods for data manipulation, searching, updating, and efficient problem-solving.
-
----
-
-# 📚 Dictionary Methods
-
 ## 1. clear()
 
 Removes all items from the dictionary.
