@@ -1,0 +1,339 @@
+# Day 34 - Python Logic Building 🚀
+
+# Topic: Dictionary Methods in Python
+
+
+Today, I learned Python Dictionary Methods. Dictionaries store data as key-value pairs and provide many built-in methods for data manipulation, searching, updating, and efficient problem-solving.
+
+---
+
+# 📚 Dictionary Methods
+
+## 1. clear()
+
+Removes all items from the dictionary.
+
+```python
+student = {"name": "John", "age": 20}
+
+student.clear()
+
+print(student)
+# {}
+```
+
+---
+
+## 2. copy()
+
+Creates a shallow copy of the dictionary.
+
+```python
+student = {"name": "John"}
+
+new_student = student.copy()
+
+print(new_student)
+```
+
+---
+
+## 3. fromkeys()
+
+Creates a new dictionary with specified keys and a common value.
+
+```python
+keys = ["name", "age", "course"]
+
+student = dict.fromkeys(keys, "Not Assigned")
+
+print(student)
+```
+
+Output:
+
+```python
+{
+ 'name': 'Not Assigned',
+ 'age': 'Not Assigned',
+ 'course': 'Not Assigned'
+}
+```
+
+---
+
+## 4. get()
+
+Returns the value of a key.
+
+```python
+student = {"name": "John"}
+
+print(student.get("name"))
+```
+
+Default value:
+
+```python
+print(student.get("age", 0))
+```
+
+---
+
+## 5. items()
+
+Returns key-value pairs as tuples.
+
+```python
+student = {
+    "name": "John",
+    "age": 20
+}
+
+print(student.items())
+```
+
+Output:
+
+```python
+dict_items([('name', 'John'), ('age', 20)])
+```
+
+---
+
+## 6. keys()
+
+Returns all keys.
+
+```python
+print(student.keys())
+```
+
+---
+
+## 7. values()
+
+Returns all values.
+
+```python
+print(student.values())
+```
+
+---
+
+## 8. pop()
+
+Removes a specified key and returns its value.
+
+```python
+student = {
+    "name": "John",
+    "age": 20
+}
+
+student.pop("age")
+
+print(student)
+```
+
+---
+
+## 9. popitem()
+
+Removes and returns the last inserted item.
+
+```python
+student = {
+    "name": "John",
+    "age": 20
+}
+
+print(student.popitem())
+```
+
+Output:
+
+```python
+('age', 20)
+```
+
+---
+
+## 10. setdefault()
+
+Returns value of key.
+
+If key doesn't exist, inserts it with default value.
+
+```python
+student = {"name": "John"}
+
+student.setdefault("age", 21)
+
+print(student)
+```
+
+Output:
+
+```python
+{
+ 'name': 'John',
+ 'age': 21
+}
+```
+
+---
+
+## 11. update()
+
+Updates dictionary with another dictionary.
+
+```python
+student = {
+    "name": "John"
+}
+
+student.update({
+    "age": 20,
+    "course": "Python"
+})
+
+print(student)
+```
+
+---
+
+# 🔍 Important Dictionary Operations
+
+## Check Key Exists
+
+```python
+student = {
+    "name": "John"
+}
+
+print("name" in student)
+```
+
+Output:
+
+```python
+True
+```
+
+---
+
+## Dictionary Length
+
+```python
+print(len(student))
+```
+
+---
+
+## Delete Using del
+
+```python
+del student["name"]
+```
+
+---
+
+## Nested Dictionary
+
+```python
+students = {
+    "s1": {
+        "name": "John",
+        "age": 20
+    },
+    "s2": {
+        "name": "Alice",
+        "age": 22
+    }
+}
+
+print(students["s1"]["name"])
+```
+
+---
+
+# 💡 Logic Building Practice
+
+## 1. Character Frequency Counter
+
+```python
+word = "dictionary"
+
+freq = {}
+
+for char in word:
+    freq[char] = freq.get(char, 0) + 1
+
+print(freq)
+```
+
+---
+
+## 2. Word Frequency Counter
+
+```python
+sentence = "python is easy and python is powerful"
+
+words = sentence.split()
+
+count = {}
+
+for word in words:
+    count[word] = count.get(word, 0) + 1
+
+print(count)
+```
+
+---
+
+## 3. Find Highest Value
+
+```python
+marks = {
+    "Alice": 92,
+    "Bob": 85,
+    "Charlie": 97
+}
+
+topper = max(marks, key=marks.get)
+
+print(topper)
+```
+
+---
+
+## 4. Invert Dictionary
+
+```python
+student = {
+    "a": 1,
+    "b": 2,
+    "c": 3
+}
+
+inverse = {}
+
+for key, value in student.items():
+    inverse[value] = key
+
+print(inverse)
+```
+
+---
+
+## 5. Merge Two Dictionaries
+
+```python
+d1 = {"a": 1, "b": 2}
+d2 = {"c": 3, "d": 4}
+
+d1.update(d2)
+
+print(d1)
+```
