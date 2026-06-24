@@ -1,0 +1,205 @@
+# Day 35 - Python Logic Building 🚀
+
+# Topic: For-Else and While-Else Loops in Python
+
+Today, I revised the concept of **for-else** and **while-else** loops in Python. These constructs are unique to Python and are especially useful when searching, validating conditions, and avoiding extra flag variables.
+
+
+# 1. For-Else Loop
+
+## Syntax
+
+```python
+for item in sequence:
+    # loop body
+else:
+    # executes if loop ends normally
+```
+
+---
+
+## Example 1: Loop Completes Normally
+
+```python
+for num in range(5):
+    print(num)
+else:
+    print("Loop completed successfully")
+```
+
+### Output
+
+```python
+0
+1
+2
+3
+4
+Loop completed successfully
+```
+
+---
+
+## Example 2: Loop Terminates with Break
+
+```python
+for num in range(5):
+    if num == 3:
+        break
+    print(num)
+else:
+    print("Loop completed")
+```
+
+### Output
+
+```python
+0
+1
+2
+```
+
+The `else` block does not execute because `break` was used.
+
+---
+
+# 2. While-Else Loop
+
+## Syntax
+
+```python
+while condition:
+    # loop body
+else:
+    # executes if loop ends normally
+```
+
+---
+
+## Example 1: Normal Completion
+
+```python
+count = 1
+
+while count <= 3:
+    print(count)
+    count += 1
+else:
+    print("While loop finished")
+```
+
+### Output
+
+```python
+1
+2
+3
+While loop finished
+```
+
+---
+
+## Example 2: Break Statement
+
+```python
+count = 1
+
+while count <= 5:
+    if count == 3:
+        break
+    print(count)
+    count += 1
+else:
+    print("Loop completed")
+```
+
+### Output
+
+```python
+1
+2
+```
+
+The `else` block is skipped because the loop exited using `break`.
+
+---
+
+# 💡 Logic Building Practice
+
+## 1. Search an Element
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+target = 30
+
+for num in numbers:
+    if num == target:
+        print("Found")
+        break
+else:
+    print("Not Found")
+```
+
+---
+
+## 2. Check Prime Number
+
+```python
+num = 17
+
+for i in range(2, num):
+    if num % i == 0:
+        print("Not Prime")
+        break
+else:
+    print("Prime")
+```
+
+---
+
+## 3. Login Attempts
+
+```python
+attempts = 3
+
+while attempts > 0:
+    password = input("Enter Password: ")
+
+    if password == "python123":
+        print("Login Successful")
+        break
+
+    attempts -= 1
+else:
+    print("Account Locked")
+```
+
+---
+
+## 4. Find First Even Number
+
+```python
+numbers = [1, 3, 5, 7, 8]
+
+for num in numbers:
+    if num % 2 == 0:
+        print("First Even:", num)
+        break
+else:
+    print("No Even Number Found")
+```
+
+---
+
+```python
+for i in range(5):
+    print(i)
+else:
+    print("Always runs")
+```
+
+Correct understanding:
+
+The `else` block runs only when the loop finishes naturally (without `break`).
+
