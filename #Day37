@@ -1,0 +1,311 @@
+# Day 37 - Python Logic Building 🚀
+
+# Topic: Finally Block & Custom Exceptions in Python
+
+Today, I learned about the **`finally` block** and **Custom Exceptions** in Python.
+
+The `finally` block ensures that a block of code always executes, whether an exception occurs or not. It is mainly used for cleanup operations like closing files, releasing resources, or disconnecting from databases.
+
+I also learned how to create **Custom Exceptions** by defining my own exception classes. These exceptions make programs more readable and help represent application-specific errors.
+
+---
+
+# 📚 The `finally` Block
+
+## What is `finally`?
+
+The `finally` block always executes after the `try` and `except` blocks, regardless of whether an exception occurs.
+
+### Syntax
+
+```python
+try:
+    # Risky code
+except Exception:
+    # Handle exception
+finally:
+    # Always executes
+```
+
+---
+
+## Example 1: Without Exception
+
+```python
+try:
+    print("Inside try block")
+finally:
+    print("Inside finally block")
+```
+
+### Output
+
+```
+Inside try block
+Inside finally block
+```
+
+---
+
+## Example 2: With Exception
+
+```python
+try:
+    print(100 / 0)
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+finally:
+    print("Execution Finished")
+```
+
+### Output
+
+```
+Cannot divide by zero
+Execution Finished
+```
+
+---
+
+# Why Use `finally`?
+
+* Closing files
+* Closing database connections
+* Releasing system resources
+* Cleanup operations
+* Executing important code before program exits
+
+---
+
+# Custom Exceptions
+
+## What are Custom Exceptions?
+
+Custom exceptions are user-defined exceptions that represent application-specific errors.
+
+Instead of using only built-in exceptions, we can create meaningful exceptions such as:
+
+* InvalidAgeError
+* InvalidPasswordError
+* InsufficientBalanceError
+* StudentNotFoundError
+
+---
+
+# Creating a Custom Exception
+
+```python
+class InvalidAgeError(Exception):
+    pass
+```
+
+---
+
+# Raising a Custom Exception
+
+```python
+class InvalidAgeError(Exception):
+    pass
+
+age = -5
+
+if age < 0:
+    raise InvalidAgeError("Age cannot be negative")
+```
+
+---
+
+# Handling a Custom Exception
+
+```python
+class InvalidAgeError(Exception):
+    pass
+
+try:
+    age = int(input("Enter Age: "))
+
+    if age < 18:
+        raise InvalidAgeError("Age must be 18 or above")
+
+    print("Eligible")
+
+except InvalidAgeError as e:
+    print(e)
+```
+
+---
+
+# Complete Example
+
+```python
+class InsufficientBalanceError(Exception):
+    pass
+
+balance = 500
+
+try:
+    amount = int(input("Enter Withdrawal Amount: "))
+
+    if amount > balance:
+        raise InsufficientBalanceError("Insufficient Balance")
+
+    balance -= amount
+    print("Remaining Balance:", balance)
+
+except InsufficientBalanceError as e:
+    print(e)
+
+finally:
+    print("Thank you for using our ATM.")
+```
+
+---
+
+# Best Practices
+
+* Use `finally` for cleanup tasks.
+* Catch specific exceptions whenever possible.
+* Use meaningful names for custom exceptions.
+* Inherit custom exceptions from the `Exception` class.
+* Keep `try` blocks short and focused.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Write a program that always prints **"Program Ended"** using the `finally` block.
+
+### Solution
+
+```python
+try:
+    print("Program Started")
+finally:
+    print("Program Ended")
+```
+
+Output
+
+```
+Program Started
+Program Ended
+```
+
+---
+
+## Problem 2
+
+Create a custom exception called **NegativeNumberError** that raises an exception when a negative number is entered.
+
+### Solution
+
+```python
+class NegativeNumberError(Exception):
+    pass
+
+try:
+    num = int(input("Enter a number: "))
+
+    if num < 0:
+        raise NegativeNumberError("Negative numbers are not allowed.")
+
+    print("You entered:", num)
+
+except NegativeNumberError as e:
+    print(e)
+```
+
+---
+
+## Problem 3
+
+Create a custom exception called **InvalidPasswordError** if the password length is less than 8 characters.
+
+### Solution
+
+```python
+class InvalidPasswordError(Exception):
+    pass
+
+try:
+    password = input("Enter Password: ")
+
+    if len(password) < 8:
+        raise InvalidPasswordError(
+            "Password must contain at least 8 characters."
+        )
+
+    print("Password Accepted")
+
+except InvalidPasswordError as e:
+    print(e)
+```
+
+---
+
+## Problem 4
+
+Create a simple ATM withdrawal program using a custom exception **InsufficientBalanceError**.
+
+### Solution
+
+```python
+class InsufficientBalanceError(Exception):
+    pass
+
+balance = 1000
+
+try:
+    amount = int(input("Enter Withdrawal Amount: "))
+
+    if amount > balance:
+        raise InsufficientBalanceError(
+            "Insufficient Balance."
+        )
+
+    balance -= amount
+
+    print("Withdrawal Successful")
+    print("Remaining Balance:", balance)
+
+except InsufficientBalanceError as e:
+    print(e)
+
+finally:
+    print("Transaction Completed")
+```
+
+---
+
+## Problem 5
+
+Create a voting eligibility program using **InvalidAgeError**.
+
+### Solution
+
+```python
+class InvalidAgeError(Exception):
+    pass
+
+try:
+    age = int(input("Enter Age: "))
+
+    if age < 18:
+        raise InvalidAgeError(
+            "You are not eligible to vote."
+        )
+
+    print("You are eligible to vote.")
+
+except InvalidAgeError as e:
+    print(e)
+
+finally:
+    print("Voting Eligibility Check Completed")
+```
+
+---
