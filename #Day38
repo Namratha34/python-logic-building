@@ -1,0 +1,291 @@
+# Day 38 - Python Logic Building 🚀
+
+# Topic: Shorthand If-Else Statements & `enumerate()` Function
+
+Today, I learned about **Shorthand If-Else Statements (Ternary Operator)** and the **`enumerate()` function** in Python.
+
+The shorthand if-else statement allows writing simple conditional expressions in a single line, making the code more concise and readable.
+
+I also learned how the `enumerate()` function helps iterate over a sequence while keeping track of the index, including how to change the starting index using the `start` parameter.
+
+
+# 📚 Shorthand If-Else Statement
+
+## What is a Shorthand If-Else?
+
+A shorthand if-else (also called the **ternary operator**) is a one-line way to write simple conditional expressions.
+
+### Syntax
+
+```python
+value_if_true if condition else value_if_false
+```
+
+---
+
+## Example 1
+
+```python
+age = 20
+
+message = "Eligible" if age >= 18 else "Not Eligible"
+
+print(message)
+```
+
+### Output
+
+```
+Eligible
+```
+
+---
+
+## Example 2
+
+```python
+a = 15
+b = 20
+
+largest = a if a > b else b
+
+print(largest)
+```
+
+### Output
+
+```
+20
+```
+
+---
+
+## Example 3
+
+```python
+number = 7
+
+print("Even" if number % 2 == 0 else "Odd")
+```
+
+### Output
+
+```
+Odd
+```
+
+---
+
+# Nested Shorthand If-Else
+
+```python
+num = 0
+
+result = "Positive" if num > 0 else "Negative" if num < 0 else "Zero"
+
+print(result)
+```
+
+### Output
+
+```
+Zero
+```
+
+---
+
+# 📚 `enumerate()` Function
+
+## What is `enumerate()`?
+
+The `enumerate()` function adds a counter (index) to an iterable and returns both the index and the value during iteration.
+
+### Syntax
+
+```python
+enumerate(iterable, start=0)
+```
+
+---
+
+## Example 1: Default Index
+
+```python
+fruits = ["Apple", "Banana", "Mango"]
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)
+```
+
+### Output
+
+```
+0 Apple
+1 Banana
+2 Mango
+```
+
+---
+
+## Example 2: Change Starting Index
+
+```python
+fruits = ["Apple", "Banana", "Mango"]
+
+for index, fruit in enumerate(fruits, start=1):
+    print(index, fruit)
+```
+
+### Output
+
+```
+1 Apple
+2 Banana
+3 Mango
+```
+
+---
+
+## Example 3: Enumerating a String
+
+```python
+word = "Python"
+
+for index, letter in enumerate(word):
+    print(index, letter)
+```
+
+### Output
+
+```
+0 P
+1 y
+2 t
+3 h
+4 o
+5 n
+```
+
+---
+
+## Example 4: Enumerating a Tuple
+
+```python
+colors = ("Red", "Green", "Blue")
+
+for index, color in enumerate(colors):
+    print(index, color)
+```
+
+---
+
+# Why Use `enumerate()`?
+
+* Avoid manually maintaining a counter variable.
+* Makes loops cleaner and easier to read.
+* Useful when both index and value are required.
+* Commonly used in coding interviews and real-world projects.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Print numbers from 1 to 10 and display **"Even"** if the number is even; otherwise display **"Odd"** using a shorthand if-else statement.
+
+---
+
+## Problem 2
+
+Find the larger of two numbers using a shorthand if-else statement.
+
+---
+
+## Problem 3
+
+Print each fruit along with its index using `enumerate()`.
+
+Example Output:
+
+```
+0 Apple
+1 Banana
+2 Mango
+```
+
+---
+
+## Problem 4
+
+Print student names with roll numbers starting from **101** using `enumerate(start=101)`.
+
+Example Output:
+
+```
+101 Rahul
+102 Priya
+103 Ankit
+```
+
+---
+
+## Problem 5
+
+Print every character of the word **"Python"** along with its index.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+for i in range(1, 11):
+    print(i, "Even" if i % 2 == 0 else "Odd")
+```
+
+---
+
+## Solution 2
+
+```python
+a = 25
+b = 18
+
+largest = a if a > b else b
+
+print("Largest:", largest)
+```
+
+---
+
+## Solution 3
+
+```python
+fruits = ["Apple", "Banana", "Mango"]
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)
+```
+
+---
+
+## Solution 4
+
+```python
+students = ["Rahul", "Priya", "Ankit"]
+
+for roll, student in enumerate(students, start=101):
+    print(roll, student)
+```
+
+---
+
+## Solution 5
+
+```python
+word = "Python"
+
+for index, char in enumerate(word):
+    print(index, char)
