@@ -1,0 +1,376 @@
+# Day 39 - Python Logic Building 🚀
+
+# Topic: Virtual Environments & Importing Modules in Python
+Today, I learned about **Virtual Environments** and **Import Statements** in Python.
+
+A virtual environment creates an isolated Python environment for each project, allowing different projects to use different package versions without conflicts.
+
+I also learned how Python's import system works, including importing built-in modules, third-party packages, specific functions, aliases, and user-defined modules created within my own project.
+
+# 📚 Virtual Environment
+
+## What is a Virtual Environment?
+
+A virtual environment is an isolated Python environment that contains its own Python interpreter and installed packages.
+
+It helps:
+
+* Avoid package conflicts
+* Keep project dependencies separate
+* Maintain clean project environments
+* Share project dependencies easily
+
+---
+
+# Creating a Virtual Environment
+
+```bash
+python -m venv myenv
+```
+
+This creates a folder named **myenv** containing the virtual environment.
+
+---
+
+# Activating the Virtual Environment
+
+### Windows
+
+```bash
+myenv\Scripts\activate
+```
+
+### macOS/Linux
+
+```bash
+source myenv/bin/activate
+```
+
+After activation, your terminal usually displays:
+
+```bash
+(myenv)
+```
+
+---
+
+# Installing Packages
+
+```bash
+pip install requests
+```
+
+Install a specific version:
+
+```bash
+pip install requests==2.31.0
+```
+
+Install multiple packages:
+
+```bash
+pip install numpy pandas matplotlib
+```
+
+---
+
+# Viewing Installed Packages
+
+```bash
+pip list
+```
+
+---
+
+# Checking Package Information
+
+```bash
+pip show requests
+```
+
+---
+
+# Checking pip Version
+
+```bash
+pip --version
+```
+
+---
+
+# Upgrading pip
+
+```bash
+python -m pip install --upgrade pip
+```
+
+---
+
+# Saving Project Dependencies
+
+Create a `requirements.txt` file:
+
+```bash
+pip freeze > requirements.txt
+```
+
+Example:
+
+```text
+numpy==2.3.1
+pandas==2.3.0
+requests==2.31.0
+```
+
+---
+
+# Installing Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Deactivating Virtual Environment
+
+```bash
+deactivate
+```
+
+---
+
+# 📚 Importing Modules in Python
+
+## What is Import?
+
+The `import` statement allows us to use code written in another module or file.
+
+Modules help organize code into reusable components.
+
+---
+
+# Import Entire Module
+
+```python
+import math
+
+print(math.sqrt(25))
+```
+
+Output
+
+```text
+5.0
+```
+
+---
+
+# Import Specific Function
+
+```python
+from math import sqrt
+
+print(sqrt(49))
+```
+
+---
+
+# Import Multiple Functions
+
+```python
+from math import sqrt, factorial
+
+print(sqrt(64))
+print(factorial(5))
+```
+
+---
+
+# Import Everything (Not Recommended)
+
+```python
+from math import *
+```
+
+---
+
+# Using an Alias
+
+```python
+import math as m
+
+print(m.pi)
+```
+
+---
+
+# Importing User-Defined Modules
+
+### calculator.py
+
+```python
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+```
+
+---
+
+### main.py
+
+```python
+import calculator
+
+print(calculator.add(10, 5))
+print(calculator.subtract(20, 8))
+```
+
+---
+
+# Import Specific Function from User Module
+
+```python
+from calculator import add
+
+print(add(15, 25))
+```
+
+---
+
+# Import with Alias
+
+```python
+import calculator as calc
+
+print(calc.add(5, 10))
+```
+
+---
+
+# Why Use Modules?
+
+* Reuse code
+* Improve readability
+* Organize projects
+* Reduce duplication
+* Simplify maintenance
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Create a virtual environment named **project_env**.
+
+---
+
+## Problem 2
+
+Install the **requests** package and verify that it is installed.
+
+---
+
+## Problem 3
+
+Generate a `requirements.txt` file using the appropriate pip command.
+
+---
+
+## Problem 4
+
+Create a file named `calculator.py` with functions to add and multiply two numbers. Import these functions into another file and use them.
+
+---
+
+## Problem 5
+
+Import the `math` module using an alias and print:
+
+* π (`pi`)
+* Square root of 81
+* Factorial of 6
+
+---
+
+# Solutions
+
+## Solution 1
+
+```bash
+python -m venv project_env
+```
+
+---
+
+## Solution 2
+
+```bash
+pip install requests
+
+pip show requests
+```
+
+---
+
+## Solution 3
+
+```bash
+pip freeze > requirements.txt
+```
+
+---
+
+## Solution 4
+
+### calculator.py
+
+```python
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b
+```
+
+### main.py
+
+```python
+from calculator import add, multiply
+
+print(add(5, 6))
+print(multiply(5, 6))
+```
+
+---
+
+## Solution 5
+
+```python
+import math as m
+
+print("PI:", m.pi)
+print("Square Root:", m.sqrt(81))
+print("Factorial:", m.factorial(6))
+```
+
+---
+
+# Common pip Commands
+
+| Command                           | Purpose                                  |
+| --------------------------------- | ---------------------------------------- |
+| `python -m venv env_name`         | Create virtual environment               |
+| `activate`                        | Activate environment                     |
+| `deactivate`                      | Exit virtual environment                 |
+| `pip install package`             | Install package                          |
+| `pip uninstall package`           | Remove package                           |
+| `pip list`                        | List installed packages                  |
+| `pip show package`                | Show package details                     |
+| `pip freeze`                      | Display installed packages with versions |
+| `pip freeze > requirements.txt`   | Save dependencies                        |
+| `pip install -r requirements.txt` | Install project dependencies             |
+| `pip --version`                   | Check pip version                        |
