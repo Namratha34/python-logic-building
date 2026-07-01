@@ -1,0 +1,397 @@
+# Day 40 - Python Logic Building 🚀
+
+# Topic: OS Module in Python
+Today, I learned about the **`os` module** in Python.
+
+The `os` module provides functions to interact with the operating system. It allows us to work with files, directories, environment variables, and execute system-related operations in a platform-independent way.
+
+---
+
+# 📚 What is the `os` Module?
+
+The `os` module is a built-in Python module that provides a way to use operating system-dependent functionality.
+
+### Importing the Module
+
+```python
+import os
+```
+
+---
+
+# Current Working Directory
+
+Returns the current directory where the Python script is running.
+
+```python
+import os
+
+print(os.getcwd())
+```
+
+Example Output
+
+```text
+C:\Users\John\PythonProjects
+```
+
+---
+
+# Change Current Directory
+
+```python
+import os
+
+os.chdir("C:/Users/John/Documents")
+print(os.getcwd())
+```
+
+---
+
+# List Files and Folders
+
+```python
+import os
+
+print(os.listdir())
+```
+
+List files from a specific directory:
+
+```python
+print(os.listdir("C:/Users/John/Documents"))
+```
+
+---
+
+# Create a Directory
+
+### Create a Single Folder
+
+```python
+import os
+
+os.mkdir("Projects")
+```
+
+---
+
+### Create Nested Directories
+
+```python
+import os
+
+os.makedirs("Python/Day40/Examples")
+```
+
+---
+
+# Remove a Directory
+
+### Remove an Empty Folder
+
+```python
+import os
+
+os.rmdir("Projects")
+```
+
+---
+
+### Remove Nested Empty Directories
+
+```python
+import os
+
+os.removedirs("Python/Day40/Examples")
+```
+
+---
+
+# Rename a File or Folder
+
+```python
+import os
+
+os.rename("old.txt", "new.txt")
+```
+
+---
+
+# Delete a File
+
+```python
+import os
+
+os.remove("sample.txt")
+```
+
+---
+
+# Check if a File Exists
+
+```python
+import os
+
+print(os.path.exists("sample.txt"))
+```
+
+Output
+
+```text
+True
+```
+
+---
+
+# Check Whether It Is a File or Directory
+
+```python
+import os
+
+print(os.path.isfile("sample.txt"))
+print(os.path.isdir("Projects"))
+```
+
+---
+
+# Join File Paths
+
+Instead of manually using `/` or `\`, use `os.path.join()`.
+
+```python
+import os
+
+path = os.path.join("Python", "Day40", "notes.txt")
+
+print(path)
+```
+
+---
+
+# Get Absolute Path
+
+```python
+import os
+
+print(os.path.abspath("notes.txt"))
+```
+
+---
+
+# Get File Name and Extension
+
+```python
+import os
+
+file = "python_notes.pdf"
+
+print(os.path.splitext(file))
+```
+
+Output
+
+```text
+('python_notes', '.pdf')
+```
+
+---
+
+# Environment Variables
+
+Display all environment variables:
+
+```python
+import os
+
+print(os.environ)
+```
+
+Get a specific environment variable:
+
+```python
+import os
+
+print(os.environ.get("PATH"))
+```
+
+---
+
+# Execute a System Command
+
+```python
+import os
+
+os.system("echo Hello Python")
+```
+
+---
+
+# Commonly Used `os.path` Methods
+
+| Method               | Description                   |
+| -------------------- | ----------------------------- |
+| `os.path.exists()`   | Check if a path exists        |
+| `os.path.isfile()`   | Check if it is a file         |
+| `os.path.isdir()`    | Check if it is a directory    |
+| `os.path.join()`     | Join path components safely   |
+| `os.path.abspath()`  | Get absolute path             |
+| `os.path.basename()` | Get file name                 |
+| `os.path.dirname()`  | Get directory name            |
+| `os.path.splitext()` | Split file name and extension |
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Print the current working directory.
+
+---
+
+## Problem 2
+
+Create a folder named **Practice**.
+
+---
+
+## Problem 3
+
+List all files and folders in the current directory.
+
+---
+
+## Problem 4
+
+Check whether a file named **data.txt** exists.
+
+---
+
+## Problem 5
+
+Join the following path correctly:
+
+```
+Projects
+Python
+Day40
+notes.txt
+```
+
+---
+
+## Problem 6
+
+Rename a file named **old_file.txt** to **new_file.txt**.
+
+---
+
+## Problem 7
+
+Print the absolute path of a file named **sample.py**.
+
+---
+
+## Problem 8
+
+Display the file name and extension separately for:
+
+```
+resume.pdf
+```
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+import os
+
+print(os.getcwd())
+```
+
+---
+
+## Solution 2
+
+```python
+import os
+
+os.mkdir("Practice")
+```
+
+---
+
+## Solution 3
+
+```python
+import os
+
+print(os.listdir())
+```
+
+---
+
+## Solution 4
+
+```python
+import os
+
+print(os.path.exists("data.txt"))
+```
+
+---
+
+## Solution 5
+
+```python
+import os
+
+path = os.path.join(
+    "Projects",
+    "Python",
+    "Day40",
+    "notes.txt"
+)
+
+print(path)
+```
+
+---
+
+## Solution 6
+
+```python
+import os
+
+os.rename("old_file.txt", "new_file.txt")
+```
+
+---
+
+## Solution 7
+
+```python
+import os
+
+print(os.path.abspath("sample.py"))
+```
+
+---
+
+## Solution 8
+
+```python
+import os
+
+filename = "resume.pdf"
+
+name, extension = os.path.splitext(filename)
+
+print("File Name:", name)
+print("Extension:", extension)
+```
+
