@@ -1,0 +1,399 @@
+# Day 41 - Python Logic Building 🚀
+
+# Topic: Global and Local Variables in Python
+
+Today, I learned about **Global Variables** and **Local Variables** in Python.
+
+Variables are an essential part of programming. Depending on where they are declared, they can either be **local** (accessible only inside a function) or **global** (accessible throughout the program). I also learned about the `global` keyword and when to use it.
+
+# 📚 What is a Variable?
+
+A variable is a named memory location used to store data.
+
+```python
+name = "Python"
+age = 25
+```
+
+---
+
+# 📚 Local Variables
+
+A **local variable** is declared inside a function and can only be accessed within that function.
+
+## Example
+
+```python
+def greet():
+    message = "Hello, World!"
+    print(message)
+
+greet()
+```
+
+### Output
+
+```text
+Hello, World!
+```
+
+Trying to access `message` outside the function results in a `NameError`.
+
+```python
+print(message)
+```
+
+Output
+
+```text
+NameError: name 'message' is not defined
+```
+
+---
+
+# 📚 Global Variables
+
+A **global variable** is declared outside all functions and can be accessed throughout the program.
+
+## Example
+
+```python
+language = "Python"
+
+def show_language():
+    print(language)
+
+show_language()
+print(language)
+```
+
+### Output
+
+```text
+Python
+Python
+```
+
+---
+
+# 📚 Global vs Local Variables
+
+```python
+name = "Global"
+
+def display():
+    name = "Local"
+    print(name)
+
+display()
+print(name)
+```
+
+### Output
+
+```text
+Local
+Global
+```
+
+The local variable takes precedence inside the function.
+
+---
+
+# 📚 The `global` Keyword
+
+Use the `global` keyword when you want to modify a global variable inside a function.
+
+## Without `global`
+
+```python
+count = 10
+
+def increment():
+    count = count + 1
+
+increment()
+```
+
+Output
+
+```text
+UnboundLocalError
+```
+
+Python treats `count` as a local variable because it is being assigned a value.
+
+---
+
+## With `global`
+
+```python
+count = 10
+
+def increment():
+    global count
+    count += 1
+
+increment()
+
+print(count)
+```
+
+### Output
+
+```text
+11
+```
+
+---
+
+# 📚 Multiple Functions Using a Global Variable
+
+```python
+score = 0
+
+def add_points():
+    global score
+    score += 10
+
+def show_score():
+    print(score)
+
+add_points()
+add_points()
+show_score()
+```
+
+### Output
+
+```text
+20
+```
+
+---
+
+# 📚 Variable Scope
+
+Python searches for variables in this order:
+
+1. Local Scope
+2. Enclosing Scope (Nested Functions)
+3. Global Scope
+4. Built-in Scope
+
+This is known as the **LEGB Rule**.
+
+---
+
+# Nested Function Example
+
+```python
+def outer():
+
+    message = "Outer"
+
+    def inner():
+        print(message)
+
+    inner()
+
+outer()
+```
+
+Output
+
+```text
+Outer
+```
+
+---
+
+# Best Practices
+
+* Prefer local variables whenever possible.
+* Use global variables only when necessary.
+* Avoid modifying global variables frequently.
+* Pass values as function arguments instead of relying on globals.
+* Use meaningful variable names.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Create a local variable inside a function and print it.
+
+---
+
+## Problem 2
+
+Create a global variable named `country` and print it inside and outside a function.
+
+---
+
+## Problem 3
+
+Create a global variable `counter = 0` and increment it inside a function using the `global` keyword.
+
+---
+
+## Problem 4
+
+Write a program where a local variable and a global variable have the same name. Observe which one is printed inside and outside the function.
+
+---
+
+## Problem 5
+
+Create two functions:
+
+* One function increases a global score by 5.
+* Another function displays the score.
+
+Call the first function three times.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+def display():
+    message = "Learning Python"
+    print(message)
+
+display()
+```
+
+---
+
+## Solution 2
+
+```python
+country = "India"
+
+def show():
+    print(country)
+
+show()
+print(country)
+```
+
+---
+
+## Solution 3
+
+```python
+counter = 0
+
+def increment():
+    global counter
+    counter += 1
+
+increment()
+increment()
+
+print(counter)
+```
+
+---
+
+## Solution 4
+
+```python
+name = "Global"
+
+def display():
+    name = "Local"
+    print(name)
+
+display()
+print(name)
+```
+
+Output
+
+```text
+Local
+Global
+```
+
+---
+
+## Solution 5
+
+```python
+score = 0
+
+def increase():
+    global score
+    score += 5
+
+def display():
+    print(score)
+
+increase()
+increase()
+increase()
+
+display()
+```
+
+Output
+
+```text
+15
+```
+
+---
+
+# Common Mistakes
+
+### Modifying a Global Variable Without `global`
+
+```python
+count = 5
+
+def update():
+    count += 1
+```
+
+This raises an `UnboundLocalError`.
+
+---
+
+### Accessing a Local Variable Outside Its Function
+
+```python
+def demo():
+    x = 10
+
+print(x)
+```
+
+This raises a `NameError`.
+
+
+
+### What does the `global` keyword do?
+
+It allows a function to modify a global variable instead of creating a new local variable.
+
+---
+
+### Which variable has higher priority inside a function?
+
+A **local variable** has higher priority than a global variable with the same name.
+
+---
+
+# What is the LEGB rule?
+
+Python searches for variables in this order:
+
+* Local
+* Enclosing
+* Global
+* Built-in
