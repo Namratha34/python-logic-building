@@ -1,0 +1,349 @@
+# Day 42 - Python Logic Building 🚀
+
+# Topic: File I/O (Input/Output) in Python
+Today, I learned about **File Handling (File I/O)** in Python.
+
+File handling allows Python programs to create, read, write, append, and manage files stored on the computer. It is one of the most important concepts for building real-world applications because it enables data to be stored permanently.
+
+# 📚 What is File I/O?
+
+**File I/O** stands for **File Input and Output**.
+
+* **Input:** Reading data from a file.
+* **Output:** Writing data to a file.
+
+Python provides the built-in `open()` function to work with files.
+
+---
+
+# 📚 Opening a File
+
+## Syntax
+
+```python id="m1a7nx"
+file = open("filename.txt", "mode")
+```
+
+Example
+
+```python id="p6skz2"
+file = open("data.txt", "r")
+```
+
+---
+
+# 📚 File Modes
+
+| Mode   | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| `"r"`  | Read (default)                                                            |
+| `"w"`  | Write (Creates new file if it doesn't exist, overwrites existing content) |
+| `"a"`  | Append (Adds data to the end of the file)                                 |
+| `"x"`  | Create a new file (Fails if the file already exists)                      |
+| `"r+"` | Read and Write                                                            |
+| `"w+"` | Write and Read (Overwrites file)                                          |
+| `"a+"` | Append and Read                                                           |
+| `"b"`  | Binary mode (e.g., `"rb"`, `"wb"`)                                        |
+| `"t"`  | Text mode (default)                                                       |
+
+---
+
+# 📚 Closing a File
+
+```python id="wjlwmz"
+file = open("data.txt", "r")
+
+file.close()
+```
+
+Always close files after use.
+
+---
+
+# 📚 Using `with` Statement (Recommended)
+
+The `with` statement automatically closes the file.
+
+```python id="7kkz4v"
+with open("data.txt", "r") as file:
+    print(file.read())
+```
+
+---
+
+# 📚 Reading Files
+
+## 1. `read()`
+
+Reads the entire file.
+
+```python id="k2lmn4"
+with open("data.txt", "r") as file:
+    print(file.read())
+```
+
+---
+
+## 2. `read(size)`
+
+Reads a specified number of characters.
+
+```python id="ntmjfx"
+with open("data.txt", "r") as file:
+    print(file.read(10))
+```
+
+---
+
+## 3. `readline()`
+
+Reads one line at a time.
+
+```python id="9qdl2r"
+with open("data.txt", "r") as file:
+    print(file.readline())
+```
+
+---
+
+## 4. `readlines()`
+
+Reads all lines and returns them as a list.
+
+```python id="gc9n8b"
+with open("data.txt", "r") as file:
+    lines = file.readlines()
+    print(lines)
+```
+
+---
+
+# 📚 Writing Files
+
+## `write()`
+
+Writes text to a file.
+
+```python id="l1p92h"
+with open("data.txt", "w") as file:
+    file.write("Hello Python")
+```
+
+If the file already exists, its previous content is overwritten.
+
+---
+
+# 📚 Appending to a File
+
+```python id="7shyl2"
+with open("data.txt", "a") as file:
+    file.write("\nWelcome to File Handling")
+```
+
+New data is added to the end of the file.
+
+---
+
+# 📚 Writing Multiple Lines
+
+## `writelines()`
+
+```python id="fvzsl9"
+lines = [
+    "Python\n",
+    "Java\n",
+    "C++\n"
+]
+
+with open("languages.txt", "w") as file:
+    file.writelines(lines)
+```
+
+---
+
+# 📚 File Position Methods
+
+## `tell()`
+
+Returns the current cursor position.
+
+```python id="e6mdfc"
+with open("data.txt", "r") as file:
+    print(file.tell())
+```
+
+---
+
+## `seek()`
+
+Moves the cursor to a specified position.
+
+```python id="nvfdjr"
+with open("data.txt", "r") as file:
+    file.seek(5)
+    print(file.read())
+```
+
+---
+
+# 📚 File Properties
+
+```python id="rt8t8l"
+with open("data.txt", "r") as file:
+    print(file.name)
+    print(file.mode)
+    print(file.closed)
+```
+
+---
+
+# 📚 Checking if a File Exists
+
+```python id="rf7x1z"
+import os
+
+print(os.path.exists("data.txt"))
+```
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Create a file named **student.txt** and write your name into it.
+
+---
+
+## Problem 2
+
+Read the complete contents of **student.txt**.
+
+---
+
+## Problem 3
+
+Append your favorite programming language to the same file.
+
+---
+
+## Problem 4
+
+Read only the first line of a file using `readline()`.
+
+---
+
+## Problem 5
+
+Create a file named **numbers.txt** and write numbers from **1 to 5**, each on a new line.
+
+---
+
+## Problem 6
+
+Read all lines from **numbers.txt** using `readlines()`.
+
+---
+
+## Problem 7
+
+Display the current cursor position using `tell()`.
+
+---
+
+## Problem 8
+
+Move the cursor to the 6th character using `seek()` and read the remaining content.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python id="i59q2k"
+with open("student.txt", "w") as file:
+    file.write("Your Name")
+```
+
+---
+
+## Solution 2
+
+```python id="wrn7tx"
+with open("student.txt", "r") as file:
+    print(file.read())
+```
+
+---
+
+## Solution 3
+
+```python id="6mjlwm"
+with open("student.txt", "a") as file:
+    file.write("\nPython")
+```
+
+---
+
+## Solution 4
+
+```python id="x2bnkg"
+with open("student.txt", "r") as file:
+    print(file.readline())
+```
+
+---
+
+## Solution 5
+
+```python id="8ewm2u"
+with open("numbers.txt", "w") as file:
+    for i in range(1, 6):
+        file.write(f"{i}\n")
+```
+
+---
+
+## Solution 6
+
+```python id="xj1x8q"
+with open("numbers.txt", "r") as file:
+    print(file.readlines())
+```
+
+---
+
+## Solution 7
+
+```python id="l3p0oe"
+with open("student.txt", "r") as file:
+    print(file.tell())
+```
+
+---
+
+## Solution 8
+
+```python id="a0tfes"
+with open("student.txt", "r") as file:
+    file.seek(5)
+    print(file.read())
+```
+
+---
+
+# Common File Methods
+
+| Method         | Purpose                                        |
+| -------------- | ---------------------------------------------- |
+| `open()`       | Opens a file                                   |
+| `close()`      | Closes a file                                  |
+| `read()`       | Reads entire file or specified characters      |
+| `readline()`   | Reads one line                                 |
+| `readlines()`  | Reads all lines into a list                    |
+| `write()`      | Writes text to a file                          |
+| `writelines()` | Writes multiple lines                          |
+| `seek()`       | Moves file pointer                             |
+| `tell()`       | Returns current file pointer position          |
+| `flush()`      | Forces buffered data to be written to the file |
