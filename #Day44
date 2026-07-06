@@ -1,0 +1,280 @@
+# Day 43 - Python Logic Building 🚀
+
+# Topic: Raising Custom Errors in Python
+
+
+Today, I learned about **raising custom errors** in Python using the `raise` keyword.
+
+Python provides many built-in exceptions, but in real-world applications, we often need to create and raise our own exceptions to represent business-specific rules and invalid conditions. Raising custom errors makes code more readable, maintainable, and easier to debug.
+
+---
+
+# 📚 What is `raise`?
+
+The `raise` keyword is used to manually trigger an exception.
+
+### Syntax
+
+```python
+raise ExceptionType("Error Message")
+```
+
+Example:
+
+```python
+age = -5
+
+if age < 0:
+    raise ValueError("Age cannot be negative.")
+```
+
+Output
+
+```text
+ValueError: Age cannot be negative.
+```
+
+---
+
+# 📚 Raising Built-in Exceptions
+
+## Example 1: ValueError
+
+```python
+age = int(input("Enter your age: "))
+
+if age < 0:
+    raise ValueError("Age cannot be negative.")
+
+print("Valid age")
+```
+
+---
+
+## Example 2: TypeError
+
+```python
+name = 123
+
+if not isinstance(name, str):
+    raise TypeError("Name must be a string.")
+```
+
+---
+
+# 📚 Creating a Custom Exception
+
+Create a custom exception by inheriting from the `Exception` class.
+
+```python
+class InvalidAgeError(Exception):
+    pass
+```
+
+---
+
+# 📚 Raising a Custom Exception
+
+```python
+class InvalidAgeError(Exception):
+    pass
+
+age = 15
+
+if age < 18:
+    raise InvalidAgeError("You must be at least 18 years old.")
+```
+
+---
+
+# 📚 Handling a Custom Exception
+
+```python
+class InvalidAgeError(Exception):
+    pass
+
+try:
+    age = int(input("Enter your age: "))
+
+    if age < 18:
+        raise InvalidAgeError("You are not eligible.")
+
+    print("Eligible")
+
+except InvalidAgeError as e:
+    print("Error:", e)
+```
+
+---
+
+# 📚 Custom Exception with Attributes
+
+```python
+class InvalidMarksError(Exception):
+
+    def __init__(self, marks):
+        self.marks = marks
+        super().__init__(f"Invalid marks: {marks}")
+```
+
+Usage:
+
+```python
+marks = 120
+
+if marks > 100:
+    raise InvalidMarksError(marks)
+```
+
+---
+
+# 📚 Using `raise` Inside a Function
+
+```python
+def withdraw(balance, amount):
+
+    if amount > balance:
+        raise Exception("Insufficient balance.")
+
+    return balance - amount
+
+print(withdraw(1000, 500))
+```
+
+---
+
+# Why Raise Custom Errors?
+
+* Validate user input.
+* Enforce business rules.
+* Make error messages meaningful.
+* Improve debugging.
+* Improve code readability.
+
+---
+
+# Best Practices
+
+* Inherit custom exceptions from `Exception`.
+* Use meaningful exception names.
+* Provide clear and descriptive error messages.
+* Raise exceptions only for exceptional situations.
+* Catch specific exceptions whenever possible.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Raise a `ValueError` if the entered number is negative.
+
+---
+
+## Problem 2
+
+Create a custom exception named `InvalidSalaryError` that raises an error when the salary is less than 10,000.
+
+---
+
+## Problem 3
+
+Create a custom exception named `InvalidPasswordError` if the password contains fewer than 8 characters.
+
+---
+
+## Problem 4
+
+Write a function `divide(a, b)` that raises a `ZeroDivisionError` if `b` is zero.
+
+---
+
+## Problem 5
+
+Create a custom exception named `InsufficientBalanceError` for an ATM withdrawal program.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+number = int(input("Enter a number: "))
+
+if number < 0:
+    raise ValueError("Negative numbers are not allowed.")
+
+print("Valid number")
+```
+
+---
+
+## Solution 2
+
+```python
+class InvalidSalaryError(Exception):
+    pass
+
+salary = int(input("Enter Salary: "))
+
+if salary < 10000:
+    raise InvalidSalaryError("Salary must be at least 10000.")
+
+print("Salary Accepted")
+```
+
+---
+
+## Solution 3
+
+```python
+class InvalidPasswordError(Exception):
+    pass
+
+password = input("Enter Password: ")
+
+if len(password) < 8:
+    raise InvalidPasswordError(
+        "Password must contain at least 8 characters."
+    )
+
+print("Password Accepted")
+```
+
+---
+
+## Solution 4
+
+```python
+def divide(a, b):
+
+    if b == 0:
+        raise ZeroDivisionError(
+            "Cannot divide by zero."
+        )
+
+    return a / b
+
+print(divide(10, 2))
+```
+
+---
+
+## Solution 5
+
+```python
+class InsufficientBalanceError(Exception):
+    pass
+
+balance = 5000
+withdraw = int(input("Enter Amount: "))
+
+if withdraw > balance:
+    raise InsufficientBalanceError(
+        "Insufficient Balance."
+    )
+
+balance -= withdraw
+
+print("Remaining Balance:", balance)
