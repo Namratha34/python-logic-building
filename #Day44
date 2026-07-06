@@ -7,7 +7,6 @@ Today, I learned about **raising custom errors** in Python using the `raise` key
 
 Python provides many built-in exceptions, but in real-world applications, we often need to create and raise our own exceptions to represent business-specific rules and invalid conditions. Raising custom errors makes code more readable, maintainable, and easier to debug.
 
----
 
 # 📚 What is `raise`?
 
