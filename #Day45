@@ -1,0 +1,279 @@
+# Day 44 - Python Logic Building 🚀
+# Topic: Shorthand If-Else Statements in Python
+Today, I learned about **Shorthand If-Else Statements** (also known as the **Ternary Operator**) in Python.
+
+Shorthand if-else statements provide a concise way to write conditional expressions in a single line. They improve code readability when dealing with simple conditions and are widely used in Python projects.
+# 📚 What is a Shorthand If-Else Statement?
+
+A shorthand if-else statement is a one-line conditional expression that returns one value if the condition is `True` and another value if the condition is `False`.
+
+## Syntax
+
+```python
+value_if_true if condition else value_if_false
+```
+
+---
+
+# 📚 Basic Example
+
+```python
+age = 20
+
+result = "Eligible to Vote" if age >= 18 else "Not Eligible"
+
+print(result)
+```
+
+### Output
+
+```text
+Eligible to Vote
+```
+
+---
+
+# 📚 Example: Find the Larger Number
+
+```python
+a = 15
+b = 25
+
+largest = a if a > b else b
+
+print("Largest:", largest)
+```
+
+### Output
+
+```text
+Largest: 25
+```
+
+---
+
+# 📚 Example: Even or Odd
+
+```python
+number = 9
+
+print("Even" if number % 2 == 0 else "Odd")
+```
+
+### Output
+
+```text
+Odd
+```
+
+---
+
+# 📚 Example: Positive or Negative
+
+```python
+num = -10
+
+result = "Positive" if num > 0 else "Negative"
+
+print(result)
+```
+
+### Output
+
+```text
+Negative
+```
+
+---
+
+# 📚 Nested Shorthand If-Else
+
+Multiple conditions can be handled using nested ternary operators.
+
+```python
+marks = 82
+
+grade = (
+    "A" if marks >= 90
+    else "B" if marks >= 75
+    else "C" if marks >= 50
+    else "Fail"
+)
+
+print(grade)
+```
+
+### Output
+
+```text
+B
+```
+
+---
+
+# 📚 Using Shorthand If-Else in Print Statements
+
+```python
+age = 16
+
+print("Adult" if age >= 18 else "Minor")
+```
+
+---
+
+# 📚 Using Shorthand If Without Else
+
+Python also supports a shorthand `if` statement when no `else` is required.
+
+```python
+age = 20
+
+if age >= 18: print("Eligible")
+```
+
+---
+
+# When Should You Use Shorthand If-Else?
+
+Use it when:
+
+* The condition is simple.
+* Only two outcomes are possible.
+* It improves readability.
+* Assigning values based on a condition.
+
+Avoid using it for very complex or deeply nested conditions.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Check whether a number is even or odd using a shorthand if-else statement.
+
+---
+
+## Problem 2
+
+Find the greater of two numbers using a shorthand if-else statement.
+
+---
+
+## Problem 3
+
+Check whether a student has passed. A student passes if marks are 35 or above.
+
+---
+
+## Problem 4
+
+Determine whether a number is positive, negative, or zero using a nested shorthand if-else statement.
+
+---
+
+## Problem 5
+
+Assign a discount:
+
+* If the purchase amount is greater than or equal to 1000 → `"10% Discount"`
+* Otherwise → `"No Discount"`
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+number = 12
+
+result = "Even" if number % 2 == 0 else "Odd"
+
+print(result)
+```
+
+---
+
+## Solution 2
+
+```python
+a = 45
+b = 72
+
+largest = a if a > b else b
+
+print("Largest:", largest)
+```
+
+---
+
+## Solution 3
+
+```python
+marks = 67
+
+result = "Pass" if marks >= 35 else "Fail"
+
+print(result)
+```
+
+---
+
+## Solution 4
+
+```python
+number = 0
+
+result = (
+    "Positive" if number > 0
+    else "Negative" if number < 0
+    else "Zero"
+)
+
+print(result)
+```
+
+---
+
+## Solution 5
+
+```python
+amount = 1200
+
+discount = (
+    "10% Discount"
+    if amount >= 1000
+    else "No Discount"
+)
+
+print(discount)
+```
+
+---
+
+# Comparison: Normal If-Else vs Shorthand If-Else
+
+### Normal If-Else
+
+```python
+age = 18
+
+if age >= 18:
+    result = "Adult"
+else:
+    result = "Minor"
+
+print(result)
+```
+
+---
+
+### Shorthand If-Else
+
+```python
+age = 18
+
+result = "Adult" if age >= 18 else "Minor"
+
+print(result)
