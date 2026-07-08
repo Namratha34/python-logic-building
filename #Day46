@@ -1,0 +1,272 @@
+# Day 46 - Python Logic Building 🚀
+
+# Topic: `enumerate()` Function in Python
+
+Today, I learned about the **`enumerate()` function** in Python.
+
+The `enumerate()` function is a built-in function that allows us to loop through an iterable while automatically keeping track of the index of each element. It eliminates the need to manually create and increment a counter variable, making loops cleaner, simpler, and more Pythonic.
+# 📚 What is `enumerate()`?
+
+The `enumerate()` function adds a counter (index) to an iterable and returns an **enumerate object**, which can be iterated over to get both the index and the corresponding value.
+
+### Syntax
+
+```python id="3fdx7y"
+enumerate(iterable, start=0)
+```
+
+### Parameters
+
+* **iterable** – The sequence or collection to iterate over.
+* **start** *(optional)* – The starting value of the index. The default is `0`.
+
+---
+
+# 📚 Basic Example
+
+```python id="8lhwzm"
+fruits = ["Apple", "Banana", "Mango"]
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)
+```
+
+### Output
+
+```text id="ryqrrr"
+0 Apple
+1 Banana
+2 Mango
+```
+
+---
+
+# 📚 Starting Index from 1
+
+```python id="tkc14o"
+fruits = ["Apple", "Banana", "Mango"]
+
+for index, fruit in enumerate(fruits, start=1):
+    print(index, fruit)
+```
+
+### Output
+
+```text id="bzcsgz"
+1 Apple
+2 Banana
+3 Mango
+```
+
+---
+
+# 📚 Using `enumerate()` with Strings
+
+```python id="g7qjlwm"
+word = "Python"
+
+for index, letter in enumerate(word):
+    print(index, letter)
+```
+
+### Output
+
+```text id="s8g7xh"
+0 P
+1 y
+2 t
+3 h
+4 o
+5 n
+```
+
+---
+
+# 📚 Using `enumerate()` with Tuples
+
+```python id="shc8ol"
+colors = ("Red", "Green", "Blue")
+
+for index, color in enumerate(colors):
+    print(index, color)
+```
+
+---
+
+# 📚 Using `enumerate()` with Lists
+
+```python id="jlwm5y"
+numbers = [10, 20, 30, 40]
+
+for position, value in enumerate(numbers):
+    print(f"Index: {position}, Value: {value}")
+```
+
+### Output
+
+```text id="w9jlwm"
+Index: 0, Value: 10
+Index: 1, Value: 20
+Index: 2, Value: 30
+Index: 3, Value: 40
+```
+
+---
+
+# 📚 Converting an Enumerate Object into a List
+
+```python id="w83gkq"
+fruits = ["Apple", "Banana", "Mango"]
+
+result = list(enumerate(fruits))
+
+print(result)
+```
+
+### Output
+
+```text id="y7h8ku"
+[(0, 'Apple'), (1, 'Banana'), (2, 'Mango')]
+```
+
+---
+
+# 📚 Without `enumerate()`
+
+```python id="fh3knm"
+fruits = ["Apple", "Banana", "Mango"]
+
+index = 0
+
+for fruit in fruits:
+    print(index, fruit)
+    index += 1
+```
+
+---
+
+# 📚 With `enumerate()`
+
+```python id="yjlwm0"
+fruits = ["Apple", "Banana", "Mango"]
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)
+```
+
+The second approach is shorter, cleaner, and easier to maintain.
+
+---
+
+# Why Use `enumerate()`?
+
+* Automatically keeps track of indexes.
+* Eliminates manual counter variables.
+* Makes loops cleaner and more readable.
+* Reduces programming errors.
+* Commonly used in real-world Python applications.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Print each fruit along with its index.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+```
+
+---
+
+## Problem 2
+
+Print student names with roll numbers starting from **101**.
+
+```python
+students = ["Rahul", "Priya", "Ankit"]
+```
+
+---
+
+## Problem 3
+
+Print each character of the word **"Programming"** along with its index.
+
+---
+
+## Problem 4
+
+Convert the following list into an enumerate object and print it as a list.
+
+```python
+colors = ["Red", "Green", "Blue"]
+```
+
+---
+
+## Problem 5
+
+Display the position and value of each element in the following tuple.
+
+```python
+marks = (75, 82, 91, 68)
+```
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python id="yn1rqg"
+fruits = ["Apple", "Banana", "Orange"]
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)
+```
+
+---
+
+## Solution 2
+
+```python id="sypr8n"
+students = ["Rahul", "Priya", "Ankit"]
+
+for roll, student in enumerate(students, start=101):
+    print(roll, student)
+```
+
+---
+
+## Solution 3
+
+```python id="jlwm91"
+word = "Programming"
+
+for index, letter in enumerate(word):
+    print(index, letter)
+```
+
+---
+
+## Solution 4
+
+```python id="wjlwm8"
+colors = ["Red", "Green", "Blue"]
+
+result = list(enumerate(colors))
+
+print(result)
+```
+
+---
+
+## Solution 5
+
+```python id="jlwm2"
+marks = (75, 82, 91, 68)
+
+for position, mark in enumerate(marks):
+    print(position, mark)
