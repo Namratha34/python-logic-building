@@ -11,10 +11,6 @@ A shorthand if-else statement is a one-line conditional expression that returns 
 
 ```python
 value_if_true if condition else value_if_false
-```
-
----
-
 # 📚 Basic Example
 
 ```python
