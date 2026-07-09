@@ -1,0 +1,290 @@
+# Day 47 - Python Logic Building 🚀
+
+# Topic: Virtual Environment in Python
+
+Today, I learned about **Virtual Environments** in Python.
+
+A virtual environment is an isolated Python environment that allows each project to have its own Python interpreter and installed packages. This helps avoid dependency conflicts between different projects and keeps projects organized.
+
+I also learned how to create, activate, deactivate, install packages, check package versions, and export project dependencies using `pip freeze`
+
+# 📚 What is a Virtual Environment?
+
+A **Virtual Environment (venv)** is an isolated environment where Python packages are installed separately for each project.
+
+Without a virtual environment:
+
+* Installing a package affects all Python projects.
+* Different projects may require different versions of the same package.
+* Dependency conflicts can occur.
+
+With a virtual environment:
+
+* Every project has its own packages.
+* Different projects can use different package versions.
+* Projects become easier to maintain and share.
+
+---
+
+# 📚 Creating a Virtual Environment
+
+### Syntax
+
+```bash id="g7qv92"
+python -m venv myenv
+```
+
+Example
+
+```bash id="g4j5y8"
+python -m venv project_env
+```
+
+A folder named **project_env** is created containing the virtual environment.
+
+---
+
+# 📚 Activating the Virtual Environment
+
+### Windows
+
+```bash id="n7ozmh"
+project_env\Scripts\activate
+```
+
+### macOS / Linux
+
+```bash id="8kgq2s"
+source project_env/bin/activate
+```
+
+After activation, the terminal usually displays:
+
+```text id="jlwm56"
+(project_env)
+```
+
+---
+
+# 📚 Installing Packages
+
+Install a package:
+
+```bash id="h2x0mk"
+pip install requests
+```
+
+Install multiple packages:
+
+```bash id="jlwm57"
+pip install numpy pandas matplotlib
+```
+
+Install a specific version:
+
+```bash id="q1jl6v"
+pip install requests==2.31.0
+```
+
+---
+
+# 📚 Viewing Installed Packages
+
+```bash id="jlwm58"
+pip list
+```
+
+---
+
+# 📚 Checking Package Details
+
+```bash id="jlwm59"
+pip show requests
+```
+
+---
+
+# 📚 Checking pip Version
+
+```bash id="jlwm60"
+pip --version
+```
+
+---
+
+# 📚 Upgrading pip
+
+```bash id="jlwm61"
+python -m pip install --upgrade pip
+```
+
+---
+
+# 📚 Saving Installed Packages
+
+Create a `requirements.txt` file containing all installed packages.
+
+```bash id="jlwm62"
+pip freeze > requirements.txt
+```
+
+Example Output
+
+```text id="jlwm63"
+numpy==2.3.1
+pandas==2.3.0
+requests==2.31.0
+```
+
+---
+
+# 📚 Installing Packages from `requirements.txt`
+
+```bash id="jlwm64"
+pip install -r requirements.txt
+```
+
+---
+
+# 📚 Uninstalling a Package
+
+```bash id="jlwm65"
+pip uninstall requests
+```
+
+---
+
+# 📚 Deactivating the Virtual Environment
+
+```bash id="jlwm66"
+deactivate
+```
+
+---
+
+# 📚 Project Structure
+
+```text id="jlwm67"
+MyProject/
+│
+├── project_env/
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# Why Use Virtual Environments?
+
+* Prevent package conflicts.
+* Keep dependencies isolated.
+* Share projects easily using `requirements.txt`.
+* Make projects portable.
+* Follow professional development practices.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Create a virtual environment named **python_env**.
+
+---
+
+## Problem 2
+
+Activate the virtual environment.
+
+---
+
+## Problem 3
+
+Install the following packages:
+
+* requests
+* numpy
+
+---
+
+## Problem 4
+
+Generate a `requirements.txt` file.
+
+---
+
+## Problem 5
+
+Deactivate the virtual environment.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```bash id="jlwm68"
+python -m venv python_env
+```
+
+---
+
+## Solution 2
+
+### Windows
+
+```bash id="jlwm69"
+python_env\Scripts\activate
+```
+
+### macOS / Linux
+
+```bash id="jlwm70"
+source python_env/bin/activate
+```
+
+---
+
+## Solution 3
+
+```bash id="jlwm71"
+pip install requests numpy
+```
+
+---
+
+## Solution 4
+
+```bash id="jlwm72"
+pip freeze > requirements.txt
+```
+
+---
+
+## Solution 5
+
+```bash id="jlwm73"
+deactivate
+```
+
+---
+
+# Common pip Commands
+
+| Command                           | Description                              |
+| --------------------------------- | ---------------------------------------- |
+| `python -m venv env_name`         | Create a virtual environment             |
+| `env_name\Scripts\activate`       | Activate on Windows                      |
+| `source env_name/bin/activate`    | Activate on macOS/Linux                  |
+| `deactivate`                      | Exit the virtual environment             |
+| `pip install package`             | Install a package                        |
+| `pip uninstall package`           | Remove a package                         |
+| `pip list`                        | Display installed packages               |
+| `pip show package`                | Show package details                     |
+| `pip freeze`                      | Display installed packages with versions |
+| `pip freeze > requirements.txt`   | Save dependencies                        |
+| `pip install -r requirements.txt` | Install dependencies from a file         |
+| `pip --version`                   | Display pip version                      |
+
+
