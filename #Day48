@@ -1,0 +1,514 @@
+# Day 48 - Python Logic Building 🚀
+
+# Topics:
+
+* How Import Works in Python
+* `if __name__ == "__main__"`
+* OS Module in Python
+Today, I learned three important Python concepts:
+
+* How the `import` statement works.
+* The purpose of `if __name__ == "__main__"`.
+* The Python **OS Module**, which allows programs to interact with the operating system.
+
+These topics are essential for writing reusable, modular, and professional Python applications.
+
+---
+
+# 📚 What is a Module?
+
+A **module** is simply a Python file (`.py`) containing functions, classes, variables, and executable code.
+
+Example:
+
+```python
+# calculator.py
+
+def add(a, b):
+    return a + b
+```
+
+---
+
+# 📚 Importing Modules
+
+## Import Entire Module
+
+```python
+import math
+
+print(math.sqrt(25))
+```
+
+---
+
+## Import Specific Function
+
+```python
+from math import sqrt
+
+print(sqrt(81))
+```
+
+---
+
+## Import Multiple Functions
+
+```python
+from math import sqrt, factorial
+
+print(sqrt(64))
+print(factorial(5))
+```
+
+---
+
+## Import with Alias
+
+```python
+import math as m
+
+print(m.pi)
+```
+
+---
+
+## Import Your Own Module
+
+### calculator.py
+
+```python
+def add(a, b):
+    return a + b
+```
+
+### main.py
+
+```python
+import calculator
+
+print(calculator.add(10, 20))
+```
+
+---
+
+# 📚 How Python Imports Modules
+
+When a module is imported:
+
+* Python searches for the module.
+* Loads the module into memory.
+* Executes all top-level code once.
+* Makes functions and classes available.
+* Caches the module to avoid reloading it.
+
+---
+
+# 📚 Special Variable: `__name__`
+
+Every Python file contains a built-in variable called `__name__`.
+
+If the file is executed directly:
+
+```text
+__main__
+```
+
+If the file is imported:
+
+```text
+module_name
+```
+
+---
+
+# 📚 `if __name__ == "__main__"`
+
+Used to execute code only when the file is run directly.
+
+```python
+def greet():
+    print("Welcome!")
+
+if __name__ == "__main__":
+    greet()
+```
+
+If this file is imported into another program, `greet()` will not execute automatically.
+
+---
+
+# 📚 OS Module in Python
+
+The **`os` module** is a built-in module that allows Python programs to interact with the operating system.
+
+Import it using:
+
+```python
+import os
+```
+
+---
+
+# 📚 Current Working Directory
+
+```python
+import os
+
+print(os.getcwd())
+```
+
+Returns the current directory where the Python program is running.
+
+---
+
+# 📚 Change Directory
+
+```python
+import os
+
+os.chdir("C:/Users/User/Documents")
+```
+
+Changes the current working directory.
+
+---
+
+# 📚 List Files and Folders
+
+```python
+import os
+
+print(os.listdir())
+```
+
+List a specific directory:
+
+```python
+print(os.listdir("C:/Users/User"))
+```
+
+---
+
+# 📚 Create a Directory
+
+```python
+import os
+
+os.mkdir("PythonProjects")
+```
+
+Create nested directories:
+
+```python
+os.makedirs("Projects/Python/Day48")
+```
+
+---
+
+# 📚 Remove Directories
+
+```python
+os.rmdir("PythonProjects")
+```
+
+Remove nested empty directories:
+
+```python
+os.removedirs("Projects/Python/Day48")
+```
+
+---
+
+# 📚 Rename Files or Folders
+
+```python
+import os
+
+os.rename("old.txt", "new.txt")
+```
+
+---
+
+# 📚 Delete Files
+
+```python
+import os
+
+os.remove("sample.txt")
+```
+
+---
+
+# 📚 Check Whether a File Exists
+
+```python
+import os
+
+print(os.path.exists("sample.txt"))
+```
+
+---
+
+# 📚 Check File or Directory
+
+```python
+import os
+
+print(os.path.isfile("sample.txt"))
+print(os.path.isdir("Projects"))
+```
+
+---
+
+# 📚 Join File Paths
+
+```python
+import os
+
+path = os.path.join("Projects", "Python", "main.py")
+
+print(path)
+```
+
+---
+
+# 📚 Absolute Path
+
+```python
+import os
+
+print(os.path.abspath("main.py"))
+```
+
+---
+
+# 📚 Split File Name and Extension
+
+```python
+import os
+
+print(os.path.splitext("resume.pdf"))
+```
+
+Output
+
+```text
+('resume', '.pdf')
+```
+
+---
+
+# 📚 Environment Variables
+
+```python
+import os
+
+print(os.environ)
+```
+
+Specific variable:
+
+```python
+print(os.environ.get("PATH"))
+```
+
+---
+
+# 📚 Execute a System Command
+
+```python
+import os
+
+os.system("echo Hello Python")
+```
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Create your own module named `calculator.py` with two functions and import it.
+
+---
+
+## Problem 2
+
+Print the value of `__name__`.
+
+---
+
+## Problem 3
+
+Create a function and execute it only when the file is run directly.
+
+---
+
+## Problem 4
+
+Print the current working directory.
+
+---
+
+## Problem 5
+
+List all files in the current directory.
+
+---
+
+## Problem 6
+
+Create a folder named `Practice`.
+
+---
+
+## Problem 7
+
+Rename a file.
+
+---
+
+## Problem 8
+
+Check whether `notes.txt` exists.
+
+---
+
+## Problem 9
+
+Print the absolute path of a file.
+
+---
+
+## Problem 10
+
+Join the following path correctly.
+
+```
+Projects
+Python
+Day48
+main.py
+```
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+# calculator.py
+def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+```
+
+```python
+# main.py
+import calculator
+
+print(calculator.add(5, 3))
+print(calculator.sub(5, 3))
+```
+
+---
+
+## Solution 2
+
+```python
+print(__name__)
+```
+
+---
+
+## Solution 3
+
+```python
+def greet():
+    print("Hello!")
+
+if __name__ == "__main__":
+    greet()
+```
+
+---
+
+## Solution 4
+
+```python
+import os
+
+print(os.getcwd())
+```
+
+---
+
+## Solution 5
+
+```python
+import os
+
+print(os.listdir())
+```
+
+---
+
+## Solution 6
+
+```python
+import os
+
+os.mkdir("Practice")
+```
+
+---
+
+## Solution 7
+
+```python
+import os
+
+os.rename("old.txt", "new.txt")
+```
+
+---
+
+## Solution 8
+
+```python
+import os
+
+print(os.path.exists("notes.txt"))
+```
+
+---
+
+## Solution 9
+
+```python
+import os
+
+print(os.path.abspath("main.py"))
+```
+
+---
+
+## Solution 10
+
+```python
+import os
+
+path = os.path.join(
+    "Projects",
+    "Python",
+    "Day48",
+    "main.py"
+)
+
+print(path)
+```
+
