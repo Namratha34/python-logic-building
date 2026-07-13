@@ -1,0 +1,395 @@
+# Day 49 - Python Logic Building 🚀
+* Local and Global Variables in Python
+* `is` vs `==` in Python
+Today, I learned about **variable scope** in Python and the difference between the **`is`** and **`==`** operators.
+
+Understanding variable scope helps in writing organized and maintainable programs, while knowing the difference between `is` and `==` prevents logical bugs when comparing objects.
+
+---
+
+# 📚 Local Variables
+
+A **local variable** is declared inside a function and can only be accessed within that function.
+
+## Example
+
+```python id="o3d5km"
+def greet():
+    message = "Hello!"
+    print(message)
+
+greet()
+```
+
+### Output
+
+```text id="dhmk02"
+Hello!
+```
+
+Trying to access `message` outside the function raises a `NameError`.
+
+---
+
+# 📚 Global Variables
+
+A **global variable** is declared outside all functions and can be accessed throughout the program.
+
+## Example
+
+```python id="8gl2si"
+language = "Python"
+
+def show_language():
+    print(language)
+
+show_language()
+print(language)
+```
+
+### Output
+
+```text id="4j0ohv"
+Python
+Python
+```
+
+---
+
+# 📚 Local vs Global Variables
+
+```python id="jlwm92"
+name = "Global"
+
+def display():
+    name = "Local"
+    print(name)
+
+display()
+print(name)
+```
+
+### Output
+
+```text id="jlwm93"
+Local
+Global
+```
+
+The local variable shadows the global variable inside the function.
+
+---
+
+# 📚 The `global` Keyword
+
+Use the `global` keyword when you want to modify a global variable inside a function.
+
+```python id="jlwm94"
+count = 0
+
+def increment():
+    global count
+    count += 1
+
+increment()
+increment()
+
+print(count)
+```
+
+### Output
+
+```text id="jlwm95"
+2
+```
+
+---
+
+# 📚 Variable Scope (LEGB Rule)
+
+Python searches for variables in the following order:
+
+1. **L** – Local
+2. **E** – Enclosing
+3. **G** – Global
+4. **B** – Built-in
+
+---
+
+# Nested Function Example
+
+```python id="jlwm96"
+def outer():
+    message = "Outer"
+
+    def inner():
+        print(message)
+
+    inner()
+
+outer()
+```
+
+Output
+
+```text id="jlwm97"
+Outer
+```
+
+---
+
+# 📚 Equality Operator (`==`)
+
+The `==` operator checks whether **two values are equal**.
+
+```python id="jlwm98"
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)
+```
+
+### Output
+
+```text id="jlwm99"
+True
+```
+
+Both lists contain the same values.
+
+---
+
+# 📚 Identity Operator (`is`)
+
+The `is` operator checks whether **two variables refer to the same object in memory**.
+
+```python id="jlwm100"
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a is b)
+```
+
+### Output
+
+```text id="’wini01"
+False
+```
+
+Although the values are equal, they are different objects.
+
+---
+
+# 📚 Example: `is` Returns True
+
+```python id="’wini02"
+a = [1, 2, 3]
+b = a
+
+print(a is b)
+print(a == b)
+```
+
+### Output
+
+```text id="’wini03"
+True
+True
+```
+
+Both variables refer to the same list.
+
+---
+
+# 📚 Comparing Strings
+
+```python id="’wini04"
+x = "Python"
+y = "Python"
+
+print(x == y)
+print(x is y)
+```
+
+Depending on Python's string interning, `is` may return `True` for some strings, but **you should not rely on this behavior**.
+
+---
+
+# When to Use `==`
+
+Use `==` when comparing:
+
+* Numbers
+* Strings
+* Lists
+* Tuples
+* Dictionaries
+* User input
+* Any values
+
+---
+
+# When to Use `is`
+
+Use `is` when checking:
+
+* Whether two variables reference the same object.
+* Whether a value is `None`.
+
+Example:
+
+```python id="’wini05"
+value = None
+
+if value is None:
+    print("No value available")
+```
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Create a local variable inside a function and print it.
+
+---
+
+## Problem 2
+
+Create a global variable named `country` and print it inside and outside a function.
+
+---
+
+## Problem 3
+
+Modify a global variable using the `global` keyword.
+
+---
+
+## Problem 4
+
+Create two lists with the same values and compare them using both `==` and `is`.
+
+---
+
+## Problem 5
+
+Assign one list to another variable and compare them using `==` and `is`.
+
+---
+
+## Problem 6
+
+Check whether a variable is `None` using the `is` operator.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python id="’wini06"
+def demo():
+    message = "Learning Python"
+    print(message)
+
+demo()
+```
+
+---
+
+## Solution 2
+
+```python id="’wini07"
+country = "India"
+
+def show():
+    print(country)
+
+show()
+print(country)
+```
+
+---
+
+## Solution 3
+
+```python id="’wini08"
+counter = 0
+
+def increase():
+    global counter
+    counter += 1
+
+increase()
+print(counter)
+```
+
+---
+
+## Solution 4
+
+```python id="’wini09"
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)
+print(a is b)
+```
+
+---
+
+## Solution 5
+
+```python id="’wini10"
+a = [1, 2, 3]
+b = a
+
+print(a == b)
+print(a is b)
+```
+
+---
+
+## Solution 6
+
+```python id="’wini11"
+data = None
+
+if data is None:
+    print("Value is None")
+```
+
+---
+
+# Comparison Table
+
+| Feature    | `==`                       | `is`                                               |
+| ---------- | -------------------------- | -------------------------------------------------- |
+| Compares   | Values                     | Object identity                                    |
+| Returns    | `True` if values are equal | `True` if both references point to the same object |
+| Used For   | Value comparison           | Identity comparison                                |
+| Common Use | Numbers, strings, lists    | `None`, object identity                            |
+
+---
+
+# Common Mistakes
+
+### Using `is` Instead of `==`
+
+Incorrect
+
+```python id="’wini12"
+a = [1, 2]
+b = [1, 2]
+
+print(a is b)
+```
+
+Expected value comparison? This returns `False`.
+
+Correct
+
+```python id="’wini13"
+print(a == b)
