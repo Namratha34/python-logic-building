@@ -1,0 +1,416 @@
+# Day 50 - Python Logic Building 🚀
+
+# Topic: File I/O and File Handling Methods in Python
+
+Today, I learned about **File Input/Output (File I/O)** and various **file handling methods** in Python.
+
+File handling allows Python programs to read, write, update, and manage data stored in files. It is an essential concept for building real-world applications because files provide permanent data storage.
+
+---
+
+# 📚 What is File I/O?
+
+**File I/O** stands for **File Input and Output**.
+
+* **Input** → Reading data from a file.
+* **Output** → Writing data to a file.
+
+Python provides the built-in `open()` function to work with files.
+
+---
+
+# 📚 Opening a File
+
+## Syntax
+
+```python
+file = open("filename.txt", "mode")
+```
+
+Example
+
+```python
+file = open("student.txt", "r")
+```
+
+---
+
+# 📚 File Modes
+
+| Mode   | Description                                                    |
+| ------ | -------------------------------------------------------------- |
+| `"r"`  | Read (Default mode)                                            |
+| `"w"`  | Write (Creates a new file or overwrites existing content)      |
+| `"a"`  | Append (Adds content to the end of a file)                     |
+| `"x"`  | Create a new file (Raises an error if the file already exists) |
+| `"r+"` | Read and Write                                                 |
+| `"w+"` | Write and Read (Overwrites existing content)                   |
+| `"a+"` | Append and Read                                                |
+| `"rb"` | Read binary file                                               |
+| `"wb"` | Write binary file                                              |
+
+---
+
+# 📚 Closing a File
+
+```python
+file = open("student.txt", "r")
+
+file.close()
+```
+
+Always close files after using them.
+
+---
+
+# 📚 Using the `with` Statement (Recommended)
+
+The `with` statement automatically closes the file after use.
+
+```python
+with open("student.txt", "r") as file:
+    print(file.read())
+```
+
+---
+
+# 📚 Reading Methods
+
+## 1. `read()`
+
+Reads the entire file.
+
+```python
+with open("student.txt", "r") as file:
+    print(file.read())
+```
+
+---
+
+## 2. `read(size)`
+
+Reads a specified number of characters.
+
+```python
+with open("student.txt", "r") as file:
+    print(file.read(10))
+```
+
+---
+
+## 3. `readline()`
+
+Reads one line at a time.
+
+```python
+with open("student.txt", "r") as file:
+    print(file.readline())
+```
+
+---
+
+## 4. `readlines()`
+
+Reads all lines and returns them as a list.
+
+```python
+with open("student.txt", "r") as file:
+    lines = file.readlines()
+    print(lines)
+```
+
+---
+
+# 📚 Writing Methods
+
+## `write()`
+
+Writes text to a file.
+
+```python
+with open("student.txt", "w") as file:
+    file.write("Hello Python")
+```
+
+---
+
+# 📚 Appending Data
+
+```python
+with open("student.txt", "a") as file:
+    file.write("\nWelcome to Python")
+```
+
+---
+
+# 📚 `writelines()`
+
+Writes multiple lines to a file.
+
+```python
+languages = [
+    "Python\n",
+    "Java\n",
+    "C++\n"
+]
+
+with open("languages.txt", "w") as file:
+    file.writelines(languages)
+```
+
+---
+
+# 📚 Cursor Position Methods
+
+## `tell()`
+
+Returns the current position of the file pointer.
+
+```python
+with open("student.txt", "r") as file:
+    print(file.tell())
+```
+
+---
+
+## `seek()`
+
+Moves the file pointer to a specific position.
+
+```python
+with open("student.txt", "r") as file:
+    file.seek(5)
+    print(file.read())
+```
+
+---
+
+# 📚 File Properties
+
+```python
+with open("student.txt", "r") as file:
+    print(file.name)
+    print(file.mode)
+    print(file.closed)
+```
+
+---
+
+# 📚 Checking if a File Exists
+
+```python
+import os
+
+print(os.path.exists("student.txt"))
+```
+
+---
+
+# 📚 Common File Methods
+
+| Method         | Description                           |
+| -------------- | ------------------------------------- |
+| `open()`       | Opens a file                          |
+| `close()`      | Closes a file                         |
+| `read()`       | Reads the file                        |
+| `read(size)`   | Reads specified characters            |
+| `readline()`   | Reads one line                        |
+| `readlines()`  | Reads all lines into a list           |
+| `write()`      | Writes text                           |
+| `writelines()` | Writes multiple lines                 |
+| `seek()`       | Moves the file pointer                |
+| `tell()`       | Returns current file pointer position |
+| `flush()`      | Writes buffered data immediately      |
+| `readable()`   | Checks if the file is readable        |
+| `writable()`   | Checks if the file is writable        |
+
+---
+
+# 📚 Example: `readable()` and `writable()`
+
+```python
+with open("student.txt", "r") as file:
+    print(file.readable())
+    print(file.writable())
+```
+
+---
+
+# 📚 Example: `flush()`
+
+```python
+with open("student.txt", "w") as file:
+    file.write("Hello")
+    file.flush()
+```
+
+`flush()` forces buffered data to be written to the file immediately.
+
+---
+
+# Best Practices
+
+* Use the `with` statement for file operations.
+* Close files if not using `with`.
+* Use appropriate file modes (`r`, `w`, `a`, etc.).
+* Handle file-related exceptions using `try-except`.
+* Check if a file exists before accessing it.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Create a file named `student.txt` and write your name into it.
+
+---
+
+## Problem 2
+
+Read the complete contents of `student.txt`.
+
+---
+
+## Problem 3
+
+Append your favorite programming language to the same file.
+
+---
+
+## Problem 4
+
+Read only the first line using `readline()`.
+
+---
+
+## Problem 5
+
+Create a file named `numbers.txt` and write numbers from **1 to 10**, each on a new line.
+
+---
+
+## Problem 6
+
+Read all lines from `numbers.txt` using `readlines()`.
+
+---
+
+## Problem 7
+
+Print the current file pointer position using `tell()`.
+
+---
+
+## Problem 8
+
+Move the file pointer to the 5th character using `seek()` and read the remaining content.
+
+---
+
+## Problem 9
+
+Check whether a file is readable and writable.
+
+---
+
+## Problem 10
+
+Use `flush()` after writing data to a file.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+with open("student.txt", "w") as file:
+    file.write("Your Name")
+```
+
+---
+
+## Solution 2
+
+```python
+with open("student.txt", "r") as file:
+    print(file.read())
+```
+
+---
+
+## Solution 3
+
+```python
+with open("student.txt", "a") as file:
+    file.write("\nPython")
+```
+
+---
+
+## Solution 4
+
+```python
+with open("student.txt", "r") as file:
+    print(file.readline())
+```
+
+---
+
+## Solution 5
+
+```python
+with open("numbers.txt", "w") as file:
+    for i in range(1, 11):
+        file.write(f"{i}\n")
+```
+
+---
+
+## Solution 6
+
+```python
+with open("numbers.txt", "r") as file:
+    print(file.readlines())
+```
+
+---
+
+## Solution 7
+
+```python
+with open("student.txt", "r") as file:
+    print(file.tell())
+```
+
+---
+
+## Solution 8
+
+```python
+with open("student.txt", "r") as file:
+    file.seek(5)
+    print(file.read())
+```
+
+---
+
+## Solution 9
+
+```python
+with open("student.txt", "r") as file:
+    print(file.readable())
+    print(file.writable())
+```
+
+---
+
+## Solution 10
+
+```python
+with open("student.txt", "w") as file:
+    file.write("Hello Python")
+    file.flush()
+```
+
