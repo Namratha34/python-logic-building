@@ -5,9 +5,6 @@
 Today, I learned about **File Input/Output (File I/O)** and various **file handling methods** in Python.
 
 File handling allows Python programs to read, write, update, and manage data stored in files. It is an essential concept for building real-world applications because files provide permanent data storage.
-
----
-
 # 📚 What is File I/O?
 
 **File I/O** stands for **File Input and Output**.
