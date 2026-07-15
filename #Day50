@@ -413,4 +413,232 @@ with open("student.txt", "w") as file:
     file.write("Hello Python")
     file.flush()
 ```
+# 📚 Other File Handling Methods in Python
+
+## 1. `close()`
+
+Closes the file and releases system resources.
+
+```python
+file = open("sample.txt", "r")
+file.close()
+```
+
+---
+
+## 2. `flush()`
+
+Immediately writes buffered data to the file.
+
+```python
+with open("sample.txt", "w") as file:
+    file.write("Hello")
+    file.flush()
+```
+
+---
+
+## 3. `readable()`
+
+Checks whether the file can be read.
+
+```python
+with open("sample.txt", "r") as file:
+    print(file.readable())
+```
+
+**Output**
+
+```text
+True
+```
+
+---
+
+## 4. `writable()`
+
+Checks whether the file supports writing.
+
+```python
+with open("sample.txt", "w") as file:
+    print(file.writable())
+```
+
+**Output**
+
+```text
+True
+```
+
+---
+
+## 5. `seekable()`
+
+Checks whether the file pointer can be moved using `seek()`.
+
+```python
+with open("sample.txt", "r") as file:
+    print(file.seekable())
+```
+
+---
+
+## 6. `tell()`
+
+Returns the current position of the file pointer.
+
+```python
+with open("sample.txt", "r") as file:
+    print(file.tell())
+```
+
+---
+
+## 7. `seek()`
+
+Moves the file pointer to a specified location.
+
+```python
+with open("sample.txt", "r") as file:
+    file.seek(5)
+    print(file.read())
+```
+
+---
+
+## 8. `truncate()`
+
+Reduces the file size to the specified number of bytes.
+
+```python
+with open("sample.txt", "r+") as file:
+    file.truncate(10)
+```
+
+If no size is given, it truncates the file at the current file pointer position.
+
+---
+
+## 9. `fileno()`
+
+Returns the file descriptor (an integer used internally by the operating system).
+
+```python
+with open("sample.txt", "r") as file:
+    print(file.fileno())
+```
+
+---
+
+## 10. `isatty()`
+
+Checks whether the file is connected to a terminal.
+
+```python
+with open("sample.txt", "r") as file:
+    print(file.isatty())
+```
+
+Usually returns:
+
+```text
+False
+```
+
+---
+
+## 11. `readinto()`
+
+Reads bytes directly into a writable byte array.
+
+```python
+data = bytearray(5)
+
+with open("sample.bin", "rb") as file:
+    file.readinto(data)
+
+print(data)
+```
+
+Used mainly with binary files.
+
+---
+
+## 12. `detach()`
+
+Separates the underlying binary buffer from a text file object.
+
+```python
+# Advanced usage with text streams
+```
+
+Rarely used in beginner programs.
+
+---
+
+## 13. `read(size)`
+
+Reads a specified number of characters.
+
+```python
+with open("sample.txt", "r") as file:
+    print(file.read(15))
+```
+
+---
+
+## 14. `readline(size)`
+
+Reads one line or up to the specified number of characters.
+
+```python
+with open("sample.txt", "r") as file:
+    print(file.readline(10))
+```
+
+---
+
+## 15. `writelines()`
+
+Writes multiple strings to a file.
+
+```python
+lines = [
+    "Python\n",
+    "Java\n",
+    "C++\n"
+]
+
+with open("languages.txt", "w") as file:
+    file.writelines(lines)
+```
+
+**Note:** `writelines()` does **not** automatically insert newline characters.
+
+---
+
+# 📋 Summary Table
+
+| Method         | Purpose                                          |
+| -------------- | ------------------------------------------------ |
+| `open()`       | Open a file                                      |
+| `close()`      | Close a file                                     |
+| `read()`       | Read file contents                               |
+| `read(size)`   | Read a fixed number of characters                |
+| `readline()`   | Read one line                                    |
+| `readlines()`  | Read all lines as a list                         |
+| `write()`      | Write text                                       |
+| `writelines()` | Write multiple strings                           |
+| `seek()`       | Move the file pointer                            |
+| `tell()`       | Get current file pointer position                |
+| `flush()`      | Flush buffered data to disk                      |
+| `truncate()`   | Resize the file                                  |
+| `readable()`   | Check if file is readable                        |
+| `writable()`   | Check if file is writable                        |
+| `seekable()`   | Check if seeking is supported                    |
+| `fileno()`     | Get the file descriptor                          |
+| `isatty()`     | Check if connected to a terminal                 |
+| `readinto()`   | Read binary data into a buffer                   |
+| `detach()`     | Separate the underlying binary buffer (advanced) |
+
 
