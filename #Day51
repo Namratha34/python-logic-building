@@ -1,0 +1,396 @@
+# Day 51 - Python Logic Building 🚀
+
+# Topic: Lambda Functions in Python
+
+## 📅 Day 51 Progress
+
+Today, I learned about **Lambda Functions** in Python.
+
+A lambda function is a small, anonymous function that can have any number of arguments but only one expression. It is commonly used for short operations where defining a full function using `def` is unnecessary.
+
+Lambda functions make code more concise and are often used with functions like `map()`, `filter()`, and `sorted()`.
+
+---
+
+# 📚 What is a Lambda Function?
+
+A **lambda function** is an anonymous (unnamed) function created using the `lambda` keyword.
+
+Unlike normal functions, lambda functions:
+
+* Do not have a function name.
+* Consist of a single expression.
+* Automatically return the result of that expression.
+* Are generally used for short, simple operations.
+
+---
+
+# 📚 Syntax
+
+```python
+lambda arguments: expression
+```
+
+* **arguments** → One or more input parameters.
+* **expression** → A single expression whose value is returned.
+
+---
+
+# 📚 Basic Example
+
+```python
+square = lambda x: x * x
+
+print(square(5))
+```
+
+### Output
+
+```text
+25
+```
+
+---
+
+# 📚 Lambda with Multiple Arguments
+
+```python
+add = lambda a, b: a + b
+
+print(add(10, 20))
+```
+
+### Output
+
+```text
+30
+```
+
+---
+
+# 📚 Lambda with Three Arguments
+
+```python
+multiply = lambda a, b, c: a * b * c
+
+print(multiply(2, 3, 4))
+```
+
+### Output
+
+```text
+24
+```
+
+---
+
+# 📚 Lambda vs Normal Function
+
+### Normal Function
+
+```python
+def square(x):
+    return x * x
+
+print(square(5))
+```
+
+### Lambda Function
+
+```python
+square = lambda x: x * x
+
+print(square(5))
+```
+
+Both produce the same output.
+
+---
+
+# 📚 Using Lambda with `sorted()`
+
+```python
+students = [
+    ("Rahul", 85),
+    ("Priya", 92),
+    ("Amit", 78)
+]
+
+result = sorted(students, key=lambda student: student[1])
+
+print(result)
+```
+
+### Output
+
+```text
+[('Amit', 78), ('Rahul', 85), ('Priya', 92)]
+```
+
+---
+
+# 📚 Lambda Returning Boolean Values
+
+```python
+is_even = lambda x: x % 2 == 0
+
+print(is_even(8))
+print(is_even(7))
+```
+
+### Output
+
+```text
+True
+False
+```
+
+---
+
+# 📚 Lambda with Conditional Expression
+
+```python
+largest = lambda a, b: a if a > b else b
+
+print(largest(10, 20))
+```
+
+### Output
+
+```text
+20
+```
+
+---
+
+# 📚 Immediately Invoked Lambda Function
+
+```python
+print((lambda x: x + 10)(5))
+```
+
+### Output
+
+```text
+15
+```
+
+---
+
+# 📚 Advantages of Lambda Functions
+
+* Short and concise.
+* Easy to use for one-line functions.
+* Useful with higher-order functions like `map()`, `filter()`, and `sorted()`.
+* Improves readability for simple operations.
+
+---
+
+# 📚 Limitations
+
+* Can contain only **one expression**.
+* Cannot contain multiple statements.
+* Not suitable for complex logic.
+* Less readable if overused.
+
+---
+
+# When to Use Lambda
+
+Use lambda functions when:
+
+* The function is small and simple.
+* It is used only once.
+* Passing a function as an argument.
+* Working with `map()`, `filter()`, `reduce()`, or `sorted()`.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Create a lambda function to find the square of a number.
+
+---
+
+## Problem 2
+
+Create a lambda function to add two numbers.
+
+---
+
+## Problem 3
+
+Create a lambda function to find the maximum of two numbers.
+
+---
+
+## Problem 4
+
+Create a lambda function to check whether a number is odd.
+
+---
+
+## Problem 5
+
+Sort the following list based on the second element.
+
+```python
+students = [
+    ("Alice", 78),
+    ("Bob", 92),
+    ("Charlie", 85)
+]
+```
+
+---
+
+## Problem 6
+
+Write an immediately invoked lambda function that multiplies two numbers.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+square = lambda x: x * x
+
+print(square(6))
+```
+
+---
+
+## Solution 2
+
+```python
+add = lambda a, b: a + b
+
+print(add(15, 25))
+```
+
+---
+
+## Solution 3
+
+```python
+maximum = lambda a, b: a if a > b else b
+
+print(maximum(18, 12))
+```
+
+---
+
+## Solution 4
+
+```python
+is_odd = lambda x: x % 2 != 0
+
+print(is_odd(7))
+```
+
+---
+
+## Solution 5
+
+```python
+students = [
+    ("Alice", 78),
+    ("Bob", 92),
+    ("Charlie", 85)
+]
+
+result = sorted(students, key=lambda student: student[1])
+
+print(result)
+```
+
+---
+
+## Solution 6
+
+```python
+print((lambda a, b: a * b)(4, 5))
+```
+
+---
+
+# Common Mistakes
+
+### Trying to Write Multiple Statements
+
+Incorrect
+
+```python
+lambda x:
+    y = x + 1
+    return y
+```
+
+A lambda function can contain only **one expression**.
+
+---
+
+### Using Lambda for Complex Logic
+
+If the logic is long or involves multiple steps, use a normal function with `def` instead.
+
+---
+
+# Best Practices
+
+* Use lambda only for short, simple functions.
+* Prefer normal functions (`def`) for complex logic.
+* Keep lambda expressions readable.
+* Use descriptive variable names when assigning lambda functions.
+
+---
+
+# Interview Questions
+
+### What is a lambda function?
+
+A lambda function is an anonymous function defined using the `lambda` keyword that contains a single expression.
+
+---
+
+### Can a lambda function contain multiple statements?
+
+No. It can contain only one expression.
+
+---
+
+### What is the difference between `def` and `lambda`?
+
+| `def`                           | `lambda`                  |
+| ------------------------------- | ------------------------- |
+| Named function                  | Anonymous function        |
+| Can contain multiple statements | Only one expression       |
+| Suitable for complex logic      | Suitable for simple logic |
+
+---
+
+### Can lambda functions take multiple arguments?
+
+Yes. They can take any number of arguments but only one expression.
+
+Example:
+
+```python
+lambda a, b, c: a + b + c
+```
+
+---
+
+### Where are lambda functions commonly used?
+
+* `map()`
+* `filter()`
+* `reduce()`
+* `sorted()`
+* `min()`
+* `max()`
+
