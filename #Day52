@@ -1,0 +1,477 @@
+# Day 52 - Python Logic Building 🚀
+
+# Topic: `map()`, `filter()`, and `reduce()` in Python
+Today, I learned about three powerful higher-order functions in Python:
+
+* `map()`
+* `filter()`
+* `reduce()`
+
+These functions are widely used in functional programming and are commonly combined with **lambda functions** to write concise and efficient code.
+# 📚 What are Higher-Order Functions?
+
+A **higher-order function** is a function that:
+
+* Takes another function as an argument, or
+* Returns another function.
+
+`map()`, `filter()`, and `reduce()` are examples of higher-order functions.
+
+---
+
+# 📚 1. `map()` Function
+
+## What is `map()`?
+
+The `map()` function applies a given function to **every item** in an iterable (such as a list or tuple) and returns a **map object**.
+
+### Syntax
+
+```python
+map(function, iterable)
+```
+
+---
+
+## Example 1: Using a Normal Function
+
+```python
+def square(x):
+    return x * x
+
+numbers = [1, 2, 3, 4, 5]
+
+result = list(map(square, numbers))
+
+print(result)
+```
+
+### Output
+
+```text
+[1, 4, 9, 16, 25]
+```
+
+---
+
+## Example 2: Using a Lambda Function
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+result = list(map(lambda x: x * x, numbers))
+
+print(result)
+```
+
+---
+
+## Example 3: Convert Strings to Uppercase
+
+```python
+names = ["python", "java", "c++"]
+
+result = list(map(str.upper, names))
+
+print(result)
+```
+
+### Output
+
+```text
+['PYTHON', 'JAVA', 'C++']
+```
+
+---
+
+# 📚 2. `filter()` Function
+
+## What is `filter()`?
+
+The `filter()` function selects only those elements that satisfy a condition.
+
+### Syntax
+
+```python
+filter(function, iterable)
+```
+
+The function should return either `True` or `False`.
+
+---
+
+## Example 1: Even Numbers
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+result = list(filter(lambda x: x % 2 == 0, numbers))
+
+print(result)
+```
+
+### Output
+
+```text
+[2, 4, 6]
+```
+
+---
+
+## Example 2: Numbers Greater Than 10
+
+```python
+numbers = [5, 12, 18, 7, 20]
+
+result = list(filter(lambda x: x > 10, numbers))
+
+print(result)
+```
+
+### Output
+
+```text
+[12, 18, 20]
+```
+
+---
+
+# 📚 3. `reduce()` Function
+
+## What is `reduce()`?
+
+The `reduce()` function repeatedly applies a function to the elements of an iterable until a **single value** remains.
+
+Unlike `map()` and `filter()`, `reduce()` is part of the **`functools`** module.
+
+### Import
+
+```python
+from functools import reduce
+```
+
+### Syntax
+
+```python
+reduce(function, iterable)
+```
+
+---
+
+## Example 1: Sum of Numbers
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+
+result = reduce(lambda x, y: x + y, numbers)
+
+print(result)
+```
+
+### Output
+
+```text
+15
+```
+
+---
+
+## Example 2: Product of Numbers
+
+```python
+from functools import reduce
+
+numbers = [2, 3, 4]
+
+result = reduce(lambda x, y: x * y, numbers)
+
+print(result)
+```
+
+### Output
+
+```text
+24
+```
+
+---
+
+# 📚 Difference Between `map()`, `filter()`, and `reduce()`
+
+| Function   | Purpose                              | Output                   |
+| ---------- | ------------------------------------ | ------------------------ |
+| `map()`    | Transform every element              | Iterable (map object)    |
+| `filter()` | Select elements matching a condition | Iterable (filter object) |
+| `reduce()` | Combine all elements into one value  | Single value             |
+
+---
+
+# 📚 Combining `map()` and `filter()`
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+result = list(
+    map(
+        lambda x: x * x,
+        filter(lambda x: x % 2 == 0, numbers)
+    )
+)
+
+print(result)
+```
+
+### Output
+
+```text
+[4, 16, 36]
+```
+
+---
+
+# 📚 Why Use These Functions?
+
+### `map()`
+
+* Transform data.
+* Apply the same operation to every element.
+
+### `filter()`
+
+* Remove unwanted data.
+* Keep only elements matching a condition.
+
+### `reduce()`
+
+* Calculate totals.
+* Compute products.
+* Find cumulative results.
+
+---
+
+# Practice Problems
+
+## Problem 1
+
+Use `map()` to calculate the squares of numbers from 1 to 10.
+
+---
+
+## Problem 2
+
+Use `map()` to convert a list of names to uppercase.
+
+---
+
+## Problem 3
+
+Use `filter()` to extract odd numbers from a list.
+
+---
+
+## Problem 4
+
+Use `filter()` to find all numbers greater than 50.
+
+---
+
+## Problem 5
+
+Use `reduce()` to calculate the sum of a list.
+
+---
+
+## Problem 6
+
+Use `reduce()` to calculate the product of a list.
+
+---
+
+## Problem 7
+
+Use `map()` and `filter()` together to square only the even numbers.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```python
+numbers = list(range(1, 11))
+
+print(list(map(lambda x: x * x, numbers)))
+```
+
+---
+
+## Solution 2
+
+```python
+names = ["alice", "bob", "charlie"]
+
+print(list(map(str.upper, names)))
+```
+
+---
+
+## Solution 3
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7]
+
+print(list(filter(lambda x: x % 2 != 0, numbers)))
+```
+
+---
+
+## Solution 4
+
+```python
+numbers = [12, 65, 44, 89, 33]
+
+print(list(filter(lambda x: x > 50, numbers)))
+```
+
+---
+
+## Solution 5
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+
+print(reduce(lambda x, y: x + y, numbers))
+```
+
+---
+
+## Solution 6
+
+```python
+from functools import reduce
+
+numbers = [2, 3, 4]
+
+print(reduce(lambda x, y: x * y, numbers))
+```
+
+---
+
+## Solution 7
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+result = list(
+    map(
+        lambda x: x * x,
+        filter(lambda x: x % 2 == 0, numbers)
+    )
+)
+
+print(result)
+```
+
+---
+
+# Best Practices
+
+* Use `map()` when every element needs to be transformed.
+* Use `filter()` when selecting elements based on a condition.
+* Use `reduce()` when reducing a sequence to a single value.
+* Prefer readable code over overly complex nested expressions.
+* Import `reduce()` from the `functools` module before using it.
+
+---
+
+# Common Mistakes
+
+### Forgetting to Convert `map()` or `filter()` to a List
+
+```python
+numbers = [1, 2, 3]
+
+result = map(lambda x: x * x, numbers)
+
+print(result)
+```
+
+Output:
+
+```text
+<map object at ...>
+```
+
+Correct:
+
+```python
+print(list(result))
+```
+
+---
+
+### Forgetting to Import `reduce()`
+
+Incorrect:
+
+```python
+reduce(lambda x, y: x + y, [1, 2, 3])
+```
+
+Correct:
+
+```python
+from functools import reduce
+```
+
+---
+
+# Interview Questions
+
+### What does `map()` do?
+
+It applies a function to every element in an iterable and returns a map object.
+
+---
+
+### What does `filter()` do?
+
+It returns only the elements that satisfy a given condition.
+
+---
+
+### Why is `reduce()` imported from `functools`?
+
+Because `reduce()` is not a built-in function in modern Python. It is provided by the `functools` module.
+
+---
+
+### What is the difference between `map()` and `filter()`?
+
+* `map()` transforms every element.
+* `filter()` selects only elements matching a condition.
+
+---
+
+### What does `reduce()` return?
+
+A single value obtained by repeatedly applying a function to the elements of an iterable.
+
+---
+
+# Key Takeaways
+
+✅ `map()` transforms every element in an iterable.
+
+✅ `filter()` selects elements based on a condition.
+
+✅ `reduce()` combines all elements into a single result.
+
+✅ `reduce()` must be imported from the `functools` module.
+
+✅ Lambda functions are commonly used with all three functions.
+
