@@ -313,3 +313,4 @@ This section covers the built-in functions, file handling methods, OS module fun
 | `classmethod()`  | Defines a method that receives the class as its first argument (used in OOP). |
 | `staticmethod()` | Defines a method that doesn't receive `self` or `cls` (used in OOP).          |
 
+
