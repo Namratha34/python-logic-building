@@ -1,89 +1,345 @@
-# Day 54: Iterators and Generators in Python
+# 📅 Python Revision Journey – Day 1
+## 🗓️ Date: 20 July
 
-Today, I learned about **Iterators** and **Generators**, two powerful Python concepts that make it easy to work with sequences of data efficiently. They help process data one item at a time, reducing memory usage and improving performance, especially when dealing with large datasets.
+## 📖 Overview
 
----
-
-# 📚 Topics Covered
-
-## 🔹 Iterators
-
-* What is an iterator
-* Iterable vs Iterator
-* `iter()` function
-* `next()` function
-* How iteration works internally
-* `StopIteration` exception
-* Creating custom iterators using classes
+Today marks the beginning of my Python revision journey. After completing the Core Python (Day 1–54) course by CodeWithHarry, I started revising all the concepts from scratch by solving practice problems. This revision will strengthen my fundamentals before moving on to Advanced Python.
 
 ---
 
-## 🔹 Generators
+# 📚 Topics Revised
 
-* What is a generator
-* Creating generator functions
-* `yield` keyword
-* Difference between `yield` and `return`
-* Generator expressions
-* Lazy evaluation
-* Infinite generators
-* Advantages of generators
-* Memory efficiency
-
----
-
-# 🛠 Built-in Functions
-
-| Function | Use                                     |
-| -------- | --------------------------------------- |
-| `iter()` | Converts an iterable into an iterator.  |
-| `next()` | Returns the next item from an iterator. |
+- Variables
+- Data Types
+- Input & Output
+- Type Casting
+- Arithmetic Operators
+- Assignment Operators
+- Comparison Operators
+- Logical Operators
+- Comments
+- Escape Sequences
+- print() Function
 
 ---
 
-# 💡 Key Concepts Learned
+# 🛠 Built-in Functions Revised
 
-* An **iterable** is an object that can be looped over.
-* An **iterator** is an object that produces one element at a time.
-* Every iterator implements the iterator protocol using `__iter__()` and `__next__()`.
-* `iter()` creates an iterator from an iterable.
-* `next()` retrieves the next element from an iterator.
-* When no elements remain, Python raises a `StopIteration` exception.
-* A **generator** is a special type of iterator created using the `yield` keyword.
-* Generators produce values only when needed (lazy evaluation).
-* Generator expressions are similar to list comprehensions but consume much less memory.
-* Generators are ideal for processing large files, streams, and datasets.
-
----
-
-# ⭐ Advantages of Iterators
-
-* Process data sequentially.
-* Reduce memory usage.
-* Support lazy evaluation.
-* Work efficiently with loops.
-* Allow custom iteration logic.
+| Function | Use |
+|----------|-----|
+| `print()` | Displays output on the screen |
+| `input()` | Accepts input from the user |
+| `type()` | Returns the data type of an object |
+| `int()` | Converts a value to an integer |
+| `float()` | Converts a value to a floating-point number |
+| `str()` | Converts a value to a string |
+| `bool()` | Converts a value to a Boolean value |
 
 ---
 
-# ⭐ Advantages of Generators
-
-* Consume very little memory.
-* Faster than creating large lists.
-* Produce values on demand.
-* Easy to implement compared to custom iterators.
-* Useful for large datasets and infinite sequences.
+# 💻 Practice Problems & Solutions
 
 ---
 
-# 📌 Real-World Applications
+## Problem 1
 
-* Reading large files line by line.
-* Processing millions of database records.
-* Streaming API responses.
-* Data pipelines.
-* Log file processing.
-* Infinite sequences (e.g., Fibonacci numbers).
-* Machine Learning data generators.
-* Batch processing of large datasets.
+### Print your name, age and college.
 
+### Solution
+
+- Declare three variables.
+- Print them using the `print()` function.
+
+---
+
+## Problem 2
+
+### Swap two numbers using a temporary variable.
+
+### Solution
+
+- Store the first value in a temporary variable.
+- Assign the second value to the first variable.
+- Assign the temporary value to the second variable.
+
+---
+
+## Problem 3
+
+### Swap two numbers without using a temporary variable.
+
+### Solution
+
+- Use Python's multiple assignment feature to swap both values in one statement.
+
+---
+
+## Problem 4
+
+### Display the data type of:
+
+- 25
+- 25.5
+- "Python"
+- True
+
+### Solution
+
+- Use the `type()` function for each value.
+
+---
+
+## Problem 5
+
+### Take the user's name as input and print:
+
+```
+Welcome, <name>
+```
+
+### Solution
+
+- Read input using `input()`.
+- Display the greeting using the `print()` function.
+
+---
+
+## Problem 6
+
+### Convert:
+
+- Integer → String
+- String → Integer
+- Float → Integer
+
+### Solution
+
+- Use `str()`
+- Use `int()`
+- Use `int()` for float conversion.
+
+---
+
+## Problem 7
+
+### Find the sum of two numbers entered by the user.
+
+### Solution
+
+- Read two numbers.
+- Convert them to integers.
+- Add both numbers.
+- Display the result.
+
+---
+
+## Problem 8
+
+### Find the average of three numbers.
+
+### Solution
+
+- Read three numbers.
+- Add them.
+- Divide the sum by 3.
+- Display the average.
+
+---
+
+## Problem 9
+
+### Calculate the area of a rectangle.
+
+### Solution
+
+- Read length and breadth.
+- Multiply both values.
+- Display the area.
+
+---
+
+## Problem 10
+
+### Calculate the area of a circle.
+
+### Solution
+
+- Read the radius.
+- Use the formula:
+
+Area = π × r²
+
+- Display the result.
+
+---
+
+## Problem 11
+
+### Convert Celsius to Fahrenheit.
+
+### Solution
+
+- Read the Celsius value.
+- Apply the conversion formula.
+- Display the Fahrenheit value.
+
+---
+
+## Problem 12
+
+### Convert Fahrenheit to Celsius.
+
+### Solution
+
+- Read the Fahrenheit value.
+- Apply the conversion formula.
+- Display the Celsius value.
+
+---
+
+## Problem 13
+
+### Calculate Simple Interest.
+
+### Solution
+
+- Read Principal, Rate and Time.
+- Apply the Simple Interest formula.
+- Display the result.
+
+---
+
+## Problem 14
+
+### Calculate Compound Interest.
+
+### Solution
+
+- Read Principal, Rate and Time.
+- Apply the Compound Interest formula.
+- Display the result.
+
+---
+
+## Problem 15
+
+### Find the square and cube of a number.
+
+### Solution
+
+- Read a number.
+- Use the exponent operator (`**`) to calculate square and cube.
+- Display both values.
+
+---
+
+## Problem 16
+
+### Find the quotient and remainder.
+
+### Solution
+
+- Read two numbers.
+- Use `//` for quotient.
+- Use `%` for remainder.
+- Display both values.
+
+---
+
+## Problem 17
+
+### Find the last digit of a number.
+
+### Solution
+
+- Read a number.
+- Use the modulus operator (`% 10`).
+- Display the last digit.
+
+---
+
+## Problem 18
+
+### Reverse a three-digit number.
+
+### Solution
+
+- Extract each digit using `%` and `//`.
+- Rearrange the digits in reverse order.
+- Display the reversed number.
+
+---
+
+## Problem 19
+
+### Display the data type of different variables.
+
+### Solution
+
+- Create variables of different data types.
+- Use `type()` to display their types.
+
+---
+
+## Problem 20
+
+### Create a simple Student Information program.
+
+Store:
+
+- Name
+- USN
+- Age
+- Course
+- CGPA
+
+Display all the details.
+
+### Solution
+
+- Read each value using `input()`.
+- Store them in variables.
+- Print all the information in a formatted manner.
+
+---
+
+# 🎯 Learning Outcome
+
+Today I revised:
+
+- Variables
+- Data Types
+- Input & Output
+- Type Casting
+- Operators
+- Python's basic built-in functions
+- Arithmetic calculations
+- User interaction
+- Variable manipulation
+
+---
+
+# 📊 Revision Summary
+
+- 📅 Date: **20 July**
+- 📚 Topics Revised: Python Basics
+- 💻 Practice Problems Solved: **20**
+- 🛠 Built-in Functions Revised: **7**
+- ✅ Revision Status: Completed
+
+---
+
+# 🚀 Next Revision (21 July)
+
+### Topics
+
+- Strings
+- String Indexing
+- String Slicing
+- String Methods
+- Escape Characters
+- String Formatting
+
+### Practice
+
+- 20 String-based Problems
