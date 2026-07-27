@@ -1,0 +1,60 @@
+# 🐍 Python Learning Journey
+
+## 📅 Date
+**27 July 2026**
+
+## ✅ Today's Progress
+
+Today, I completed **three Python exercise problems** from the **CodeWithHarry Python Course** to strengthen my understanding of Python basics.
+
+### 📝 Exercises Completed
+
+1. 🧮 **Calculator Using Python**
+   - Built a simple calculator that performs basic arithmetic operations.
+   - Concepts Practiced:
+     - User Input (`input()`)
+     - Type Casting
+     - Arithmetic Operators
+     - Conditional Statements
+
+2. 👋 **Greeting the User Based on Current Time**
+   - Created a program that greets the user according to the current time of the day (Morning, Afternoon, Evening, or Night).
+   - Concepts Practiced:
+     - `datetime` Module
+     - Time Handling
+     - `if-elif-else` Statements
+
+3. 🎯 **Kaun Banega Crorepati (KBC) Quiz Game**
+   - Developed a simple quiz game inspired by *Kaun Banega Crorepati*.
+   - Concepts Practiced:
+     - Variables
+     - Conditional Statements
+     - User Input
+     - Score Tracking
+     - Program Flow Control
+
+---
+
+## 🚀 Skills Reinforced Today
+
+- Variables
+- User Input
+- Type Casting
+- Arithmetic Operators
+- Conditional Statements
+- `datetime` Module
+- Program Logic
+- Problem Solving
+
+---
+
+## 🎯 Learning Outcome
+
+Today's exercises helped me improve my problem-solving skills by applying Python concepts in real-world mini projects instead of only learning theory. Building these small applications increased my confidence in writing logical Python programs.
+
+---
+
+### 📚 Course
+**CodeWithHarry – Python Course**
+
+**Status:** ✔️ Completed 3 Exercise Problems
