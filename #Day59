@@ -122,7 +122,80 @@ print("\nTotal Prize Money Won:", money)
 - Program Logic
 - Problem Solving
 
----
+# 🚀 Day 60 - Secret Code Language (Exercise 4) | Python Journey
+
+## 📅 Date
+28 July 2026
+
+## 📚 Topic Covered
+- Exercise 4: Secret Code Language (CodeWithHarry)
+
+## 🎯 Objective
+Built a Python program to encode and decode words using a custom secret language.
+
+## 🧠 Concepts Applied
+
+- Functions (`def`)
+- User Input (`input()`)
+- Conditional Statements (`if-else`)
+- Match-Case Statement
+- String Slicing
+- String Concatenation
+- String Length (`len()`)
+- Variables
+- Loops (`for`)
+- Random Module
+- `random.choice()`
+- Building Dynamic Strings
+- Program Flow Control
+
+## 🔑 Logic Implemented
+
+### Encoding
+
+- Take a word from the user.
+- If the word length is less than 3:
+  - Reverse the word.
+- Otherwise:
+  - Remove the first character.
+  - Append the removed character to the end.
+  - Generate three random characters as a prefix.
+  - Generate three random characters as a suffix.
+  - Produce the final encoded word.
+
+### Decoding
+
+- Take the encoded word.
+- If the word length is less than 3:
+  - Reverse the word.
+- Otherwise:
+  - Remove the first three random characters.
+  - Remove the last three random characters.
+  - Take the last character of the remaining word.
+  - Move that character to the beginning.
+  - Display the original word.
+
+## 💡 New Things Learned
+
+- Designing an algorithm before writing code.
+- Using string slicing effectively.
+- Creating and using functions.
+- Working with the `random` module.
+- Generating random characters using `random.choice()`.
+- Building dynamic strings.
+- Understanding encoding and decoding logic.
+- Thinking through problems step by step instead of memorizing solutions.
+
+## 🏆 Achievement
+
+- Successfully solved Exercise 4 (Secret Code Language) on my own.
+- Improved logical thinking by designing the solution independently and debugging it through reasoning.
+
+## 📌 Status
+
+✅ Exercise 4 Completed
+✅ Logic Understood
+✅ Ready to move on to the next exercise
 
 ## 🎯 Learning Outcome
 
