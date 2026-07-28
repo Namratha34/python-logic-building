@@ -16,12 +16,61 @@ Today, I completed **three Python exercise problems** from the **CodeWithHarry P
      - Arithmetic Operators
      - Conditional Statements
 
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+print("Addition =", num1 + num2)
+print("Subtraction =", num1 - num2)
+print("Multiplication =", num1 * num2)
+print("Division =", num1 / num2)
+print("Floor Division =", num1 // num2)
+print("Modulus =", num1 % num2)
+print("Exponent =", num1 ** num2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 2. 👋 **Greeting the User Based on Current Time**
    - Created a program that greets the user according to the current time of the day (Morning, Afternoon, Evening, or Night).
    - Concepts Practiced:
      - `datetime` Module
      - Time Handling
      - `if-elif-else` Statements
+
+from datetime import datetime
+
+hour = datetime.now().hour
+
+if 5 <= hour < 12:
+    print("Good Morning")
+elif 12 <= hour < 17:
+    print("Good Afternoon")
+elif 17 <= hour < 21:
+    print("Good Evening")
+else:
+    print("Good Night")
+
+
+
+
+
+
+
+
+
+
+
 
 3. 🎯 **Kaun Banega Crorepati (KBC) Quiz Game**
    - Developed a simple quiz game inspired by *Kaun Banega Crorepati*.
@@ -31,8 +80,36 @@ Today, I completed **three Python exercise problems** from the **CodeWithHarry P
      - User Input
      - Score Tracking
      - Program Flow Control
+questions = [
+    ["What is the capital of India?", "Mumbai", "Delhi", "Kolkata", "Chennai", 2],
+    ["Which planet is known as the Red Planet?", "Earth", "Venus", "Mars", "Jupiter", 3],
+    ["Who is known as the Father of the Nation?", "Jawaharlal Nehru", "Bhagat Singh", "Mahatma Gandhi", "Subhash Chandra Bose", 3],
+    ["Which is the largest ocean?", "Atlantic", "Indian", "Pacific", "Arctic", 3],
+    ["Which language is known as the language of the web?", "Python", "Java", "JavaScript", "C++", 3]
+]
 
----
+money = 0
+
+for i in range(len(questions)):
+    print(f"\nQuestion {i+1}")
+    print(questions[i][0])
+    print("1.", questions[i][1])
+    print("2.", questions[i][2])
+    print("3.", questions[i][3])
+    print("4.", questions[i][4])
+
+    user = int(input("Enter your choice (1-4): "))
+
+    if user == questions[i][5]:
+        money += 1000
+        print("✅ Correct Answer!")
+        print("Prize Money:", money)
+    else:
+        print("❌ Wrong Answer!")
+        print("Game Over")
+        break
+
+print("\nTotal Prize Money Won:", money)
 
 ## 🚀 Skills Reinforced Today
 
