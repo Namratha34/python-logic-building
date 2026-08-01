@@ -1,0 +1,164 @@
+# Student Management System (Python)
+
+A simple console-based Student Management System built using Python.
+
+## Features
+
+- Add Student
+- Update Student Details
+- Display All Students
+- Search Student by ID
+- Remove Student
+- Menu-Driven Program
+- Exit Option
+
+## Concepts Used
+
+- Variables
+- Functions
+- Dictionaries
+- Nested Dictionaries
+- Loops (`for`, `while`)
+- `if-else`
+- `match-case`
+- User Input
+- CRUD Operations
+
+## How to Run
+
+1. Clone the repository.
+2. Open the project in your preferred IDE.
+3. Run:
+
+```bash
+python student_management_system.py
+```
+
+## Sample Menu
+
+```
+1. Add Student
+2. Update Student
+3. Display Students
+4. Search Student
+5. Remove Student
+6. Exit
+```
+
+
+code :
+
+students = dict()
+
+def Add_student():
+    stu_id = int(input("Enter your id:\n"))
+    name = input("Enter your name\n")
+    marks = float(input("Enter your marks out of 100:\n"))
+    Attendance = float(input("Enter your Attendance out 0f 100:"))
+
+    students[stu_id] = {
+            "name" : name,
+            "marks" : marks,
+            "Attendance": Attendance
+}
+
+    print("Data saved successfully")
+
+def update():
+    stu_id = int(input("Enter your id to update:\n"))
+    if stu_id in students:
+        print("Enter the field to be updated")
+        print("1.name")
+        print("2.marks")
+        print("3.Attendance")
+        choice = int(input("Enter your choice 1/2/3:\n"))
+        match choice:
+            case 1:
+                new_name = input("Enter your new name")
+                students[stu_id]["name"] = new_name
+                print("name updated successfully")
+            case 2:
+                new_marks = float(input("Enter your new marks"))
+                students[stu_id]["marks"] = new_marks
+                print("marks updated successfully")
+
+            case 3:
+                new_Attendance = float(input("Enter your new Attendance:"))
+                students[stu_id]["Attendance"] = new_Attendance
+                print("Attendance updated successfully")
+            case _:
+                print("Enter a valid choice 1/2/3")
+    else:
+        print("Enter a valid student id ")
+
+def display():
+    if students:
+        for key, values in (students.items()):
+            print(key, ":" , values)
+    else:
+        print("No student records found.")
+
+
+def search():
+    if students:
+        stu_id = int(input("Enter your student id:"))
+        if stu_id in students:
+            for key, value in students[stu_id].items():
+                print(key , ":" , value)
+        else:
+            print("invalid student id :")
+    else:
+        print("No student records found.")
+def Remove():
+    stu_id = int(input("Enter your student id"))
+    if stu_id in students:
+        del students[stu_id]
+        print("Data removed successfully")
+    else:
+        print("invalid student id:")
+
+while True:
+    print("-------**********************************************----------")
+    print("********STUDENT MANAGEMENT SYSTEM*****************")
+    print("*********WELCOME USER************")
+    print("1.ADDSTUDENT")
+    print("2.UPDATE")
+    print("3.DISPLAY")
+    print("4.SEARCH")
+    print("5.REMOVE")
+    print("6.EXIT")
+    user = int(input("Enter your choice:1/2/3/4/5/6:\n"))
+    match(user):
+        case 1:
+            Add_student()
+        case 2:
+            update()
+        case 3:
+            display()
+        case 4:
+            search()
+        case 5:
+            Remove()
+        case 6:
+            break
+        case  _:
+            print("Enter a valid choice")
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
