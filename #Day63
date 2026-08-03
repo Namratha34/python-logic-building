@@ -1,0 +1,70 @@
+# 🚀 Day 63 - Advanced Python Journey
+
+## 📅 Date
+**03 August 2026**
+
+## 📚 Topic Completed
+# Functional Programming in Python ✅
+
+Today, I completed one of the important concepts in Advanced Python—**Functional Programming**. This programming paradigm focuses on writing cleaner, reusable, and efficient code by treating functions as first-class objects.
+
+---
+
+# 📖 Topics Covered
+
+- ✅ Introduction to Functional Programming
+- ✅ Characteristics of Functional Programming
+- ✅ First-Class Functions
+- ✅ Pure Functions
+- ✅ Impure Functions
+- ✅ Lambda Functions
+- ✅ `map()` Function
+- ✅ `filter()` Function
+- ✅ `reduce()` Function
+- ✅ Higher-Order Functions
+- ✅ Advantages & Disadvantages of Functional Programming
+- ✅ Interview Questions & Revision
+
+---
+
+# 🧠 Key Concepts Learned
+
+- Functions are treated as **first-class citizens** in Python.
+- Lambda functions help write short anonymous functions.
+- `map()` transforms every element of an iterable.
+- `filter()` selects elements based on a condition.
+- `reduce()` combines multiple values into a single value.
+- Higher-order functions can accept functions as arguments or return functions.
+- Functional programming promotes cleaner, reusable, and modular code.
+
+---
+
+# 💻 Functions Practiced
+
+```python
+lambda
+map()
+filter()
+reduce()
+```
+
+---
+
+# 📦 Modules Used
+
+```python
+functools
+```
+
+---
+
+# 📌 Important Notes
+
+- `map()` returns a map object.
+- `filter()` returns a filter object.
+- `reduce()` is available in the **functools** module.
+- Lambda functions can contain only **one expression**.
+- Pure functions always produce the same output for the same input.
+- Higher-order functions improve code reusability and readability.
+
+---
