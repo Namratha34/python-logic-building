@@ -1,0 +1,117 @@
+# 🚀 Day 64 - Advanced Python Journey
+
+## 📅 Date
+**04 August 2026**
+
+## 📚 Topic Completed
+# Iterators & Iterables in Python ✅
+
+Today, I learned one of the core concepts of Advanced Python—**Iterators and Iterables**. These concepts explain how Python processes collections internally and how iteration works behind the scenes.
+
+---
+
+# 📖 Topics Covered
+
+- ✅ What is an Iterable?
+- ✅ What is an Iterator?
+- ✅ Difference between Iterable and Iterator
+- ✅ `iter()` Function
+- ✅ `next()` Function
+- ✅ `StopIteration` Exception
+- ✅ How `for` Loop Works Internally
+- ✅ Iterating over Lists
+- ✅ Iterating over Tuples
+- ✅ Iterating over Strings
+- ✅ Iterating over Dictionaries
+- ✅ Basic Introduction to Custom Iterators (Concept Only)
+
+---
+
+# 🧠 Key Concepts Learned
+
+- An **Iterable** is any object that can be looped over.
+- An **Iterator** is an object that returns one element at a time.
+- The `iter()` function converts an iterable into an iterator.
+- The `next()` function retrieves the next element from an iterator.
+- When there are no more elements, Python raises the `StopIteration` exception.
+- Every `for` loop internally creates an iterator using `iter()` and repeatedly calls `next()` until `StopIteration` occurs.
+
+---
+
+# 💻 Functions Practiced
+
+```python
+iter()
+next()
+```
+
+---
+
+# 📦 Built-in Concepts Practiced
+
+- Iterable Objects
+- Iterator Objects
+- `StopIteration`
+
+---
+
+# 📌 Important Notes
+
+- Every iterator is an iterable, but not every iterable is an iterator.
+- Lists, tuples, strings, sets, and dictionaries are iterable objects.
+- Iterators remember their current position during iteration.
+- Once an iterator is exhausted, it cannot be reused; create a new iterator if needed.
+- `for` loops automatically handle `StopIteration`, so it is usually not visible to the programmer.
+
+---
+
+# ⚖️ Iterable vs Iterator
+
+| Iterable | Iterator |
+|----------|----------|
+| Can be traversed | Produces one element at a time |
+| Uses `iter()` to create an iterator | Uses `next()` to return values |
+| Can create multiple iterators | Keeps track of iteration state |
+| Examples: List, Tuple, String, Set, Dictionary | Created using `iter()` |
+
+---
+
+# 🎯 Interview Preparation
+
+Today I revised:
+
+- Iterable
+- Iterator
+- `iter()`
+- `next()`
+- `StopIteration`
+- Internal working of `for` loop
+- Difference between Iterable and Iterator
+
+These are frequently asked Python interview topics and are fundamental for understanding generators and advanced iteration.
+
+---
+
+# 📈 Progress Tracker
+
+- ✅ Python Basics Completed
+- ✅ Python Intermediate Concepts Completed
+- ✅ Functional Programming Completed
+- ✅ Iterators & Iterables Completed
+- 🔄 Next Topic: **Generators (`yield`)**
+
+---
+
+# 💡 Day 64 Summary
+
+Today I learned how Python performs iteration internally. I understood the difference between iterables and iterators, how `iter()` creates an iterator, how `next()` retrieves elements one at a time, and why `StopIteration` is raised when iteration ends. This topic provides the foundation for learning generators, lazy evaluation, and advanced Python programming.
+
+---
+
+## 🌟 Learning Streak
+
+**Python Journey – Day 64 ✅**
+
+> *"Talk is cheap. Show me the code."* — Linus Torvalds
+
+Every concept I learn is another step toward becoming a skilled Python developer. Consistency, practice, and writing real code are the keys to mastery. 🚀
