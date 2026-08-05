@@ -1,0 +1,135 @@
+# 🚀 Day 65 - Advanced Python Journey
+
+## 📅 Date
+**05 August 2026**
+
+## 📚 Topic Completed
+# Generators in Python ✅
+
+Today, I learned one of the most powerful concepts in Advanced Python—**Generators**. Generators provide a memory-efficient way to create and process sequences by generating values one at a time instead of storing them all in memory.
+
+---
+
+# 📖 Topics Covered
+
+- ✅ Introduction to Generators
+- ✅ Why Generators are Used
+- ✅ Generator Functions
+- ✅ `yield` Keyword
+- ✅ Difference Between `return` and `yield`
+- ✅ Generator Objects
+- ✅ Generator Expressions
+- ✅ `yield from`
+- ✅ Memory Efficiency
+- ✅ Lazy Evaluation
+- ✅ Advantages and Limitations of Generators
+
+---
+
+# 🧠 Key Concepts Learned
+
+- A **generator** is a special type of function that produces values one at a time.
+- The `yield` keyword pauses the function and remembers its state.
+- Execution resumes from where it stopped whenever `next()` is called.
+- Generators improve performance and reduce memory usage.
+- Generator expressions are similar to list comprehensions but produce values lazily.
+- `yield from` simplifies delegating work to another generator.
+
+---
+
+# 💻 Concepts Practiced
+
+```python
+yield
+yield from
+next()
+Generator Functions
+Generator Expressions
+```
+
+---
+
+# 📦 Built-in Functions Used
+
+```python
+next()
+iter()
+```
+
+---
+
+# 📌 Important Notes
+
+- A generator function contains at least one `yield` statement.
+- Calling a generator function returns a **generator object**.
+- Generator objects are iterators.
+- Values are generated only when requested.
+- Once a generator is exhausted, it cannot be restarted; a new generator object must be created.
+- Generators are ideal for processing large datasets and streams of data.
+
+---
+
+# ⚖️ Generator vs Normal Function
+
+| Normal Function | Generator Function |
+|-----------------|--------------------|
+| Uses `return` | Uses `yield` |
+| Returns all at once | Returns one value at a time |
+| Ends after `return` | Pauses after each `yield` |
+| Higher memory usage | Memory efficient |
+| Suitable for small data | Suitable for large or infinite data |
+
+---
+
+# ⚖️ List vs Generator
+
+| List | Generator |
+|------|-----------|
+| Stores all values in memory | Generates values on demand |
+| Faster for repeated access | Better memory efficiency |
+| Uses square brackets `[]` | Uses parentheses `()` |
+| Suitable for small datasets | Suitable for large datasets |
+
+---
+
+# 🎯 Interview Preparation
+
+Today I revised:
+
+- Generator Functions
+- `yield`
+- `yield from`
+- Generator Expressions
+- Lazy Evaluation
+- Generator Objects
+- Difference between `return` and `yield`
+- Difference between Lists and Generators
+
+These concepts are frequently asked in Python interviews and are widely used in data processing, automation, and backend development.
+
+---
+
+# 📈 Progress Tracker
+
+- ✅ Python Basics Completed
+- ✅ Python Intermediate Concepts Completed
+- ✅ Functional Programming Completed
+- ✅ Iterators & Iterables Completed
+- ✅ Generators Completed
+- 🔄 Next Topic: **Comprehensions (List, Dictionary & Set Comprehensions)**
+
+---
+
+# 💡 Day 65 Summary
+
+Today, I learned how generators work internally using the `yield` keyword. I understood how generators pause and resume execution, making them highly memory-efficient. I also learned generator expressions, `yield from`, and the differences between generators and normal functions. These concepts will help me write cleaner, faster, and more efficient Python programs.
+
+---
+
+## 🌟 Learning Streak
+
+**Python Journey – Day 65 ✅**
+
+> *"Code is learned by writing it, not just reading it."*
+
+Every day of consistent practice brings me one step closer to becoming a professional Python developer. 🚀
