@@ -1,0 +1,148 @@
+# 🚀 Day 67 - Advanced Python Journey
+
+## 📅 Date
+**07 August 2026**
+
+## 📚 Topic Completed
+# Advanced Functions in Python ✅
+
+Today, I completed one of the most important topics in Advanced Python—**Advanced Functions**. I learned how Python handles different types of function arguments, variable scope, recursion, and type annotations, making my code more flexible, reusable, and professional.
+
+---
+
+# 📖 Topics Covered
+
+- ✅ `*args`
+- ✅ `**kwargs`
+- ✅ Argument Packing
+- ✅ Argument Unpacking
+- ✅ Default Arguments
+- ✅ Positional-only Parameters (`/`)
+- ✅ Keyword-only Parameters (`*`)
+- ✅ LEGB Rule (Variable Scope)
+- ✅ `global` Keyword
+- ✅ `nonlocal` Keyword
+- ✅ Function Annotations
+- ✅ Type Hints
+- ✅ Recursion
+- ✅ Best Practices for Functions
+
+---
+
+# 🧠 Key Concepts Learned
+
+- `*args` allows passing multiple positional arguments to a function.
+- `**kwargs` allows passing multiple keyword arguments.
+- Packing and unpacking make function calls more flexible.
+- Default arguments provide predefined parameter values.
+- Positional-only and keyword-only parameters improve function design.
+- The **LEGB Rule** explains how Python searches for variables.
+- `global` modifies variables in the global scope.
+- `nonlocal` modifies variables in the enclosing function scope.
+- Function annotations improve code readability.
+- Type hints help developers and IDEs understand expected data types.
+- Recursion solves problems by calling the same function repeatedly until a base case is reached.
+
+---
+
+# 💻 Concepts Practiced
+
+```python
+*args
+**kwargs
+Packing & Unpacking
+Default Arguments
+Positional-only Parameters
+Keyword-only Parameters
+global
+nonlocal
+Function Annotations
+Type Hints
+Recursion
+```
+
+---
+
+# 📌 Important Notes
+
+- `*args` collects multiple positional arguments into a tuple.
+- `**kwargs` collects multiple keyword arguments into a dictionary.
+- Packing combines multiple values into a single object.
+- Unpacking extracts values using `*` and `**`.
+- Always define a **base case** in recursive functions to avoid infinite recursion.
+- Type hints improve code quality but are **not enforced** by Python at runtime.
+- The LEGB rule determines where Python searches for variables:
+  - **L** → Local
+  - **E** → Enclosing
+  - **G** → Global
+  - **B** → Built-in
+
+---
+
+# ⚖️ `*args` vs `**kwargs`
+
+| `*args` | `**kwargs` |
+|----------|------------|
+| Collects positional arguments | Collects keyword arguments |
+| Stored as a tuple | Stored as a dictionary |
+| Uses `*` | Uses `**` |
+
+---
+
+# ⚖️ `global` vs `nonlocal`
+
+| `global` | `nonlocal` |
+|-----------|------------|
+| Refers to a global variable | Refers to a variable in the enclosing function |
+| Used outside nested functions | Used inside nested functions |
+| Updates global scope | Updates enclosing scope |
+
+---
+
+# 🎯 Interview Preparation
+
+Today I revised:
+
+- `*args`
+- `**kwargs`
+- Packing & Unpacking
+- Default Arguments
+- Positional-only Parameters
+- Keyword-only Parameters
+- LEGB Rule
+- `global`
+- `nonlocal`
+- Function Annotations
+- Type Hints
+- Recursion
+
+These concepts are widely used in Python development and are frequently asked in technical interviews.
+
+---
+
+# 📈 Progress Tracker
+
+- ✅ Python Basics Completed
+- ✅ Python Intermediate Concepts Completed
+- ✅ Functional Programming Completed
+- ✅ Iterators & Iterables Completed
+- ✅ Generators Completed
+- ✅ Comprehensions Completed
+- ✅ Advanced Functions Completed
+- 🔄 Next Topic: **Closures**
+
+---
+
+# 💡 Day 67 Summary
+
+Today, I explored advanced function concepts that make Python code more flexible and maintainable. I learned how to handle different types of function arguments, understand Python's variable scope using the LEGB rule, write recursive functions, and improve code readability with function annotations and type hints. These concepts strengthen my foundation for learning closures, decorators, and other advanced Python features.
+
+---
+
+## 🌟 Learning Streak
+
+**Python Journey – Day 67 ✅**
+
+> *"Great programmers don't just write functions—they design functions that are flexible, readable, and reusable."*
+
+Every day of consistent learning and hands-on coding brings me one step closer to becoming a professional Python developer. 🚀
