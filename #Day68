@@ -1,1 +1,164 @@
-hi 
+# 🚀 Day 68 - Advanced Python Journey
+
+## 📅 Date
+
+**08 August 2026**
+
+## 📚 Topic Completed
+
+# Closures in Python ✅
+
+Today, I learned **Closures**, an important concept in Advanced Python. Closures are created when an inner function remembers and uses variables from its enclosing (outer) function even after the outer function has finished executing.
+
+---
+
+# 📖 Topics Covered
+
+* ✅ Nested Functions
+* ✅ Enclosing Scope
+* ✅ Understanding Closures
+* ✅ Inner Functions
+* ✅ Returning Functions
+* ✅ Closure Variables
+* ✅ `nonlocal` with Closures
+* ✅ How Closures Remember Variables
+* ✅ Practical Uses of Closures
+* ✅ Difference Between Nested Functions and Closures
+* ✅ Connection Between Closures and Decorators
+
+---
+
+# 🧠 Key Concepts Learned
+
+* A **nested function** is a function defined inside another function.
+* A **closure** occurs when an inner function remembers variables from its enclosing function.
+* A closure can access variables from the enclosing scope even after the outer function has finished execution.
+* The `nonlocal` keyword can be used to modify a variable from the enclosing scope.
+* Closures are useful for maintaining state without using global variables.
+* Closures are an important foundation for understanding **decorators**.
+
+---
+
+# 💻 Basic Closure Example
+
+```python
+def outer():
+    message = "Hello Python"
+
+    def inner():
+        print(message)
+
+    return inner
+
+
+func = outer()
+func()
+```
+
+### Output
+
+```text
+Hello Python
+```
+
+The `inner()` function remembers the `message` variable even after `outer()` has finished executing.
+
+---
+
+# 🔄 Closure with `nonlocal`
+
+```python
+def counter():
+    count = 0
+
+    def increase():
+        nonlocal count
+        count += 1
+        return count
+
+    return increase
+
+
+counter_func = counter()
+
+print(counter_func())
+print(counter_func())
+print(counter_func())
+```
+
+### Output
+
+```text
+1
+2
+3
+```
+
+The closure remembers the value of `count` between function calls.
+
+---
+
+# 📌 Important Notes
+
+* A closure requires an **inner function**.
+* The inner function must access a variable from the enclosing function.
+* The enclosing variable remains available to the inner function.
+* `nonlocal` allows modification of an enclosing variable.
+* Closures provide a way to maintain state without relying on global variables.
+* Closures are closely related to decorators.
+
+---
+
+# ⚖️ Nested Function vs Closure
+
+| Nested Function                          | Closure                                        |
+| ---------------------------------------- | ---------------------------------------------- |
+| Function defined inside another function | Inner function remembers an enclosing variable |
+| May or may not use outer variables       | Uses variables from the enclosing scope        |
+| Doesn't necessarily preserve state       | Can preserve access to enclosing state         |
+| General concept                          | Specific behavior of nested functions          |
+
+---
+
+# 🎯 Interview Preparation
+
+Today I revised:
+
+* What is a nested function?
+* What is an enclosing scope?
+* What is a closure?
+* How does a closure remember variables?
+* What is `nonlocal`?
+* Why are closures useful?
+* Difference between nested functions and closures
+* Relationship between closures and decorators
+
+---
+
+# 📈 Advanced Python Progress
+
+* ✅ Day 63 — Functional Programming
+* ✅ Day 64 — Iterators & Iterables
+* ✅ Day 65 — Generators
+* ✅ Day 66 — Comprehensions
+* ✅ Day 67 — Advanced Functions
+* ✅ Day 68 — Closures
+* 🔄 Next Topic — **Decorators**
+
+---
+
+# 💡 Day 68 Summary
+
+Today, I learned how closures work in Python and how an inner function can remember variables from its enclosing function. I also learned how `nonlocal` can modify enclosing variables and how closures can be used to maintain state without global variables.
+
+Understanding closures gives me a strong foundation for the next Advanced Python topic: **Decorators**.
+
+---
+
+## 🌟 Learning Streak
+
+**Python Journey – Day 68 ✅**
+
+> **"Talk is cheap. Show me the code."**
+
+Learning concepts is important, but writing and practicing code is what turns knowledge into skill. 🚀
