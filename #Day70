@@ -1,0 +1,423 @@
+# 🐍 Advanced Python Journey — Day 70
+
+## 📚 Topic: Context Managers
+
+### 📅 Day 70 — 12 August 2026
+
+Today, I completed **Context Managers**, an important concept in Advanced Python.
+
+Context managers are used to manage resources safely and automatically. They make sure that resources are properly cleaned up after they are used.
+
+---
+
+# 📖 Table of Contents
+
+1. [What is a Context Manager?](#what-is-a-context-manager)
+2. [The `with` Statement](#the-with-statement)
+3. [Why Context Managers Are Useful](#why-context-managers-are-useful)
+4. [Context Management Protocol](#context-management-protocol)
+5. [`__enter__()` Method](#__enter__-method)
+6. [`__exit__()` Method](#__exit__-method)
+7. [Creating a Custom Context Manager](#creating-a-custom-context-manager)
+8. [`contextlib` Module](#contextlib-module)
+9. [`@contextmanager`](#contextmanager)
+10. [`yield` in Context Managers](#yield-in-context-managers)
+11. [Exception Handling](#exception-handling)
+12. [Practical Applications](#practical-applications)
+13. [Manual vs Context Manager](#manual-vs-context-manager)
+14. [Important Points](#important-points)
+15. [Interview Questions](#interview-questions)
+16. [Progress Tracker](#progress-tracker)
+
+---
+
+# 🧠 What is a Context Manager?
+
+A **Context Manager** is a Python feature that manages resources automatically.
+
+The basic idea is:
+
+```text
+Setup Resource
+      ↓
+   Use Resource
+      ↓
+Cleanup Resource
+
+For example, when working with a file, we need to:
+
+Open the file.
+Use the file.
+Close the file.
+
+A context manager can handle the cleanup automatically.
+
+🔑 The with Statement
+
+The with statement is the most common way to use a context manager.
+
+Example
+with open("example.txt", "r") as file:
+    data = file.read()
+    print(data)
+
+After the with block finishes, Python automatically handles closing the file.
+
+Without a context manager:
+
+file = open("example.txt", "r")
+
+data = file.read()
+print(data)
+
+file.close()
+
+With a context manager:
+
+with open("example.txt", "r") as file:
+    data = file.read()
+    print(data)
+
+The second approach is cleaner and safer.
+
+💡 Why Context Managers Are Useful
+
+Context managers are useful when we need to acquire and release resources.
+
+Examples include:
+
+Files
+Database connections
+Network connections
+Locks
+Temporary resources
+System resources
+
+They help prevent resources from being left open or locked accidentally.
+
+⚙️ Context Management Protocol
+
+Python context managers follow the context management protocol.
+
+The two main methods are:
+
+__enter__()
+__exit__()
+
+The basic flow is:
+
+with statement
+      ↓
+  __enter__()
+      ↓
+Execute with block
+      ↓
+  __exit__()
+      ↓
+Cleanup
+🔵 __enter__() Method
+
+The __enter__() method is executed when entering the with block.
+
+Example:
+
+class MyContext:
+
+    def __enter__(self):
+        print("Entering context")
+        return self
+
+It is generally used for setup or acquiring a resource.
+
+🔴 __exit__() Method
+
+The __exit__() method is executed when leaving the with block.
+
+Example:
+
+class MyContext:
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("Exiting context")
+
+It is generally used for cleanup or releasing a resource.
+
+The parameters:
+
+exc_type
+exc_value
+traceback
+
+provide information about an exception if one occurred inside the with block.
+
+🛠️ Creating a Custom Context Manager
+
+A context manager can be created using a class.
+
+class MyContext:
+
+    def __enter__(self):
+        print("Entering context")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("Exiting context")
+
+
+with MyContext():
+    print("Inside context")
+Output
+Entering context
+Inside context
+Exiting context
+
+Python automatically calls:
+
+__enter__()
+
+when entering the block and:
+
+__exit__()
+
+when leaving the block.
+
+📦 contextlib Module
+
+Python provides the built-in contextlib module to make context managers easier to create.
+
+Import it using:
+
+from contextlib import contextmanager
+🏷️ @contextmanager
+
+The @contextmanager decorator allows us to create a context manager using a generator function.
+
+Example:
+
+from contextlib import contextmanager
+
+
+@contextmanager
+def my_context():
+
+    print("Starting")
+
+    yield
+
+    print("Finished")
+
+
+with my_context():
+    print("Inside context")
+Output
+Starting
+Inside context
+Finished
+🔄 yield in Context Managers
+
+When using @contextmanager, yield separates the setup and cleanup portions.
+
+Example:
+
+from contextlib import contextmanager
+
+
+@contextmanager
+def my_context():
+
+    # Setup
+    print("Resource acquired")
+
+    yield
+
+    # Cleanup
+    print("Resource released")
+
+The flow is:
+
+Before yield
+     ↓
+   SETUP
+     ↓
+   yield
+     ↓
+ WITH BLOCK
+     ↓
+After yield
+     ↓
+  CLEANUP
+
+So we can think of it as:
+
+@contextmanager
+def something():
+
+    # Code before yield = setup
+
+    yield
+
+    # Code after yield = cleanup
+🛡️ Exception Handling
+
+Context managers are especially useful when exceptions occur.
+
+For example:
+
+with open("example.txt", "r") as file:
+    data = file.read()
+
+Even if something goes wrong while working inside the block, the context manager is responsible for performing the necessary cleanup.
+
+This is one of the major advantages of context managers.
+
+🧹 Example with try and finally
+
+The concept is closely related to:
+
+try:
+    file = open("example.txt", "r")
+    data = file.read()
+finally:
+    file.close()
+
+A context manager gives us a cleaner way to express resource management:
+
+with open("example.txt", "r") as file:
+    data = file.read()
+
+The with statement is therefore a Pythonic approach to resource management.
+
+🎯 Practical Applications
+
+Context managers are commonly used for:
+
+1. File Handling
+with open("data.txt") as file:
+    data = file.read()
+2. Database Connections
+with database_connection() as connection:
+    connection.execute(...)
+3. Locks
+with lock:
+    # Critical section
+    pass
+4. Temporary Resources
+
+Context managers can make sure temporary resources are properly released or removed.
+
+5. Network Resources
+
+They can help ensure network resources are properly closed after use.
+
+⚖️ Manual Resource Management vs Context Manager
+Manual Resource Management	Context Manager
+Resource opened manually	Resource managed automatically
+Cleanup must be written manually	Cleanup handled automatically
+More code	Less code
+Easy to forget cleanup	Safer
+Can become error-prone	Cleaner and more Pythonic
+🧠 Important Syntax
+Using a Context Manager
+with resource as variable:
+    # Work with resource
+Class-Based Context Manager
+class MyContext:
+
+    def __enter__(self):
+        # Setup
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        # Cleanup
+        pass
+Function-Based Context Manager
+from contextlib import contextmanager
+
+
+@contextmanager
+def my_context():
+
+    # Setup
+
+    yield
+
+    # Cleanup
+📌 Important Points to Remember
+A context manager manages resources safely.
+The with statement is the most common way to use a context manager.
+__enter__() runs when entering the context.
+__exit__() runs when leaving the context.
+contextlib provides tools for creating context managers.
+@contextmanager allows us to create context managers using generator functions.
+yield separates the setup and cleanup sections.
+Context managers are useful for exception-safe cleanup.
+File handling is one of the most common uses.
+Context managers make code cleaner and more maintainable.
+🎯 Interview Questions
+Basic
+What is a context manager in Python?
+What is the with statement?
+Why are context managers useful?
+Give a real-world example of a context manager.
+Intermediate
+What are __enter__() and __exit__()?
+What is the context management protocol?
+How do you create a custom context manager?
+What is the contextlib module?
+What does the @contextmanager decorator do?
+How is yield used with @contextmanager?
+Advanced
+How does a context manager handle exceptions?
+What are exc_type, exc_value, and traceback?
+What is the difference between a class-based and function-based context manager?
+Why are context managers preferred for resource management?
+How is a context manager related to try/finally?
+🧪 Practice Programs
+
+I practiced / should practice:
+
+1. Read a file using the with statement.
+2. Write to a file using the with statement.
+3. Create a simple class-based context manager.
+4. Create a context manager using @contextmanager.
+5. Use yield inside a context manager.
+6. Handle exceptions inside a context manager.
+7. Create a timer context manager.
+8. Create a context manager that prints when a resource is acquired and released.
+📈 Advanced Python Progress Tracker
+Day 63 → Functional Programming       ✅
+Day 64 → Iterators & Iterables        ✅
+Day 65 → Generators                   ✅
+Day 66 → Comprehensions               ✅
+Day 67 → Advanced Functions           ✅
+Day 68 → Closures                     ✅
+Day 69 → Decorators                   ✅
+Day 70 → Context Managers             ✅
+🔜 Next Topic
+
+Day 71 — Modules & Packages
+
+📝 Day 70 Summary
+
+Today, I completed Context Managers in Python.
+
+I learned how the with statement helps manage resources automatically and safely. I understood the purpose of __enter__() and __exit__() and learned how to create custom context managers.
+
+I also learned about the contextlib module and the @contextmanager decorator, which allows context managers to be created using generator functions.
+
+Most importantly, I understood the basic principle:
+
+Setup
+  ↓
+Use
+  ↓
+Cleanup
+
+Context managers are an important part of writing clean, safe, and professional Python code.
+
+🌟 Learning Streak
+Python Journey — Day 70 ✅
+
+"Talk is cheap. Show me the code."
+
+Another Advanced Python concept completed through learning, understanding, and hands-on practice. 🚀
