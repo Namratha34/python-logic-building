@@ -1,1 +1,259 @@
-..........
+# 🚀 Day 69 - Advanced Python Journey
+
+## 📅 Date
+
+**09 August 2026**
+
+## 📚 Topic Completed
+
+# Decorators in Python ✅
+
+Today, I learned **Decorators**, one of the most powerful and commonly used features of Advanced Python. Decorators allow us to add or modify the behavior of a function without changing the original function's code.
+
+---
+
+# 📖 Topics Covered
+
+* ✅ What is a Decorator?
+* ✅ Functions as First-Class Objects
+* ✅ Nested Functions in Decorators
+* ✅ Passing Functions as Arguments
+* ✅ Returning Functions
+* ✅ `@` Decorator Syntax
+* ✅ Function Wrapping
+* ✅ `*args` and `**kwargs` in Decorators
+* ✅ `functools.wraps`
+* ✅ Decorators with Arguments
+* ✅ Multiple Decorators
+* ✅ Practical Applications of Decorators
+
+---
+
+# 🧠 Key Concept
+
+A decorator is a function that:
+
+1. Takes another function as an argument.
+2. Adds some additional behavior.
+3. Returns a new function.
+
+The original function does not need to be modified.
+
+---
+
+# 💻 Basic Decorator Example
+
+```python
+def decorator(func):
+
+    def wrapper():
+        print("Before function execution")
+        func()
+        print("After function execution")
+
+    return wrapper
+
+
+@decorator
+def greet():
+    print("Hello Python!")
+
+
+greet()
+```
+
+### Output
+
+```text
+Before function execution
+Hello Python!
+After function execution
+```
+
+The following:
+
+```python
+@decorator
+def greet():
+    print("Hello Python!")
+```
+
+is equivalent to:
+
+```python
+greet = decorator(greet)
+```
+
+---
+
+# 🔄 Decorator Flow
+
+```text
+Original Function
+       ↓
+   Decorator
+       ↓
+    Wrapper
+       ↓
+Modified Behavior
+```
+
+A decorator essentially wraps a function with additional functionality.
+
+---
+
+# 📦 Decorators with `*args` and `**kwargs`
+
+Decorators can be made flexible enough to work with functions that accept different arguments.
+
+```python
+def decorator(func):
+
+    def wrapper(*args, **kwargs):
+        print("Function is executing...")
+        result = func(*args, **kwargs)
+        return result
+
+    return wrapper
+```
+
+This allows the decorator to work with many different types of functions.
+
+---
+
+# 🏷️ `functools.wraps`
+
+When creating decorators, Python provides:
+
+```python
+from functools import wraps
+```
+
+Example:
+
+```python
+from functools import wraps
+
+def decorator(func):
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs)
+
+    return wrapper
+```
+
+`@wraps(func)` preserves important metadata of the original function, such as its name and documentation.
+
+---
+
+# 🎯 Common Uses of Decorators
+
+Decorators are commonly used for:
+
+* Logging
+* Authentication
+* Authorization
+* Timing functions
+* Caching
+* Input validation
+* Access control
+* Debugging
+* Performance measurement
+
+Frameworks such as Django and Flask also use decorators extensively.
+
+---
+
+# 🔗 Multiple Decorators
+
+Python allows multiple decorators to be applied to one function.
+
+```python
+@decorator_one
+@decorator_two
+def greet():
+    print("Hello!")
+```
+
+The decorators are applied from the bottom upward:
+
+```text
+greet
+ ↓
+decorator_two
+ ↓
+decorator_one
+```
+
+---
+
+# 📌 Important Notes
+
+* Decorators modify or extend function behavior without directly changing the original function.
+* Functions can be passed as arguments because Python functions are first-class objects.
+* Decorators commonly use nested functions and closures.
+* The `@decorator` syntax is syntactic sugar for function reassignment.
+* `*args` and `**kwargs` make decorators flexible.
+* `functools.wraps` preserves the original function's metadata.
+* Multiple decorators can be applied to the same function.
+
+---
+
+# ⚖️ Decorator vs Normal Function
+
+| Normal Function                       | Decorator                          |
+| ------------------------------------- | ---------------------------------- |
+| Performs a specific task              | Adds behavior to another function  |
+| Usually called directly               | Applied to another function        |
+| Doesn't necessarily accept a function | Receives a function as an argument |
+| Works independently                   | Wraps or modifies another function |
+
+---
+
+# 🎯 Interview Preparation
+
+Today I revised:
+
+* What is a decorator?
+* Why are decorators used?
+* How does `@decorator` work?
+* What is a wrapper function?
+* How do closures relate to decorators?
+* Why are `*args` and `**kwargs` used in decorators?
+* What is `functools.wraps`?
+* How do multiple decorators work?
+* What are real-world applications of decorators?
+
+---
+
+# 📈 Advanced Python Progress
+
+* ✅ Day 63 — Functional Programming
+* ✅ Day 64 — Iterators & Iterables
+* ✅ Day 65 — Generators
+* ✅ Day 66 — Comprehensions
+* ✅ Day 67 — Advanced Functions
+* ✅ Day 68 — Closures
+* ✅ Day 69 — Decorators
+* 🔄 Next Topic — **Context Managers**
+
+---
+
+# 💡 Day 69 Summary
+
+Today, I learned how decorators can extend or modify the behavior of existing functions without changing their original code. I understood how decorators use first-class functions, nested functions, closures, wrapper functions, and the `@` syntax.
+
+I also learned how `*args`, `**kwargs`, and `functools.wraps` are used to create flexible and professional decorators.
+
+Decorators are an important part of Advanced Python and will be especially useful when working with Python web frameworks and real-world applications.
+
+---
+
+## 🌟 Learning Streak
+
+**Python Journey – Day 69 ✅**
+
+> **"Talk is cheap. Show me the code."**
+
+Today, I didn't just learn what decorators are—I practiced how Python uses them to build cleaner, reusable, and more powerful code. 🚀
