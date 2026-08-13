@@ -1,0 +1,406 @@
+# 🐍 Advanced Python Journey — Day 71
+
+## 📚 Topic: Modules & Packages
+
+### 📅 Day 71 — 13 August 2026
+
+Today, I completed **Modules & Packages** in Python.
+
+Modules and packages are essential for organizing Python projects, reusing code, and building clean and maintainable applications.
+
+---
+
+# 📖 Table of Contents
+
+1. [What is a Module?](#what-is-a-module)
+2. [Creating a Module](#creating-a-module)
+3. [Importing Modules](#importing-modules)
+4. [Different Import Methods](#different-import-methods)
+5. [Custom Modules](#custom-modules)
+6. [What is a Package?](#what-is-a-package)
+7. [`__init__.py`](#__init__py)
+8. [`__name__`](#__name__)
+9. [`__main__`](#__main__)
+10. [`if __name__ == "__main__"`](#-if-__name__--__main__)
+11. [Absolute Imports](#absolute-imports)
+12. [Relative Imports](#relative-imports)
+13. [`sys.path`](#syspath)
+14. [`__all__`](#__all__)
+15. [Module vs Package](#module-vs-package)
+16. [Project Structure](#project-structure)
+17. [Important Points](#important-points)
+18. [Interview Questions](#interview-questions)
+19. [Practice Programs](#practice-programs)
+20. [Progress Tracker](#progress-tracker)
+
+---
+
+# 🧠 What is a Module?
+
+A **module** is simply a Python file (`.py`) containing code that can be reused in another Python program.
+
+A module can contain:
+
+- Functions
+- Variables
+- Classes
+- Constants
+- Other executable code
+
+### Example
+
+Create a file:
+
+```text
+calculator.py
+
+Inside it:
+
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+
+Now calculator.py is a module.
+
+📦 Creating a Module
+calculator.py
+def add(a, b):
+    return a + b
+
+
+def multiply(a, b):
+    return a * b
+main.py
+import calculator
+
+print(calculator.add(10, 20))
+print(calculator.multiply(5, 4))
+Output
+30
+20
+
+The code from calculator.py can be reused in main.py.
+
+📥 Importing Modules
+
+Python provides the import statement for importing modules.
+
+import math
+
+print(math.sqrt(25))
+
+Output:
+
+5.0
+🔄 Different Import Methods
+1. Import the Entire Module
+import math
+
+print(math.sqrt(25))
+2. Import Specific Functions
+from math import sqrt
+
+print(sqrt(25))
+3. Import Multiple Functions
+from math import sqrt, factorial
+
+print(sqrt(25))
+print(factorial(5))
+4. Using an Alias
+
+An alias gives a module a shorter name.
+
+import math as m
+
+print(m.sqrt(25))
+5. Import Everything
+from math import *
+
+Although this is possible, it is generally not recommended because it can make it difficult to know where names came from and can cause naming conflicts.
+
+🛠️ Custom Modules
+
+We can create our own modules.
+
+calculator.py
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+main.py
+from calculator import add, subtract
+
+print(add(10, 5))
+print(subtract(10, 5))
+
+This allows us to divide a large program into smaller reusable files.
+
+📦 What is a Package?
+
+A package is a way to organize related Python modules into a directory structure.
+
+Example:
+
+mypackage/
+│
+├── __init__.py
+├── calculator.py
+└── converter.py
+
+Here:
+
+mypackage
+    ↓
+Package
+
+calculator.py
+    ↓
+Module
+
+converter.py
+    ↓
+Module
+🗂️ Example Package
+
+Project structure:
+
+my_project/
+│
+├── main.py
+│
+└── utilities/
+    ├── __init__.py
+    ├── calculator.py
+    └── converter.py
+calculator.py
+def add(a, b):
+    return a + b
+main.py
+from utilities.calculator import add
+
+print(add(10, 20))
+
+Output:
+
+30
+🧩 __init__.py
+
+__init__.py is associated with Python packages.
+
+Example:
+
+utilities/
+│
+├── __init__.py
+├── calculator.py
+└── converter.py
+
+It can be empty:
+
+or it can contain package initialization code.
+
+Modern Python also supports namespace packages, so __init__.py is not required for every kind of package. However, it remains very common and useful for regular packages.
+
+🏷️ __name__
+
+Every Python module has a special variable called:
+
+__name__
+
+Its value depends on how the file is being used.
+
+If the file is run directly:
+
+print(__name__)
+
+the output is:
+
+__main__
+
+If the file is imported as a module, __name__ normally contains the module's import name.
+
+🔵 __main__
+
+When a Python file is executed directly, Python sets:
+
+__name__ = "__main__"
+
+This is why we commonly see:
+
+if __name__ == "__main__":
+    ...
+⭐ if __name__ == "__main__"
+
+This is one of the most important patterns in Python modules.
+
+Example:
+
+def greet():
+    print("Hello Python")
+
+
+if __name__ == "__main__":
+    greet()
+
+If the file is run directly:
+
+greet() executes
+
+If the file is imported:
+
+import mymodule
+
+the code inside:
+
+if __name__ == "__main__":
+
+does not execute.
+
+This allows a Python file to work both as a reusable module and as a standalone program.
+
+🔗 Absolute Imports
+
+An absolute import specifies the complete path from the project/package root.
+
+Example:
+
+from utilities.calculator import add
+
+Project:
+
+my_project/
+│
+├── main.py
+│
+└── utilities/
+    ├── __init__.py
+    └── calculator.py
+🔄 Relative Imports
+
+Relative imports use dots to refer to the current package.
+
+Example:
+
+from .calculator import add
+
+Here:
+
+. 
+
+means the current package.
+
+Relative imports are generally used inside packages.
+
+🔍 sys.path
+
+Python maintains a list of locations where it searches for modules.
+
+We can see it using:
+
+import sys
+
+print(sys.path)
+
+Example output may contain paths such as:
+
+[
+    ".../project",
+    ".../site-packages",
+    ...
+]
+
+When we write:
+
+import calculator
+
+Python searches locations on its module search path to find the module.
+
+Understanding sys.path also helps explain errors such as:
+
+ModuleNotFoundError
+📤 __all__
+
+A module can define:
+
+__all__ = ["add", "subtract"]
+
+This specifies the names intended to be exported when using:
+
+from module import *
+
+Example:
+
+calculator.py
+__all__ = ["add", "subtract"]
+
+
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+Then:
+
+from calculator import *
+
+will import the names listed in __all__.
+
+In normal code, explicit imports are generally preferred over wildcard imports.
+
+⚖️ Module vs Package
+Module	Package
+Usually a single .py file	Directory containing related modules
+Contains reusable Python code	Organizes multiple modules
+Example: calculator.py	Example: utilities/
+Can contain functions and variables	Can contain multiple modules/subpackages
+🏗️ Project Structure
+
+A simple Python project can look like:
+
+python_project/
+│
+├── main.py
+│
+├── calculator.py
+│
+└── utilities/
+    ├── __init__.py
+    ├── converter.py
+    └── helper.py
+
+This structure makes a project easier to organize and maintain.
+
+💡 Why Modules and Packages Are Important
+
+Modules and packages help us:
+
+♻️ Reuse code
+🧹 Organize large projects
+🔧 Maintain code more easily
+🧩 Separate functionality
+👥 Work effectively in teams
+📦 Build reusable components
+🚀 Scale Python applications
+📌 Important Points
+A module is generally a Python .py file.
+A module can contain functions, variables, classes, and other code.
+Modules can be imported using import.
+Packages organize related modules.
+__init__.py is commonly used with regular Python packages.
+__name__ identifies the current module's execution/import context.
+__main__ is the value of __name__ when a file is executed directly.
+if __name__ == "__main__": is used to control code that should run only when the file is executed directly.
+sys.path contains locations Python searches for modules.
+__all__ can define names intended for wildcard imports.
+Explicit imports are generally clearer than from module import *.
