@@ -1,0 +1,257 @@
+
+# 🐍 Day 73 — Advanced Functions in Python
+
+
+Today I learned **Advanced Functions in Python** as part of my Advanced Python learning journey.
+
+
+The main goal of today's learning was to understand how Python treats functions as objects and how functions can be passed around, returned, and used to build more powerful programming patterns.
+
+
+---
+
+
+## 📚 Topics Covered
+
+
+### 1. First-Class Functions
+
+
+In Python, functions are **first-class objects**.
+
+
+This means a function can be:
+
+
+- Stored in a variable
+- Passed as an argument
+- Returned from another function
+- Stored inside collections
+
+
+### Example
+
+
+```python
+def greet():
+    print("Hello, Python!")
+
+
+message = greet
+message()
+Output
+Hello, Python!
+
+Here, message refers to the greet function.
+
+2. Functions as Objects
+
+Functions can be assigned to variables just like other Python objects.
+
+def add(a, b):
+    return a + b
+
+
+operation = add
+
+
+print(operation(10, 20))
+Output
+30
+3. Passing Functions as Arguments
+
+A function can be passed to another function as an argument.
+
+def greet():
+    print("Hello!")
+
+
+def execute(func):
+    func()
+
+
+execute(greet)
+Output
+Hello!
+
+This is one of the important concepts behind higher-order functions.
+
+4. Returning Functions from Functions
+
+A function can return another function.
+
+def outer():
+    
+    def inner():
+        print("Hello from inner function!")
+
+
+    return inner
+
+
+result = outer()
+result()
+Output
+Hello from inner function!
+
+Returning functions is an important concept that leads to closures and decorators.
+
+5. Higher-Order Functions
+
+A higher-order function is a function that:
+
+Accepts another function as an argument, or
+Returns another function.
+Example
+def square(x):
+    return x * x
+
+
+def apply_function(func, value):
+    return func(value)
+
+
+result = apply_function(square, 5)
+
+
+print(result)
+Output
+25
+6. Nested Functions
+
+A function defined inside another function is called a nested function.
+
+def outer():
+
+
+    def inner():
+        print("Inside inner function")
+
+
+    inner()
+
+
+outer()
+Output
+Inside inner function
+
+Nested functions are important for understanding:
+
+Closures
+Decorators
+Encapsulation of helper functions
+7. *args and **kwargs
+*args
+
+Allows a function to accept any number of positional arguments.
+
+def add_numbers(*args):
+    return sum(args)
+
+
+print(add_numbers(10, 20, 30, 40))
+Output
+100
+**kwargs
+
+Allows a function to accept any number of keyword arguments.
+
+def show_details(**kwargs):
+    for key, value in kwargs.items():
+        print(key, ":", value)
+
+
+show_details(name="Namratha", language="Python")
+Output
+name : Namratha
+language : Python
+8. Positional-Only Arguments
+
+Python allows us to specify that certain arguments must be passed positionally using /.
+
+def add(a, b, /):
+    return a + b
+
+
+print(add(10, 20))
+
+This is valid:
+
+add(10, 20)
+
+But this is not allowed:
+
+add(a=10, b=20)
+9. Keyword-Only Arguments
+
+Arguments after * can only be passed using their keyword.
+
+def student(name, *, age):
+    print(name, age)
+
+
+student("Namratha", age=20)
+
+This works because age is supplied as a keyword argument.
+
+10. Function Annotations / Type Hints
+
+Function annotations can be used to describe the expected types of parameters and return values.
+
+def add(a: int, b: int) -> int:
+    return a + b
+
+
+print(add(10, 20))
+
+Type hints improve:
+
+Code readability
+IDE support
+Maintainability
+Static type checking
+
+Python does not automatically enforce these types at runtime.
+
+11. Mutable Default Arguments
+
+A common Python pitfall is using a mutable object such as a list as a default argument.
+
+Avoid:
+def add_item(item, items=[]):
+    items.append(item)
+    return items
+
+The same list can be reused between function calls.
+
+Better approach:
+def add_item(item, items=None):
+
+
+    if items is None:
+        items = []
+
+
+    items.append(item)
+    return items
+
+Using None as the default value avoids this problem.
+
+🧠 Important Concepts to Remember
+First-Class Functions
+        ↓
+Functions can be stored
+        ↓
+Functions can be passed
+        ↓
+Functions can be returned
+        ↓
+Higher-Order Functions
+        ↓
+Nested Functions
+        ↓
+Closures
+        ↓
+Decorators
+
+This progression is important because closures and decorators build upon these function concepts.
