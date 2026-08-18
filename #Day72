@@ -1,1 +1,202 @@
-...........
+Day 72 — Advanced File Handling in Python
+
+Today I continued my Advanced Python learning journey by studying Advanced File Handling.
+
+I had already learned basic File I/O earlier, including open(), read(), write(), seek(), and tell(). Therefore, today's focus was on more advanced filesystem operations and Python's standard-library tools for working with files and directories.
+
+📚 Topics Covered
+1. pathlib
+
+pathlib provides an object-oriented way to work with file and directory paths.
+
+from pathlib import Path
+
+
+file = Path("example.txt")
+
+
+print(file.exists())
+print(file.name)
+print(file.suffix)
+
+Important operations:
+
+file.exists()
+file.is_file()
+file.is_dir()
+file.mkdir()
+file.unlink()
+file.rename()
+2. Working with Directories
+
+Create a directory:
+
+from pathlib import Path
+
+
+folder = Path("data")
+folder.mkdir(exist_ok=True)
+
+Create nested directories:
+
+folder = Path("project/data/files")
+folder.mkdir(parents=True, exist_ok=True)
+
+List directory contents:
+
+for item in Path(".").iterdir():
+    print(item)
+3. File and Directory Metadata
+
+Python can provide information about files and directories.
+
+from pathlib import Path
+
+
+file = Path("example.txt")
+
+
+print(file.name)
+print(file.parent)
+print(file.suffix)
+print(file.stat())
+
+Metadata can include information such as:
+
+File size
+Modification time
+Creation/change information
+File permissions
+4. glob
+
+glob can be used to find files matching a pattern.
+
+from pathlib import Path
+
+
+for file in Path(".").glob("*.txt"):
+    print(file)
+
+This finds .txt files in the current directory.
+
+5. rglob
+
+rglob() searches recursively through subdirectories.
+
+from pathlib import Path
+
+
+for file in Path(".").rglob("*.py"):
+    print(file)
+
+This searches for Python files in the current directory and its subdirectories.
+
+6. os and os.path
+
+The os module provides tools for interacting with the operating system.
+
+import os
+
+
+print(os.getcwd())
+print(os.listdir())
+
+os.path can be used for path operations:
+
+import os
+
+
+path = os.path.join("data", "example.txt")
+
+
+print(path)
+print(os.path.exists(path))
+7. shutil
+
+shutil provides higher-level operations for copying, moving, and deleting files and directories.
+
+Copy a file:
+
+import shutil
+
+
+shutil.copy("source.txt", "backup.txt")
+
+Move a file:
+
+shutil.move("source.txt", "data/source.txt")
+
+Copy a directory:
+
+shutil.copytree("source_folder", "backup_folder")
+8. Deleting Files
+
+Using pathlib:
+
+from pathlib import Path
+
+
+file = Path("example.txt")
+
+
+if file.exists():
+    file.unlink()
+9. Renaming Files
+from pathlib import Path
+
+
+old_name = Path("old.txt")
+new_name = Path("new.txt")
+
+
+old_name.rename(new_name)
+10. tempfile
+
+The tempfile module is useful for creating temporary files and directories.
+
+import tempfile
+
+
+with tempfile.TemporaryFile() as file:
+    file.write(b"Hello Python")
+
+Temporary files are useful when data is needed only for a short period.
+
+🧠 Important Concepts
+Tool	Purpose
+pathlib	Modern path and filesystem handling
+os	Operating-system interaction
+os.path	Path-related operations
+shutil	Copying, moving and managing files/directories
+glob	Finding files using patterns
+tempfile	Creating temporary files/directories
+💻 Practice
+
+I practiced working with:
+
+Files and directories
+File paths
+Creating directories
+Checking file existence
+File metadata
+Directory traversal
+Searching for files using glob
+Recursive searching using rglob
+Copying files
+Moving files
+Renaming files
+Deleting files
+Temporary files
+🎯 Key Takeaways
+pathlib provides a clean way to work with filesystem paths.
+os provides operating-system functionality.
+shutil is useful for high-level file operations.
+glob helps find files using patterns.
+rglob performs recursive file searching.
+tempfile is useful for temporary data.
+Advanced file handling is important when building real-world Python applications.
+🚀 What I Learned Today
+
+Today I learned that Python provides much more than basic open(), read(), and write() operations for handling files.
+
+I learned how to work with files, directories, paths, metadata, file searching, copying, moving, deleting, and temporary files using Python's standard library.
