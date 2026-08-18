@@ -1,0 +1,524 @@
+ Serialization & Data Formats ⭐
+# 🐍 Day 74 — Serialization & Data Formats
+
+
+Today I continued my **Advanced Python** learning journey by studying **Serialization and Data Formats**.
+
+
+Serialization is an important concept for Python developers because applications frequently need to store data, transfer data between systems, or communicate with APIs.
+
+
+---
+
+
+# 📚 Topics Covered
+
+
+## 1. Serialization
+
+
+**Serialization** is the process of converting a Python object into a format that can be:
+
+
+- Stored
+- Transmitted
+- Saved to a file
+- Sent through a network
+
+
+Example:
+
+
+```python
+data = {
+    "name": "Namratha",
+    "age": 20
+}
+
+This Python dictionary can be converted into JSON:
+
+{
+    "name": "Namratha",
+    "age": 20
+}
+Basic flow
+Python Object
+      ↓
+ Serialization
+      ↓
+Data Format
+      ↓
+Storage / Network
+2. Deserialization
+
+Deserialization is the reverse process.
+
+It converts serialized data back into a Python object.
+
+Stored / Transmitted Data
+          ↓
+    Deserialization
+          ↓
+     Python Object
+
+For example:
+
+{
+    "name": "Namratha",
+    "age": 20
+}
+
+can be converted back into a Python dictionary.
+
+3. JSON
+
+JSON (JavaScript Object Notation) is a widely used data-interchange format.
+
+It is commonly used in:
+
+REST APIs
+Web applications
+Configuration files
+Data storage
+Communication between applications
+
+Example JSON:
+
+{
+    "name": "Namratha",
+    "language": "Python",
+    "skills": ["Python", "HTML", "CSS"]
+}
+4. Python json Module
+
+Python provides the built-in json module for working with JSON data.
+
+import json
+json.dumps()
+
+Converts a Python object into a JSON string.
+
+import json
+
+
+data = {
+    "name": "Namratha",
+    "age": 20
+}
+
+
+json_data = json.dumps(data)
+
+
+print(json_data)
+print(type(json_data))
+
+Output:
+
+{"name": "Namratha", "age": 20}
+<class 'str'>
+json.loads()
+
+Converts a JSON string back into a Python object.
+
+import json
+
+
+json_data = '{"name": "Namratha", "age": 20}'
+
+
+data = json.loads(json_data)
+
+
+print(data)
+print(type(data))
+
+Output:
+
+{'name': 'Namratha', 'age': 20}
+<class 'dict'>
+json.dump()
+
+Writes Python data directly into a JSON file.
+
+import json
+
+
+data = {
+    "name": "Namratha",
+    "age": 20
+}
+
+
+with open("student.json", "w") as file:
+    json.dump(data, file, indent=4)
+json.load()
+
+Reads JSON data from a file and converts it into a Python object.
+
+import json
+
+
+with open("student.json", "r") as file:
+    data = json.load(file)
+
+
+print(data)
+5. JSON and Python Data Types
+
+Common conversions include:
+
+Python	JSON
+dict	object
+list	array
+str	string
+int	number
+float	number
+True	true
+False	false
+None	null
+6. CSV
+
+CSV (Comma-Separated Values) is a simple format commonly used for tabular data.
+
+Example:
+
+name,age,course
+Namratha,20,BCA
+Rahul,21,BCA
+
+CSV is commonly used for:
+
+Spreadsheets
+Student records
+Reports
+Data exports
+Simple datasets
+7. Python csv Module
+
+Python provides the built-in csv module.
+
+import csv
+csv.reader()
+
+Reads rows from a CSV file.
+
+import csv
+
+
+with open("students.csv", "r") as file:
+    reader = csv.reader(file)
+
+
+    for row in reader:
+        print(row)
+
+Each row is returned as a list.
+
+8. csv.writer()
+
+Writes rows into a CSV file.
+
+import csv
+
+
+with open("students.csv", "w", newline="") as file:
+
+
+    writer = csv.writer(file)
+
+
+    writer.writerow(["Name", "Age", "Course"])
+    writer.writerow(["Namratha", 20, "BCA"])
+9. csv.DictReader()
+
+Reads CSV rows as dictionaries.
+
+import csv
+
+
+with open("students.csv", "r") as file:
+
+
+    reader = csv.DictReader(file)
+
+
+    for row in reader:
+        print(row["Name"])
+
+This is useful when working with column names.
+
+10. csv.DictWriter()
+
+Writes dictionaries into a CSV file.
+
+import csv
+
+
+with open("students.csv", "w", newline="") as file:
+
+
+    fieldnames = ["Name", "Age", "Course"]
+
+
+    writer = csv.DictWriter(
+        file,
+        fieldnames=fieldnames
+    )
+
+
+    writer.writeheader()
+
+
+    writer.writerow({
+        "Name": "Namratha",
+        "Age": 20,
+        "Course": "BCA"
+    })
+11. Object Serialization
+
+Object serialization means converting an object into a form that can be stored or transferred.
+
+For example:
+
+Python Object
+      ↓
+Serialization
+      ↓
+Stored / Transferable Data
+
+The appropriate serialization format depends on the use case.
+
+For example:
+
+JSON → APIs and interoperable data
+CSV → tabular data
+Pickle → Python-specific object serialization
+12. Pickle
+
+Python provides the pickle module for serializing and deserializing Python objects.
+
+import pickle
+
+Unlike JSON, pickle is designed specifically for Python object serialization.
+
+pickle.dumps()
+
+Serializes an object into bytes.
+
+import pickle
+
+
+data = {
+    "name": "Namratha",
+    "age": 20
+}
+
+
+serialized = pickle.dumps(data)
+
+
+print(serialized)
+pickle.loads()
+
+Deserializes bytes back into a Python object.
+
+import pickle
+
+
+data = {
+    "name": "Namratha",
+    "age": 20
+}
+
+
+serialized = pickle.dumps(data)
+
+
+original = pickle.loads(serialized)
+
+
+print(original)
+pickle.dump()
+
+Writes a serialized Python object to a file.
+
+import pickle
+
+
+data = {
+    "name": "Namratha",
+    "age": 20
+}
+
+
+with open("data.pkl", "wb") as file:
+    pickle.dump(data, file)
+pickle.load()
+
+Reads a serialized object from a file.
+
+import pickle
+
+
+with open("data.pkl", "rb") as file:
+    data = pickle.load(file)
+
+
+print(data)
+⚠️ 13. Security Risk of pickle
+
+Never load untrusted or unverified pickle data.
+
+Pickle is not a safe format for data received from untrusted sources because deserialization can execute arbitrary code.
+
+For example, avoid doing this with unknown files:
+
+pickle.load(untrusted_file)
+Important rule
+Trusted Pickle Data → Can be used carefully
+Untrusted Pickle Data → DO NOT LOAD
+
+For data exchanged with external systems, JSON is generally a safer choice when its data types are sufficient.
+
+14. YAML — Concept
+
+YAML (YAML Ain't Markup Language) is a human-readable data serialization/configuration format.
+
+Example:
+
+name: Namratha
+age: 20
+language: Python
+
+YAML is commonly seen in:
+
+Configuration files
+DevOps tools
+Application settings
+CI/CD configuration
+JSON vs YAML
+JSON
+ ↓
+Strict and widely used for data exchange
+
+
+YAML
+ ↓
+Human-readable and commonly used for configuration
+
+YAML support in Python typically requires an external library such as PyYAML.
+
+15. Data Validation
+
+Data validation means checking whether incoming data is:
+
+Correct
+Complete
+In the expected format
+Within acceptable limits
+
+Example:
+
+age = 20
+
+
+if isinstance(age, int) and age >= 0:
+    print("Valid age")
+else:
+    print("Invalid age")
+
+Validation is especially important when processing:
+
+API requests
+User input
+JSON data
+CSV data
+Database data
+🔄 Serialization vs Deserialization
+Process	Meaning
+Serialization	Python object → storable/transmittable format
+Deserialization	Serialized data → Python object
+
+Example with JSON:
+
+Python Dictionary
+       ↓
+   json.dumps()
+       ↓
+    JSON String
+
+Reverse:
+
+JSON String
+     ↓
+ json.loads()
+     ↓
+Python Dictionary
+🧠 Important Methods to Remember
+JSON
+Method	Purpose
+json.dumps()	Python object → JSON string
+json.loads()	JSON string → Python object
+json.dump()	Python object → JSON file
+json.load()	JSON file → Python object
+Pickle
+Method	Purpose
+pickle.dumps()	Object → bytes
+pickle.loads()	Bytes → object
+pickle.dump()	Object → file
+pickle.load()	File → object
+CSV
+Method	Purpose
+csv.reader()	Read CSV rows
+csv.writer()	Write CSV rows
+csv.DictReader()	Read CSV as dictionaries
+csv.DictWriter()	Write dictionaries to CSV
+💻 Practice
+
+Today I practiced:
+
+Converting Python objects to JSON
+Converting JSON back to Python objects
+Reading JSON files
+Writing JSON files
+Reading CSV files
+Writing CSV files
+Working with DictReader
+Working with DictWriter
+Serializing Python objects using pickle
+Deserializing Python objects
+Understanding the security risks of untrusted pickle data
+Understanding YAML
+Validating incoming data
+🎯 Key Takeaways
+Serialization converts data into a storable or transferable representation.
+Deserialization converts it back into a Python object.
+JSON is widely used for APIs and data exchange.
+CSV is useful for tabular data.
+Pickle can serialize many Python-specific objects.
+Untrusted pickle data must never be loaded.
+YAML is commonly used for human-readable configuration.
+Data validation is essential when processing external data.
+Choosing the correct data format depends on the application's requirements.
+🚀 Real-World Developer Connection
+
+Serialization is especially important for backend development.
+
+A typical REST API workflow can look like:
+
+Client
+  ↓
+JSON Request
+  ↓
+Python Backend
+  ↓
+Validate Data
+  ↓
+Process Data
+  ↓
+JSON Response
+  ↓
+Client
+
+Understanding serialization and data formats is therefore an important foundation for working with REST APIs and Python web frameworks.
