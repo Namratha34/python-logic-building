@@ -1,0 +1,233 @@
+🐍 Day 74 — collections Module in Python
+
+Today I continued my Advanced Python learning journey by studying the collections module.
+
+The collections module provides specialized container datatypes that extend the functionality of Python's built-in collections such as lists, tuples, sets, and dictionaries.
+
+📚 Topics Covered
+1. Counter
+
+Counter is used to count the occurrences of elements.
+
+from collections import Counter
+
+
+numbers = [1, 2, 2, 3, 3, 3]
+
+
+count = Counter(numbers)
+
+
+print(count)
+
+Output:
+
+Counter({3: 3, 2: 2, 1: 1})
+
+Useful methods:
+
+count.most_common()
+count.elements()
+count.update()
+2. defaultdict
+
+defaultdict is a dictionary that provides a default value when a key does not exist.
+
+from collections import defaultdict
+
+
+data = defaultdict(int)
+
+
+data["Python"] += 1
+data["Python"] += 1
+
+
+print(data)
+
+Output:
+
+defaultdict(<class 'int'>, {'Python': 2})
+
+It can be useful for grouping and counting data without manually checking whether a key exists.
+
+3. deque
+
+deque means double-ended queue.
+
+It allows efficient insertion and removal from both ends.
+
+from collections import deque
+
+
+queue = deque([1, 2, 3])
+
+
+queue.append(4)
+queue.appendleft(0)
+
+
+print(queue)
+
+Output:
+
+deque([0, 1, 2, 3, 4])
+
+Useful methods:
+
+queue.append()
+queue.appendleft()
+queue.pop()
+queue.popleft()
+queue.extend()
+queue.extendleft()
+4. namedtuple
+
+namedtuple creates tuple-like objects whose elements can be accessed using names.
+
+from collections import namedtuple
+
+
+Student = namedtuple("Student", ["name", "age"])
+
+
+student = Student("Namratha", 20)
+
+
+print(student.name)
+print(student.age)
+
+Output:
+
+Namratha
+20
+
+It provides the immutability of tuples while allowing readable field names.
+
+5. ChainMap
+
+ChainMap combines multiple dictionaries into a single view.
+
+from collections import ChainMap
+
+
+dict1 = {"name": "Namratha"}
+dict2 = {"age": 20}
+
+
+data = ChainMap(dict1, dict2)
+
+
+print(data["name"])
+print(data["age"])
+
+ChainMap searches the mappings in order.
+
+6. UserDict
+
+UserDict provides a wrapper around dictionary objects and can be useful when creating customized dictionary-like classes.
+
+from collections import UserDict
+
+
+data = UserDict()
+
+
+data["name"] = "Namratha"
+
+
+print(data)
+7. UserList
+
+UserList provides a wrapper around list objects and can be used to create customized list-like classes.
+
+from collections import UserList
+
+
+numbers = UserList([1, 2, 3])
+
+
+numbers.append(4)
+
+
+print(numbers)
+8. UserString
+
+UserString provides a wrapper around string objects and can be used when creating customized string-like classes.
+
+from collections import UserString
+
+
+text = UserString("Python")
+
+
+print(text)
+🧠 Important Comparison
+Type	Main Purpose
+Counter	Count elements
+defaultdict	Dictionary with default values
+deque	Efficient operations at both ends
+namedtuple	Named, immutable tuple-like objects
+ChainMap	Combine multiple dictionaries
+UserDict	Customize dictionary-like behavior
+UserList	Customize list-like behavior
+UserString	Customize string-like behavior
+⭐ Most Important for Python Development
+
+The three I focused on especially are:
+
+Counter
+Counting data
+     ↓
+Counter
+defaultdict
+Grouping / counting data
+     ↓
+defaultdict
+deque
+Fast operations at both ends
+     ↓
+deque
+
+These are particularly useful when solving programming problems and building Python applications.
+
+💻 Practice
+
+Today I practiced working with:
+
+Counter
+defaultdict
+deque
+namedtuple
+ChainMap
+UserDict
+UserList
+UserString
+
+I also learned when specialized collection types are more useful than Python's basic list and dict.
+
+🎯 Key Takeaways
+Python's collections module provides specialized container datatypes.
+Counter makes counting elements easier.
+defaultdict simplifies working with missing dictionary keys.
+deque is useful when adding/removing elements from both ends.
+namedtuple provides named fields while retaining tuple behavior.
+ChainMap provides a single view over multiple mappings.
+UserDict, UserList, and UserString can be used to build customized collection-like classes.
+🚀 Real-World Developer Connection
+
+The collections module is useful when processing real-world data.
+
+For example:
+
+Large amount of data
+        ↓
+   Python program
+        ↓
+   collections
+        ↓
+Count / group / queue / organize
+        ↓
+   Process efficiently
+
+Understanding these tools helps write cleaner and more efficient Python code.
