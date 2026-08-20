@@ -1,0 +1,302 @@
+🐍 Day 76 — functools Module in Python
+
+Today I continued my Advanced Python learning journey by studying the built-in functools module.
+
+The functools module provides tools for working with functions and higher-order functions. It is especially useful for functional programming, decorators, caching, and function customization.
+
+📚 Topics Covered
+1. functools.reduce()
+
+reduce() repeatedly applies a function to the elements of an iterable and produces a single result.
+
+from functools import reduce
+
+
+numbers = [1, 2, 3, 4]
+
+
+result = reduce(lambda x, y: x + y, numbers)
+
+
+print(result)
+
+Output:
+
+10
+
+Flow:
+
+1 + 2 = 3
+3 + 3 = 6
+6 + 4 = 10
+2. functools.partial()
+
+partial() creates a new function by fixing some arguments of an existing function.
+
+from functools import partial
+
+
+def power(base, exponent):
+    return base ** exponent
+
+
+square = partial(power, exponent=2)
+
+
+print(square(5))
+
+Output:
+
+25
+
+Instead of repeatedly passing the same argument, partial() lets us create a specialized function.
+
+3. functools.lru_cache()
+
+lru_cache() is used for function caching.
+
+It stores previously calculated results so that repeated calls with the same arguments can be faster.
+
+from functools import lru_cache
+
+
+@lru_cache
+def square(n):
+    print("Calculating...")
+    return n * n
+
+
+print(square(5))
+print(square(5))
+
+The second call can use the cached result instead of calculating it again.
+
+Why is caching useful?
+First call
+   ↓
+Calculate
+   ↓
+Store result
+   ↓
+Cache
+
+
+Same input again
+   ↓
+Use cached result
+   ↓
+Avoid repeated calculation
+4. functools.cache()
+
+cache() provides simple unbounded caching.
+
+from functools import cache
+
+
+@cache
+def square(n):
+    return n * n
+
+
+print(square(5))
+print(square(5))
+
+It is useful when you want to cache function results without specifying an LRU cache size.
+
+5. functools.wraps()
+
+wraps() is especially important when creating decorators.
+
+It preserves metadata of the original function, such as:
+
+Function name
+Documentation string
+Other function metadata
+
+Example:
+
+from functools import wraps
+
+
+def decorator(func):
+
+
+    @wraps(func)
+    def wrapper():
+        return func()
+
+
+    return wrapper
+
+This is important because decorators can otherwise replace the original function's metadata with the wrapper's metadata.
+
+6. functools.singledispatch()
+
+singledispatch() allows different implementations of a function based on the type of its first argument.
+
+from functools import singledispatch
+
+
+@singledispatch
+def display(value):
+    print("Other type:", value)
+
+
+@display.register
+def _(value: int):
+    print("Integer:", value)
+
+
+@display.register
+def _(value: str):
+    print("String:", value)
+
+
+display(10)
+display("Python")
+
+This allows one function interface to behave differently depending on the input type.
+
+⭐ Important Functions
+Function	Purpose
+reduce()	Reduce multiple values to one result
+partial()	Pre-fill function arguments
+lru_cache()	Cache function results with LRU behavior
+cache()	Simple unbounded function caching
+wraps()	Preserve decorated function metadata
+singledispatch()	Dispatch based on first argument's type
+🔄 reduce() vs map() vs filter()
+
+These are commonly used together in functional programming.
+
+map()
+
+Transforms every element.
+
+map(function, iterable)
+filter()
+
+Selects elements that satisfy a condition.
+
+filter(function, iterable)
+reduce()
+
+Combines elements into one final result.
+
+reduce(function, iterable)
+
+Think:
+
+map
+ ↓
+Transform
+
+
+filter
+ ↓
+Select
+
+
+reduce
+ ↓
+Combine
+🧠 Caching
+
+Caching is one of the most useful concepts in functools.
+
+Suppose a function takes a long time:
+
+def expensive_function(n):
+    # expensive calculation
+    return result
+
+If we call:
+
+expensive_function(10)
+expensive_function(10)
+expensive_function(10)
+
+without caching, the calculation may be repeated.
+
+With caching:
+
+expensive_function(10)
+       ↓
+Calculate
+       ↓
+Store result
+       ↓
+Cache
+
+
+expensive_function(10)
+       ↓
+Cached result
+
+
+expensive_function(10)
+       ↓
+Cached result
+
+This can improve performance for suitable functions.
+
+🧠 LRU Cache
+
+LRU means:
+
+Least Recently Used
+
+When a cache has a maximum size and becomes full, the least recently used cached entries can be removed to make room for newer entries.
+
+Example:
+
+from functools import lru_cache
+
+
+@lru_cache(maxsize=128)
+def calculate(n):
+    return n * n
+💻 Practice
+
+Today I practiced:
+
+functools.reduce()
+functools.partial()
+functools.lru_cache()
+functools.cache()
+functools.wraps()
+functools.singledispatch()
+Function caching
+Higher-order functions
+Relationship between map(), filter(), and reduce()
+🎯 Key Takeaways
+functools provides powerful tools for working with functions.
+reduce() combines multiple values into one result.
+partial() creates specialized versions of existing functions.
+lru_cache() improves performance by caching previous results.
+cache() provides simple unbounded caching.
+wraps() is important when writing decorators.
+singledispatch() allows behavior based on the type of the first argument.
+Function caching can significantly reduce repeated computation when used appropriately.
+🚀 Real-World Developer Connection
+
+The functools module is useful in real Python applications for:
+
+Writing reusable functions
+Building decorators
+Optimizing expensive functions
+Caching repeated calculations
+Functional programming
+Creating specialized functions
+Designing flexible APIs
+
+A common performance pattern is:
+
+Function
+   ↓
+Check Cache
+   ↓
+Already calculated?
+   ├── Yes → Return cached result
+   │
+   └── No → Calculate → Store → Return
