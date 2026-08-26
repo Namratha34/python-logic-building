@@ -1,1 +1,147 @@
-...
+---
+
+# 📄 DAY 79 — `README.md`
+
+```markdown
+# 🐍 Day 79 — Logging & Debugging
+
+Today I continued my Advanced Python learning journey by studying
+**Logging and Debugging**.
+
+Logging records information about an application's execution,
+while debugging helps developers find and fix problems.
+
+---
+
+# 🔹 Logging
+
+Python provides the built-in `logging` module.
+
+```python
+import logging
+🔹 Log Levels
+
+Python provides several important logging levels:
+
+DEBUG
+INFO
+WARNING
+ERROR
+CRITICAL
+
+Example:
+
+logging.debug("Debug information")
+logging.info("Application started")
+logging.warning("Warning message")
+logging.error("Error occurred")
+logging.critical("Critical problem")
+🔹 Logger
+
+A logger is used to create log messages.
+
+import logging
+
+logger = logging.getLogger(__name__)
+
+logger.info("Application started")
+🔹 Handler
+
+A handler determines where log messages are sent.
+
+Examples:
+
+Console
+File
+logging.StreamHandler()
+logging.FileHandler("app.log")
+🔹 Formatter
+
+A formatter controls the structure of log messages.
+
+formatter = logging.Formatter(
+    "%(asctime)s - %(levelname)s - %(message)s"
+)
+🔹 File Logging
+
+Logs can be stored in a file.
+
+logging.basicConfig(
+    filename="app.log",
+    level=logging.INFO
+)
+🔹 Console Logging
+
+Logs can also be displayed in the console.
+
+logging.basicConfig(level=logging.INFO)
+🔹 Logging Exceptions
+try:
+    result = 10 / 0
+except Exception:
+    logging.exception("An error occurred")
+
+logging.exception() includes traceback information when used
+inside an exception handler.
+
+🔹 Debugging
+
+Debugging means finding and fixing problems in a program.
+
+Common problems include:
+
+Syntax errors
+Runtime errors
+Logical errors
+🔹 pdb
+
+Python provides the built-in debugger pdb.
+
+import pdb
+
+pdb.set_trace()
+🔹 Breakpoints
+
+A breakpoint pauses program execution at a specific location.
+
+Modern Python also provides:
+
+breakpoint()
+🔹 Stack Traces
+
+A stack trace shows the sequence of function calls that led to an error.
+
+🔹 traceback
+
+Python provides the traceback module for working with traceback information.
+
+import traceback
+
+try:
+    10 / 0
+except Exception:
+    traceback.print_exc()
+🔹 warnings
+
+Python also provides the warnings module.
+
+import warnings
+
+warnings.warn("This feature may change")
+
+Warnings are different from exceptions because they normally do not stop program execution.
+
+🎯 Key Takeaways
+Logging records application events.
+Debugging helps find and fix problems.
+Log levels provide different levels of importance.
+Loggers create messages.
+Handlers determine where messages go.
+Formatters control log appearance.
+pdb provides debugging functionality.
+breakpoint() pauses execution.
+Tracebacks help identify where errors occurred.
+Warnings notify developers about potential issues.
+📌 Progress
+
+Day 79 — Logging & Debugging ✅
