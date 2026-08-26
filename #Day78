@@ -1,1 +1,147 @@
-................
+---
+
+# 📄 DAY 78 — `README.md`
+
+```markdown
+# 🐍 Day 78 — Advanced Exception Handling
+
+Today I continued my Advanced Python learning journey by studying
+**Advanced Exception Handling**.
+
+Exception handling allows Python programs to handle errors safely
+instead of terminating unexpectedly.
+
+---
+
+# 🔹 try
+
+Contains code that may produce an exception.
+
+```python
+try:
+    result = 10 / 0
+🔹 except
+
+Handles an exception.
+
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+🔹 else
+
+Runs when no exception occurs.
+
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Error")
+else:
+    print("Success")
+🔹 finally
+
+Runs regardless of whether an exception occurs.
+
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Error")
+finally:
+    print("Execution completed")
+🔹 raise
+
+Used to explicitly raise an exception.
+
+age = -1
+
+if age < 0:
+    raise ValueError("Age cannot be negative")
+🔹 Custom Exceptions
+
+We can create our own exception classes.
+
+class InvalidAgeError(Exception):
+    pass
+
+raise InvalidAgeError("Invalid age")
+🔹 Exception Hierarchy
+
+Python exceptions follow a hierarchy.
+
+BaseException
+    |
+    +-- Exception
+          |
+          +-- ValueError
+          +-- TypeError
+          +-- IndexError
+          +-- KeyError
+          +-- ...
+
+Most application errors should inherit from Exception.
+
+🔹 Multiple Exceptions
+
+Different exceptions can be handled separately.
+
+try:
+    value = int(input("Enter number: "))
+    result = 10 / value
+
+except ValueError:
+    print("Enter a valid number")
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+🔹 Exception Chaining
+
+One exception can be connected to another.
+
+try:
+    int("abc")
+except ValueError as error:
+    raise RuntimeError("Conversion failed") from error
+🔹 raise ... from
+
+Used to explicitly specify the cause of an exception.
+
+raise RuntimeError("Something went wrong") from error
+🔹 __cause__
+
+Stores the explicitly specified cause of an exception.
+
+🔹 __context__
+
+Stores the exception that was active when another exception occurred.
+
+🔹 assert
+
+assert checks a condition.
+
+age = 20
+
+assert age >= 18
+
+If the condition is false, Python raises AssertionError.
+
+🔹 Safe Error Handling
+
+Good exception handling should:
+
+Catch specific exceptions
+Avoid unnecessary broad except
+Provide meaningful error messages
+Preserve useful debugging information
+Clean up resources when necessary
+🎯 Key Takeaways
+try contains risky code.
+except handles exceptions.
+else executes when no exception occurs.
+finally executes regardless of success or failure.
+raise creates an exception intentionally.
+Custom exceptions allow application-specific errors.
+Exception chaining preserves the relationship between errors.
+Safe exception handling makes applications more reliable.
+📌 Progress
+
+Day 78 — Advanced Exception Handling ✅
