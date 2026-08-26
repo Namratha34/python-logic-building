@@ -1,1 +1,213 @@
-..
+# 🐍 Day 77 — Regular Expressions in Python
+
+Today I continued my Advanced Python learning journey by studying
+**Regular Expressions (Regex)** in Python.
+
+Regular expressions are patterns used to search, match, extract,
+split, and replace text.
+
+Python provides the built-in `re` module for working with regular expressions.
+
+---
+
+## 📚 What is Regular Expression?
+
+A regular expression is a pattern that describes a set of strings.
+
+For example, we can use regex to find:
+
+- Email addresses
+- Phone numbers
+- URLs
+- Dates
+- Specific words
+- Numbers
+- Repeated patterns
+
+```python
+import re
+🔹 match()
+
+Checks for a match at the beginning of a string.
+
+import re
+
+result = re.match("Hello", "Hello Python")
+
+print(result)
+🔹 search()
+
+Searches the entire string for the first match.
+
+import re
+
+result = re.search("Python", "I am learning Python")
+
+print(result)
+🔹 findall()
+
+Returns all matching occurrences.
+
+import re
+
+text = "Python is easy. Python is powerful."
+
+result = re.findall("Python", text)
+
+print(result)
+
+Output:
+
+['Python', 'Python']
+🔹 finditer()
+
+Returns an iterator containing match objects.
+
+import re
+
+text = "Python Java Python"
+
+for match in re.finditer("Python", text):
+    print(match)
+🔹 split()
+
+Splits a string using a regular expression pattern.
+
+import re
+
+text = "Python,Java,C++"
+
+result = re.split(",", text)
+
+print(result)
+🔹 sub()
+
+Replaces matching text.
+
+import re
+
+text = "I like Java"
+
+result = re.sub("Java", "Python", text)
+
+print(result)
+🔹 Character Classes
+
+Common character classes:
+
+\d  → digit
+\D  → non-digit
+\w  → word character
+\W  → non-word character
+\s  → whitespace
+\S  → non-whitespace
+.   → any character
+
+Example:
+
+import re
+
+text = "Age: 20"
+
+print(re.findall(r"\d+", text))
+
+Output:
+
+['20']
+🔹 Quantifiers
+
+Quantifiers specify how many times a pattern should occur.
+
+*      → 0 or more
++      → 1 or more
+?      → 0 or 1
+{n}    → exactly n
+{n,}   → n or more
+{n,m}  → between n and m
+🔹 Groups
+
+Parentheses create groups.
+
+import re
+
+text = "Name: Namratha"
+
+result = re.search(r"Name: (\w+)", text)
+
+print(result.group(1))
+🔹 Capturing Groups
+
+Capturing groups allow us to extract specific parts of a match.
+
+pattern = r"(\d{2})-(\d{2})-(\d{4})"
+🔹 Non-Capturing Groups
+
+A non-capturing group uses:
+
+(?:...)
+
+Example:
+
+pattern = r"(?:Mr|Mrs|Ms) \w+"
+🔹 Named Groups
+
+Named groups allow us to give a name to a captured value.
+
+pattern = r"(?P<name>\w+)"
+🔹 Lookahead
+
+Lookahead checks what comes after a position without consuming it.
+
+(?=...)
+🔹 Lookbehind
+
+Lookbehind checks what comes before a position.
+
+(?<=...)
+🔹 Regex Flags
+
+Flags modify regex behavior.
+
+Examples:
+
+re.IGNORECASE
+re.MULTILINE
+re.DOTALL
+
+Example:
+
+re.search("python", "Python", re.IGNORECASE)
+🔹 Raw Strings
+
+Raw strings are commonly used for regex patterns.
+
+pattern = r"\d+"
+
+The r helps avoid Python string escaping issues.
+
+🔹 Compiled Patterns
+
+A regex pattern can be compiled.
+
+import re
+
+pattern = re.compile(r"\d+")
+
+result = pattern.findall("Age 20 and 21")
+
+print(result)
+🎯 Key Takeaways
+Regular expressions are useful for pattern matching.
+Python provides the re module.
+match() checks the beginning.
+search() searches for the first match.
+findall() returns all matches.
+finditer() returns match objects.
+split() splits text using a pattern.
+sub() replaces matching text.
+Groups allow extraction of specific parts.
+Lookahead and lookbehind perform advanced pattern checks.
+Compiled patterns can be reused.
+📌 Progress
+
+Day 77 — Regular Expressions ✅
