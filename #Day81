@@ -1,0 +1,486 @@
+Day 81 — Python Internals & Execution Model
+# 🐍 Day 81 — Python Internals & Execution Model
+
+Today I continued my Advanced Python learning journey by studying
+**Python Internals and the Execution Model**.
+
+The goal of this topic is to understand what happens internally when
+Python code is executed.
+
+---
+
+## 📚 Topics Covered
+
+- Python Interpreter
+- Source Code
+- Compilation
+- Bytecode
+- Python Virtual Machine (PVM)
+- `.pyc` files
+- `__pycache__`
+- Compilation vs Interpretation
+- Namespaces
+- LEGB Rule
+- Object Identity
+- `id()`
+- `is` vs `==`
+- Mutable vs Immutable Objects
+- References
+- Stack and Heap Concept
+- Reference Counting
+- Garbage Collection
+- Memory Management
+- Interning
+- How Imports Work
+
+---
+
+# 🔹 1. Python Interpreter
+
+The Python interpreter is responsible for executing Python programs.
+
+Python source code is processed and executed by the Python implementation.
+
+For CPython, the execution process involves bytecode and the
+Python Virtual Machine.
+
+---
+
+# 🔹 2. Python Source Code
+
+Python programs are normally written in `.py` files.
+
+Example:
+
+```python
+x = 10
+print(x)
+
+This is called source code.
+
+🔹 3. Source Code → Bytecode
+
+In CPython, Python source code is compiled into bytecode.
+
+The simplified process is:
+
+Python Source Code
+        ↓
+    Compilation
+        ↓
+      Bytecode
+        ↓
+Python Virtual Machine
+        ↓
+     Execution
+
+Bytecode is an intermediate representation used by CPython.
+
+🔹 4. Python Virtual Machine (PVM)
+
+The Python Virtual Machine executes Python bytecode.
+
+It is part of the Python runtime.
+
+Source Code
+     ↓
+  Bytecode
+     ↓
+    PVM
+     ↓
+ Program Execution
+🔹 5. .pyc Files
+
+Python can store compiled bytecode in .pyc files.
+
+These files can be generated when Python imports modules.
+
+Example:
+
+module.py
+
+may result in cached bytecode under:
+
+__pycache__/
+🔹 6. __pycache__
+
+__pycache__ is a directory where Python commonly stores cached
+bytecode files.
+
+Example:
+
+project/
+│
+├── main.py
+├── module.py
+└── __pycache__/
+    └── module.cpython-xxx.pyc
+
+These files are implementation details and normally should not be
+manually edited.
+
+🔹 7. Compilation vs Interpretation
+
+Python is often called an interpreted language.
+
+However, CPython also performs a compilation step that produces bytecode.
+
+Therefore, a more accurate simplified model is:
+
+Source Code
+     ↓
+Compile to Bytecode
+     ↓
+Execute Bytecode
+
+Python is not simply "interpreted line by line" in the way it is
+sometimes described to beginners.
+
+🔹 8. Namespaces
+
+A namespace is a mapping between names and objects.
+
+Example:
+
+x = 10
+name = "Python"
+
+Here:
+
+x     → 10
+name  → "Python"
+
+Python uses different namespaces, including:
+
+Local namespace
+Global namespace
+Built-in namespace
+🔹 9. LEGB Rule
+
+LEGB describes the order Python uses when looking up a name.
+
+L → Local
+E → Enclosing
+G → Global
+B → Built-in
+
+Example:
+
+x = "global"
+
+def outer():
+    x = "enclosing"
+
+    def inner():
+        x = "local"
+        print(x)
+
+    inner()
+
+outer()
+
+Python searches for x according to the LEGB rule.
+
+🔹 10. Object Identity
+
+Every Python object has an identity.
+
+The id() function can be used to obtain an object's identity.
+
+x = 10
+
+print(id(x))
+
+The exact value is implementation-dependent.
+
+🔹 11. is vs ==
+
+== checks whether two objects have equal values.
+
+is checks whether two references point to the same object.
+
+Example:
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)
+print(a is b)
+
+Output:
+
+True
+False
+🔹 12. Mutable Objects
+
+Mutable objects can be changed after creation.
+
+Examples:
+
+Lists
+Dictionaries
+Sets
+
+Example:
+
+numbers = [1, 2, 3]
+
+numbers.append(4)
+
+print(numbers)
+
+The existing list can be modified.
+
+🔹 13. Immutable Objects
+
+Immutable objects cannot be changed after creation.
+
+Examples include:
+
+Integers
+Floats
+Strings
+Tuples
+Booleans
+Frozen sets
+
+Example:
+
+name = "Python"
+
+name = name + " Programming"
+
+A new string object is created rather than modifying the original
+string object.
+
+🔹 14. References
+
+Variables in Python are names that refer to objects.
+
+Example:
+
+a = [1, 2, 3]
+b = a
+
+Both names refer to the same list object.
+
+a ─────┐
+       ↓
+   [1, 2, 3]
+       ↑
+b ─────┘
+
+Therefore:
+
+b.append(4)
+
+print(a)
+
+Output:
+
+[1, 2, 3, 4]
+🔹 15. Stack and Heap Concept
+
+Python programs use memory for objects and execution frames.
+
+A simplified model is:
+
+Stack
+  ↓
+Function call frames
+  ↓
+References
+  ↓
+Heap
+  ↓
+Python objects
+
+The exact memory implementation depends on the Python implementation,
+but this model is useful for understanding references and function calls.
+
+🔹 16. Reference Counting
+
+CPython primarily uses reference counting as part of its memory
+management.
+
+An object can keep track of how many references point to it.
+
+When an object's reference count reaches zero, its memory can generally
+be reclaimed immediately by CPython.
+
+Example:
+
+a = [1, 2, 3]
+b = a
+
+del a
+del b
+
+After the references are removed, the object may become eligible for
+memory reclamation.
+
+🔹 17. Garbage Collection
+
+Reference counting alone cannot handle every type of unreachable
+reference structure.
+
+Python also has a garbage collector that can detect and clean up
+certain unreachable reference cycles.
+
+The gc module provides access to the garbage collector.
+
+import gc
+
+print(gc.isenabled())
+🔹 18. Memory Management
+
+Python manages memory automatically.
+
+Developers normally do not manually allocate and free memory like they
+might in lower-level languages.
+
+Python handles:
+
+Object allocation
+Object lifetime
+Reference counting in CPython
+Garbage collection
+Memory reuse
+🔹 19. Interning
+
+Python implementations may reuse certain immutable objects to save
+memory and improve performance.
+
+This is called interning.
+
+For example, CPython may intern some strings.
+
+However, you should not depend on interning behavior when writing
+normal application code.
+
+Always use:
+
+==
+
+for value comparison and:
+
+is
+
+for identity checks.
+
+🔹 20. How Imports Work
+
+When Python executes:
+
+import math
+
+Python searches for the requested module using its import system.
+
+Python maintains module search locations in:
+
+import sys
+
+print(sys.path)
+
+Imported modules are cached in:
+
+sys.modules
+
+Example:
+
+import sys
+
+print("math" in sys.modules)
+🔹 Execution Model Summary
+
+The simplified CPython execution process is:
+
+        Python Source Code
+                ↓
+           Compilation
+                ↓
+             Bytecode
+                ↓
+      Python Virtual Machine
+                ↓
+           Execution
+
+During execution Python also manages:
+
+Names
+ ↓
+Objects
+ ↓
+References
+ ↓
+Memory
+ ↓
+Garbage Collection
+💻 Example
+
+Consider:
+
+x = 10
+
+def greet():
+    message = "Hello"
+    print(message)
+
+greet()
+
+Important concepts involved:
+
+x
+ ↓
+Global namespace
+
+greet
+ ↓
+Global namespace
+
+message
+ ↓
+Local namespace
+
+Function call
+ ↓
+Execution frame
+
+"Hello"
+ ↓
+Python object
+
+Bytecode
+ ↓
+Executed by CPython runtime
+🎯 Key Takeaways
+Python source code is compiled into bytecode in CPython.
+The Python Virtual Machine executes bytecode.
+.pyc files contain cached bytecode.
+__pycache__ commonly stores cached bytecode.
+Namespaces map names to objects.
+LEGB defines the basic name lookup order.
+Python variables are names referring to objects.
+id() provides an object's identity.
+== compares values.
+is compares object identity.
+Mutable objects can be modified.
+Immutable objects cannot be modified in place.
+CPython uses reference counting as a major part of memory management.
+Python also has garbage collection for certain unreachable cycles.
+sys.path shows module search locations.
+sys.modules contains modules already loaded by the import system.
+🚀 Real-World Developer Connection
+
+Understanding Python internals helps developers:
+
+Debug unexpected behavior
+Understand object references
+Avoid mutable-object mistakes
+Understand memory usage
+Diagnose import problems
+Understand performance behavior
+Write more reliable Python applications
+
+Deep CPython implementation details are useful later, but the concepts
+above provide the important foundation for a Python software developer.
