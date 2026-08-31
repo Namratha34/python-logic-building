@@ -1,0 +1,184 @@
+# 🐍 Python – Today's Learning
+
+## 📌 Topic: Python Memory Management
+
+### 📅 Day 81
+
+Today I learned about **Memory Management in Python** and how Python stores, manages, and removes objects from memory.
+
+---
+
+## 🧠 What is Memory Management?
+
+Memory management is the process of **allocating, using, and releasing memory** while a Python program runs.
+
+Python automatically manages memory, so developers generally do not need to manually allocate and free memory like in languages such as C or C++.
+
+---
+
+## 🔹 Topics Covered
+
+### 1. Python Memory Management
+
+Python has an automatic memory management system that handles memory allocation and deallocation for objects.
+
+Python manages memory using:
+- Private heap
+- Python memory manager
+- Garbage collector
+
+---
+
+### 2. Objects in Memory
+
+In Python, almost everything is an **object**.
+
+For example:
+
+```python
+x = 10
+name = "Namratha"
+numbers = [1, 2, 3]
+
+The values are stored as objects in memory, and variables refer to those objects.
+
+3. Variables and References
+
+A variable does not directly contain the object.
+
+Instead, it references an object stored in memory.
+
+Example:
+
+a = 10
+b = a
+
+Both a and b can refer to the same object.
+
+4. Identity and id()
+
+Python provides the id() function to identify an object's identity.
+
+x = 100
+
+print(id(x))
+
+The returned value represents the identity of the object during its lifetime.
+
+5. Reference Counting
+
+Python primarily uses reference counting to keep track of how many references point to an object.
+
+Example:
+
+a = [1, 2, 3]
+b = a
+
+Now the list has multiple references.
+
+When references to an object are removed, its reference count can decrease.
+
+6. Garbage Collection
+
+Python has a garbage collector that helps detect and clean up objects that are no longer reachable.
+
+The gc module can be used to interact with Python's garbage collector.
+
+import gc
+
+print(gc.get_count())
+7. Circular References
+
+A circular reference occurs when objects refer to each other, directly or indirectly.
+
+Example:
+
+a = []
+b = []
+
+a.append(b)
+b.append(a)
+
+Here, a refers to b and b refers back to a.
+
+Python's garbage collector helps handle such cyclic references.
+
+8. Mutable and Immutable Objects
+
+Python objects can be broadly classified as:
+
+Immutable:
+
+int
+float
+str
+tuple
+bool
+
+Mutable:
+
+list
+dict
+set
+
+Example:
+
+x = [1, 2, 3]
+x.append(4)
+
+print(x)
+
+The list can be modified because it is mutable.
+
+9. Shallow Copy vs Deep Copy
+
+Python provides the copy module for creating copies of objects.
+
+Shallow Copy
+
+Creates a new outer object but nested objects may still be shared.
+
+import copy
+
+a = [[1, 2], [3, 4]]
+b = copy.copy(a)
+Deep Copy
+
+Creates a completely independent copy, including nested objects.
+
+import copy
+
+a = [[1, 2], [3, 4]]
+b = copy.deepcopy(a)
+10. del Statement
+
+The del statement removes a reference to an object.
+
+x = 100
+
+del x
+
+del removes the variable/reference; it does not mean that memory is immediately manually freed by the programmer.
+
+🔑 Important Points
+Python manages memory automatically.
+Variables are references to objects.
+Every object has an identity.
+id() can be used to inspect object identity.
+Python uses reference counting as an important part of memory management.
+Garbage collection helps clean up unreachable objects and cyclic references.
+Mutable and immutable objects behave differently.
+copy.copy() performs a shallow copy.
+copy.deepcopy() performs a deep copy.
+del removes a reference.
+💻 Example
+import copy
+
+original = [[1, 2], [3, 4]]
+
+shallow = copy.copy(original)
+deep = copy.deepcopy(original)
+
+print(id(original))
+print(id(shallow))
+print(id(deep))
