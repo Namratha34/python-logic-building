@@ -1,1 +1,74 @@
-,.......
+# 🐍 Python OOPs – Day 83
+
+## 📌 Topic: Introduction to Object-Oriented Programming (OOP)
+
+Today I started learning **Object-Oriented Programming (OOP)** in Python.
+
+### 🧠 What is OOP?
+
+**Object-Oriented Programming (OOP)** is a programming approach where a program is organized around **objects**.
+
+Objects represent real-world entities and can contain their own data and behavior.
+
+---
+
+## 🌍 Real-World Examples
+
+### 🚗 Car
+
+A car can be considered an object.
+
+**Properties:**
+- Color
+- Brand
+- Model
+- Speed
+
+**Behavior:**
+- Start
+- Stop
+- Accelerate
+- Brake
+
+### 👩‍🎓 Student
+
+A student can also be represented as an object.
+
+**Properties:**
+- Name
+- Age
+- Roll number
+- Course
+
+**Behavior:**
+- Study
+- Attend class
+- Write exam
+
+### 🏦 Bank Account
+
+A bank account can be represented as an object.
+
+**Properties:**
+- Account number
+- Account holder
+- Balance
+
+**Behavior:**
+- Deposit
+- Withdraw
+- Check balance
+
+---
+
+## 🔑 Key Takeaway
+
+OOP helps us represent **real-world entities in programs** by combining their data and behavior into objects.
+
+Today I focused only on understanding the **basic idea of OOP and its real-world applications**.
+
+---
+
+## 🚀 Progress
+
+**Day 82 – Introduction to OOPs ✅**
