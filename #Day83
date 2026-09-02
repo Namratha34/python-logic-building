@@ -61,14 +61,23 @@ A bank account can be represented as an object.
 
 ---
 
-## 🔑 Key Takeaway
+🔹 Important OOP Concepts
 
-OOP helps us represent **real-world entities in programs** by combining their data and behavior into objects.
+The major concepts I will learn in Python OOP are:
 
-Today I focused only on understanding the **basic idea of OOP and its real-world applications**.
+Classes
+Objects
+Constructors
+self
+Instance variables
+Class variables
+Instance methods
+Class methods
+Static methods
+Encapsulation
+Inheritance
+Polymorphism
+Abstraction
 
----
+These concepts will be covered step by step in the upcoming days.
 
-## 🚀 Progress
-
-**Day 82 – Introduction to OOPs ✅**
