@@ -1,0 +1,85 @@
+# 🐍 Python OOPs – Day 84
+
+## 📚 Topic: Class, Objects and `self` Parameter
+
+Today I continued learning **Object-Oriented Programming (OOP) in Python**.
+
+### 🔹 What is a Class?
+
+A **class** is a blueprint or template for creating objects.
+
+A class is created using the `class` keyword.
+
+```python
+class Person:
+    name = "Harry"
+    occupation = "Software Developer"
+🔹 Creating an Object
+
+An object is created from a class.
+
+A = Person()
+
+Here, A is an object (instance) of the Person class.
+
+We can access the class attributes using the object:
+
+print(A.name)
+print(A.occupation)
+
+Output:
+
+Harry
+Software Developer
+🔹 What is self?
+
+self is a reference to the current object (instance).
+
+It is used inside class methods to access the attributes and methods belonging to that particular object.
+
+Example:
+
+class Person:
+    name = "Harry"
+    occupation = "Software Developer"
+
+    def info(self):
+        print(f"{self.name} is a {self.occupation}")
+
+Creating objects:
+
+A = Person()
+B = Person()
+C = Person()
+
+Changing values for one object:
+
+B.name = "Namrata"
+B.occupation = "Software Developer"
+
+Calling the method:
+
+A.info()
+B.info()
+C.info()
+
+Output:
+
+Harry is a Software Developer
+Namrata is a Software Developer
+Harry is a Software Developer
+
+Here:
+
+A.info() → self refers to A
+B.info() → self refers to B
+C.info() → self refers to C
+💡 Key Takeaways
+A class is a blueprint/template for creating objects.
+An object is an instance of a class.
+Classes are created using the class keyword.
+self refers to the current object.
+self allows methods to access the attributes of a particular object.
+📌 Today's Progress
+
+Day 83 – Classes, Objects and self Parameter
