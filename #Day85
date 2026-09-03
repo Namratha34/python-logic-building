@@ -1,0 +1,93 @@
+# 🐍 Python OOPs – Day 85
+## 📚 Topic: Constructor in Python
+
+Today I learned about **constructors in Python** as part of Object-Oriented Programming (OOP).
+
+### 🔹 What is a Constructor?
+
+A constructor is a special method used to **initialize the objects of a class**.
+
+In Python, the constructor is written using:
+
+```python
+__init__()
+
+The constructor is automatically called when an object is created.
+
+🔹 Example
+class Person:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person1 = Person("Namrata", 20)
+
+print(person1.name)
+print(person1.age)
+
+Output:
+
+Namrata
+20
+
+When person1 is created, the __init__() constructor is automatically called, and the values are passed to it.
+
+🔹 self in Constructor
+
+self refers to the current object.
+
+self.name = name
+self.age = age
+
+Here, self is used to store the values in the attributes of the current object.
+
+Different objects can have different values:
+
+person1 = Person("Namrata", 20)
+person2 = Person("Rohan", 21)
+
+Each object gets its own values.
+
+🔹 Creating Objects in Python
+
+In Python, we don't need to use the new keyword to create an object.
+
+We create an object by writing:
+
+object_name = ClassName(arguments)
+
+Example:
+
+person1 = Person("Namrata", 20)
+🔹 Types of Constructors
+
+I learned about two commonly discussed types of constructors:
+
+1. Parameterized Constructor
+
+A parameterized constructor accepts arguments along with self.
+
+class Person:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+Here, name and age are parameters.
+
+2. Default Constructor
+
+A default constructor does not take additional arguments apart from self.
+
+class Person:
+
+    def __init__(self):
+        print("Constructor called")
+💡 Key Takeaways
+A constructor is used to initialize an object.
+Python uses __init__() as the initializer/constructor method.
+__init__() is automatically called when an object is created.
+self refers to the current object.
+Parameters allow us to provide different values to different objects.
+Python does not require the new keyword to create objects.
