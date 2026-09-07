@@ -1,0 +1,124 @@
+# 🐍 Python OOPs – Day 85
+
+## 📚 Topics: Instance Variables, Class Variables and Methods
+
+Today I continued learning **Object-Oriented Programming (OOP) in Python**.
+
+## 🔹 Instance Variables
+
+Instance variables are variables that belong to a **particular object (instance)** of a class.
+
+They are usually created using `self`.
+
+```python
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+Different objects can have different instance variable values:
+
+s1 = Student("Namrata", 20)
+s2 = Student("Rohan", 21)
+
+Here, self.name and self.age are instance variables.
+
+🔹 Class Variables
+
+Class variables belong to the class and can be shared by its objects.
+
+class Student:
+    college = "Kishkinda University"
+
+    def __init__(self, name):
+        self.name = name
+
+Here:
+
+college → Class variable
+self.name → Instance variable
+
+If an object does not have a particular attribute, Python can look for it in the class.
+
+🔹 Instance Methods
+
+An instance method is a method that works with a particular object (instance).
+
+It takes self as its first parameter.
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def introduce(self):
+        print(f"My name is {self.name}")
+
+Example:
+
+s1 = Student("Namrata")
+s2 = Student("Rohan")
+
+s1.introduce()
+s2.introduce()
+
+Output:
+
+My name is Namrata
+My name is Rohan
+
+Here:
+
+s1.introduce() → self refers to s1
+s2.introduce() → self refers to s2
+🔹 Class Methods
+
+A class method works with the class itself rather than a particular object.
+
+It is created using the @classmethod decorator.
+
+The first parameter is usually named cls.
+
+class Employee:
+    company = "Google"
+
+    @classmethod
+    def show_company(cls):
+        print(cls.company)
+
+Example:
+
+Employee.show_company()
+
+Output:
+
+Google
+
+Here:
+
+cls → refers to the Employee class
+🔹 Static Methods
+
+A static method does not need access to either the particular object or the class.
+
+It does not require self or cls.
+
+It is created using the @staticmethod decorator.
+
+class Calculator:
+
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+Example:
+
+print(Calculator.add(10, 20))
+
+Output:
+
+30
+🔄 Difference Between the Three Methods
+Method	First Parameter	Works With
+Instance Method	self	Particular object
+Class Method	cls	Class
+Static Method	None	Neither object nor class
