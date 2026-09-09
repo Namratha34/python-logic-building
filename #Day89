@@ -1,0 +1,108 @@
+# 🐍 Python OOPs – Day 89
+
+## 🔐 Topic: Encapsulation – Access Modifiers & Name Mangling
+
+Today I learned about **Encapsulation** and the different types of access levels used in Python:
+
+- Public members
+- Protected members
+- Private members
+- Name mangling
+
+---
+
+## 🔹 What is Encapsulation?
+
+**Encapsulation** is the concept of keeping data and the methods that work on that data together inside a class and controlling how the data is accessed.
+
+Python uses naming conventions and name mangling to indicate different levels of access.
+
+---
+
+## 🔹 1. Public Members
+
+Public members can be accessed directly from outside the class.
+
+They are written normally without an underscore.
+
+```python
+class Student:
+    def __init__(self):
+        self.name = "Namratha"
+
+s1 = Student()
+
+print(s1.name)
+
+Output:
+
+Namratha
+🔹 2. Protected Members
+
+Protected members are written using a single underscore (_).
+
+class Student:
+    def __init__(self):
+        self._name = "Namratha"
+
+They are intended to be used within the class and its subclasses.
+
+However, Python does not strictly prevent access from outside the class.
+
+s1 = Student()
+
+print(s1._name)
+
+Output:
+
+Namratha
+
+Therefore, _name is mainly a naming convention indicating that the attribute is intended for internal use.
+
+🔹 3. Private Members
+
+Private members are written using double underscores (__) at the beginning.
+
+class Employee:
+    def __init__(self):
+        self.__name = "Harry"
+
+The __name attribute is intended to be accessed only within the class.
+
+Direct access like this:
+
+print(e.__name)
+
+will not work normally.
+
+🔹 4. Name Mangling
+
+Python uses name mangling for attributes beginning with double underscores.
+
+For example:
+
+class Employee:
+    def __init__(self):
+        self.__name = "Harry"
+
+Python internally changes the name approximately to:
+
+_Employee__name
+
+Therefore, it can technically be accessed using:
+
+e = Employee()
+
+print(e._Employee__name)
+
+Output:
+
+Harry
+
+Name mangling is not a security mechanism. It mainly helps prevent accidental access and naming conflicts.
+
+🧠 Access Modifier Summary
+Type	Syntax	Meaning
+Public	name	Can be accessed directly
+Protected	_name	Internal-use convention
+Private	__name	Name mangling is applied
