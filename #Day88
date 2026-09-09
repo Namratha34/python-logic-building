@@ -1,1 +1,177 @@
-...
+# 🐍 Python OOPs – Day 88
+
+## 📌 Topic: Attributes, `__dict__`, Attribute Lookup & Built-in Attribute Functions
+
+Today I learned how attributes work in Python objects and classes, how Python looks up attributes, and how to work with attributes dynamically.
+
+---
+
+## 🔹 What is an Attribute?
+
+An **attribute** is a variable or data associated with an object or class.
+
+Example:
+
+```python
+class Student:
+    college = "KU"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+Here:
+
+name and age are instance attributes
+college is a class attribute
+🔹 Accessing Attributes
+
+Attributes can be accessed using the dot (.) operator.
+
+s1 = Student("Namratha", 20)
+
+print(s1.name)
+print(s1.age)
+print(s1.college)
+
+Output:
+
+Namratha
+20
+KU
+🔹 Modifying an Instance Attribute
+
+An instance attribute can be changed for a particular object.
+
+s1.name = "Anu"
+
+print(s1.name)
+
+Output:
+
+Anu
+
+This change affects only s1.
+
+🔹 Modifying a Class Attribute
+
+A class attribute can be modified using the class name.
+
+Student.college = "ABC College"
+
+print(Student.college)
+
+Output:
+
+ABC College
+
+The change is reflected when objects access the class attribute, unless they have their own attribute with the same name.
+
+🔹 __dict__ in Python
+
+__dict__ shows the attributes stored in an object's or class's namespace.
+
+Example:
+
+class Student:
+    college = "KU"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+s1 = Student("Namratha", 20)
+
+print(s1.__dict__)
+
+Output:
+
+{'name': 'Namratha', 'age': 20}
+
+name and age are stored in s1 because they are instance attributes.
+
+The class attribute college belongs to the Student class.
+
+print(Student.__dict__)
+🔹 Attribute Lookup
+
+When we access an attribute:
+
+s1.name
+
+Python looks for the attribute.
+
+Basic lookup:
+
+Python checks the object (s1).
+If it is not found, Python checks the class (Student).
+If it is still not found, Python checks through inheritance.
+If the attribute cannot be found, Python raises AttributeError.
+
+Example:
+
+class Student:
+    college = "KU"
+
+s1 = Student()
+
+print(s1.college)
+
+college is not stored in s1, so Python finds it in the Student class.
+
+🔹 Built-in Functions for Working with Attributes Dynamically
+
+Python provides built-in functions to get, set, check, and delete attributes dynamically.
+
+1. getattr()
+
+Used to get an attribute.
+
+print(getattr(s1, "college"))
+2. setattr()
+
+Used to set or modify an attribute.
+
+setattr(s1, "name", "Namratha")
+
+This is similar to:
+
+s1.name = "Namratha"
+3. hasattr()
+
+Used to check whether an attribute exists.
+
+print(hasattr(s1, "name"))
+
+Output:
+
+True
+4. delattr()
+
+Used to delete an attribute.
+
+delattr(s1, "name")
+
+This is similar to:
+
+del s1.name
+🔹 Example Using All Four Functions
+class Student:
+    pass
+
+s1 = Student()
+
+setattr(s1, "name", "Namratha")
+
+print(hasattr(s1, "name"))
+print(getattr(s1, "name"))
+
+delattr(s1, "name")
+
+print(hasattr(s1, "name"))
+
+Output:
+
+True
+Namratha
+False
