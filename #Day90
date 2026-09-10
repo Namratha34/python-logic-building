@@ -1,0 +1,196 @@
+# 🐍 Python OOPs – Day 90
+
+## 🔐 Topic: Encapsulation – Getters, Setters & Properties
+
+Today I continued learning **Encapsulation** in Python.
+
+Encapsulation is the process of **bundling data and the methods that work on that data together inside a class**, while controlling how the data is accessed and modified.
+
+Previously, I learned about public, protected, private members and name mangling. Today I learned how getters, setters and properties are used to work with private attributes.
+
+---
+
+## 🔹 1. Getter
+
+A **getter** is a method used to **read or get the value** of an attribute.
+
+It is commonly used when working with private attributes.
+
+```python
+class Student:
+    def __init__(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+
+s1 = Student("Namratha")
+
+print(s1.get_name())
+
+Output:
+
+Namratha
+
+Here, __name is a private attribute and get_name() is used to access its value.
+
+Key Point
+
+Getter → Used to get/read a value
+
+🔹 2. Setter
+
+A setter is a method used to modify or change the value of an attribute.
+
+class Student:
+    def __init__(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name):
+        self.__name = name
+
+
+s1 = Student("Namratha")
+
+print(s1.get_name())
+
+s1.set_name("Anu")
+
+print(s1.get_name())
+
+Output:
+
+Namratha
+Anu
+Key Point
+
+Setter → Used to set/change a value
+
+A setter can also be used to control or validate the value before modifying the attribute.
+
+🔹 3. @property
+
+The @property decorator allows a method to be accessed like an attribute.
+
+Without @property:
+
+print(s1.get_name())
+
+With @property:
+
+print(s1.name)
+
+Example:
+
+class Student:
+    def __init__(self, name):
+        self.__name = name
+
+    @property
+    def name(self):
+        return self.__name
+
+
+s1 = Student("Namratha")
+
+print(s1.name)
+
+Output:
+
+Namratha
+
+The name() method is treated like an attribute:
+
+s1.name
+
+instead of:
+
+s1.name()
+Key Point
+
+@property → Makes a method behave like an attribute when accessed
+
+🔹 4. Property Setter
+
+A property setter combines @property with a setter.
+
+It allows us to modify a value using normal attribute assignment.
+
+class Student:
+    def __init__(self, name):
+        self.__name = name
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, value):
+        self.__name = value
+
+
+s1 = Student("Namratha")
+
+print(s1.name)
+
+s1.name = "Anu"
+
+print(s1.name)
+
+Output:
+
+Namratha
+Anu
+
+Here:
+
+s1.name = "Anu"
+
+sets the value through the property setter.
+
+Key Point
+
+@name.setter → Used to set/change the value through a property
+
+🔹 5. Property Deleter
+
+A property deleter is used to define what happens when a property is deleted.
+
+class Student:
+    def __init__(self, name):
+        self.__name = name
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, value):
+        self.__name = value
+
+    @name.deleter
+    def name(self):
+        del self.__name
+
+Now:
+
+del s1.name
+
+will call the property deleter.
+
+Key Point
+
+@name.deleter → Used to delete the value through a property
+
+🧠 Quick Summary
+Concept	Purpose
+Getter	Read/get a value
+Setter	Modify/change a value
+@property	Access a method like an attribute
+Property setter	Set a value through a property
+Property deleter	Delete a value through a property
+Easy Memory Trick
