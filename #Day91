@@ -1,0 +1,72 @@
+Python OOPs – Inheritance
+📌 Phase 3: Inheritance
+1. What is Inheritance?
+
+Inheritance is an OOP concept where a child class can acquire the attributes and methods of a parent class.
+
+It helps in code reuse and avoids writing the same code again.
+
+2. Parent / Base Class
+
+The class whose properties and methods are inherited is called the parent class or base class.
+
+3. Child / Derived Class
+
+The class that inherits from another class is called the child class or derived class.
+
+🔹 Types of Inheritance
+Single Inheritance
+
+One child class inherits from one parent class.
+
+Multiple Inheritance
+
+One child class inherits from multiple parent classes.
+
+Multilevel Inheritance
+
+Inheritance occurs in multiple levels.
+
+Parent → Child → Grandchild
+
+Hierarchical Inheritance
+
+Multiple child classes inherit from the same parent class.
+
+Hybrid Inheritance
+
+A combination of two or more types of inheritance.
+
+🔄 Method Overriding
+
+When a child class provides its own implementation of a method that already exists in the parent class, it is called method overriding.
+
+🔼 super()
+
+super() is used to access methods or the constructor of the parent class from the child class.
+
+It is commonly used to reuse the parent's initialization or behavior.
+
+🏗️ Constructor Inheritance
+
+A child class can use the constructor of its parent class.
+
+If the child defines its own __init__(), we can use super().__init__() to call the parent constructor.
+
+🔍 Method Resolution Order (MRO)
+
+MRO determines the order in which Python searches for methods and attributes when inheritance is involved.
+
+We can check it using:
+
+ClassName.mro()
+
+or
+
+ClassName.__mro__
+🔢 C3 Linearization
+
+C3 Linearization is the algorithm Python uses to calculate the MRO, especially when multiple inheritance is involved.
+
+It ensures that Python follows a consistent and predictable order when searching for methods.
+
