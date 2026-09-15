@@ -1,1 +1,27 @@
-...
+# 🐍 Python OOPs – Single Inheritance
+
+## 📌 Topic
+**Single Inheritance**
+
+Today I learned and completed **Single Inheritance** in Python.
+
+### 🔹 What is Single Inheritance?
+
+Single inheritance is a type of inheritance where **one child class inherits from one parent class**.
+
+It allows the child class to reuse the attributes and methods of the parent class.
+
+### 🔹 Basic Example
+
+```python
+class Parent:
+    def show(self):
+        print("This is the parent class")
+
+
+class Child(Parent):
+    pass
+
+
+obj = Child()
+obj.show()
