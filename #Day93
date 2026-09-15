@@ -1,0 +1,52 @@
+# 🐍 Python OOPs – Day 92
+
+## 📌 Topic
+**Multiple Inheritance & Method Resolution Order (MRO)**
+
+Today I learned and completed **Multiple Inheritance** and the **MRO concept** in Python.
+
+### 🔹 Multiple Inheritance
+
+Multiple inheritance is a type of inheritance where **one child class inherits from more than one parent class**.
+
+```python
+class Father:
+    def father_method(self):
+        print("Father")
+
+
+class Mother:
+    def mother_method(self):
+        print("Mother")
+
+
+class Child(Father, Mother):
+    pass
+
+
+obj = Child()
+obj.father_method()
+obj.mother_method()
+
+Here, Child inherits from both Father and Mother.
+
+🔍 Method Resolution Order (MRO)
+
+MRO is the order in which Python searches for a method or attribute when a class has inheritance relationships.
+
+We can check the MRO using:
+
+Child.mro()
+
+or:
+
+Child.__mro__
+
+For:
+
+class Child(Father, Mother):
+    pass
+
+Python generally searches in the order:
+
+Child → Father → Mother → object
