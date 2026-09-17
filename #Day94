@@ -1,0 +1,64 @@
+# 🐍 Python OOPs – Inheritance
+
+## 📌 Topic
+**Types of Inheritance**
+
+Today I completed the different types of inheritance in Python.
+
+### 🔹 What is Inheritance?
+
+Inheritance is an OOP concept where a child class inherits attributes and methods from a parent class.
+
+It helps with **code reusability** and creating relationships between classes.
+
+---
+
+## 🔹 Types of Inheritance
+
+### 1. Single Inheritance
+One child class inherits from one parent class.
+
+**Parent → Child**
+
+### 2. Multiple Inheritance
+One child class inherits from multiple parent classes.
+
+**Parent 1 + Parent 2 → Child**
+
+### 3. Multilevel Inheritance
+A class inherits from another child class, creating multiple levels of inheritance.
+
+**Grandparent → Parent → Child**
+
+### 4. Hierarchical Inheritance
+Multiple child classes inherit from the same parent class.
+
+**Parent → Child 1**  
+**Parent → Child 2**
+
+### 5. Hybrid Inheritance
+A combination of two or more types of inheritance.
+
+---
+
+## 🔍 MRO (Method Resolution Order)
+
+MRO is the order in which Python searches for methods and attributes in an inheritance hierarchy.
+
+It can be checked using:
+
+```python
+ClassName.mro()
+
+or
+
+ClassName.__mro__
+
+MRO becomes especially important when working with multiple and hybrid inheritance.
+
+🎯 Key Takeaways
+Inheritance allows code reuse between classes.
+Python supports Single, Multiple, Multilevel, Hierarchical, and Hybrid inheritance.
+MRO determines the order in which Python searches for methods and attributes.
+Multiple inheritance can involve more than one parent class.
+Understanding the different inheritance structures helps in designing OOP programs.
