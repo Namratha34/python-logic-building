@@ -1,1 +1,30 @@
-..
+# 🐍 Day 96 – Python OOP: Polymorphism
+
+Today I continued learning **Object-Oriented Programming (OOP) in Python** and studied the concept of **Polymorphism** and its different forms in Python.
+
+## 📚 Topics Covered
+
+### 1. What is Polymorphism?
+
+* Learned that **polymorphism** means "many forms."
+* Understood how the same method, function, or operator can behave differently depending on the object or data it is working with.
+* Learned how polymorphism improves flexibility and code reusability.
+
+### 2. Method Overriding
+
+* Learned how a child class can provide its own implementation of a method inherited from the parent class.
+* Understood how the same method name can produce different behavior depending on the object.
+* Connected method overriding with runtime polymorphism.
+
+### 3. Duck Typing
+
+* Learned the concept of **duck typing** in Python.
+* Understood that Python generally focuses on whether an object supports the required behavior rather than checking its exact class or type.
+* Learned the idea: **"If it walks like a duck and quacks like a duck, it can be treated like a duck."**
+
+### 4. Operator Overloading
+
+* Learned how operators such as `+`, `-`, `*`, `==`, etc. can be given specific behavior for objects.
+* Learned about special/magic methods such as `__add__()` for customizing the behavior of the `+` operator.
+* Understood how the same operator can behave differently depending on the objects involved.
+
