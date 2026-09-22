@@ -1,1 +1,36 @@
-..
+# 🐍 Python OOPs – Day 97
+
+## 📌 Topic
+**Polymorphism – Method Overloading, Multiple Dispatch, `isinstance()` & `issubclass()`**
+
+Today I learned the concepts of **method overloading, multiple dispatch, `isinstance()`, and `issubclass()`** in Python.
+
+---
+
+## 🔹 Method Overloading
+
+Method overloading means having multiple methods with the **same name but different parameters**.
+
+Python does not support traditional method overloading like some other languages.
+
+Similar behavior can be achieved using:
+- Default arguments
+- `*args`
+- `**kwargs`
+
+---
+
+## 🔹 Multiple Dispatch
+
+Multiple dispatch means selecting a method based on the **types of multiple arguments** passed to it.
+
+Python does not have traditional built-in multiple dispatch, but it can be implemented using techniques or libraries such as `multipledispatch`.
+
+---
+
+## 🔹 `isinstance()`
+
+`isinstance()` is used to check whether an object is an instance of a particular class or type.
+
+```python
+isinstance(obj, ClassName)
