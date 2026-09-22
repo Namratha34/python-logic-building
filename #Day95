@@ -1,1 +1,27 @@
-..
+# 🐍 Day 95 – Python OOP: Inheritance Concepts
+
+Today I continued learning **Object-Oriented Programming (OOP) in Python** and focused on important concepts related to **inheritance and method resolution**.
+
+## 📚 Topics Covered
+
+### 1. Method Overriding
+
+* Learned how a child class can provide its own implementation of a method that is already defined in the parent class.
+* Understood how method overriding supports **runtime polymorphism**.
+
+### 2. `super()` Method
+
+* Learned how to use `super()` to access methods and attributes of the parent class.
+* Used `super()` to call the parent class constructor from the child class.
+* Understood how it helps avoid directly referring to the parent class by name.
+
+### 3. Constructor Inheritance
+
+* Learned how constructors behave when a class inherits from another class.
+* Understood when the parent constructor is automatically used and when the child class needs to explicitly call the parent constructor using `super()`.
+
+### 4. C3 Linearization
+
+* Learned the concept of **C3 Linearization** used by Python to determine the order in which classes are searched for methods and attributes.
+* Understood its connection with **Method Resolution Order (MRO)**.
+* Learned how Python maintains a consistent method resolution order in multiple inheritance.
