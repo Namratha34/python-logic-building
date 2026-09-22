@@ -1,0 +1,43 @@
+# 🐍 Python OOPs – Day 98
+
+## 📌 Topic
+**Abstraction, Abstract Classes, Abstract Methods & `abc` Module**
+
+Today I learned and completed the basics of **Abstraction** in Python.
+
+---
+
+## 🔹 What is Abstraction?
+
+Abstraction means **hiding unnecessary implementation details and showing only the essential features** to the user.
+
+It focuses on **what an object does** rather than how it does it.
+
+---
+
+## 🔹 Abstract Classes
+
+An **abstract class** is a class that is designed to be a base class for other classes.
+
+It can contain abstract methods that the child classes are expected to implement.
+
+An abstract class cannot normally be instantiated directly when it contains abstract methods.
+
+---
+
+## 🔹 Abstract Methods
+
+An **abstract method** is a method that is declared in an abstract class but does not provide the complete implementation.
+
+Child classes are required to provide the implementation of the abstract method.
+
+---
+
+## 🔹 `abc` Module
+
+Python provides the **`abc` (Abstract Base Classes)** module to create abstract classes and abstract methods.
+
+Important components:
+
+```python
+from abc import ABC, abstractmethod
