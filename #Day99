@@ -1,0 +1,87 @@
+# 🐍 Python OOPs – Day 99
+
+## 📌 Topic
+**Abstract Methods, Concrete Methods & Interfaces**
+
+Today I learned and completed:
+- `@abstractmethod`
+- Concrete methods inside abstract classes
+- Interfaces / interface-like design in Python
+
+---
+
+## 🔹 `@abstractmethod`
+
+`@abstractmethod` is used to define a method that **must be implemented by the child class**.
+
+It is provided by the `abc` module.
+
+```python
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+A child class must implement sound():
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Bark")
+🔹 Concrete Methods Inside Abstract Classes
+
+An abstract class can also contain concrete methods.
+
+A concrete method already has an implementation and can be inherited by child classes.
+
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+    def eat(self):
+        print("Animal is eating")
+
+Here:
+
+sound() → Abstract method
+eat() → Concrete method
+
+The child class must implement sound(), but it can directly use eat().
+
+🔹 Interfaces / Interface-like Design in Python
+
+An interface defines a common structure or set of methods that implementing classes should provide.
+
+Python does not have a separate interface keyword like some languages.
+
+Python can create interface-like designs using abstract classes and @abstractmethod.
+
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+
+    @abstractmethod
+    def start(self):
+        pass
+
+Different classes can implement the required method:
+
+class Car(Vehicle):
+
+    def start(self):
+        print("Car starts")
+
+
+class Bike(Vehicle):
+
+    def start(self):
+        print("Bike starts")
+
+Both classes follow the same required structure while providing their own implementation.
