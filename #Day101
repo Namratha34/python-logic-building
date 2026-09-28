@@ -1,1 +1,111 @@
-....
+# 🐍 Day 102 — Python Magic Methods / Special Methods
+
+## 📌 What I Learned
+
+Today I continued learning **Python Magic Methods (Special Methods)** and focused on **Arithmetic/Operator Overloading, Container Behavior, and Object Lifecycle**.
+
+---
+
+## 🔹 Arithmetic / Operator Overloading
+
+| Method           | Purpose                                                |
+| ---------------- | ------------------------------------------------------ |
+| `__add__()`      | Defines the behavior of the `+` operator.              |
+| `__sub__()`      | Defines the behavior of the `-` operator.              |
+| `__mul__()`      | Defines the behavior of the `*` operator.              |
+| `__truediv__()`  | Defines the behavior of the `/` operator.              |
+| `__floordiv__()` | Defines the behavior of the `//` operator.             |
+| `__mod__()`      | Defines the behavior of the `%` operator.              |
+| `__pow__()`      | Defines the behavior of the `**` operator.             |
+| `__neg__()`      | Defines the behavior of the unary `-` operator.        |
+| `__abs__()`      | Defines the behavior of the built-in `abs()` function. |
+
+### 🧠 Quick Revision
+
+```text
+__add__()      → +
+__sub__()      → -
+__mul__()      → *
+__truediv__()  → /
+__floordiv__() → //
+__mod__()      → %
+__pow__()      → **
+__neg__()      → -object
+__abs__()      → abs(object)
+```
+
+---
+
+## 🔹 Container Behavior
+
+| Method           | Purpose                                                      |
+| ---------------- | ------------------------------------------------------------ |
+| `__len__()`      | Defines the behavior of `len(object)`.                       |
+| `__getitem__()`  | Defines how items are accessed using `object[key]`.          |
+| `__setitem__()`  | Defines how values are assigned using `object[key] = value`. |
+| `__delitem__()`  | Defines how items are deleted using `del object[key]`.       |
+| `__contains__()` | Defines the behavior of the `in` operator.                   |
+| `__iter__()`     | Returns an iterator for the object.                          |
+| `__next__()`     | Returns the next item from an iterator.                      |
+
+### 🧠 Quick Revision
+
+```text
+__len__()      → len()
+__getitem__()  → object[key]
+__setitem__()  → object[key] = value
+__delitem__()  → del object[key]
+__contains__() → in
+__iter__()     → iter()
+__next__()     → next()
+```
+
+---
+
+## 🔹 Object Lifecycle
+
+| Method       | Purpose                                                               |
+| ------------ | --------------------------------------------------------------------- |
+| `__new__()`  | Creates and returns a new object instance.                            |
+| `__init__()` | Initializes the object after it has been created.                     |
+| `__del__()`  | Called during object finalization when the object is being destroyed. |
+
+### 🧠 Quick Revision
+
+```text
+__new__()  → Creates the object
+__init__() → Initializes the object
+__del__()  → Finalization / cleanup
+```
+
+> **Important:** `__new__()` runs before `__init__()`.
+
+---
+
+## 🎯 Key Concept
+
+Magic methods allow **custom classes to work naturally with Python's built-in operators, functions, containers, and object lifecycle mechanisms**.
+
+For example:
+
+```python
+a + b
+```
+
+can internally use:
+
+```python
+a.__add__(b)
+```
+
+Similarly:
+
+```python
+len(a)
+```
+
+can use:
+
+```python
+a.__len__()
+```
