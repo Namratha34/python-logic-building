@@ -1,0 +1,61 @@
+# 🐍 Day 103 — Python OOP: Composition & Relationships
+
+## 📌 What I Learned
+
+Today I completed **Phase 7 — Composition & Relationships** in Python OOP.
+
+These concepts are important for designing **real-world applications** because objects often need to interact with or depend on other objects.
+
+---
+
+## 🔹 1. Composition
+
+**Composition** is a strong **"has-a" relationship** where one object owns another object, and the contained object is closely tied to the lifetime of the owner.
+
+**Example:** A `Car` has an `Engine`.
+
+```text
+Car → has an Engine
+```
+
+---
+
+## 🔹 2. Aggregation
+
+**Aggregation** is a weaker **"has-a" relationship** where one object contains or uses another object, but the contained object can exist independently.
+
+**Example:** A `Department` has `Teachers`, but teachers can exist independently of the department.
+
+```text
+Department → has Teachers
+```
+
+---
+
+## 🔹 3. Association
+
+**Association** represents a general relationship where two independent objects **interact with or use each other**.
+
+**Example:** A `Teacher` teaches a `Student`.
+
+```text
+Teacher ↔ Student
+```
+
+---
+
+## 🧠 Quick Revision
+
+| Relationship    | Meaning                               | Example                |
+| --------------- | ------------------------------------- | ---------------------- |
+| **Composition** | Strong ownership / dependent lifetime | `Car → Engine`         |
+| **Aggregation** | Weak ownership / independent lifetime | `Department → Teacher` |
+| **Association** | General interaction between objects   | `Teacher ↔ Student`    |
+
+### Easy Memory Trick
+
+```text
+Composition → Strong "has-a"
+Aggregation  → Weak "has-a"
+Association  → "Uses / interacts with"
+```
