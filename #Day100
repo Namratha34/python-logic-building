@@ -1,1 +1,45 @@
-...
+# 🐍 Day 100 — Python Magic Methods / Special Methods
+
+## 📌 What are Magic Methods?
+
+Magic methods (also called **special methods**) are predefined methods in Python that start and end with double underscores (`__`). They allow us to define how our custom objects behave with built-in Python operations.
+
+---
+
+## 🔹 Object Representation
+
+| Magic Method   | One-Line Explanation                                                                                      |
+| -------------- | --------------------------------------------------------------------------------------------------------- |
+| `__str__()`    | Defines the **user-friendly string representation** of an object, usually used by `print()`.              |
+| `__repr__()`   | Defines the **developer-oriented representation** of an object, mainly used for debugging and inspection. |
+| `__format__()` | Defines how an object behaves when used with **`format()` or formatted strings** such as `f"{obj}"`.      |
+
+---
+
+## 🔹 Comparison
+
+| Magic Method | One-Line Explanation                                          |
+| ------------ | ------------------------------------------------------------- |
+| `__eq__()`   | Defines how two objects are compared using **`==`**.          |
+| `__ne__()`   | Defines how two objects are compared using **`!=`**.          |
+| `__lt__()`   | Defines comparison using **`<` (less than)**.                 |
+| `__le__()`   | Defines comparison using **`<=` (less than or equal to)**.    |
+| `__gt__()`   | Defines comparison using **`>` (greater than)**.              |
+| `__ge__()`   | Defines comparison using **`>=` (greater than or equal to)**. |
+
+---
+
+## 🧠 Quick Revision
+
+```text
+__str__()    → print-friendly representation
+__repr__()   → developer/debug representation
+__format__() → formatted representation
+
+__eq__() → ==
+__ne__() → !=
+__lt__() → <
+__le__() → <=
+__gt__() → >
+__ge__() → >=
+```
