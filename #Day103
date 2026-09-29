@@ -1,0 +1,100 @@
+# Day 103— Python OOP: Composition & Relationships
+
+## 📚 Topics Covered
+
+* [x] Composition
+* [x] Aggregation
+* [x] Association
+* [x] Has-a Relationship
+* [x] Is-a Relationship
+* [x] Composition vs Inheritance
+* [x] When to Prefer Composition over Inheritance
+
+## 🔹 1. Composition
+
+Composition is a strong **has-a relationship** in which an object owns and manages another object as a component.
+
+**Example:**
+
+```python
+class Room:
+    pass
+
+class House:
+    def __init__(self):
+        self.room = Room()
+```
+
+**Relationship:** House HAS-A Room → Composition
+
+## 🔹 2. Aggregation
+
+Aggregation is a **has-a relationship** in which an object uses another object that can exist independently.
+
+**Example:**
+
+```python
+class Teacher:
+    def __init__(self, name):
+        self.name = name
+
+class College:
+    def __init__(self, teacher):
+        self.teacher = teacher
+```
+
+**Relationship:** College HAS-A Teacher → Aggregation
+
+## 🔹 3. Association
+
+Association represents a relationship in which independent objects interact with each other.
+
+**Example:** Doctor treats Patient.
+
+**Relationship:** Doctor ↔ Patient → Association
+
+## 🔹 4. Has-a Relationship
+
+A has-a relationship occurs when an object contains or uses another object. Composition and aggregation are common forms of this relationship.
+
+**Examples:**
+
+* House HAS-A Room → Composition
+* College HAS-A Teacher → Aggregation
+* Phone HAS-A Battery → Composition (in a simplified model)
+
+## 🔹 5. Is-a Relationship
+
+An is-a relationship represents inheritance, where one class is a specialized type of another class.
+
+**Example:**
+
+```python
+class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+```
+
+**Relationship:** Dog IS-A Animal → Inheritance
+
+## 🔹 6. Composition vs Inheritance
+
+| Composition                                       | Inheritance                                    |
+| ------------------------------------------------- | ---------------------------------------------- |
+| Represents a has-a relationship                   | Represents an is-a relationship                |
+| Combines objects                                  | Extends a class                                |
+| Reuses functionality through object collaboration | Reuses functionality through inherited methods |
+| Example: Computer HAS-A Keyboard                  | Example: Laptop IS-A Computer                  |
+
+## 🔹 7. When to Prefer Composition over Inheritance
+
+Prefer composition when a class needs the functionality of another class but is not a specialized type of that class.
+
+**Example:**
+
+* Student uses a Printer → Composition-style collaboration
+* Dog inherits from Animal → Inheritance
+
+Composition helps create flexible and reusable code without unnecessary inheritance.
