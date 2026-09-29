@@ -6,8 +6,6 @@ Today I completed **Phase 7 — Composition & Relationships** in Python OOP.
 
 These concepts are important for designing **real-world applications** because objects often need to interact with or depend on other objects.
 
----
-
 ## 🔹 1. Composition
 
 **Composition** is a strong **"has-a" relationship** where one object owns another object, and the contained object is closely tied to the lifetime of the owner.
