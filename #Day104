@@ -1,0 +1,48 @@
+# Day 104 — Python OOP: Advanced Class Concepts
+
+### 1. Nested Classes
+
+A class defined inside another class to organize closely related class definitions.
+
+### 2. Dynamic Class Creation
+
+Creating classes at runtime using Python's `type()` function or other class-creation mechanisms.
+
+### 3. `type()` for Creating Classes
+
+The three-argument form of `type()` accepts a class name, parent classes, and a dictionary of attributes and methods.
+
+### 4. Class Attributes vs Instance Attributes
+
+* **Class attributes:** Associated with the class and accessible through instances unless shadowed.
+* **Instance attributes:** Store data specific to individual objects.
+
+### 5. `__slots__`
+
+Declares permitted instance attributes and can reduce memory usage by avoiding an automatically created instance `__dict__`.
+
+### 6. Descriptors
+
+Objects that customize attribute access, assignment, and deletion through special methods.
+
+### 7. Descriptor Methods
+
+* `__get__()` — controls attribute access.
+* `__set__()` — controls attribute assignment.
+* `__delete__()` — controls attribute deletion.
+
+### 8. Metaclasses
+
+Classes that create or control other classes.
+
+### 9. `type` as a Metaclass
+
+Python's built-in `type` is the default metaclass for ordinary classes.
+
+### 10. Custom Metaclasses
+
+Custom metaclasses can modify or customize the class-creation process by inheriting from `type`.
+
+## 🎯 Outcome
+
+Completed Phase 8 — Advanced Class Concepts through conceptual explanations and Python code examples, covering nested classes, dynamic class creation, attribute management, descriptors, and metaclasses.
