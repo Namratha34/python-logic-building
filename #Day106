@@ -1,0 +1,77 @@
+# Day 106 – Design Patterns and OOP Best Practices
+
+## 📌 Overview
+
+Today, I learned the basic concepts of common software design patterns and important OOP best practices in Python. These concepts help in organizing code, improving maintainability, and designing flexible software applications.
+
+## 📚 Topics Covered
+
+### 1. Design Patterns – Basic Understanding
+
+Design patterns are reusable approaches to commonly occurring software design problems. They provide general solutions that can be adapted to different situations.
+
+#### Singleton Pattern
+
+* Restricts a class to a single shared instance.
+* Useful when multiple parts of an application need access to the same shared instance.
+* Should be used carefully to avoid unnecessary global state.
+
+#### Factory Pattern
+
+* Encapsulates object creation logic.
+* Helps create different types of objects without exposing all the creation details to the calling code.
+
+#### Strategy Pattern
+
+* Defines interchangeable algorithms or behaviors.
+* Allows the behavior of a program to change without rewriting the code that uses it.
+
+#### Observer Pattern
+
+* Establishes a one-to-many relationship between objects.
+* When one object's state changes or an event occurs, registered observers can be notified.
+
+#### Adapter Pattern
+
+* Allows incompatible interfaces to work together.
+* Acts as a bridge between existing code and a component with a different interface.
+
+### 2. Refactoring OOP Code
+
+Refactoring means improving the internal structure of existing code without changing its intended external behavior.
+
+Benefits:
+
+* Improves readability.
+* Reduces code duplication.
+* Simplifies complex methods and classes.
+* Makes code easier to maintain and test.
+
+### 3. Writing Maintainable Classes
+
+Maintainable classes are easy to understand, modify, test, and extend.
+
+Important practices:
+
+* Give each class a clear responsibility.
+* Use meaningful class, method, and variable names.
+* Avoid unnecessary complexity and duplicated logic.
+* Keep dependencies manageable.
+* Follow appropriate SOLID principles.
+
+### 4. Choosing Inheritance vs Composition
+
+#### Inheritance
+
+* Represents an **is-a** relationship.
+* A subclass inherits or extends behavior from a parent class.
+* Example: `Dog` is an `Animal`.
+
+#### Composition
+
+* Represents a **has-a** relationship.
+* A class contains and uses objects of other classes to perform its work.
+* Example: `Car` has an `Engine`.
+
+**Key takeaway:** Use inheritance when a genuine subtype relationship exists. Consider composition when a class needs to use another object's functionality without becoming its subtype.
+
