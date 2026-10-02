@@ -1,1 +1,42 @@
-.....
+# Day 105 – SOLID Principles and Software Design Principles
+
+## 📌 Overview
+
+Today, I learned the SOLID principles and other important software design principles in Python. These concepts help in writing clean, maintainable, reusable, and flexible code.
+
+## 📚 Topics Covered
+
+### 1. SOLID Principles
+
+SOLID is a set of five design principles that help make object-oriented software easier to maintain and extend.
+
+* **Single Responsibility Principle (SRP):** A class should have one responsibility and one reason to change.
+* **Open/Closed Principle (OCP):** Software entities should be open for extension but closed for modification.
+* **Liskov Substitution Principle (LSP):** Objects of a subclass should be usable wherever objects of the parent class are expected without breaking the program's intended behavior.
+* **Interface Segregation Principle (ISP):** Classes should not be forced to depend on methods they do not need.
+* **Dependency Inversion Principle (DIP):** High-level modules should depend on abstractions rather than concrete implementations.
+
+### 2. DRY – Don't Repeat Yourself
+
+Avoid unnecessary duplication of logic. Reusable functions and classes help reduce repeated code and make updates easier.
+
+### 3. KISS – Keep It Simple, Stupid
+
+Prefer simple and understandable solutions over unnecessary complexity.
+
+### 4. Separation of Concerns
+
+Divide a program into separate parts, with each part handling a distinct responsibility, such as user interface, business logic, and database operations.
+
+### 5. Coupling
+
+Coupling describes the degree of dependency between software components. Low coupling makes components easier to modify and test independently.
+
+### 6. Cohesion
+
+Cohesion describes how closely related the responsibilities within a module or class are. High cohesion helps keep code organized and focused.
+
+### 7. Dependency Injection
+
+Dependency injection is a technique in which an object receives the dependencies it needs from outside instead of creating them internally. It improves flexibility and testability.
+
