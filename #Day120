@@ -1,1 +1,244 @@
-....
+# Day 120 – Advanced File and Data Handling in Python
+
+## 1. File Handling Revision
+
+File handling allows Python programs to create, read, write, and modify files.
+
+Common file modes:
+
+| Mode | Purpose |
+|---|---|
+| r | Read |
+| w | Write and overwrite |
+| a | Append |
+| x | Create a new file |
+| rb | Read binary data |
+| wb | Write binary data |
+
+## 2. Context Managers
+
+A context manager manages resources and ensures that cleanup operations happen properly.
+
+Python commonly uses context managers with the `with` statement.
+
+## 3. with Statement
+
+The `with` statement automatically handles resource cleanup, such as closing a file.
+
+```python
+with open("sample.txt", "w") as file:
+    file.write("Learning Python")
+```
+
+The file is automatically closed after the block finishes.
+
+## 4. Creating Custom Context Managers
+
+A class can implement a context manager using:
+
+- `__enter__()`
+- `__exit__()`
+
+```python
+class MyContext:
+    def __enter__(self):
+        print("Entering context")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("Exiting context")
+
+
+with MyContext():
+    print("Inside context")
+```
+
+Output:
+
+```text
+Entering context
+Inside context
+Exiting context
+```
+
+## 5. JSON
+
+JSON stands for JavaScript Object Notation.
+
+It is commonly used for storing and exchanging structured data.
+
+Python provides the `json` module.
+
+```python
+import json
+
+student = {
+    "name": "Anu",
+    "age": 20,
+    "course": "BCA"
+}
+
+with open("student.json", "w") as file:
+    json.dump(student, file, indent=4)
+```
+
+Reading JSON:
+
+```python
+with open("student.json", "r") as file:
+    data = json.load(file)
+
+print(data)
+```
+
+Important functions:
+- `json.dump()` – Writes Python data to a file.
+- `json.load()` – Reads JSON data from a file.
+- `json.dumps()` – Converts Python data into a JSON string.
+- `json.loads()` – Converts a JSON string into Python data.
+
+## 6. CSV
+
+CSV stands for Comma-Separated Values.
+
+It is commonly used for tabular data.
+
+```python
+import csv
+
+with open("students.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+
+    writer.writerow(["Name", "Age"])
+    writer.writerow(["Anu", 20])
+    writer.writerow(["Rahul", 21])
+```
+
+Reading CSV:
+
+```python
+with open("students.csv", "r") as file:
+    reader = csv.reader(file)
+
+    for row in reader:
+        print(row)
+```
+
+## 7. Pickle
+
+Pickle is used to serialize and deserialize Python objects.
+
+Serialization converts an object into a byte stream.
+
+Deserialization reconstructs the object.
+
+```python
+import pickle
+
+student = {"name": "Anu", "marks": 90}
+
+with open("student.pkl", "wb") as file:
+    pickle.dump(student, file)
+
+with open("student.pkl", "rb") as file:
+    data = pickle.load(file)
+
+print(data)
+```
+
+**Security warning:** Never unpickle data from untrusted sources because loading malicious pickle data can execute arbitrary code.
+
+## 8. YAML
+
+YAML is a human-readable data serialization format commonly used for configuration files.
+
+Python can work with YAML using the external PyYAML package.
+
+Install:
+
+```bash
+pip install pyyaml
+```
+
+Example:
+
+```python
+import yaml
+
+data = {
+    "name": "Anu",
+    "course": "BCA"
+}
+
+with open("student.yaml", "w") as file:
+    yaml.safe_dump(data, file)
+```
+
+Reading:
+
+```python
+with open("student.yaml", "r") as file:
+    result = yaml.safe_load(file)
+
+print(result)
+```
+
+Use `safe_load()` for untrusted YAML input.
+
+## 9. pathlib
+
+`pathlib` provides an object-oriented way to work with file system paths.
+
+```python
+from pathlib import Path
+
+path = Path("student.txt")
+
+print(path.name)
+print(path.suffix)
+print(path.exists())
+```
+
+Useful operations:
+
+```python
+from pathlib import Path
+
+folder = Path("data")
+
+folder.mkdir(exist_ok=True)
+
+file = folder / "sample.txt"
+
+file.write_text("Hello Python")
+
+print(file.read_text())
+```
+
+Important methods:
+- `Path()`
+- `.exists()`
+- `.mkdir()`
+- `.rmdir()`
+- `.name`
+- `.suffix`
+- `.parent`
+- `.read_text()`
+- `.write_text()`
+- `.glob()`
+
+## 10. Choosing the Right Format
+
+| Format | Common Use |
+|---|---|
+| JSON | APIs and structured data |
+| CSV | Spreadsheet and tabular data |
+| Pickle | Python-specific object serialization |
+| YAML | Configuration files |
+| pathlib | File and directory path management |
+
+## Key Takeaway
+
+Advanced file handling is important in real-world applications for storing data, managing resources, processing configuration files, and working with external data.
+
+**Day 120 Completed – Advanced File and Data Handling.**
