@@ -1,1 +1,229 @@
-...
+# Day 123 – Error Handling, Debugging and Logging
+
+## 1. Advanced Exception Handling
+
+Exception handling prevents a program from terminating unexpectedly when runtime errors occur.
+
+Python uses:
+- `try`
+- `except`
+- `else`
+- `finally`
+- `raise`
+
+## 2. try, except, else and finally
+
+```python
+try:
+    number = int(input("Enter a number: "))
+    result = 100 / number
+
+except ValueError:
+    print("Please enter a valid integer")
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+else:
+    print("Result:", result)
+
+finally:
+    print("Execution completed")
+```
+
+### Purpose
+
+- `try`: Contains code that may raise an exception.
+- `except`: Handles matching exceptions.
+- `else`: Runs if no exception occurs in the try block.
+- `finally`: Runs whether an exception occurs or not.
+
+## 3. Custom Exceptions
+
+Custom exceptions allow developers to create application-specific error types.
+
+```python
+class InvalidAgeError(Exception):
+    pass
+
+
+def check_age(age):
+    if age < 18:
+        raise InvalidAgeError("Age must be 18 or above")
+
+    print("Eligible")
+
+
+try:
+    check_age(16)
+
+except InvalidAgeError as error:
+    print(error)
+```
+
+## 4. Exception Chaining
+
+Exception chaining preserves the original exception when another exception is raised while handling it.
+
+Use `raise ... from ...`.
+
+```python
+try:
+    number = int("abc")
+
+except ValueError as error:
+    raise RuntimeError("Unable to process input") from error
+```
+
+## 5. raise
+
+The `raise` keyword is used to explicitly raise an exception.
+
+```python
+age = 15
+
+if age < 18:
+    raise ValueError("Age must be 18 or above")
+```
+
+## 6. Assertions
+
+Assertions check conditions during development.
+
+```python
+age = 20
+
+assert age >= 18, "Age must be 18 or above"
+
+print("Valid age")
+```
+
+Assertions are useful for internal assumptions and debugging, not for validating untrusted user input. They can be disabled with optimized Python execution.
+
+---
+
+## Part 2 – Debugging
+
+## 7. What is Debugging?
+
+Debugging is the process of identifying, analyzing, and fixing errors in a program.
+
+Common error categories:
+
+1. Syntax errors.
+2. Runtime errors.
+3. Logical errors.
+
+## 8. Debugging Techniques
+
+- Read the complete traceback.
+- Use print statements to inspect values.
+- Use breakpoints.
+- Step through code line by line.
+- Inspect variables.
+- Reproduce the error with a small example.
+- Test the correction.
+
+## 9. Python pdb
+
+`pdb` is Python's built-in debugger.
+
+```python
+import pdb
+
+def add(a, b):
+    pdb.set_trace()
+    result = a + b
+    return result
+
+print(add(10, 20))
+```
+
+Useful debugger commands:
+
+- `n` – Next line.
+- `s` – Step into a function.
+- `c` – Continue execution.
+- `p variable` – Print a variable.
+- `q` – Quit debugger.
+
+---
+
+## Part 3 – Logging
+
+## 10. What is Logging?
+
+Logging records information about the execution of an application.
+
+It helps developers monitor application behavior, investigate problems, and understand errors.
+
+Python provides the built-in `logging` module.
+
+## 11. Logging Levels
+
+| Level | Purpose |
+|---|---|
+| DEBUG | Detailed diagnostic information |
+| INFO | Confirmation that something works |
+| WARNING | Something unexpected happened |
+| ERROR | A serious problem occurred |
+| CRITICAL | A very serious failure |
+
+## 12. Basic Logging
+
+```python
+import logging
+
+logging.basicConfig(level=logging.INFO)
+
+logging.debug("Debug message")
+logging.info("Application started")
+logging.warning("Warning message")
+logging.error("An error occurred")
+logging.critical("Critical failure")
+```
+
+## 13. Log Formatting
+
+```python
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logging.info("Application started")
+```
+
+## 14. Logging to a File
+
+```python
+import logging
+
+logging.basicConfig(
+    filename="application.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logging.info("Application started")
+logging.error("Something went wrong")
+```
+
+## 15. Debugging Real Applications
+
+Good practices:
+
+- Use logging instead of excessive print statements.
+- Log useful events and errors.
+- Include meaningful context.
+- Avoid logging passwords, tokens, and sensitive information.
+- Use appropriate logging levels.
+- Keep exception tracebacks when useful.
+
+## Key Takeaway
+
+Exception handling, debugging, and logging help developers build reliable applications and identify problems efficiently.
+
+**Day 123 Completed – Error Handling, Debugging and Logging.**
