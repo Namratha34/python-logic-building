@@ -1,1 +1,39 @@
-.....
+# Day 107 – SOLID Principles in Python
+
+## What are SOLID Principles?
+
+SOLID is a set of five object-oriented design principles that help developers write clean, maintainable, flexible, and reusable code.
+
+SOLID stands for:
+
+1. **S – Single Responsibility Principle (SRP)**
+2. **O – Open/Closed Principle (OCP)**
+3. **L – Liskov Substitution Principle (LSP)**
+4. **I – Interface Segregation Principle (ISP)**
+5. **D – Dependency Inversion Principle (DIP)**
+
+## Why are SOLID Principles Important?
+
+- Make code easier to maintain.
+- Reduce unnecessary dependencies.
+- Improve code reusability.
+- Make applications easier to test.
+- Help developers manage large projects.
+
+## Example
+
+```python
+class Report:
+    def generate(self):
+        return "Report generated"
+
+
+class ReportPrinter:
+    def print_report(self, report):
+        print(report.generate())
+
+
+report = Report()
+printer = ReportPrinter()
+
+printer.print_report(report)
