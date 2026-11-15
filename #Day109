@@ -1,1 +1,175 @@
-...
+---
+
+## Day 109 — Liskov Substitution Principle (LSP)
+
+**File: `Day109.md`**
+
+```markdown
+# Day 110 – Liskov Substitution Principle (LSP)
+
+## What is LSP?
+
+The Liskov Substitution Principle states that objects of a child class should be usable wherever objects of the parent class are expected without breaking the program's expected behavior.
+
+In simple words, a child class should correctly follow the behavior promised by its parent class.
+
+## Example
+
+```python
+class Bird:
+    def eat(self):
+        print("Bird is eating")
+
+
+class FlyingBird(Bird):
+    def fly(self):
+        print("Bird is flying")
+
+
+class Sparrow(FlyingBird):
+    pass
+
+
+sparrow = Sparrow()
+
+sparrow.eat()
+sparrow.fly()
+
+
+Output
+Bird is eating
+Bird is flying
+
+
+The Sparrow class can be used wherever a FlyingBird is expected.
+Important Point
+Not every bird can fly. Therefore, making every bird inherit a fly() method from a general Bird class can create incorrect behavior.
+
+Good inheritance design should represent valid relationships.
+Benefits
+- Prevents unexpected behavior.
+- Improves inheritance design.
+- Makes code more reliable.
+- Supports reusable components.
+Key Takeaway
+A child class should be a valid substitute for its parent class.
+
+---
+
+## Day 111 — Interface Segregation Principle (ISP)
+
+**File: `Day111.md`**
+
+```markdown
+# Day 111 – Interface Segregation Principle (ISP)
+
+## What is ISP?
+
+The Interface Segregation Principle states that a class should not be forced to implement methods it does not need.
+
+Instead of creating one large interface containing many unrelated methods, create smaller and more specific interfaces.
+
+Python does not have a dedicated interface keyword. We can use abstract base classes or protocols to define interface-like behavior.
+
+## Example
+
+```python
+from abc import ABC, abstractmethod
+
+
+class Printable(ABC):
+    @abstractmethod
+    def print_document(self):
+        pass
+
+
+class Scannable(ABC):
+    @abstractmethod
+    def scan_document(self):
+        pass
+
+
+class Printer(Printable):
+    def print_document(self):
+        print("Printing document")
+
+
+class MultiFunctionPrinter(Printable, Scannable):
+    def print_document(self):
+        print("Printing document")
+
+    def scan_document(self):
+        print("Scanning document")
+
+
+printer = Printer()
+printer.print_document()
+
+
+Output
+Printing document
+
+
+The basic Printer does not need to implement scanning functionality.
+Benefits
+- Avoids unnecessary methods.
+- Reduces class complexity.
+- Improves flexibility.
+- Makes implementations more focused.
+Key Takeaway
+Create small, specific interfaces instead of forcing every class to implement unnecessary methods.
+
+---
+
+## Day 112 — Dependency Inversion Principle (DIP)
+
+**File: `Day112.md`**
+
+```markdown
+# Day 112 – Dependency Inversion Principle (DIP)
+
+## What is DIP?
+
+The Dependency Inversion Principle states:
+
+1. High-level modules should not depend directly on low-level modules.
+2. Both should depend on abstractions.
+
+In simple words, important business logic should not be tightly connected to one specific implementation.
+
+## Example
+
+```python
+class EmailService:
+    def send(self, message):
+        print("Email sent:", message)
+
+
+class Notification:
+    def __init__(self, service):
+        self.service = service
+
+    def notify(self, message):
+        self.service.send(message)
+
+
+email = EmailService()
+notification = Notification(email)
+
+notification.notify("Welcome!")
+
+
+Output
+Email sent: Welcome!
+
+
+The Notification class receives its service as a dependency instead of creating a specific EmailService object internally.
+
+Another service can be supplied as long as it provides the expected send() behavior.
+Benefits
+- Reduces tight coupling.
+- Makes testing easier.
+- Supports flexible implementations.
+- Improves maintainability.
+Key Takeaway
+Depend on abstractions or expected behavior rather than tightly depending on specific implementations.
