@@ -1,1 +1,192 @@
-....
+# Day 118 – Advanced Iterators and Generators
+
+## 1. Iterable vs Iterator
+
+### Iterable
+
+An iterable is an object that can return an iterator.
+
+Examples:
+- Lists
+- Tuples
+- Strings
+- Dictionaries
+- Sets
+
+### Iterator
+
+An iterator is an object that produces values one at a time when requested.
+
+It maintains its iteration state.
+
+## 2. iter()
+
+The `iter()` function creates an iterator from an iterable.
+
+```python
+numbers = [10, 20, 30]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+```
+
+Output:
+```text
+10
+```
+
+## 3. next()
+
+The `next()` function retrieves the next item from an iterator.
+
+```python
+numbers = [10, 20, 30]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+```
+
+Output:
+```text
+10
+20
+30
+```
+
+When no items remain, `next()` raises `StopIteration` unless a default value is provided.
+
+## 4. Creating Custom Iterators
+
+A custom iterator is a class that implements:
+
+- `__iter__()`
+- `__next__()`
+
+```python
+class Count:
+    def __init__(self, limit):
+        self.limit = limit
+        self.current = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current <= self.limit:
+            value = self.current
+            self.current += 1
+            return value
+        raise StopIteration
+
+
+for number in Count(3):
+    print(number)
+```
+
+Output:
+```text
+1
+2
+3
+```
+
+## 5. Generator Functions
+
+A generator function uses `yield` to produce values one at a time.
+
+```python
+def numbers():
+    yield 10
+    yield 20
+    yield 30
+
+
+for number in numbers():
+    print(number)
+```
+
+## 6. yield
+
+`yield` returns a value while preserving the function's execution state.
+
+Unlike `return`, it allows the function to continue from where it paused when the next value is requested.
+
+## 7. Generator Expressions
+
+Generator expressions create generators using a compact syntax.
+
+```python
+squares = (x * x for x in range(5))
+
+for value in squares:
+    print(value)
+```
+
+## 8. yield from
+
+`yield from` delegates yielding values from another iterable or generator.
+
+```python
+def numbers():
+    yield from [10, 20, 30]
+
+
+for number in numbers():
+    print(number)
+```
+
+## 9. Generator vs List
+
+| List | Generator |
+|---|---|
+| Stores all elements | Produces elements when requested |
+| Uses memory for stored elements | Usually uses less memory |
+| Can be accessed repeatedly | Usually consumed once |
+| Suitable for smaller collections | Useful for large or streaming data |
+
+## 10. Lazy Evaluation
+
+Lazy evaluation means delaying the production or calculation of values until they are actually needed.
+
+Generators support lazy evaluation.
+
+```python
+def generate_numbers():
+    for number in range(1, 4):
+        print("Generating:", number)
+        yield number
+
+
+values = generate_numbers()
+
+print(next(values))
+print(next(values))
+```
+
+Output:
+```text
+Generating: 1
+1
+Generating: 2
+2
+```
+
+Only requested values are generated.
+
+## Benefits of Iterators and Generators
+
+- Efficient memory usage.
+- Useful for large datasets.
+- Support lazy evaluation.
+- Helpful when processing files and streams.
+- Allow custom iteration behavior.
+
+## Key Takeaway
+
+Iterators and generators allow Python programs to process data one item at a time instead of loading everything into memory.
+
+**Day 118 Completed – Iterators and Generators.**
