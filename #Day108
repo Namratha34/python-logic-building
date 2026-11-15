@@ -26,3 +26,79 @@ class Student:
 
     def generate_report(self):
         print("Generating student report")
+
+This class handles student details, database operations, and report generation.
+Example: With SRP
+class Student:    def get_details(self):        return "Student details"class StudentDatabase:    def save(self, student):        print("Saving student details")class StudentReport:    def generate(self, student):        print("Generating student report")
+
+
+
+Each class now has one responsibility.
+Benefits
+- Easier maintenance.
+- Better code organization.
+- Improved testing.
+- Reduced complexity.
+Key Takeaway
+A class should have one clear responsibility and should not perform unrelated tasks.
+
+---
+
+## Day 109 — Open/Closed Principle (OCP)
+
+**File: `Day109.md`**
+
+```markdown
+# Day 109 – Open/Closed Principle (OCP)
+
+## What is OCP?
+
+The Open/Closed Principle states that software entities such as classes, functions, and modules should be:
+
+- Open for extension.
+- Closed for modification.
+
+This means we should be able to add new functionality without repeatedly changing existing, tested code.
+
+## Example
+
+```python
+class Notification:
+    def send(self):
+        pass
+
+
+class EmailNotification(Notification):
+    def send(self):
+        print("Sending email notification")
+
+
+class SMSNotification(Notification):
+    def send(self):
+        print("Sending SMS notification")
+
+
+def notify(notification):
+    notification.send()
+
+
+email = EmailNotification()
+sms = SMSNotification()
+
+notify(email)
+notify(sms)
+
+
+Output
+Sending email notification
+Sending SMS notification
+
+
+A new notification type can be added by creating another class without modifying the notify() function.
+Benefits
+- Makes code easier to extend.
+- Reduces changes to existing functionality.
+- Improves maintainability.
+- Supports flexible application design.
+Key Takeaway
+Add new functionality through extension rather than constantly modifying existing code.
