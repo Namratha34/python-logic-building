@@ -1,1 +1,366 @@
-...
+# Day 124 – Environment Management, Type Hints, Dataclasses and Testing
+
+## Part 1 – Environment and Dependency Management
+
+## 1. Virtual Environments
+
+A virtual environment is an isolated Python environment used to manage dependencies for a particular project.
+
+It prevents different projects from interfering with each other's installed packages.
+
+## 2. venv
+
+Python provides the built-in `venv` module to create virtual environments.
+
+Create an environment:
+
+```bash
+python -m venv venv
+```
+
+Activate on Windows PowerShell:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+Deactivate:
+
+```bash
+deactivate
+```
+
+## 3. pip
+
+`pip` is Python's package installer.
+
+Install a package:
+
+```bash
+pip install requests
+```
+
+Uninstall a package:
+
+```bash
+pip uninstall requests
+```
+
+Display installed packages:
+
+```bash
+pip list
+```
+
+## 4. requirements.txt
+
+A requirements file records the project's Python package dependencies.
+
+Generate it:
+
+```bash
+pip freeze > requirements.txt
+```
+
+Install dependencies from it:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 5. Dependency Management
+
+Dependency management means handling the external packages and libraries required by a project.
+
+Good practices:
+
+- Use virtual environments.
+- Record project dependencies.
+- Avoid unnecessary packages.
+- Keep dependencies updated.
+- Use compatible package versions.
+
+## 6. Environment Variables
+
+Environment variables store configuration values outside the source code.
+
+They are useful for:
+- Database configuration.
+- API keys.
+- Application settings.
+- Development and production environments.
+
+Access an environment variable:
+
+```python
+import os
+
+database_url = os.getenv("DATABASE_URL")
+
+print(database_url)
+```
+
+## 7. .env Files
+
+A `.env` file stores environment-specific configuration values.
+
+Example:
+
+```text
+DATABASE_URL=localhost
+APP_ENV=development
+```
+
+Python can read it using the external `python-dotenv` package.
+
+Install:
+
+```bash
+pip install python-dotenv
+```
+
+Example:
+
+```python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+environment = os.getenv("APP_ENV")
+
+print(environment)
+```
+
+**Security:** Do not commit secret `.env` files to public GitHub repositories. Add them to `.gitignore` and provide a safe `.env.example` file instead.
+
+## 8. Configuration Management
+
+Configuration management means organizing application settings separately from the program's business logic.
+
+Examples:
+
+- Database settings.
+- API configuration.
+- Debug mode.
+- Application environment.
+- External service settings.
+
+---
+
+## Part 2 – Type Hints
+
+## 9. What are Type Hints?
+
+Type hints indicate the expected types of function parameters, return values, and variables.
+
+They improve readability and help static analysis tools identify potential type-related problems.
+
+```python
+def add(a: int, b: int) -> int:
+    return a + b
+
+
+print(add(10, 20))
+```
+
+Type hints are not automatically enforced by Python at runtime.
+
+## 10. Basic Type Annotations
+
+```python
+name: str = "Anu"
+age: int = 20
+percentage: float = 95.5
+is_student: bool = True
+```
+
+## 11. Optional
+
+`Optional` indicates that a value can have the specified type or be `None`.
+
+```python
+from typing import Optional
+
+def get_name() -> Optional[str]:
+    return None
+```
+
+## 12. Union
+
+`Union` allows a value to have one of multiple specified types.
+
+```python
+from typing import Union
+
+def display(value: Union[int, str]):
+    print(value)
+```
+
+Modern Python also supports the `int | str` syntax.
+
+## 13. Any
+
+`Any` represents a value of any type.
+
+```python
+from typing import Any
+
+def display(value: Any):
+    print(value)
+```
+
+Use `Any` carefully because it reduces the benefits of static type checking.
+
+## 14. Collection Type Hints
+
+```python
+names: list[str] = ["Anu", "Rahul"]
+
+marks: dict[str, int] = {
+    "Anu": 90,
+    "Rahul": 85
+}
+```
+
+Other useful annotations include:
+- `tuple[int, str]`
+- `set[int]`
+- `list[float]`
+
+---
+
+## Part 3 – Dataclasses
+
+## 15. What are Dataclasses?
+
+Dataclasses simplify the creation of classes mainly used for storing data.
+
+Python provides the `dataclasses` module and the `@dataclass` decorator.
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Student:
+    name: str
+    age: int
+    marks: float
+
+
+student = Student("Anu", 20, 90.5)
+
+print(student)
+```
+
+Output:
+
+```text
+Student(name='Anu', age=20, marks=90.5)
+```
+
+Dataclasses can automatically generate methods such as:
+
+- `__init__()`
+- `__repr__()`
+- `__eq__()`
+
+## Benefits
+
+- Less repetitive code.
+- Cleaner data-oriented classes.
+- Readable object representations.
+- Convenient equality comparisons.
+
+---
+
+## Part 4 – Testing Basics
+
+## 16. What is Software Testing?
+
+Software testing is the process of checking whether an application behaves as expected.
+
+It helps identify errors and improve software quality.
+
+## 17. Unit Testing
+
+Unit testing checks individual functions or components independently.
+
+## 18. unittest
+
+`unittest` is Python's built-in testing framework.
+
+```python
+import unittest
+
+def add(a, b):
+    return a + b
+
+
+class TestCalculator(unittest.TestCase):
+
+    def test_add(self):
+        self.assertEqual(add(10, 20), 30)
+
+
+if __name__ == "__main__":
+    unittest.main()
+```
+
+## 19. Assertions in Testing
+
+Common `unittest` assertions:
+
+- `assertEqual()` – Checks equality.
+- `assertNotEqual()` – Checks inequality.
+- `assertTrue()` – Checks whether a condition is true.
+- `assertFalse()` – Checks whether a condition is false.
+- `assertIsNone()` – Checks whether a value is None.
+- `assertRaises()` – Checks whether an expected exception occurs.
+
+## 20. pytest
+
+`pytest` is a popular third-party Python testing framework.
+
+Install:
+
+```bash
+pip install pytest
+```
+
+Example:
+
+Create `test_calculator.py`:
+
+```python
+def add(a, b):
+    return a + b
+
+
+def test_add():
+    assert add(10, 20) == 30
+```
+
+Run:
+
+```bash
+pytest
+```
+
+## 21. Test Cases
+
+A test case describes a particular input, execution condition, and expected result.
+
+Examples:
+
+- Normal input.
+- Empty input.
+- Invalid input.
+- Boundary values.
+- Unexpected input types.
+
+## Key Takeaway
+
+Environment management, dependencies, type hints, dataclasses, and testing are essential skills for organizing and maintaining professional Python projects.
+
+**Day 124 Completed – Environment Management, Type Hints, Dataclasses and Testing.**
