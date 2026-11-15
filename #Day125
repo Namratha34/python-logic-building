@@ -1,1 +1,354 @@
-....
+# Day 125 – Advanced Python Internals and Asynchronous Programming
+
+## Part 1 – Python Memory Management
+
+## 1. Memory Management Basics
+
+Memory management is the process of allocating and releasing memory used by Python objects.
+
+Python manages memory automatically.
+
+The programmer generally does not need to manually allocate and free memory.
+
+## 2. Reference Counting
+
+Reference counting is one of Python's memory management techniques.
+
+An object keeps track of how many references point to it.
+
+When the reference count reaches zero, the object can usually be deallocated.
+
+Example:
+
+```python
+import sys
+
+numbers = [10, 20, 30]
+
+print(sys.getrefcount(numbers))
+```
+
+`getrefcount()` itself temporarily creates an additional reference, so the returned count includes that reference.
+
+## 3. Garbage Collection
+
+Garbage collection helps identify and clean up unreachable reference cycles.
+
+Python provides the `gc` module.
+
+```python
+import gc
+
+print(gc.isenabled())
+
+gc.collect()
+```
+
+## 4. Shallow Copy vs Deep Copy
+
+Copying creates another object based on an existing object.
+
+### Shallow Copy
+
+A shallow copy creates a new outer object but keeps references to the same nested objects.
+
+```python
+import copy
+
+original = [[1, 2], [3, 4]]
+
+shallow = copy.copy(original)
+
+shallow[0][0] = 100
+
+print(original)
+```
+
+Output:
+
+```text
+[[100, 2], [3, 4]]
+```
+
+The nested list is shared.
+
+### Deep Copy
+
+A deep copy recursively copies nested objects.
+
+```python
+import copy
+
+original = [[1, 2], [3, 4]]
+
+deep = copy.deepcopy(original)
+
+deep[0][0] = 100
+
+print(original)
+print(deep)
+```
+
+Output:
+
+```text
+[[1, 2], [3, 4]]
+[[100, 2], [3, 4]]
+```
+
+## 5. copy Module
+
+The `copy` module provides:
+
+- `copy.copy()` – Creates a shallow copy.
+- `copy.deepcopy()` – Creates a deep copy.
+
+---
+
+## Part 2 – Advanced Python Internals
+
+## 6. __slots__
+
+`__slots__` allows a class to declare a fixed set of instance attributes.
+
+It can reduce per-instance memory usage in suitable situations and prevent arbitrary additional attributes by default.
+
+```python
+class Student:
+    __slots__ = ("name", "age")
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+
+student = Student("Anu", 20)
+
+print(student.name)
+```
+
+## 7. Descriptors
+
+Descriptors are objects that customize attribute access through special methods.
+
+The main descriptor methods are:
+
+- `__get__()`
+- `__set__()`
+- `__delete__()`
+
+Example:
+
+```python
+class PositiveNumber:
+    def __set_name__(self, owner, name):
+        self.name = name
+
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+
+        return instance.__dict__.get(self.name)
+
+    def __set__(self, instance, value):
+        if value < 0:
+            raise ValueError("Value cannot be negative")
+
+        instance.__dict__[self.name] = value
+
+
+class Product:
+    price = PositiveNumber()
+
+    def __init__(self, price):
+        self.price = price
+
+
+product = Product(100)
+
+print(product.price)
+```
+
+## 8. Metaclasses
+
+A metaclass is a class whose instances are classes.
+
+In Python, `type` is the default metaclass used to create most classes.
+
+Metaclasses allow developers to customize class creation and behavior.
+
+## 9. type as a Metaclass
+
+```python
+class Student:
+    pass
+
+
+print(type(Student))
+```
+
+Output:
+
+```text
+<class 'type'>
+```
+
+## 10. Dynamic Class Creation
+
+The `type()` function can also create classes dynamically.
+
+```python
+Student = type(
+    "Student",
+    (),
+    {"course": "BCA"}
+)
+
+student = Student()
+
+print(student.course)
+```
+
+Output:
+
+```text
+BCA
+```
+
+## 11. Custom Metaclasses
+
+Custom metaclasses can modify or validate classes when they are created.
+
+```python
+class UppercaseMeta(type):
+    def __new__(mcls, name, bases, namespace):
+        namespace["category"] = "PYTHON"
+        return super().__new__(mcls, name, bases, namespace)
+
+
+class Course(metaclass=UppercaseMeta):
+    pass
+
+
+print(Course.category)
+```
+
+Output:
+
+```text
+PYTHON
+```
+
+**Important:** Descriptors and metaclasses are advanced topics. Understand their purpose and basic working rather than trying to master every internal detail immediately.
+
+---
+
+## Part 3 – Asynchronous Programming
+
+## 12. Synchronous Programming
+
+Synchronous programming executes operations in sequence.
+
+The next operation generally waits until the current operation finishes.
+
+## 13. Asynchronous Programming
+
+Asynchronous programming allows a program to pause an operation while waiting and let other tasks make progress.
+
+It is especially useful for I/O-bound operations such as:
+- Network requests.
+- API communication.
+- Database operations.
+- File and stream operations.
+
+## 14. async
+
+The `async` keyword defines an asynchronous function.
+
+```python
+async def greet():
+    print("Hello Python")
+```
+
+Calling an async function creates a coroutine object. It does not execute the function body immediately.
+
+## 15. await
+
+The `await` keyword waits for an awaitable operation inside an asynchronous function.
+
+```python
+import asyncio
+
+async def greet():
+    print("Hello Python")
+
+
+async def main():
+    await greet()
+
+
+asyncio.run(main())
+```
+
+Output:
+
+```text
+Hello Python
+```
+
+## 16. Coroutines
+
+A coroutine is an asynchronous computation that can pause and resume execution.
+
+Calling an `async def` function creates a coroutine object.
+
+Coroutines are commonly used with `asyncio`.
+
+## 17. asyncio
+
+`asyncio` is Python's standard library for asynchronous programming.
+
+Example:
+
+```python
+import asyncio
+
+async def task(name):
+    print(name, "started")
+
+    await asyncio.sleep(1)
+
+    print(name, "completed")
+
+
+async def main():
+    await asyncio.gather(
+        task("Task 1"),
+        task("Task 2")
+    )
+
+
+asyncio.run(main())
+```
+
+The tasks can make progress concurrently while waiting.
+
+## 18. Synchronous vs Asynchronous Execution
+
+| Synchronous | Asynchronous |
+|---|---|
+| Executes operations sequentially | Allows tasks to make progress while waiting |
+| Blocking operations can delay other work | Supports non-blocking I/O patterns |
+| Simpler for straightforward tasks | Useful for I/O-heavy applications |
+| Common in basic scripts | Common in asynchronous APIs and services |
+
+## Important Note
+
+Asynchronous programming does not automatically make every operation faster.
+
+It is particularly useful for I/O-bound work. CPU-intensive work generally needs other approaches, such as multiprocessing, depending on the task.
+
+---
+
+
+**Advanced Python Roadmap Completed – Day 125.**
