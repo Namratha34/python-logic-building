@@ -1,1 +1,275 @@
-....
+# Day 121 – Collections and Functional Utilities
+
+Python provides powerful standard library modules for working with collections and functional programming.
+
+## Part 1 – collections Module
+
+The `collections` module provides specialized container data types.
+
+## 1. Counter
+
+`Counter` counts the occurrences of elements in an iterable.
+
+```python
+from collections import Counter
+
+items = ["apple", "banana", "apple", "orange", "banana", "apple"]
+
+result = Counter(items)
+
+print(result)
+```
+
+Output:
+
+```text
+Counter({'apple': 3, 'banana': 2, 'orange': 1})
+```
+
+Useful methods:
+- `.most_common()`
+- `.elements()`
+- `.update()`
+
+## 2. defaultdict
+
+`defaultdict` provides a default value for missing dictionary keys.
+
+```python
+from collections import defaultdict
+
+students = defaultdict(list)
+
+students["Anu"].append("Python")
+students["Anu"].append("Java")
+
+print(students)
+```
+
+Output:
+
+```text
+defaultdict(<class 'list'>, {'Anu': ['Python', 'Java']})
+```
+
+## 3. deque
+
+`deque` stands for double-ended queue.
+
+It supports efficient insertion and removal from both ends.
+
+```python
+from collections import deque
+
+numbers = deque([10, 20, 30])
+
+numbers.append(40)
+numbers.appendleft(5)
+
+print(numbers)
+
+numbers.pop()
+numbers.popleft()
+
+print(numbers)
+```
+
+## 4. namedtuple
+
+`namedtuple` creates tuple-like objects with named fields.
+
+```python
+from collections import namedtuple
+
+Student = namedtuple("Student", ["name", "age"])
+
+student = Student("Anu", 20)
+
+print(student.name)
+print(student.age)
+```
+
+## 5. ChainMap
+
+`ChainMap` combines multiple dictionaries into a single view.
+
+It searches mappings in order.
+
+```python
+from collections import ChainMap
+
+default = {"theme": "light", "language": "English"}
+user = {"theme": "dark"}
+
+settings = ChainMap(user, default)
+
+print(settings["theme"])
+print(settings["language"])
+```
+
+Output:
+
+```text
+dark
+English
+```
+
+The first mapping has priority when keys appear in multiple dictionaries.
+
+---
+
+## Part 2 – itertools Module
+
+`itertools` provides efficient tools for working with iterators.
+
+## 6. count()
+
+Generates an infinite sequence of numbers.
+
+```python
+from itertools import count
+
+for number in count(1):
+    if number > 5:
+        break
+    print(number)
+```
+
+## 7. cycle()
+
+Repeats an iterable indefinitely.
+
+```python
+from itertools import cycle
+
+colors = cycle(["Red", "Green"])
+
+for _ in range(4):
+    print(next(colors))
+```
+
+## 8. repeat()
+
+Repeats an object a specified number of times.
+
+```python
+from itertools import repeat
+
+print(list(repeat("Python", 3)))
+```
+
+## 9. combinations()
+
+Generates combinations without considering order.
+
+```python
+from itertools import combinations
+
+print(list(combinations([1, 2, 3], 2)))
+```
+
+## 10. permutations()
+
+Generates ordered arrangements of elements.
+
+```python
+from itertools import permutations
+
+print(list(permutations([1, 2, 3], 2)))
+```
+
+## 11. product()
+
+Generates the Cartesian product of iterables.
+
+```python
+from itertools import product
+
+print(list(product([1, 2], ["A", "B"])))
+```
+
+---
+
+## Part 3 – functools Module
+
+`functools` provides tools for working with functions and callable objects.
+
+## 12. partial()
+
+Creates a new function with some arguments already fixed.
+
+```python
+from functools import partial
+
+def power(base, exponent):
+    return base ** exponent
+
+square = partial(power, exponent=2)
+
+print(square(5))
+```
+
+Output:
+
+```text
+25
+```
+
+## 13. lru_cache()
+
+`lru_cache()` caches previous function results to avoid repeated calculations.
+
+```python
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def fibonacci(n):
+    if n < 2:
+        return n
+
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+print(fibonacci(10))
+```
+
+## 14. singledispatch
+
+`singledispatch` supports function behavior based on the type of its first argument.
+
+```python
+from functools import singledispatch
+
+@singledispatch
+def display(value):
+    print("Other type:", value)
+
+
+@display.register
+def _(value: int):
+    print("Integer:", value)
+
+
+@display.register
+def _(value: str):
+    print("String:", value)
+
+
+display(10)
+display("Python")
+display(3.5)
+```
+
+## Important Differences
+
+| Module | Main Purpose |
+|---|---|
+| collections | Specialized data structures |
+| itertools | Iterator-based tools |
+| functools | Functional programming utilities |
+
+## Key Takeaway
+
+These standard library modules help solve common programming problems efficiently without implementing every utility from scratch.
+
+**Day 121 Completed – Collections and Functional Utilities.**
