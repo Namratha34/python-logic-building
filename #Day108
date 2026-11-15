@@ -1,1 +1,28 @@
-...
+
+---
+
+## Day 108 — Single Responsibility Principle (SRP)
+
+**File: `Day108.md`**
+
+```markdown
+# Day 108 – Single Responsibility Principle (SRP)
+
+## What is SRP?
+
+The Single Responsibility Principle states that a class should have only one responsibility or one reason to change.
+
+A class should focus on doing one particular job instead of handling multiple unrelated tasks.
+
+## Example: Without SRP
+
+```python
+class Student:
+    def get_details(self):
+        return "Student details"
+
+    def save_to_database(self):
+        print("Saving student details")
+
+    def generate_report(self):
+        print("Generating student report")
