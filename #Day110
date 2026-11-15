@@ -1,1 +1,39 @@
-...
+## Day 110 — DRY Principle
+
+**File: `Day110.md`**
+
+```markdown
+# Day 110 – DRY Principle
+
+## What is DRY?
+
+DRY stands for **Don't Repeat Yourself**.
+
+It means that the same logic or information should not be unnecessarily duplicated throughout a program.
+
+Instead, reusable functions, classes, and modules should be created.
+
+## Example: Without DRY
+
+```python
+student1 = 85
+student2 = 90
+
+print("Student 1 percentage:", student1)
+print("Student 2 percentage:", student2)
+
+
+Example: With DRY
+def display_marks(student_name, marks):    print(student_name, "marks:", marks)display_marks("Student 1", 85)display_marks("Student 2", 90)
+
+
+
+Benefits
+- Reduces duplicate code.
+- Makes maintenance easier.
+- Improves reusability.
+- Reduces the chance of inconsistent updates.
+Important Note
+DRY does not mean forcing every similar-looking piece of code into one function. Reuse should make the code clearer, not more complicated.
+Key Takeaway
+Avoid unnecessary duplication by creating reusable logic.
