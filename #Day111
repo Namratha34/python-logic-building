@@ -1,1 +1,42 @@
-...
+## Day 111 — KISS Principle
+
+**File: `Day111.md`**
+
+```markdown
+# Day 111– KISS Principle
+
+## What is KISS?
+
+KISS stands for **Keep It Simple, Stupid**.
+
+It is a software development principle that encourages developers to keep code simple and understandable.
+
+Avoid unnecessary complexity when a straightforward solution is sufficient.
+
+## Example: Complicated Approach
+
+```python
+def check_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False
+
+
+Simpler Approach
+def check_even(number):    return number % 2 == 0print(check_even(10))
+
+
+
+Output
+True
+
+
+The second implementation is shorter and directly expresses the required logic.
+Benefits
+- Improves readability.
+- Makes debugging easier.
+- Reduces unnecessary complexity.
+- Helps other developers understand the code.
+Key Takeaway
+Prefer the simplest clear solution that correctly solves the problem.
