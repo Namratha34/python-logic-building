@@ -1,1 +1,192 @@
-#...
+# Day 122 – Regular Expressions in Python
+
+## What is Regular Expression?
+
+Regular Expression (Regex) is a sequence of characters used to search, match, validate, and manipulate text based on patterns.
+
+Python provides the `re` module for regular expressions.
+
+```python
+import re
+```
+
+## 1. Regex Fundamentals
+
+```python
+import re
+
+text = "Python is powerful"
+
+result = re.search("Python", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+Python
+```
+
+## 2. Character Classes
+
+Character classes match specific groups of characters.
+
+| Pattern | Meaning |
+|---|---|
+| `[abc]` | Matches a, b, or c |
+| `[a-z]` | Lowercase letters |
+| `[A-Z]` | Uppercase letters |
+| `[0-9]` | Digits |
+| `[^0-9]` | Any character except digits |
+| `\d` | Digit |
+| `\D` | Non-digit |
+| `\w` | Word character |
+| `\W` | Non-word character |
+| `\s` | Whitespace |
+| `\S` | Non-whitespace |
+
+## 3. Quantifiers
+
+Quantifiers specify how many times a pattern should occur.
+
+| Pattern | Meaning |
+|---|---|
+| `*` | Zero or more |
+| `+` | One or more |
+| `?` | Zero or one |
+| `{n}` | Exactly n times |
+| `{n,m}` | Between n and m times |
+| `{n,}` | At least n times |
+
+Example:
+
+```python
+import re
+
+text = "My number is 9876543210"
+
+result = re.findall(r"\d{10}", text)
+
+print(result)
+```
+
+## 4. Groups
+
+Parentheses are used to group parts of a regular expression.
+
+```python
+import re
+
+text = "Python 3.14"
+
+result = re.search(r"(Python) (\d+\.\d+)", text)
+
+print(result.group(0))
+print(result.group(1))
+print(result.group(2))
+```
+
+## 5. Capturing Groups
+
+Capturing groups allow us to extract specific parts of a matched string.
+
+```python
+import re
+
+text = "Date: 15-11-2026"
+
+pattern = r"(\d{2})-(\d{2})-(\d{4})"
+
+result = re.search(pattern, text)
+
+if result:
+    print("Day:", result.group(1))
+    print("Month:", result.group(2))
+    print("Year:", result.group(3))
+```
+
+## 6. search()
+
+Finds the first matching location anywhere in a string.
+
+```python
+re.search(r"Python", "I love Python")
+```
+
+## 7. match()
+
+Checks for a match at the beginning of a string.
+
+```python
+re.match(r"Hello", "Hello Python")
+```
+
+## 8. findall()
+
+Returns all non-overlapping matches as a list.
+
+```python
+text = "10 apples and 20 oranges"
+
+print(re.findall(r"\d+", text))
+```
+
+Output:
+
+```text
+['10', '20']
+```
+
+## 9. sub()
+
+Replaces matching patterns with another string.
+
+```python
+text = "My number is 9876543210"
+
+result = re.sub(r"\d", "*", text)
+
+print(result)
+```
+
+## 10. Practical Validation and Extraction
+
+### Email Pattern Example
+
+```python
+import re
+
+email = "student@example.com"
+
+pattern = r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+
+if re.fullmatch(pattern, email):
+    print("Valid format")
+else:
+    print("Invalid format")
+```
+
+This is a basic format check, not complete verification that an email address exists.
+
+### Extracting Phone Numbers
+
+```python
+import re
+
+text = "Contact: 9876543210"
+
+numbers = re.findall(r"\b\d{10}\b", text)
+
+print(numbers)
+```
+
+## Important Note
+
+Use raw strings such as `r"\d+"` for regex patterns to avoid unnecessary backslash escaping.
+
+## Key Takeaway
+
+Regular expressions are useful for searching, extracting, replacing, and validating structured text in real-world applications.
+
+**Day 122 Completed – Regular Expressions.**
