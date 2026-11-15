@@ -1,1 +1,62 @@
-....
+## Day 112 — Separation of Concerns
+
+**File: `Day112.md`**
+
+```markdown
+# Day 112 – Separation of Concerns
+
+## What is Separation of Concerns?
+
+Separation of Concerns is a software design principle in which different parts of an application handle different responsibilities.
+
+Each component should focus on a particular concern.
+
+For example, an application may separate:
+
+- User input.
+- Business logic.
+- Data storage.
+- User interface.
+- Reporting.
+
+## Example
+
+```python
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+
+class StudentService:
+    def calculate_result(self, student):
+        return "Pass" if student.marks >= 35 else "Fail"
+
+
+class StudentDisplay:
+    def show(self, student, result):
+        print("Name:", student.name)
+        print("Result:", result)
+
+
+student = Student("Rahul", 85)
+
+service = StudentService()
+display = StudentDisplay()
+
+result = service.calculate_result(student)
+display.show(student, result)
+
+
+Output
+Name: Rahul
+Result: Pass
+
+
+Benefits
+- Improves organization.
+- Makes components easier to test.
+- Reduces complexity.
+- Supports easier maintenance.
+Key Takeaway
+Separate different responsibilities into appropriate components instead of putting everything in one place.
