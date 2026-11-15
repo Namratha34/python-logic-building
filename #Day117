@@ -1,1 +1,271 @@
-.......
+# Day 117 – Advanced Python Functions
+
+## 1. First-Class Functions
+
+In Python, functions are first-class objects. This means functions can be:
+- Assigned to variables.
+- Passed as arguments.
+- Returned from other functions.
+- Stored in data structures.
+
+```python
+def greet():
+    return "Hello Python"
+
+message = greet
+
+print(message())
+```
+
+Output:
+```text
+Hello Python
+```
+
+## 2. Higher-Order Functions
+
+A higher-order function is a function that accepts another function as an argument or returns a function.
+
+```python
+def square(number):
+    return number ** 2
+
+def calculate(func, value):
+    return func(value)
+
+print(calculate(square, 5))
+```
+
+Output:
+```text
+25
+```
+
+## 3. *args
+
+`*args` allows a function to accept any number of positional arguments.
+
+```python
+def add(*args):
+    return sum(args)
+
+print(add(10, 20, 30))
+```
+
+Output:
+```text
+60
+```
+
+## 4. **kwargs
+
+`**kwargs` allows a function to accept any number of keyword arguments.
+
+```python
+def display(**kwargs):
+    for key, value in kwargs.items():
+        print(key, ":", value)
+
+display(name="Anu", age=20, course="BCA")
+```
+
+## 5. Lambda Functions
+
+Lambda functions are small anonymous functions created using the `lambda` keyword.
+
+```python
+square = lambda x: x ** 2
+
+print(square(5))
+```
+
+Output:
+```text
+25
+```
+
+## 6. map()
+
+`map()` applies a function to every item in an iterable.
+
+```python
+numbers = [1, 2, 3, 4]
+
+result = list(map(lambda x: x * 2, numbers))
+
+print(result)
+```
+
+Output:
+```text
+[2, 4, 6, 8]
+```
+
+## 7. filter()
+
+`filter()` selects items that satisfy a condition.
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+result = list(filter(lambda x: x % 2 == 0, numbers))
+
+print(result)
+```
+
+Output:
+```text
+[2, 4, 6]
+```
+
+## 8. reduce()
+
+`reduce()` repeatedly combines items to produce a single result.
+
+It is available in the `functools` module.
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4]
+
+result = reduce(lambda x, y: x + y, numbers)
+
+print(result)
+```
+
+Output:
+```text
+10
+```
+
+## 9. Nested Functions
+
+A nested function is a function defined inside another function.
+
+```python
+def outer():
+    def inner():
+        print("Inside inner function")
+
+    inner()
+
+outer()
+```
+
+## 10. Closures
+
+A closure is an inner function that remembers and can access variables from its enclosing function even after the outer function has finished executing.
+
+```python
+def outer(message):
+    def inner():
+        print(message)
+
+    return inner
+
+greet = outer("Hello Python")
+greet()
+```
+
+Output:
+```text
+Hello Python
+```
+
+## 11. Function Decorators
+
+A decorator modifies or extends the behavior of another function without directly changing its original code.
+
+```python
+def decorator(func):
+    def wrapper():
+        print("Before function")
+        func()
+        print("After function")
+
+    return wrapper
+
+@decorator
+def greet():
+    print("Hello")
+
+greet()
+```
+
+Output:
+```text
+Before function
+Hello
+After function
+```
+
+## 12. Multiple Decorators
+
+Multiple decorators can be applied to one function.
+
+```python
+def first(func):
+    def wrapper():
+        print("First decorator")
+        func()
+    return wrapper
+
+def second(func):
+    def wrapper():
+        print("Second decorator")
+        func()
+    return wrapper
+
+@first
+@second
+def greet():
+    print("Hello")
+
+greet()
+```
+
+The decorator closest to the function is applied first.
+
+## 13. Decorators with Arguments
+
+A decorator can accept additional arguments through an outer function.
+
+```python
+def repeat(times):
+    def decorator(func):
+        def wrapper():
+            for _ in range(times):
+                func()
+        return wrapper
+    return decorator
+
+@repeat(3)
+def greet():
+    print("Hello")
+
+greet()
+```
+
+Output:
+```text
+Hello
+Hello
+Hello
+```
+
+## Important Concepts
+
+- `*args` collects positional arguments into a tuple.
+- `**kwargs` collects keyword arguments into a dictionary.
+- `map()` transforms items.
+- `filter()` selects items.
+- `reduce()` combines items.
+- Closures remember enclosing variables.
+- Decorators extend function behavior.
+
+## Key Takeaway
+
+Advanced functions make Python code more reusable, flexible, and powerful. They are widely used in frameworks, APIs, and real-world software development.
+
+**Day 117 Completed – Advanced Functions.**
