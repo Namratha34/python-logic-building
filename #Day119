@@ -1,1 +1,241 @@
-....
+# Day 119 – Comprehensions, Modules and Packages
+
+## Part 1 – Comprehensions
+
+Comprehensions provide a concise way to create collections from existing iterables.
+
+### 1. List Comprehension
+
+```python
+squares = [x ** 2 for x in range(1, 6)]
+
+print(squares)
+```
+
+Output:
+```text
+[1, 4, 9, 16, 25]
+```
+
+### 2. Dictionary Comprehension
+
+```python
+squares = {x: x ** 2 for x in range(1, 4)}
+
+print(squares)
+```
+
+Output:
+```text
+{1: 1, 2: 4, 3: 9}
+```
+
+### 3. Set Comprehension
+
+```python
+numbers = [1, 2, 2, 3, 3, 4]
+
+unique = {x for x in numbers}
+
+print(unique)
+```
+
+Output:
+```text
+{1, 2, 3, 4}
+```
+
+### 4. Nested Comprehension
+
+```python
+matrix = [[1, 2], [3, 4]]
+
+flattened = [number for row in matrix for number in row]
+
+print(flattened)
+```
+
+Output:
+```text
+[1, 2, 3, 4]
+```
+
+### 5. Conditional Comprehension
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+even = [x for x in numbers if x % 2 == 0]
+
+print(even)
+```
+
+### 6. When Not to Use Comprehensions
+
+Avoid comprehensions when:
+- The logic becomes too complicated.
+- Multiple nested conditions reduce readability.
+- Several side effects are required.
+- A normal loop makes the code easier to understand.
+
+---
+
+## Part 2 – Modules and Packages
+
+## 7. Modules
+
+A module is a Python file containing reusable code such as functions, classes, and variables.
+
+Example:
+
+Create `calculator.py`:
+
+```python
+def add(a, b):
+    return a + b
+```
+
+Create `main.py`:
+
+```python
+import calculator
+
+print(calculator.add(10, 20))
+```
+
+Output:
+```text
+30
+```
+
+## 8. Packages
+
+A package is a way of organizing related Python modules into a directory structure.
+
+Example:
+
+```text
+project/
+    main.py
+    calculator/
+        __init__.py
+        operations.py
+```
+
+`operations.py`:
+
+```python
+def add(a, b):
+    return a + b
+```
+
+`main.py`:
+
+```python
+from calculator.operations import add
+
+print(add(10, 20))
+```
+
+## 9. __init__.py
+
+`__init__.py` can mark a directory as a regular Python package and can contain package initialization code.
+
+Modern Python also supports namespace packages without an `__init__.py` file.
+
+## 10. import vs from ... import
+
+### Using import
+
+```python
+import math
+
+print(math.sqrt(25))
+```
+
+### Using from ... import
+
+```python
+from math import sqrt
+
+print(sqrt(25))
+```
+
+## 11. __name__ == "__main__"
+
+Python assigns a special value to `__name__`.
+
+- When a file runs directly, `__name__` is `"__main__"`.
+- When imported as a module, `__name__` is normally the module's name.
+
+```python
+def greet():
+    print("Hello")
+
+if __name__ == "__main__":
+    greet()
+```
+
+This prevents the main execution block from running automatically when the module is imported.
+
+## 12. Python Module Search Path
+
+Python uses `sys.path` to determine where it searches for modules.
+
+```python
+import sys
+
+print(sys.path)
+```
+
+The search locations can include:
+- The script directory.
+- Locations specified by environment configuration.
+- Standard library directories.
+- Installed package directories.
+
+## 13. Circular Imports
+
+Circular imports occur when two or more modules depend on each other during importing.
+
+Example:
+
+```text
+module_a.py imports module_b.py
+module_b.py imports module_a.py
+```
+
+They can cause partially initialized module errors.
+
+Ways to avoid them:
+- Improve module organization.
+- Move shared functionality into a third module.
+- Import locally inside a function when appropriate.
+- Avoid unnecessary mutual dependencies.
+
+## 14. Organizing a Python Project
+
+Example:
+
+```text
+student_management/
+    main.py
+    models/
+        __init__.py
+        student.py
+    services/
+        __init__.py
+        student_service.py
+    database/
+        __init__.py
+        connection.py
+    README.md
+```
+
+Separating responsibilities makes larger applications easier to maintain.
+
+## Key Takeaway
+
+Comprehensions make collection creation concise, while modules and packages help organize reusable Python code into structured projects.
+
+**Day 119 Completed – Comprehensions, Modules and Packages.**
