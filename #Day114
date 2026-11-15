@@ -1,1 +1,51 @@
-....
+## Day 114 — Cohesion in OOP
+
+**File: `Day114.md`**
+
+```markdown
+# Day 114 – Cohesion in OOP
+
+## What is Cohesion?
+
+Cohesion describes how closely related the responsibilities of a class or module are.
+
+A highly cohesive class focuses on one clear purpose.
+
+## Types of Cohesion
+
+### 1. High Cohesion
+
+A class performs tasks that are closely related to its main responsibility.
+
+### 2. Low Cohesion
+
+A class performs many unrelated tasks.
+
+## Example: Low Cohesion
+
+```python
+class College:
+    def manage_students(self):
+        print("Managing students")
+
+    def prepare_food(self):
+        print("Preparing food")
+
+    def repair_vehicles(self):
+        print("Repairing vehicles")
+
+
+This class handles unrelated responsibilities.
+Example: High Cohesion
+class StudentManager:    def add_student(self):        print("Student added")    def remove_student(self):        print("Student removed")    def display_students(self):        print("Displaying students")
+
+
+
+All methods are related to student management.
+Benefits of High Cohesion
+- Better organization.
+- Easier maintenance.
+- Improved readability.
+- Easier testing.
+Key Takeaway
+Aim for high cohesion and low coupling when designing classes and modules.
