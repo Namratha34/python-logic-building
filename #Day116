@@ -1,1 +1,370 @@
-.........
+# Day 116 – OOP Design Principles and Professional Python
+
+## 1. SOLID Principles
+
+SOLID is a collection of five object-oriented design principles that help developers write clean, flexible, reusable, and maintainable code.
+
+SOLID stands for:
+
+1. **S – Single Responsibility Principle (SRP)**
+2. **O – Open/Closed Principle (OCP)**
+3. **L – Liskov Substitution Principle (LSP)**
+4. **I – Interface Segregation Principle (ISP)**
+5. **D – Dependency Inversion Principle (DIP)**
+
+### Single Responsibility Principle (SRP)
+
+A class should have only one responsibility or one reason to change.
+
+```python
+class Student:
+    def get_details(self):
+        return "Student details"
+
+
+class StudentReport:
+    def generate_report(self):
+        print("Generating student report")
+```
+
+Each class handles a separate responsibility.
+
+### Open/Closed Principle (OCP)
+
+Software entities should be open for extension but closed for modification.
+
+New functionality should be added without unnecessarily changing existing code.
+
+```python
+class EmailNotification:
+    def send(self):
+        print("Email sent")
+
+
+class SMSNotification:
+    def send(self):
+        print("SMS sent")
+
+
+def notify(service):
+    service.send()
+
+
+notify(EmailNotification())
+notify(SMSNotification())
+```
+
+### Liskov Substitution Principle (LSP)
+
+Objects of a child class should be usable wherever objects of the parent class are expected without breaking expected behavior.
+
+### Interface Segregation Principle (ISP)
+
+A class should not be forced to implement methods it does not need.
+
+Prefer smaller, specific interfaces over large interfaces containing unrelated methods.
+
+### Dependency Inversion Principle (DIP)
+
+High-level modules should not depend directly on low-level modules. Both should depend on abstractions.
+
+This helps reduce tight coupling between components.
+
+---
+
+## 2. DRY Principle
+
+DRY stands for **Don't Repeat Yourself**.
+
+It means avoiding unnecessary duplication of code or logic.
+
+Instead of writing the same functionality repeatedly, create reusable functions, classes, or modules.
+
+```python
+def calculate_square(number):
+    return number * number
+
+
+print(calculate_square(5))
+print(calculate_square(10))
+```
+
+**Benefits:**
+- Reduces duplicate code.
+- Improves maintainability.
+- Encourages reusability.
+- Reduces inconsistent updates.
+
+---
+
+## 3. KISS Principle
+
+KISS stands for **Keep It Simple, Stupid**.
+
+It encourages developers to write simple, understandable solutions instead of introducing unnecessary complexity.
+
+```python
+def is_even(number):
+    return number % 2 == 0
+
+
+print(is_even(10))
+```
+
+**Benefits:**
+- Improves readability.
+- Makes debugging easier.
+- Reduces complexity.
+- Makes code easier to maintain.
+
+---
+
+## 4. Separation of Concerns
+
+Separation of Concerns means dividing an application into different components, with each component handling a particular responsibility.
+
+For example:
+
+- User interface handles presentation.
+- Business logic handles application operations.
+- Database layer handles data storage.
+
+This makes applications easier to understand, test, and maintain.
+
+---
+
+## 5. Coupling
+
+Coupling describes how strongly one class or module depends on another.
+
+### Tight Coupling
+
+One class strongly depends on another class's implementation.
+
+### Loose Coupling
+
+Classes interact through limited, clearly defined behavior without depending heavily on each other's implementation.
+
+**Best Practice:** Prefer loose coupling because it improves flexibility and maintainability.
+
+---
+
+## 6. Cohesion
+
+Cohesion describes how closely related the responsibilities of a class or module are.
+
+### High Cohesion
+
+A class focuses on one clear and related responsibility.
+
+### Low Cohesion
+
+A class handles several unrelated responsibilities.
+
+**Best Practice:** Aim for high cohesion and low coupling.
+
+---
+
+## 7. Dependency Injection – Revision
+
+Dependency Injection (DI) is a technique in which an object receives the dependencies it needs from outside instead of creating them internally.
+
+Already covered in Day 115.
+
+### Types of Dependency Injection
+
+1. Constructor Injection – Passing dependencies through `__init__()`.
+2. Setter Injection – Providing dependencies through a separate method.
+3. Method Injection – Passing dependencies directly to a particular method.
+
+**Main Benefits:**
+- Reduces tight coupling.
+- Improves testability.
+- Makes components reusable.
+- Allows dependencies to be replaced easily.
+
+---
+
+## 8. Design Patterns
+
+Design patterns are reusable approaches to commonly occurring software design problems.
+
+They are not ready-made code but provide general solutions that developers can adapt.
+
+### 1. Singleton Pattern
+
+Ensures that a class has only one shared instance.
+
+```python
+class Database:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+
+db1 = Database()
+db2 = Database()
+
+print(db1 is db2)
+```
+
+Output:
+
+```text
+True
+```
+
+### 2. Factory Pattern
+
+Creates objects through a common creation method instead of making the calling code responsible for choosing the concrete class.
+
+```python
+class Email:
+    def send(self):
+        print("Sending email")
+
+
+class SMS:
+    def send(self):
+        print("Sending SMS")
+
+
+class NotificationFactory:
+    @staticmethod
+    def create_notification(notification_type):
+        if notification_type == "email":
+            return Email()
+        elif notification_type == "sms":
+            return SMS()
+        else:
+            raise ValueError("Unknown notification type")
+
+
+notification = NotificationFactory.create_notification("email")
+notification.send()
+```
+
+### 3. Strategy Pattern
+
+Allows different algorithms or behaviors to be selected and used interchangeably.
+
+```python
+class CardPayment:
+    def pay(self, amount):
+        print("Paid using card:", amount)
+
+
+class UpiPayment:
+    def pay(self, amount):
+        print("Paid using UPI:", amount)
+
+
+class ShoppingCart:
+    def checkout(self, payment_method, amount):
+        payment_method.pay(amount)
+
+
+cart = ShoppingCart()
+
+cart.checkout(CardPayment(), 500)
+cart.checkout(UpiPayment(), 300)
+```
+
+### 4. Observer Pattern
+
+Defines a one-to-many relationship in which multiple observers are notified when an object's state changes.
+
+Common use cases include:
+- Notification systems.
+- Event handling.
+- Subscription systems.
+
+### 5. Adapter Pattern
+
+Allows incompatible interfaces to work together by providing a compatible interface.
+
+Common use cases include:
+- Integrating third-party libraries.
+- Working with different APIs.
+- Connecting systems with different interfaces.
+
+---
+
+## 9. Refactoring OOP Code
+
+Refactoring means improving the internal structure of existing code without changing its external behavior.
+
+Common refactoring activities:
+
+- Removing duplicate code.
+- Splitting large classes.
+- Improving method names.
+- Reducing unnecessary dependencies.
+- Simplifying complex methods.
+- Improving readability.
+
+**Goal:** Make code cleaner and easier to maintain without changing what the application does.
+
+---
+
+## 10. Writing Maintainable Classes
+
+Maintainable classes are easier to understand, modify, test, and extend.
+
+### Best Practices
+
+1. Give each class a clear responsibility.
+2. Use meaningful class and method names.
+3. Avoid unnecessarily large classes.
+4. Keep methods focused.
+5. Avoid unnecessary code duplication.
+6. Reduce tight coupling.
+7. Follow SOLID principles where appropriate.
+8. Use composition when it gives a clearer design.
+9. Validate input where necessary.
+10. Write tests for important behavior.
+
+---
+
+## 11. Inheritance vs Composition
+
+### Inheritance
+
+Inheritance represents an **IS-A** relationship.
+
+A child class inherits and extends the behavior of a parent class.
+
+Example:
+
+```text
+Dog IS-A Animal
+```
+
+### Composition
+
+Composition represents a **HAS-A** relationship.
+
+One object contains or owns another object as part of its functionality.
+
+Example:
+
+```text
+Car HAS-A Engine
+```
+
+### Comparison
+
+| Inheritance | Composition |
+|---|---|
+| Represents IS-A | Represents HAS-A |
+| Uses parent-child relationships | Combines separate objects |
+| Reuses behavior through inheritance | Reuses behavior through delegation |
+| Can create tight coupling | Often provides greater flexibility |
+
+**Best Practice:** Prefer composition over inheritance when it produces a simpler and more flexible design. Inheritance is appropriate when a genuine IS-A relationship exists.
+
+---
+
