@@ -1,1 +1,53 @@
-.......
+## Day 115 — Dependency Injection
+
+**File: `Day115.md`**
+
+```markdown
+# Day 115 – Dependency Injection in Python
+
+## What is Dependency Injection?
+
+Dependency Injection (DI) is a design technique in which an object receives the dependencies it needs from outside instead of creating those dependencies internally.
+
+A dependency is an object or service that another object needs to perform its work.
+
+## Example
+
+```python
+class Database:
+    def connect(self):
+        print("Database connected")
+
+
+class Application:
+    def __init__(self, database):
+        self.database = database
+
+    def run(self):
+        self.database.connect()
+        print("Application running")
+
+
+db = Database()
+app = Application(db)
+
+app.run()
+
+
+Output
+Database connected
+Application running
+
+
+The Database object is created outside the Application class and passed into it.
+Common Types of Dependency Injection
+1. Constructor Injection.
+2. Setter Injection.
+3. Method Injection.
+Benefits
+- Reduces tight coupling.
+- Improves testability.
+- Makes components reusable.
+- Allows dependencies to be replaced easily.
+Key Takeaway
+Dependency Injection provides required objects from outside rather than creating them directly inside the dependent class.
